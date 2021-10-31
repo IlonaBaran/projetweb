@@ -1,4 +1,4 @@
-// but : hall to fame, affichage des 5 meilleurs scores (5 : arbitraire)
+//test but : hall to fame, affichage des 5 meilleurs scores (5 : arbitraire)
 
 $score = document.getElementById("score"); //la div où on veut afficher le classement a pour id=score
 
