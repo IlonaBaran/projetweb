@@ -7,11 +7,14 @@ fetch('pagePrincipale.php', {
     method: 'post'
 })
 .then(response => response.json())
-.then( result => {
+.then(result => {
+    console.log(result);
     var compteur = 0;
-    $score.innerHTML = "<table><tr><th>position</th><th>pseudo</th><th>temps réalisé</th></tr>" //1ere ligne avec les entetes du tableau
-    result.forEach( (elem) => {
-        $score.innerHTML += "<tr><td>" + compteur + "</td><td>" + elem[0] + "</td><td>" + elem[1] + "</td></tr>";
+    //$score.innerHTML = "<table><tr><th>position</th><th>pseudo</th><th>temps réalisé</th></tr>" //1ere ligne avec les entetes du tableau
+    result.forEach((elem) => {
+        $score.innerHTML = elem;
+        $score.innerHTML = compteur;
+        //$score.innerHTML += "<tr><td>" + compteur + "</td><td>" + elem[0] + "</td><td>" + elem[1] + "</td></tr>";
         compteur++;
     });
     $score.innerHTML = "</table>"
