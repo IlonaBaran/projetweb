@@ -10,8 +10,10 @@
     <div id="logo"> <p>logo</p>
     </div>
 
+
     <div id="titre"><p>L'escape Game de Maeve et Ilona </p>
     </div>
+
 
     <div id="contexte">
         <p>contexte</p>
@@ -23,20 +25,22 @@
         </p>
     </div>
 
-    <div id="connexion">
-        <form id="identifiantForm">
-            <label>Identifiant : <input type="text" id="identifiantLabel"></label>
-    
-            <a href="carte.html"><input type="button" id="identifiantEnvoie" value="OK"></a>
-            <a href="pagePrincipale.php">page en php</a>
-        </form>
-    </div>
+
+    <?php     
+    echo "
+    <div id=\"connexion1\">
+    <form id=\"identifiantForm\" method=\"get\" action=\"carte.php\">
+            <label> Identifiant: <input type=\"text\" name=\"login\"></label>
+            <input type=\"submit\" value=\"OK\">
+    </form>
+    </div>";
+    ?>
 
     <div  id="score"><p>score</p>
     <?php
         include("connexion.php");
         $tableau_classement = [];
-        $requete = "SELECT pseudo, temps FROM joueur "; //ORDER BY temps ASC LIMIT 5
+        $requete = "SELECT pseudo, temps FROM joueur ORDER BY temps ASC LIMIT 5";
         if ($result = mysqli_query($link, $requete)) {
             while ($ligne = mysqli_fetch_assoc($result)) {
                 array_push($tableau_classement, [
@@ -44,12 +48,9 @@
                     "temps" => $ligne['temps']
                 ]);
             }
-            $table_str = "<table>
-            <tr>   
-            <th>Identifiant</th>
-            <th>Temps</th>
-            </tr>
-            ";
+
+            // il manque juste a inserer une colonne <th>Position</th> dans la table 
+            $table_str = "<table><tr><th>Identifiant</th><th>Temps</th></tr>";
 
             foreach ($tableau_classement as $elem) {
                 $table_str .= "<tr>";
@@ -58,20 +59,14 @@
                 }
                 $table_str .= "</tr>";
             }
-
             $table_str .= "</table>";
-
             echo $table_str;
-        
         }
         else {
             echo "Erreur de requête de base de données.";
         }
         ?>
-
     </div>
 
-    <div id="mentions"><p>mentions</p>
-    </div>
   </body>
 </html>

@@ -15,17 +15,21 @@
     </head>
 
     <body>
-      <div id="titre"><p>titre</p>
+      <div id="titre"><?php echo "titre:  Vous jouez en tant que $_GET[login]" ?>
       </div>
 
       <div id="map">
       </div>
 
-      <div id="pourPasserALaPageSuivantePourLeMoment">
-        <form id="identifiantForm">    
-          <a href="pageFin.html"><input type="button" id="identifiantEnvoie" value="OK"></a>
-        </form>
-      </div>
+      <?php     
+      echo "
+      <div id=\"pourPasserALaPageSuivantePourLeMoment\">
+      <form id=\"identifiantForm\" method=\"get\" action=\"pageFin.php\">
+              <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\">
+              <input type=\"submit\" value=\"OK\">
+      </form>
+      </div>";
+      ?>
 
       <div id="chrono"><p>chrono</p>
       </div>
