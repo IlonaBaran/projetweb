@@ -49,15 +49,16 @@
                 ]);
             }
 
-            // il manque juste a inserer une colonne <th>Position</th> dans la table 
-            $table_str = "<table><tr><th>Identifiant</th><th>Temps</th></tr>";
+            $table_str = "<table><tr><th>Position</th><th>Identifiant</th><th>Temps</th></tr>";
+            $position = 1;
 
             foreach ($tableau_classement as $elem) {
-                $table_str .= "<tr>";
+                $table_str .= "<tr><td>$position</td>";
                 foreach ($elem as $key => $value) {
                     $table_str .= "<td>$value</td>";
                 }
                 $table_str .= "</tr>";
+                $position ++; 
             }
             $table_str .= "</table>";
             echo $table_str;
