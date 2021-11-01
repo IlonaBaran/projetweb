@@ -15,6 +15,15 @@
         } else {
             echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
         }
+        
+        
+        echo "
+        <div id=\"retourPP\">
+        <form id=\"identifiantForm\" method=\"get\" action=\"pagePrincipale.php\">
+                <input type=\"submit\" value=\"Retour à la page principale\">
+        </form>
+        </div>";
+        
     ?>
   	</body>
 </html>
