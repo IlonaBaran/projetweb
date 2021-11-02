@@ -26,12 +26,12 @@
       <div id=\"pourPasserALaPageSuivantePourLeMoment\">
       <form id=\"identifiantForm\" method=\"get\" action=\"pageFin.php\">
               <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\">
-              <input type=\"submit\" value=\"OK\">
+              <input type=\"submit\" value=\"OK\" id=\"recup\">
       </form>
       </div>";
       ?>
 
-      <div id="chrono"><p>chrono</p>
+      <div id="chrono">chrono :
       </div>
 
       <div id="niveaux"><p>niveaux</p>
@@ -44,5 +44,6 @@
       </div>
 
       <script src="carte.js"></script>
+      <script src="chrono.js"></script>
   	</body>
 </html>
