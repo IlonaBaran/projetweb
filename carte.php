@@ -21,18 +21,45 @@
       <div id="map">
       </div>
 
+
       <?php     
+
+      //<input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> : normalement on pourra virer ca dans le formulaire juste en dessous
+
       echo "
       <div id=\"pourPasserALaPageSuivantePourLeMoment\">
       <form id=\"identifiantForm\" method=\"get\" action=\"pageFin.php\">
-              <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\">
+              <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
               <input type=\"submit\" value=\"OK\" id=\"recup\">
       </form>
       </div>";
       ?>
 
-      <div id="chrono">chrono :
-      </div>
+      
+      <?php
+        include("connexion.php");
+        $today = date("H:i:s"); 
+        $sql = "INSERT INTO joueur (pseudo, temps, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
+        if (mysqli_query($link, $sql)) {
+            echo "Nouveau enregistrement créé avec succès";
+        } else {
+            echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
+        }
+      ?>
+
+
+       <?php 
+        $requete = "SELECT id FROM joueur WHERE pseudo = '$_GET[login]' AND temps = '$today'";
+        $personne = [];
+        if ($result = mysqli_query($link, $requete)) {
+            while ($ligne = mysqli_fetch_assoc($result)) {
+                array_push($personne, [
+                    "id" => $ligne['id'],
+                ]);
+            }
+          }
+          echo $personne; 
+       ?>
 
       <div id="niveaux"><p>niveaux</p>
       </div>
