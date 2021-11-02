@@ -28,5 +28,6 @@
         include("objet.php");
       ?>
       <script src="carte.js"></script>
+      <script src="chrono.js"></script>
   	</body>
 </html>
