@@ -14,7 +14,7 @@
     </head>
 
     <body>
-<<<<<<< HEAD
+
       <div id="titre"><?php echo "titre:  Vous jouez en tant que $_GET[login]" ?>
       </div>
 
@@ -61,18 +61,7 @@
           echo $personne; 
        ?>
 
-      <div id="niveaux"><p>niveaux</p>
-      </div>
 
-      <div id="bus"><p>bus</p>
-      </div>
-
-      <div id="indice"><p>indice</p>
-      </div>
-
-=======
-      <div id="titre"><?php echo "titre:  Vous jouez en tant que "//$_GET[login]" ?></div>
-      <div id="map"></div>
       <?php     
       //echo " <div id=\"pourPasserALaPageSuivantePourLeMoment\"> <form id=\"identifiantForm\" method=\"get\" action=\"pageFin.php\"> <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> <input type=\"submit\" value=\"OK\"> </form> </div>";
       ?>
@@ -81,10 +70,7 @@
       <div id="bus"><p>Bus</p></div>
       <div id="indice"><p>Indice</p></div>
       <div id="inventaire"><p>Inventaire</p></div>
-      <?php
-        include("objet.php");
-      ?>
->>>>>>> 940d3406d665ca39c2ae5ad3aab2780bff5009e1
+
       <script src="carte.js"></script>
       <script src="chrono.js"></script>
   	</body>

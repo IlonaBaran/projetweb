@@ -26,7 +26,7 @@
             echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
         }
         
-        $sql1 = "UPDATE joueur SET debutchrono = ABS(time(debutchrono)- '$today')";
+        $sql1 = "UPDATE joueur WHERE pseudo ='$_GET[login]' SET chronom = ABS(debutchrono - temps)";
         if (mysqli_query($link, $sql1)) {
           echo "Nouveau enregistrement créé avec succès LE XXXXXXX";
         } else {
