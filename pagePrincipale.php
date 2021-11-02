@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Page principale de l'Escape Game de Maeve et Ilona">
     <link rel="stylesheet" href="style.css">
-    <title>EscapeGame</title>
+    <title>EscapeGame OUI</title>
   </head>
 
   <body>
