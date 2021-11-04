@@ -16,13 +16,11 @@
 
 
     <div id="contexte">
-        <p>contexte</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-             esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-             sunt in culpa qui officia deserunt mollit anim id est laborum
-        </p>
+        contexteLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui officia deserunt mollit anim id est laborum
     </div>
 
 
@@ -36,7 +34,7 @@
     </div>";
     ?>
 
-    <div  id="score"><p>score</p>
+    <div  id="score">
     <?php
         include("connexion.php");
         $tableau_classement = [];
@@ -49,7 +47,7 @@
                 ]);
             }
 
-            $table_str = "<table><tr><th>Position</th><th>Identifiant</th><th>Temps</th></tr>";
+            $table_str = "<table classe=\"tableau\"><tr colspan=3>Le classement <img src=\"trophee.jpg\" width=10%></tr><tr><th>Position</th><th>Identifiant</th><th>Temps</th></tr>";
             $position = 1;
 
             foreach ($tableau_classement as $elem) {

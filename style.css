@@ -14,7 +14,9 @@ body {
 #contexte{grid-column: 1 / span 2 ;                     
         grid-row: 2 / span 4;
         padding-left: 10%;
-        padding-right: 10%;}
+        padding-right: 10%;
+        background-color: blue;
+        color: red;}
 
 #connexion1{grid-column: 3 ;                     
     grid-row: 2 / span 2;}
@@ -24,3 +26,19 @@ body {
 
 #mentions{grid-column: 1 / span 3 ;                     
         grid-row: 6;}
+
+
+
+
+
+
+/* .tableau {border: 2px medium solid #a00e50;
+        border-collapse: collapse; 
+        width: 100%;
+}
+
+td {border: 1px solid #a00e50;        }
+    
+th {border: thin solid #119452;
+        color:#ab07e0;
+} */

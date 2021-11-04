@@ -39,12 +39,19 @@
       <?php
         include("connexion.php");
         $today = date("H:i:s"); 
-        $sql = "INSERT INTO joueur (pseudo, temps, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
+        $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
         if (mysqli_query($link, $sql)) {
-            echo "Nouveau enregistrement créé avec succès";
+            echo "(sql) Nouveau enregistrement créé avec succès";
         } else {
-            echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
+            echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
         }
+        
+        // $sql3 = "INSERT INTO joueur (temps, debutchrono) VALUES ('$today', '$today') WHERE pseudo = '$_GET[login]'";
+        // if (mysqli_query($link, $sql3)) {
+        //     echo "(sql3) Nouveau enregistrement créé avec succès";
+        // } else {
+        //     echo "(sql3) Erreur : " . $sql . "<br>" . mysqli_error($link);
+        // }
       ?>
 
 

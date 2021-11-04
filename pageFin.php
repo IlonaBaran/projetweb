@@ -12,25 +12,19 @@
         include("connexion.php");
 
         $today = date("H:i:s"); 
-        // $sql = "INSERT INTO joueur (pseudo, temps) VALUES ('$_GET[login]', '00:50:10')";
-        // if (mysqli_query($link, $sql)) {
-        //     echo "Nouveau enregistrement créé avec succès";
-        // } else {
-        //     echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
-        // }
-
-        $sql = "UPDATE joueur SET temps = '$today'";
+        $sql = "UPDATE joueur SET finchrono = '$today' WHERE pseudo ='$_GET[login]'";
         if (mysqli_query($link, $sql)) {
-            echo "Nouveau enregistrement créé avec succès LE SSSSSS";
+            echo "(sql : update finchrono) Nouveau enregistrement créé avec succès";
         } else {
             echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
         }
+
         
-        $sql1 = "UPDATE joueur WHERE pseudo ='$_GET[login]' SET chronom = ABS(debutchrono - temps)";
-        if (mysqli_query($link, $sql1)) {
-          echo "Nouveau enregistrement créé avec succès LE XXXXXXX";
+        $sql666 = "UPDATE `joueur` SET `chronom`=TIMEDIFF(`finchrono`,`debutchrono`) WHERE pseudo ='$_GET[login]'";
+        if (mysqli_query($link, $sql666)) {
+            echo "(sql : update finchrono) Nouveau enregistrement créé avec succès";
         } else {
-            echo "Erreur : " . $sql1 . "<br>" . mysqli_error($link);
+            echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
         }
 
         echo "
@@ -43,15 +37,28 @@
 
       // requet sql : determiner le nombre le personne dont le chrono est meilleur que le joueur qui vient de jouer
       // il faut juste trouver comment recuperer le temps réalisé 
-        // $sql = "SELECT COUNT(pseudo) FROM joueur WHERE temps < 'temps realisé";
+      $sql523 = "SELECT COUNT(pseudo) FROM joueur WHERE chronom <= (SELECT chronom FROM joueur WHERE pseudo ='$_GET[login]')";
+      $classement = [];
+      if ($result = mysqli_query($link, $sql523)) {
+        while ($ligne = mysqli_fetch_assoc($result)) {
+            array_push($classement, [
+                "count" => $ligne['COUNT(pseudo)'],
+            ]);
+        }
 
+        $position = "";
 
+        foreach ($classement as $elem) {
+            foreach ($elem as $key => $value) {
+                $position .= "<td>$value</td>";
+            }
+        }
         echo "
         <div id=\"classementPersonnel\">
         Bravo ! Vous avez fini l'escape Game de Maeve et Ilona.
-        Vous etes classé : 
+        Vous etes classé : $position
         </div>";
-
+      }
        ?>
 
     <script src="chrono.js"></script>
