@@ -14,27 +14,10 @@
     </head>
 
     <body>
+      <!-- Vous jouez en tant que $_GET[login] -->
+      <div id="titre"><?php echo "L'escapade de Maeve et Ilona" ?></div>
 
-      <div id="titre"><?php echo "titre:  Vous jouez en tant que $_GET[login]" ?>
-      </div>
-
-      <div id="map">
-      </div>
-
-
-      <?php     
-
-      //<input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> : normalement on pourra virer ca dans le formulaire juste en dessous
-
-      echo "
-      <div id=\"pourPasserALaPageSuivantePourLeMoment\">
-      <form id=\"identifiantForm\" method=\"get\" action=\"pageFin.php\">
-              <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
-              <input type=\"submit\" value=\"OK\" id=\"recup\">
-      </form>
-      </div>";
-      ?>
-
+      <div id="map"></div>
       
       <?php
         include("connexion.php");
@@ -45,15 +28,7 @@
         } else {
             echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
         }
-        
-        // $sql3 = "INSERT INTO joueur (temps, debutchrono) VALUES ('$today', '$today') WHERE pseudo = '$_GET[login]'";
-        // if (mysqli_query($link, $sql3)) {
-        //     echo "(sql3) Nouveau enregistrement créé avec succès";
-        // } else {
-        //     echo "(sql3) Erreur : " . $sql . "<br>" . mysqli_error($link);
-        // }
       ?>
-
 
        <?php 
         $requete = "SELECT id FROM joueur WHERE pseudo = '$_GET[login]' AND temps = '$today'";
@@ -65,20 +40,24 @@
                 ]);
             }
           }
-          echo $personne; 
        ?>
 
-
+      <div id="deroulmentJeu">
       <?php     
-      //echo " <div id=\"pourPasserALaPageSuivantePourLeMoment\"> <form id=\"identifiantForm\" method=\"get\" action=\"pageFin.php\"> <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> <input type=\"submit\" value=\"OK\"> </form> </div>";
+      echo "Déroulement du jeu
+      <form method=\"get\" action=\"pageFin.php\">
+              <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
+              <input type=\"submit\" value=\"OK\" id=\"recup\">
+      </form>";
       ?>
-      <div id="chrono"><p>Chrono</p></div>
+      </div>
+
       <div id="niveaux"><p>Niveaux</p></div>
-      <div id="bus"><p>Bus</p></div>
+      <div id="bus"><p>Bus</p><img src="bus.jpg"></div>
       <div id="indice"><p>Indice</p></div>
       <div id="inventaire"><p>Inventaire</p></div>
 
       <script src="carte.js"></script>
-      <script src="chrono.js"></script>
+      <!-- <script src="chrono.js"></script> -->
   	</body>
 </html>

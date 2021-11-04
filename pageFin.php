@@ -34,9 +34,6 @@
         </form>
         </div>";
 
-
-      // requet sql : determiner le nombre le personne dont le chrono est meilleur que le joueur qui vient de jouer
-      // il faut juste trouver comment recuperer le temps réalisé 
       $sql523 = "SELECT COUNT(pseudo) FROM joueur WHERE chronom <= (SELECT chronom FROM joueur WHERE pseudo ='$_GET[login]')";
       $classement = [];
       if ($result = mysqli_query($link, $sql523)) {
@@ -47,7 +44,6 @@
         }
 
         $position = "";
-
         foreach ($classement as $elem) {
             foreach ($elem as $key => $value) {
                 $position .= "<td>$value</td>";

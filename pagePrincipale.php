@@ -29,10 +29,10 @@
 
     <?php     
     echo "
-    <div id=\"connexion1\"> Rentrez un pseudo pour commencer l'aventure ! 
+    <div id=\"connexion1\"> Rentrez un identifiant pour commencer l'aventure ! 
     <form id=\"identifiantForm\" method=\"get\" action=\"carte.php\">
-            <label> Identifiant: <input type=\"text\" name=\"login\"></label>
-            <input type=\"submit\" value=\"OK\">
+            <input type=\"text\" name=\"login\">
+            <input type=\"submit\" value=\"C'est parti !\">
     </form>
     </div>";
     ?>
@@ -72,5 +72,10 @@
         ?>
     </div>
 
+
+    <footer id = "mentions">
+        <a href="planDuSite.html"> Plan du Site</a>
+        <a href="mentionsLegales.html"> Mentions Légales </a>
+    </footer>
   </body>
 </html>

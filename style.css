@@ -9,7 +9,10 @@ body {
      grid-row: 1;}
 
 #titre{grid-column: 2 ;                     
-        grid-row: 1;}
+        grid-row: 1;
+        text-align: center;
+        font-size: 2em;
+        font-weight: 600;}
 
 #contexte{grid-column: 1 ;                     
         grid-row: 2 ;
@@ -26,7 +29,7 @@ body {
         padding-right: 10%;}
 
 #mentions{grid-column: 1 / span 3 ;                     
-        grid-row: 6;}
+        grid-row: 3;}
 
 
 
@@ -43,11 +46,4 @@ th {border: thin solid #a00e50;
 
 #titreClassement{
         color : black;
-}
-
-#titre {
-        text-align: center;
-        font-size: 2em;
-        font-weight: 600;
-
 }
