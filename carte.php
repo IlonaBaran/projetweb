@@ -53,7 +53,7 @@
       </div>
 
       <div id="niveaux"><p>Niveaux</p></div>
-      <div id="bus"><p>Bus</p><img src="bus.jpg"></div>
+      <div id="bus"><p>Bus</p><img src="images/bus.jpg"></div>
       <div id="indice"><p>Indice</p></div>
       <div id="inventaire"><p>Inventaire</p></div>
 

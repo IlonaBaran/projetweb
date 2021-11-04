@@ -7,7 +7,7 @@
   </head>
 
   <body>
-    <div id="logo"><img src = "logo.jpg">
+    <div id="logo"><img src = "images/logo.jpg">
     </div>
 
 
@@ -51,7 +51,7 @@
             }
 
             $table_str = "<table id=\"tableau\">
-            <tr><th id=\"titreClassement\" colspan=3> <img src=\"trophee.jpg\" width=10%>Le classement des meilleurs joueurs <img src=\"trophee.jpg\" width=10%></th></tr>
+            <tr><th id=\"titreClassement\" colspan=3> <img src=\"images/trophee.jpg\" width=10%>Le classement des meilleurs joueurs <img src=\"images/trophee.jpg\" width=10%></th></tr>
             <tr><th>Position</th><th>Identifiant</th><th>Temps</th></tr>";
             $position = 1;
 
