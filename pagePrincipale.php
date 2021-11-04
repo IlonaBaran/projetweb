@@ -7,7 +7,7 @@
   </head>
 
   <body>
-    <div id="logo"> <p>logo</p>
+    <div id="logo"><img src = "logo.jpg">
     </div>
 
 
@@ -16,17 +16,20 @@
 
 
     <div id="contexte">
-        contexteLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-        sunt in culpa qui officia deserunt mollit anim id est laborum
+        <p>Il est 8h55, lundi matin, le cours de web pour les elèves ingénieurs de 2ème année commence dans 5 minutes. 
+        Seul Clément est présent devant la salle, depuis déjà de nombreuses minutes, comme à son habitude.
+        Clément attend patiemment l'arrivée de Victor ou d'Amaury afin qu'ils ouvrent la porte qui menera 
+        à la connaissance. </p>
+        <p>Il est 9h00, lundi matin, seul clément est présent devant la salle, toujours ferméee.</p>
+        <p>Amaury et Victor, après être passés chez Jeanine -comme à chaque pause- arrivent enfin. Il est 9h13.</p>
+        <p>Mais qu'est-il donc arrivé aux ingénieurs 2ème année ? Maeve et Ilona vous propose un voyage aux 
+        quatre coins du monde afin de découvrir la folle aventure pour retrouver tous ces élèves.</p>        
     </div>
 
 
     <?php     
     echo "
-    <div id=\"connexion1\">
+    <div id=\"connexion1\"> Rentrez un pseudo pour commencer l'aventure ! 
     <form id=\"identifiantForm\" method=\"get\" action=\"carte.php\">
             <label> Identifiant: <input type=\"text\" name=\"login\"></label>
             <input type=\"submit\" value=\"OK\">
@@ -47,7 +50,9 @@
                 ]);
             }
 
-            $table_str = "<table classe=\"tableau\"><tr colspan=3>Le classement <img src=\"trophee.jpg\" width=10%></tr><tr><th>Position</th><th>Identifiant</th><th>Temps</th></tr>";
+            $table_str = "<table id=\"tableau\">
+            <tr><th id=\"titreClassement\" colspan=3> <img src=\"trophee.jpg\" width=10%>Le classement des meilleurs joueurs <img src=\"trophee.jpg\" width=10%></th></tr>
+            <tr><th>Position</th><th>Identifiant</th><th>Temps</th></tr>";
             $position = 1;
 
             foreach ($tableau_classement as $elem) {

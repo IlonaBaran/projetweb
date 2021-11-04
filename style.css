@@ -1,8 +1,8 @@
 body {
     min-height: 100vh;                  /* 1 */
     display: grid;                      /* 2 */
-    grid-template-columns: 30% 40% 30%;   /* 3 */
-    grid-template-rows: 20% 20% 20% 20% 10% 10%;  /* 3 */
+    grid-template-columns: 30% 35% 35%;   /* 3 */
+    grid-template-rows: 20% 70% 10% /* 3 la denriere ligne servira peut etre pour mettre mentions, plan du site ?*/
   }
 
 #logo{grid-column: 1 ;                     
@@ -11,34 +11,43 @@ body {
 #titre{grid-column: 2 ;                     
         grid-row: 1;}
 
-#contexte{grid-column: 1 / span 2 ;                     
-        grid-row: 2 / span 4;
+#contexte{grid-column: 1 ;                     
+        grid-row: 2 ;
         padding-left: 10%;
         padding-right: 10%;
-        background-color: blue;
-        color: red;}
+}
 
-#connexion1{grid-column: 3 ;                     
-    grid-row: 2 / span 2;}
+#connexion1{grid-column: 2 ;                     
+    grid-row: 2;
+        text-align: center;}
 
 #score{grid-column: 3 ;                     
-        grid-row: 4 / span 2;}
+        grid-row: 2;
+        padding-right: 10%;}
 
 #mentions{grid-column: 1 / span 3 ;                     
         grid-row: 6;}
 
 
 
-
-
-
-/* .tableau {border: 2px medium solid #a00e50;
+#tableau {border: 2px medium solid #a00e50;
         border-collapse: collapse; 
         width: 100%;
+        text-align: center
 }
 
-td {border: 1px solid #a00e50;        }
+td {border: 1px solid #a00e50;}
     
-th {border: thin solid #119452;
-        color:#ab07e0;
-} */
+th {border: thin solid #a00e50;
+}
+
+#titreClassement{
+        color : black;
+}
+
+#titre {
+        text-align: center;
+        font-size: 2em;
+        font-weight: 600;
+
+}
