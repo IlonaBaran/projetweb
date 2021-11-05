@@ -3,7 +3,7 @@
     <head>
       <meta charset="UTF-8">
       <title>EscapeGameOnEstLa</title>
-      <link rel="stylesheet" href="styleCarte.css">
+      <link rel="stylesheet" href=".css/styleCarte.css">
       <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
       crossorigin=""></script>
@@ -19,29 +19,6 @@
 
       <div id="map"></div>
       
-      <?php
-        include("connexion.php");
-        $today = date("H:i:s"); 
-        $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
-        if (mysqli_query($link, $sql)) {
-            echo "(sql) Nouveau enregistrement créé avec succès";
-        } else {
-            echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
-        }
-      ?>
-
-       <?php 
-        $requete = "SELECT id FROM joueur WHERE pseudo = '$_GET[login]' AND temps = '$today'";
-        $personne = [];
-        if ($result = mysqli_query($link, $requete)) {
-            while ($ligne = mysqli_fetch_assoc($result)) {
-                array_push($personne, [
-                    "id" => $ligne['id'],
-                ]);
-            }
-          }
-       ?>
-
       <div id="deroulmentJeu">
       <?php     
       echo "Déroulement du jeu
@@ -52,10 +29,40 @@
       ?>
       </div>
 
+      <!-- <img src="images/bus.jpg"> -->
+
+      <div id="contener">
+          <div id="indice">
+            Indice
+            <!-- <input type="submit" value="Indice" id="recup"> -->
+
+              <!-- <input type="submit" value="teeeest" id="recup"> -->
+              <!-- <iframe src=".html/indice.html" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" ></iframe> -->
+              </div>
+          <div id="bus">Bus</div>
+          <div id="inventaire">Inventaire</div>
+
+        <div id="affichage">
+          <div id="affichageIndice"></div>
+          <div id="affichageBus"></div>
+          <div id="affichageInventairz"></div>
+
+        <?php
+          include("connexion.php");
+          $today = date("H:i:s"); 
+          $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
+          if (mysqli_query($link, $sql)) {
+              echo "(sql) Nouveau enregistrement créé avec succès";
+          } else {
+              echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
+          }
+        ?>
+        </div>
+      </div>
+
       <div id="niveaux"><p>Niveaux</p></div>
-      <div id="bus"><p>Bus</p><img src="images/bus.jpg"></div>
-      <div id="indice"><p>Indice</p></div>
-      <div id="inventaire"><p>Inventaire</p></div>
+
+
 
       <script src="carte.js"></script>
       <!-- <script src="chrono.js"></script> -->
