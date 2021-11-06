@@ -1,19 +1,3 @@
-var $indice = document.getElementById("indice");
-var $bus = document.getElementById("bus");
-var $inventaire = document.getElementById("inventaire");
-
-
-$indice.addEventListener('click', () => {
-    document.getElementById("affichage").innerHTML='<object type="text/html" data=".html/indice.html" ></object>';
-})
-$bus.addEventListener('click', () => {
-    document.getElementById("affichage").innerHTML='<object type="text/html" data=".html/bus.html" ></object>';
-})
-$inventaire.addEventListener('click', () => {
-    document.getElementById("affichage").innerHTML='<object type="text/html" data=".html/inventaire.html" ></object>';
-})
-
-
 // Recuperation des donnees 
 var $iventaire = document.getElementById("iventaire");
 var $map = document.getElementById("map");
