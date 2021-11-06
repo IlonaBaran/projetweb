@@ -16,25 +16,16 @@
     </head>
 
     <body>
-<<<<<<< HEAD
     <div id="contener1">
         <div id="logo"><img src = "images/logo.jpg"></div>
         <div id="titre">L'escape Game de Maeve et Ilona</div>
     </div>
-=======
-      <!-- Vous jouez en tant que $_GET[login] -->
-      <!-- <div id="titre"><?php echo "L'escapade de Maeve et Ilona" ?></div> -->
-
-      <div id="map">ICI</div>
-      
-      <!-- <img src="images/bus.jpg"> -->
->>>>>>> 1b253d9cd46b3df023bbc62dabc747123d461ade
 
     <!-- Vous jouez en tant que $_GET[login] -->
-    <!-- <img src="images/bus.jpg"> -->
+    <!-- <img src="images/bus.jpg"> -->      
 
     <div id="contener2">
-      <div id="map"></div>
+      <div id="map">ICI</div>
       <div id="bus">Bus</div>
 
       <div id="inventaire">
@@ -53,7 +44,6 @@
       </div>
 
       <div id="deroulmentJeu">
-<<<<<<< HEAD
         <div id="message">
           <p> Bienvenue $_GET[login], j'espère que tu vas nous aider à retrouver tous les étudiants! </p>
           <p> Il va en falloir beaucoup de courage, il manque près de 13 personnes ! </p>
@@ -85,7 +75,6 @@
                 echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
             }
             
-              
             echo "<form method=\"get\" action=\"pageFin.php\">
                     <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
                     <input type=\"submit\" value=\"OK\" id=\"recup\">
@@ -96,15 +85,6 @@
       </div>
     </div>
 
-      <footer id = "mentions">
-        <a href="planDuSite.html"> Plan du Site</a>
-        -
-        <a href="mentionsLegales.html"> Mentions Légales </a>
-    </footer>
-
-    <script src="carte.js"></script>
-    <!-- <script src="chrono.js"></script> -->
-=======
       <?php
           include("connexion.php");
           /*$today = date("H:i:s"); 
@@ -122,17 +102,20 @@
               <input type=\"submit\" value=\"OK\" id=\"recup\">
       </form>";
       */?>
-      
-        <div id="maeve">maveveveve<!-- <img src="images/maeve.jpg"> --></div>
-        <div id="ilona">ilololo</div>
       </div>
+
+      
       <div id="busMouse"></div>
       <input type="checkbox" id="option" name="afficheBus">
       <label for="afficheBus">Afficher le bus en voyage</label>
 
-      <div id="niveaux"><p>Niveaux</p></div>
+      <footer id = "mentions">
+        <a href="planDuSite.html"> Plan du Site</a>
+        -
+        <a href="mentionsLegales.html"> Mentions Légales </a>
+    </footer>
+
       <script src="carte.js"></script>
       <!-- <script src="chrono.js"></script> -->
->>>>>>> 1b253d9cd46b3df023bbc62dabc747123d461ade
   	</body>
 </html>
