@@ -17,7 +17,7 @@
       <!-- Vous jouez en tant que $_GET[login] -->
       <!-- <div id="titre"><?php echo "L'escapade de Maeve et Ilona" ?></div> -->
 
-      <div id="map"></div>
+      <div id="map">ICI</div>
       
       <!-- <img src="images/bus.jpg"> -->
 
@@ -44,8 +44,8 @@
       <div id="deroulmentJeu">
       <?php
           include("connexion.php");
-          $today = date("H:i:s"); 
-          $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
+          /*$today = date("H:i:s"); 
+          $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('ilona', '$today', '$today')";
           if (mysqli_query($link, $sql)) {
               echo "(sql) Nouveau enregistrement créé avec succès";
           } else {
@@ -55,17 +55,19 @@
       <?php     
       echo "Déroulement du jeu
       <form method=\"get\" action=\"pageFin.php\">
-              <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
+              <input type=\"readonly\" name=\"login\" value=\"ilona\" style=\"display:none;\"> 
               <input type=\"submit\" value=\"OK\" id=\"recup\">
       </form>";
-      ?>
+      */?>
       
         <div id="maeve">maveveveve<!-- <img src="images/maeve.jpg"> --></div>
         <div id="ilona">ilololo</div>
       </div>
+      <div id="busMouse"></div>
+      <input type="checkbox" id="option" name="afficheBus">
+      <label for="afficheBus">Afficher le bus en voyage</label>
 
       <div id="niveaux"><p>Niveaux</p></div>
-
       <script src="carte.js"></script>
       <!-- <script src="chrono.js"></script> -->
   	</body>
