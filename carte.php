@@ -15,20 +15,10 @@
 
     <body>
       <!-- Vous jouez en tant que $_GET[login] -->
-      <div id="titre"><?php echo "L'escapade de Maeve et Ilona" ?></div>
+      <!-- <div id="titre"><?php echo "L'escapade de Maeve et Ilona" ?></div> -->
 
       <div id="map"></div>
       
-      <div id="deroulmentJeu">
-      <?php     
-      echo "Déroulement du jeu
-      <form method=\"get\" action=\"pageFin.php\">
-              <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
-              <input type=\"submit\" value=\"OK\" id=\"recup\">
-      </form>";
-      ?>
-      </div>
-
       <!-- <img src="images/bus.jpg"> -->
 
       <div id="contener">
@@ -47,7 +37,12 @@
           <div id="affichageBus"></div>
           <div id="affichageInventairz"></div>
 
-        <?php
+        chargement par default : il faudra faire include la page qu'on veut maybe 
+        </div>
+      </div>
+
+      <div id="deroulmentJeu">
+      <?php
           include("connexion.php");
           $today = date("H:i:s"); 
           $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
@@ -57,12 +52,19 @@
               echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
           }
         ?>
-        </div>
+      <?php     
+      echo "Déroulement du jeu
+      <form method=\"get\" action=\"pageFin.php\">
+              <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
+              <input type=\"submit\" value=\"OK\" id=\"recup\">
+      </form>";
+      ?>
+      
+        <div id="maeve">maveveveve<!-- <img src="images/maeve.jpg"> --></div>
+        <div id="ilona">ilololo</div>
       </div>
 
       <div id="niveaux"><p>Niveaux</p></div>
-
-
 
       <script src="carte.js"></script>
       <!-- <script src="chrono.js"></script> -->
