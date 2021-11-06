@@ -13,11 +13,11 @@
                     "zoommini" => intval($ligne['zoommini']),
                     "icone" => $ligne['icone']
                 ]);
-                //echo "<img src=\"images/mirabelle.jpg\" width=30%>";
             }
         } else {
             echo "Erreur de requête de base de données.";
         }
+        echo "ee";
         echo json_encode($results);
     }
 ?>

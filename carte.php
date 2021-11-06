@@ -16,10 +16,19 @@
     </head>
 
     <body>
+<<<<<<< HEAD
     <div id="contener1">
         <div id="logo"><img src = "images/logo.jpg"></div>
         <div id="titre">L'escape Game de Maeve et Ilona</div>
     </div>
+=======
+      <!-- Vous jouez en tant que $_GET[login] -->
+      <!-- <div id="titre"><?php echo "L'escapade de Maeve et Ilona" ?></div> -->
+
+      <div id="map">ICI</div>
+      
+      <!-- <img src="images/bus.jpg"> -->
+>>>>>>> 1b253d9cd46b3df023bbc62dabc747123d461ade
 
     <!-- Vous jouez en tant que $_GET[login] -->
     <!-- <img src="images/bus.jpg"> -->
@@ -44,6 +53,7 @@
       </div>
 
       <div id="deroulmentJeu">
+<<<<<<< HEAD
         <div id="message">
           <p> Bienvenue $_GET[login], j'espère que tu vas nous aider à retrouver tous les étudiants! </p>
           <p> Il va en falloir beaucoup de courage, il manque près de 13 personnes ! </p>
@@ -94,5 +104,35 @@
 
     <script src="carte.js"></script>
     <!-- <script src="chrono.js"></script> -->
+=======
+      <?php
+          include("connexion.php");
+          /*$today = date("H:i:s"); 
+          $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('ilona', '$today', '$today')";
+          if (mysqli_query($link, $sql)) {
+              echo "(sql) Nouveau enregistrement créé avec succès";
+          } else {
+              echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
+          }
+        ?>
+      <?php     
+      echo "Déroulement du jeu
+      <form method=\"get\" action=\"pageFin.php\">
+              <input type=\"readonly\" name=\"login\" value=\"ilona\" style=\"display:none;\"> 
+              <input type=\"submit\" value=\"OK\" id=\"recup\">
+      </form>";
+      */?>
+      
+        <div id="maeve">maveveveve<!-- <img src="images/maeve.jpg"> --></div>
+        <div id="ilona">ilololo</div>
+      </div>
+      <div id="busMouse"></div>
+      <input type="checkbox" id="option" name="afficheBus">
+      <label for="afficheBus">Afficher le bus en voyage</label>
+
+      <div id="niveaux"><p>Niveaux</p></div>
+      <script src="carte.js"></script>
+      <!-- <script src="chrono.js"></script> -->
+>>>>>>> 1b253d9cd46b3df023bbc62dabc747123d461ade
   	</body>
 </html>
