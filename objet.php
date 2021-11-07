@@ -8,8 +8,8 @@
                 array_push($results, [
                     "value" => intval($ligne['id']),
                     "objet" => $ligne['objet'],
-                    "latitude" => intval($ligne['latitude']),
-                    "longitude" => intval($ligne['longitude']),
+                    "latitude" => floatval($ligne['latitude']),
+                    "longitude" => floatval($ligne['longitude']),
                     "zoommini" => intval($ligne['zoommini']),
                     "icone" => $ligne['icone']
                 ]);
@@ -17,7 +17,8 @@
         } else {
             echo "Erreur de requête de base de données.";
         }
-        echo "ee";
-        echo json_encode($results);
+        foreach ($results as $result) {
+            echo json_encode($result);
+        } 
     }
 ?>
