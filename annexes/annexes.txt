@@ -1,1 +1,143 @@
-ceci un est test : dossier pour mettre les annexes (images....)
+1. faire apparaitre juste victor et amaury à l'ensg
+
+.bindPopup('Hé Amaury, il est 9h30 et y'a personne dans mon cours')
+.bindPopup('Merde, je pensais qu'ils étaient tous avec toi, j'ai personne non plus')
+.bindPopup('Va falloir aller les chercher...tu peux t'en occuper ? Je dois 
+être à l'école à 11h30 pour acheter mes billets du Hellfest')
+.bindPopup('J'ai qu'ça à faire de toute façon. Je ne sais juste pas par où commencer')
+.bindPopup('Regarde Amaury, on dirait qu'il y a Tristan devant le portail de sécurité de l'ENSG, il devrait pouvoir t'aider dans ta quête')
+
+2. Faire apparaitre Tristan Fillon au niveau du portail de sécurité
+
+.bindPopup('Salut Tristan, il n'y a pas cours ce matin, personne n'est venu. Tu pourrais m'aider à trouver tout le monde ?')
+.bindPopup('Oui, bien sûr ! On peut commencer par aller chez Amélie, elle habite à Voisins-le-bretonneux')
+.bindPopup('Allez, monte dans le master, c'est parti !')
+
+3. Enlever Tristan Fillon, Amaury et Victor de la carte
+4. Mettre Tristan Fillon et Amaury dans le bus
+5. Faire apparaitre Amelie 
+
+Conversation du bus
+var $message = document.getElementById("message");
+$message.innerHTML = "C'est beau comme village, tu ne trouves pas Tristan ?"
+$message.innerHTML = "Non, pas vraiment, je prefère la Guyane."
+$message.innerHTML = "Je vais voir Amelie pour qu'elle vienne avec nous."
+
+.bindPopup('Je suis désolé, mais je ne bourgerai pas sans petit déjeuner!')
+.bindPopup('J'ai laissé une carotte au château de Versailles, si on me la ramène, je viens avec vous!')
+
+$message.innerHTML = "Tu peux aller la chercher s'il te plait ?" (Amaury qui parle)
+
+6. Faire apparaitre une carotte au chateau de Versailles
+7. quand le joueur clique dessus, la faire disparaitre et la mettre dans l'inventaire (groupe d'objet ?)
+
+.bindPopup('Ah merci! On peut y aller! Allons chercher Clément, il habite à MontBrison!')
+
+8. Faire disparaitre Amelie, la mettre dans le bus
+9. Afficher Clement 
+
+.bindPopup('Coucou, je viens seulement si vous répondez à ma question <form action="page.php" method="get"> <input type="submit" name="envoi" value="OK">Que signifie "fouilla bel belet?"<label>xxxxxx<input type="radio" name="ouinon" value="1"></label><label>xxxxxx<input type="radio" name="ouinon" value="0"></label></form>');
+
+var valeur = document.querySelector('input[name="ouinon"]:checked').value;
+if (valeur == 1){
+    .bindPopup('Bravo! La brise est trop forte ici, changeons de mont! Allons à Montaigu, un lapin s'y cache.')
+    $message.innerHTML = "Wow, PRENOM UTILISATEUR est trop fort, on va vite pouvoir du WEB" (Amaury qui parle)
+    $message.innerHTML = "C'est génial ! J'ai si envie d'avoir de nouvelles connaissances" (Amelie qui parle)
+}
+else (){
+    ///trouver ce qu'on fait si l'utilisateur répond mal : on ouvre un autre popup ? ou on affiche un message a la suite de la popup ?
+    $message.innerHTML = "Haha, il s'est trompé. C'est pas comme ça qu'on va récupérer tout le monde" (Amaury qui parle)
+    $message.innerHTML = "Mince, nous qui avions si envie de faire du WEB" (Amelie qui parle)
+}
+
+10. Faire disparaitre Clement, le mettre dans le bus, afficher Tancrede
+          
+.bindPopup('Bonjour, il faut que tu m'aides! Quelle est la meilleure recette du coin? <form><input type="text" name="manger"><input type="submit" name="envoi" value="OK"></form>')
+$message.innerHTML = "C'est pas du tout une recette du coin ca !" (Clement qui parle)
+$message.innerHTML = "Coin(det) coin(det)" (Amaury qui parle)
+
+.bindPopup('MMMM, ca à l'air vraiment très bon!  En route vers l'Est, Antoine, le beau gosse, nous attend!')
+
+11. Disparition de Tancrede, Tancrede dans le bus, apparition d'Antoine le beau gosse
+
+.bindPopup('Enfin ! Ca fait 1h que je vous attends! Je ne monte que si vous répondez à ma question: Tu préfères ton père ou ta mère?<form><label>ta mère<input type="radio" name="ouinon" value="1"></label><label>ton père<input type="radio" name="ouinon" value="0"></label><input type="submit" name="envoi" value="OK"></form>')
+.bindPopup('On peut aller chez Kevin, c'est pas très très loin !')
+
+12. Disparition de Antoine, Antoine dans le bus, apparition de Kevin
+
+.bindPopup('Oh dingue, vous êtes venus! Petite question avant de partir, que veut dire 'mi aim a ou'?<form><label>ta mère<input type="radio" name="ouinon" value="1"></label><label>ton père<input type="radio" name="ouinon" value="0"></label><input type="submit" name="envoi" value="OK"></form>')
+if (valeur == 1){
+    .bindPopup('Bravo! La brise est trop forte ici, changeons de mont! Allons à Montaigu, un lapin s'y cache.')
+    $message.innerHTML = "miaou miaou" (Amaury qui parle)
+    $message.innerHTML = "Je crois qu'on a perdu Amaury" (Amelie qui parle)
+    $message.innerHTML = "miaou miaou" (Amaury qui parle)
+}
+else (){
+    ///trouver ce qu'on fait si l'utilisateur répond mal : on ouvre un autre popup ? ou on affiche un message a la suite de la popup ?
+    $message.innerHTML = "miaou miaou" (Amaury qui parle)
+    $message.innerHTML = "Je crois qu'on a perdu Amaury" (Amelie qui parle)
+    $message.innerHTML = "miaou miaou" (Amaury qui parle)
+}
+
+.bindPopup('Bien joué, on peut passer prendre Léa, elle habite sur le chemin pour rentrer!')
+
+
+13. Disparition de Kevin, Kevin dans le bus, apparition d'Lea L 
+
+.bindPopup('Salut, sauras-tu répondre à ma question: Que veut dire 'Avec toute cette drach, in a pas fini d'marcher dins l'berdoule'?<form><label>ta mère<input type="radio" name="ouinon" value="1"></label><label>ton père<input type="radio" name="ouinon" value="0"></label><input type="submit" name="envoi" value="OK"></form>')
+if (valeur == 1){
+    .bindPopup('Bravo! La brise est trop forte ici, changeons de mont! Allons à Montaigu, un lapin s'y cache.')
+}
+else (){
+    ///trouver ce qu'on fait si l'utilisateur répond mal : on ouvre un autre popup ? ou on affiche un message a la suite de la popup ?
+}
+
+.bindPopup('Bravo, allons cherchez Vincent et Félix dans les montagnes!')
+
+14. Disparition de Lea L, Lea L dans le bus, apparition de Vincent 
+
+.bindPopup('Oh! Bienvenu dans cette belle région! Connaissez-vous le grand lac de celle-ci?<form><label>ta mère<input type="radio" name="ouinon" value="non"></label><label>ton père<input type="radio" name="ouinon" value="oui"></label><input type="submit" name="envoi" value="OK"></form>')
+
+.bindPopup('Bien joué, c'est le Lac Léman, situé entre la France et la Suisse. Passons chez Félix, il n'est pas très loin !')
+
+15. Disparition de Vincent, Vincent dans le bus, apparition de Maman Felix 
+
+$message.innerHTML = "Ha nous voila enfin chez Félix ! Je ne le vois pas, allons voir sa mère pour lui demander où est Félix."
+.bindPopup('Quoi? Félix n'est pas à l'école? Il n'est pas rentré hier soir, il faisait soirée chez Baptiste, le vilain!')
+
+$message.innerHTML = "Baptiste habite loin! Il vaut mieux passer chez Mélodie avant, ca fera moins de détour. Elle habite près de Lyon!" (vincent qui parle)
+
+15. Disparition de Maman felix, apparition de Melodie
+
+.bindPopup('Je ne peux pas partir, j'ai perdu mes clés au parc de la Tête d'Or, peux-tu me les ramener?')
+<!-- Ramener des clés  -->
+
+.bindPopup('Merci, on peut y aller je suis prête!')
+
+15. Disparition de Melodie, Melodie dans le bus, apparition de Felix et Baptiste
+
+$message.innerHTML = "Allons chez Baptiste !" (Antoine qui parle)
+.bindPopup('Oh, vous nous réveillez! On se dépêche! Pour me lever, j'ai besoin d'une carotte.')
+.bindPopup('Il y a un champ de carotte non loin de la Bastille, pouvez-vous m'en ramener une?')
+<!-- Ramener une carotte  -->
+.bindPopup('Merci, on peut y aller! Allons vers Lyon, on a oublié Mélodie en chemin!')
+.bindPopup('Bravo, allons cherchez Vincent et Félix dans les montagnes!')
+.bindPopup('Bravo, allons cherchez Vincent et Félix dans les montagnes!')
+.bindPopup('Bravo, allons cherchez Vincent et Félix dans les montagnes!')
+.bindPopup('Bravo, allons cherchez Vincent et Félix dans les montagnes!')
+.bindPopup('Bravo, allons cherchez Vincent et Félix dans les montagnes!')
+
+          
+          
+          <p> Ilona : Olala je suis grave en retard, attendez je mange ma purée de carotte et on y va! 
+            Mince, il me manque une mirabelle pour le dessert, il y en a dans la forêt juste à côté! </p>
+          <!-- Ramener une mirabelle  -->
+          <p> Ilona : Ouf, on peut partir maintenant qu'on a le ventre plein!</p>
+          <p> Papa aymeric : Vous le ratez de peu, il vient de partir pour Oslo! </p>
+          <p> Aymeric : "Oh mais que faites-vous ici? Je pars avec vous si vous devinez ce qu'est un brunost.</p>
+          <!-- Question à répondre  -->
+          <p> Aymeric : Bravo, c'est un fromage norvégien à pâte brune et au goût caramélisé.</p>
+          <p> Maeve : Salut! Savez-vous quelle est la bière (pas très bonne certes) fabriquée à côté de Zudausques?</p>
+          <!-- Question à répondre  -->
+          <p> Maeve : Yes, bien joué! Partons vite, Victor nous attend! </p>
+
