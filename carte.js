@@ -18,7 +18,12 @@ var createIcon= function (carte, options, locate, message) {
     // L.marker(locate, {icon: objectIcon}).addTo(carte).bindPopup(message, {fontSize: 10});
 
     // si on fait carotteIcon, c'est ok pour les supprimer ! il faut juste retrouver comment mettre le message "je suis une carotte"
+<<<<<<< HEAD
     var marqueur = L.marker(locate, {icon: objectIcon});
+=======
+    var marqueur = L.marker(locate, {icon: objectIcon}).addTo(map).bindPopup(message, {fontSize: 10});
+
+>>>>>>> a6b3597bea7601690d6e4186966731b3a13ccb33
     // return objectIcon;
     return marqueur;
 };
