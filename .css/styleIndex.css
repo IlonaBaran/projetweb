@@ -1,0 +1,45 @@
+#contener2 {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 15% 30% 55%;
+}
+
+#contexte{
+    grid-column: 1;  
+    grid-row: 2;                   
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#connexion1{
+    grid-column: 2;                     
+    grid-row: 2;
+    text-align: center;
+}
+
+#score{
+    grid-column: 2;                     
+    grid-row: 3;
+    padding-right: 10%;
+}
+
+
+#tableau {
+    border: 2px medium solid #a00e50;
+    border-collapse: collapse; 
+    width: 100%;
+    text-align: center;
+}
+
+td {
+    border: 1px solid #a00e50;
+}
+    
+th {
+    border: thin solid #a00e50;
+}
+
+#titreClassement {
+    color : black;
+}

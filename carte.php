@@ -3,7 +3,9 @@
     <head>
       <meta charset="UTF-8">
       <title>EscapeGameOnEstLa</title>
+      <link rel="stylesheet" href=".css/commun.css">
       <link rel="stylesheet" href=".css/styleCarte.css">
+
       <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
       crossorigin=""></script>
@@ -14,34 +16,75 @@
     </head>
 
     <body>
-      <!-- Vous jouez en tant que $_GET[login] -->
-      <!-- <div id="titre"><?php echo "L'escapade de Maeve et Ilona" ?></div> -->
+    <div id="contener1">
+        <div id="logo"><img src = "images/logo.jpg"></div>
+        <div id="titre">L'escape Game de Maeve et Ilona</div>
+    </div>
 
+    <!-- Vous jouez en tant que $_GET[login] -->
+    <!-- <img src="images/bus.jpg"> -->      
+
+    <div id="contener2">
       <div id="map">ICI</div>
-      
-      <!-- <img src="images/bus.jpg"> -->
+      <div id="bus">Bus</div>
 
-      <div id="contener">
-          <div id="indice">
-            Indice
-            <!-- <input type="submit" value="Indice" id="recup"> -->
+      <div id="inventaire">
+        <div id ="titreInventaire">Inventaire</div>
+        <div id="objet1">objet 1</div>
+        <div id="objet2">obejt 2</div>
+        <div id="objet3">objet 3</div>
+        <div id="objet4">objet 4</div>
+      </div>
 
-              <!-- <input type="submit" value="teeeest" id="recup"> -->
-              <!-- <iframe src=".html/indice.html" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" ></iframe> -->
-              </div>
-          <div id="bus">Bus</div>
-          <div id="inventaire">Inventaire</div>
-
-        <div id="affichage">
-          <div id="affichageIndice"></div>
-          <div id="affichageBus"></div>
-          <div id="affichageInventairz"></div>
-
-        chargement par default : il faudra faire include la page qu'on veut maybe 
-        </div>
+      <div id="niveaux">Progression du jeu
+          <div id="progressbar">
+              <div id="indicator"></div>
+          </div>
+          <div id="progressnum">0</div>
       </div>
 
       <div id="deroulmentJeu">
+        <div id="message">
+          <p> Bienvenue $_GET[login], j'espère que tu vas nous aider à retrouver tous les étudiants! </p>
+          <p> Il va en falloir beaucoup de courage, il manque près de 13 personnes ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+          <p> Ce voyage va être inoubliable ! </p>
+
+
+          <?php
+            include("connexion.php");
+            $today = date("H:i:s"); 
+            $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
+            if (mysqli_query($link, $sql)) {
+                echo "(sql) Nouveau enregistrement créé avec succès";
+            } else {
+                echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
+            }
+            
+            echo "<form method=\"get\" action=\"pageFin.php\">
+                    <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
+                    <input type=\"submit\" value=\"OK\" id=\"recup\">
+            </form>";
+          ?>
+        </div>
+  
+      </div>
+    </div>
+
       <?php
           include("connexion.php");
           /*$today = date("H:i:s"); 
@@ -59,15 +102,19 @@
               <input type=\"submit\" value=\"OK\" id=\"recup\">
       </form>";
       */?>
-      
-        <div id="maeve">maveveveve<!-- <img src="images/maeve.jpg"> --></div>
-        <div id="ilona">ilololo</div>
       </div>
+
+      
       <div id="busMouse"></div>
       <input type="checkbox" id="option" name="afficheBus">
       <label for="afficheBus">Afficher le bus en voyage</label>
 
-      <div id="niveaux"><p>Niveaux</p></div>
+      <footer id = "mentions">
+        <a href="planDuSite.html"> Plan du Site</a>
+        -
+        <a href="mentionsLegales.html"> Mentions Légales </a>
+    </footer>
+
       <script src="carte.js"></script>
       <!-- <script src="chrono.js"></script> -->
   	</body>

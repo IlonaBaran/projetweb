@@ -3,12 +3,12 @@
     <head>
       <meta charset="UTF-8">
       <title>Page de fin</title>
+      <link rel="stylesheet" href=".css/styleFin.css">
     </head>
 
     <body>
-    <!-- <div id = chronometre></div> -->
-
     <?php
+    
         include("connexion.php");
 
         $today = date("H:i:s"); 
@@ -27,13 +27,6 @@
             echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
         }
 
-        echo "
-        <div id=\"retourPP\">
-        <form id=\"identifiantForm\" method=\"get\" action=\"pagePrincipale.php\">
-                <input type=\"submit\" value=\"Retour à la page principale\">
-        </form>
-        </div>";
-
       $sql523 = "SELECT COUNT(pseudo) FROM joueur WHERE chronom <= (SELECT chronom FROM joueur WHERE pseudo ='$_GET[login]')";
       $classement = [];
       if ($result = mysqli_query($link, $sql523)) {
@@ -49,11 +42,19 @@
                 $position .= "<td>$value</td>";
             }
         }
-        echo "
-        <div id=\"classementPersonnel\">
-        Bravo ! Vous avez fini l'escape Game de Maeve et Ilona.
-        Vous etes classé : $position
-        </div>";
+
+        echo "<div id=\"contener\">
+                <div id=\"retourPP\">
+                    <form id=\"identifiantForm\" method=\"get\" action=\"pagePrincipale.php\">
+                            <input type=\"submit\" value=\"Retour à la page principale\">
+                    </form>
+                </div>
+
+                <div id=\"classementPersonnel\">
+                    Bravo ! Vous avez fini l'escape Game de Maeve et Ilona.
+                    Vous etes classé : $position
+                </div>
+            </div>";
       }
        ?>
 
