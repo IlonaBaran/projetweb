@@ -7,7 +7,7 @@ body {
         grid-row : 1;
         display: grid;
         grid-template-columns: 30% 70%; 
-        background-color: rgb(74, 199, 36);
+        background-color: #cfffab;
 }
 
 #logo {
@@ -33,5 +33,6 @@ img {
 #mentions {
         grid-row : 3;
         text-align: center;
-        background-color: rgb(96, 218, 26);
+        background-color: #cfffab;
+}
 }

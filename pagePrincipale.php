@@ -2,8 +2,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="description" content="Page principale de l'Escape Game de Maeve et Ilona">
-    <link rel="stylesheet" href=".css/commun.css">
-    <link rel="stylesheet" href=".css/styleIndex.css">
+    <link rel="stylesheet" href="css/commun.css">
+    <link rel="stylesheet" href="css/styleIndex.css">
     <title>EscapeGame</title>
   </head>
 
@@ -74,9 +74,13 @@
     </div>
 
     <footer id = "mentions">
-        <a href="planDuSite.html"> Plan du Site</a>
+        <a href="html/planDuSite.html"> Plan du Site</a>
         -
-        <a href="mentionsLegales.html"> Mentions Légales </a>
+        <a href="html/mentionsLegales.html"> Mentions légales </a>
+        -
+        <a href="html/credits.html"> Crédits </a>
+        -
+        <a href="html/conditionsUtilisation.html"> Conditions générales </a>
     </footer>
 
   </body>
