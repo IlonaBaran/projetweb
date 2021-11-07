@@ -15,20 +15,13 @@ var createIcon= function (carte, options, locate, message) {
     //iconAnchor point of the icon which will correspond to marker's location
     //popupAnchor point from which the popup should open relative to the iconAnchor
     let objectIcon = new L.icon({iconUrl:options[0], iconSize:options[1], iconAnchor:options[2], popupAnchor:options[3], maxZoom:10});
-    // L.marker(locate, {icon: objectIcon}).addTo(carte).bindPopup(message, {fontSize: 10});
-
-    // si on fait carotteIcon, c'est ok pour les supprimer ! il faut juste retrouver comment mettre le message "je suis une carotte"
-<<<<<<< HEAD
-    var marqueur = L.marker(locate, {icon: objectIcon});
-=======
-    var marqueur = L.marker(locate, {icon: objectIcon}).addTo(map).bindPopup(message, {fontSize: 10});
-
->>>>>>> a6b3597bea7601690d6e4186966731b3a13ccb33
-    // return objectIcon;
+    let marqueur = L.marker(locate, {icon: objectIcon}).addTo(carte).bindPopup(message, {fontSize: 10});
     return marqueur;
 };
 
-/*const promesse = new Promise((resolve, reject) => 
+/*
+//TEST 1
+const promesse = new Promise((resolve, reject) => 
     fetch('http://localhost/projetweb/objet.php?id=4')//+String(nb))
     .then(response => response.json())
     .then(result => {
@@ -36,9 +29,7 @@ var createIcon= function (carte, options, locate, message) {
     })
 );
 carotteIcon = promesse;
-
-*/
-/*
+//TEST 2
 function createMarker(nb){
     fetch('http://localhost/projetweb/objet.php?id='+String(nb))
     .then(response => response.json())
@@ -46,23 +37,19 @@ function createMarker(nb){
         resolve(createIcon(map, [result["icone"], [50,45], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"]));
     });
 }
+
+//TEST 3
 var createMarker = async function (){
     const response = await fetch('http://localhost/projetweb/objet.php?id=7')//+String(nb));
     const result = await response.json()
     return createIcon(map, [result["icone"], [50,45], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"]);
 }
+
 var carotteIcon = 4;
 carotteIcon = createMarker();
-console.log("eeueuh");
-console.log(createMarker());
-
-createMarker().then(function(e){
-    console.log(e[0])
-})
-console.log(carotteIcon);*/
-
-//var carotteIcon = createIcon(map, ['images/carotte.jpg', [25, 18], [2, 9], [0, 0]], [48.85128086291409, 2.3761726420680596], "Je suis la carotte que vous cherchez.");
-//var mirabelleIcon = createIcon(map, ['images/mirabelle.jpg', [18, 25], [2, 9], [0, 0]], [48.915099121706085, 5.772018723750737], "Je suis la mirabelle que vous cherchez.");
+console.log("ON EST LA");
+console.log(carotteIcon);
+*/
 
 function recup(nb){
     return fetch('http://localhost/projetweb/objet.php?id='+String(nb)).then(response => response.json())
@@ -82,6 +69,7 @@ recup(5).then(result => {fillonIcon = createIcon(map, [result["icone"], [80,80],
 recup(6).then(result => {maginotIcon = createIcon(map, [result["icone"], [42,92], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
 //Clément FOUGEROUSE
 recup(7).then(result => {fougerouseIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])
+console.log(fougerouseIcon);
 map.on("zoomed", function(e) {
     console.log("rrr");
     let zoom = map.getZoom();
@@ -136,12 +124,6 @@ map.on("zoomed", function(e) {
     }
 });
 
-//Evènement sur le mouvement de la souris sur la carte:
-/*navigator.geolocation.getCurrentPosition(function (position) {
-    mymap.setView([position.coords.latitude, position.coords.longitude], 15);
-    L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap).bindPopup('Votre position').openPopup();
-})*/
-
 var eltBusMouse = document.getElementById("busMouse");
 //map.on('mousemove', moveBus);
 function moveBus(e){
@@ -157,7 +139,6 @@ function moveBus(e){
     eltBusMouse.style.zIndex = 1000;
 }
 
-
 document.addEventListener('change', function(){
     if (document.getElementById("afficheBus").checked){
         eltBusMouse.style.visibility = "visible";
@@ -165,21 +146,6 @@ document.addEventListener('change', function(){
         eltBusMouse.style.visibility = "hidden";
     }
 })
-
-// y'a un probleme dans les 5 lignes qui suivent, le code ne s'execute plus ensuite
-// $carotteIcon.on("click", function(){
-//     console.log("jjj");
-//     eltBusMouse.innerText='EEEEEEE';
-//     this.style.visibility = 'hidden';
-// });
-
-
-
-
-
-
-
-
 
 // test ilona
 var marker1 = L.marker([48.840900447202635, 2.586785066433026]).addTo(map);
@@ -199,16 +165,3 @@ bus.on('click', function (e) {
         map.removeLayer(carotteIcon);
 
 });
-
-
-
-
-
-
-
-
-
-
-// $carotteIcon.addEventListener("clik", () => {$carotteIcon.style.visibility = 'hidden';});
-
-
