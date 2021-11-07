@@ -24,6 +24,10 @@
     background-color: rgb(41, 77, 90);
     overflow: auto;
     scrollbar-width: thin;
+
+    height: 80vh;
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
 }
 
 #deroulmentTitre{
