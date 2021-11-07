@@ -55,7 +55,7 @@
               Allez, je monte avec vous. Allons faire un tour chez Amélie, elle habite aux voisins-le-bretonneux (non, non c'est pas en bretagne mais vers celle-ci)" </p>
           <p> Victor et Amaury : Aidez-nous à trouver Amélie </p>
           <p> Amélie : Je suis désolé de mon retard, mais je ne bourgerai pas sans petit déjeuner!
-             J'ai laissé une carotte au château de Versailles, si tu me la ramènes, je viens avec vous!" </p> 
+             J'ai laissé une carotte au château de Versailles, si tu me la ramènes, je viens avec vous! </p> 
           <!-- Carotte à récupérer à Versailles et lui ramener)-->
           <p> Amélie : Ah merci! On peut y aller! Allons chercher Clément, il habite à MontBrison!". </p>
           <p> Clément :  Coucou, je viens seulement si vous répondez à ma question!</p> -->

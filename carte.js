@@ -111,7 +111,9 @@ document.addEventListener('change', function(){
 
 
 // test ilona
-var marker1 = L.marker([48.840900447202635, 2.586785066433026]).addTo(map);
+var marker1 = L.marker([48.840900447202635, 2.586785066433026]).addTo(map).bindPopup('Coucou, je viens seulement si vous répondez à ma question <form> Que signifie "fouilla bel belet?"<label>xxxxxx<input type="radio" name="ouinon" value="1"></label><label>xxxxxx<input type="radio" name="ouinon" value="0"></label> <input type="submit" name="envoi" value="OK"></form>');
+
+
 // marker1.addEventListener("clik", () => {map.removeLayer(marker1);});
 
 var greenIcon = L.icon({
@@ -123,7 +125,6 @@ var greenIcon = L.icon({
 var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
 
 bus.on('click', function (e) {
-        map.removeLayer(marker1); 
         map.removeLayer(bus);
         map.removeLayer(carotteIcon);
 
