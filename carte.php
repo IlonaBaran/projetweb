@@ -26,7 +26,9 @@
 
     <div id="contener2">
       <div id="map">ICI</div>
-      <div id="bus">Bus</div>
+      <div id="bus">
+        <img src="images/bus2.png" id="testimage">
+      </div>
 
       <div id="inventaire">
         <div id ="titreInventaire">Inventaire</div>
@@ -44,6 +46,7 @@
       </div>
 
       <div id="deroulmentJeu">
+        <div id="deroulmentTitre">Déroulement du jeu</div>
         <div id="message">
           <p> Bienvenue $_GET[login], j'espère que tu vas nous aider à retrouver tous les étudiants! </p>
           <p> Il va en falloir beaucoup de courage, il manque près de 13 personnes ! </p>
@@ -104,7 +107,7 @@
       */?>
       </div>
 
-      
+
       <div id="busMouse"></div>
       <input type="checkbox" id="option" name="afficheBus">
       <label for="afficheBus">Afficher le bus en voyage</label>
