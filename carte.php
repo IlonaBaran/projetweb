@@ -55,7 +55,7 @@
               Allez, je monte avec vous. Allons faire un tour chez Amélie, elle habite aux voisins-le-bretonneux (non, non c'est pas en bretagne mais vers celle-ci)" </p>
           <p> Victor et Amaury : Aidez-nous à trouver Amélie </p>
           <p> Amélie : Je suis désolé de mon retard, mais je ne bourgerai pas sans petit déjeuner!
-             J'ai laissé une carotte au château de Versailles, si tu me la ramènes, je viens avec vous!" </p> -->
+             J'ai laissé une carotte au château de Versailles, si tu me la ramènes, je viens avec vous!" </p> 
           <!-- Carotte à récupérer à Versailles et lui ramener)-->
           <p> Amélie : Ah merci! On peut y aller! Allons chercher Clément, il habite à MontBrison!". </p>
           <p> Clément :  Coucou, je viens seulement si vous répondez à ma question!</p> -->
@@ -72,25 +72,25 @@
           <p> Kevin : Bien joué, on peut passer prendre Léa, elle habite sur le chemin pour rentrer ! </p>
           <p> léa L : Salut, sauras-tu répondre à ma question: Que veut dire 'Avec toute cette drach, in a pas fini d'marcher dins l'berdoule'? </p>
           <!-- Question à deviner  -->
-          <!-- <p> Léa L : Bravo, allons cherchez Vincent et Félix dans les montagnes!" </p>
-          <p> Vincent ; Oh! Bienvenu dans cette belle région! Connaissez-vous le grand lac de celle-ci? </p> -->
+          <p> Léa L : Bravo, allons cherchez Vincent et Félix dans les montagnes!" </p>
+          <p> Vincent ; Oh! Bienvenu dans cette belle région! Connaissez-vous le grand lac de celle-ci? </p>
           <!-- Question à deviner  -->
-          <!-- <p> Vincent : Bien joué, c'est le Lac Léman, situé entre la France et la Suisse. Passons chez Félix, il n'est pas très loin ! </p>
+          <p> Vincent : Bien joué, c'est le Lac Léman, situé entre la France et la Suisse. Passons chez Félix, il n'est pas très loin ! </p>
           <p> Victor : Ha nous voila enfin chez Félix ! Je ne le vois pas, allons voir sa mère pour lui demander où est Félix. </p>
           <p> Mamamn Félix : Quoi? Félix n'est pas à l'école? Il n'est pas rentré hier soir, il faisait soirée chez Baptiste, le vilain! </p>
           <p> Baptiste et Felix : Oh, vous nous réveillez! On se dépêche! Pour me lever, j'ai besoin d'une carotte. 
-            Il y a un champ de carotte non loin de la Bastille, pouvez-vous m'en ramener une?</p> -->
+            Il y a un champ de carotte non loin de la Bastille, pouvez-vous m'en ramener une?</p>
           <!-- Ramener une carotte  -->
-          <!-- <p> Baptiste et Felix : Merci, on peut y aller! Allons vers Lyon, on a oublié Mélodie en chemin! </p>
-          <p> Melodie : Je ne peux pas partir, j'ai perdu mes clés au parc de la Tête d'Or, peux-tu me les ramener?</p> -->
+          <p> Baptiste et Felix : Merci, on peut y aller! Allons vers Lyon, on a oublié Mélodie en chemin! </p>
+          <p> Melodie : Je ne peux pas partir, j'ai perdu mes clés au parc de la Tête d'Or, peux-tu me les ramener?</p>
           <!-- Ramener des clés  -->
-          <!-- <p> Melodie : Merci, on peut y aller je suis prête! </p>
+          <p> Melodie : Merci, on peut y aller je suis prête! </p>
           <p> Ilona : Olala je suis grave en retard, attendez je mange ma purée de carotte et on y va! 
-            Mince, il me manque une mirabelle pour le dessert, il y en a dans la forêt juste à côté! </p> -->
+            Mince, il me manque une mirabelle pour le dessert, il y en a dans la forêt juste à côté! </p>
           <!-- Ramener une mirabelle  -->
-          <!-- <p> Ilona : Ouf, on peut partir maintenant qu'on a le ventre plein!</p>
+          <p> Ilona : Ouf, on peut partir maintenant qu'on a le ventre plein!</p>
           <p> Papa aymeric : Vous le ratez de peu, il vient de partir pour Oslo! </p>
-          <p> Aymeric : "Oh mais que faites-vous ici? Je pars avec vous si vous devinez ce qu'est un brunost.</p> -->
+          <p> Aymeric : "Oh mais que faites-vous ici? Je pars avec vous si vous devinez ce qu'est un brunost.</p>
           <!-- Question à répondre  -->
           <p> Aymeric : Bravo, c'est un fromage norvégien à pâte brune et au goût caramélisé.</p>
           <p> Maeve : Salut! Savez-vous quelle est la bière (pas très bonne certes) fabriquée à côté de Zudausques?</p>
