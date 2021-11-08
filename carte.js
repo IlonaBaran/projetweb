@@ -101,7 +101,8 @@ recup(19).then(result => {dutrembleIcon = createIcon(map, [result["icone"], [30,
 recup(20).then(result => {blarelIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
 //Le bus 48*48
 
-<<<<<<< HEAD
+
+
 
 // TEST ILONA 2
 $message = document.getElementById("message");
@@ -164,8 +165,7 @@ console.log("ffooo");
 groupeIcon.addTo(map);
 console.log("ff");
 //console.log(groupeIcon);
-map.on("zoomed", function(e) {
-=======
+
 //TEST EVENT A APPLIQUER A TOUS NOS OBJETS
 var carotte = [createIcon(map, ['images/carotte.jpg', [50, 60], [2, 9], [0, 0]], [48.85128086291409, 2.3761726420680596], "Je suis la carotte que vous cherchez."), 'images/carotte.jpg'];
 var mirabelle = [createIcon(map, ['images/mirabelle.jpg', [56, 50], [2, 9], [0, 0]], [48.915099121706085, 5.772018723750737], "Je suis la mirabelle que vous cherchez."), 'images/mirabelle.jpg'];
@@ -174,7 +174,6 @@ var groupeIcon = new L.layerGroup([carotte[0], mirabelle[0]]);
 console.log(groupeIcon);
 //ZOOM OK
 map.on("zoomend", function(e) {
->>>>>>> 838ca9e10e1e32d82e11659f26e809f49a2db804
     let zoom = map.getZoom();
     if (zoom>5){
         groupeIcon.addTo(map);
@@ -182,6 +181,7 @@ map.on("zoomend", function(e) {
         groupeIcon.remove();
     }
 });
+
 //DBLCLICK
 mirabelle[0].on('dblclick', function (e) {
     console.log("mirabelle supprimer");
@@ -230,7 +230,6 @@ document.addEventListener('change', function(){
 // });
 // var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
 
-<<<<<<< HEAD
 // bus.on('click', function (e) {
 //         map.removeLayer(bus);
 //         map.removeLayer(carotteIcon);
@@ -238,23 +237,16 @@ document.addEventListener('change', function(){
 // });
 
 
-=======
 var greenIcon = L.icon({
     iconUrl: 'images/bus/bus1.png',
     iconSize:     [168, 35], // size of the icon
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
+
 //var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
 
-bus.on('click', function (e) {
-<<<<<<< HEAD
-    console.log("ilona ca fonctionne");
-        map.removeLayer(marker1); 
-=======
->>>>>>> 20e19970e016f54b79d55fb787eba4db4ae5c99d
-        map.removeLayer(bus);
-        //map.removeLayer(carotteIcon);
-        map.removeLayer(carotte);
-});
->>>>>>> 838ca9e10e1e32d82e11659f26e809f49a2db804
+// bus.on('click', function (e) {
+//     console.log("ilona ca fonctionne");
+//         map.removeLayer(marker1); 
+// });}

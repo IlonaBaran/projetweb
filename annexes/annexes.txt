@@ -7,12 +7,25 @@
 .bindPopup('J'ai qu'ça à faire de toute façon. Je ne sais juste pas par où commencer')
 .bindPopup('Regarde Amaury, on dirait qu'il y a Tristan devant le portail de sécurité de l'ENSG, il devrait pouvoir t'aider dans ta quête')
 
+________________________________________________________________________
 2. Faire apparaitre Tristan Fillon au niveau du portail de sécurité
 
 .bindPopup('Salut Tristan, il n'y a pas cours ce matin, personne n'est venu. Tu pourrais m'aider à trouver tout le monde ?')
 .bindPopup('Oui, bien sûr ! On peut commencer par aller chez Amélie, elle habite à Voisins-le-bretonneux')
-.bindPopup('Allez, monte dans le master, c'est parti !')
+.bindPopup('Ma parole, on ne peut pas y aller à pied! Je vais essayer de voir avec Jeanine si elle peut nous preter le mignibus : elle travaille dans l'ENSG')
 
+________________________________________________________________________
+2.a Faire apparaitre Jeanine dans l'ensg et deplacer Amaury a cote de Jeanine si possible
+
+faire une popup où la personne doit ecrire bonjour
+.bindPopup('Bonjour Jeanine ! Il nous faut le mignibus en urgence !')
+.bindPopup('Il n'a presque plus de combustign ! Je vous le passe mais j'espère que vous n'allez pas faire le tour du monde')
+
+________________________________________________________________________
+2.b Faire apparaitre le mignibus dans l'emplacement du bus
+
+.bindPopup('Allez, monte dans le master, c'est parti pour Voisins-le-bretonneux!')
+________________________________________________________________________
 3. Enlever Tristan Fillon, Amaury et Victor de la carte
 4. Mettre Tristan Fillon et Amaury dans le bus
 5. Faire apparaitre Amelie 

@@ -27,13 +27,11 @@
       <div id="map">
       </div>
       <div id="bus">
-<<<<<<< HEAD
         <?php echo "<form method=\"get\" action=\"carte.php\"><label>reponse1<input type=\"radio\" name=\"ouinon\" value=\"1\"></label><label>reponse2<input type=\"radio\" name=\"ouinon\" value=\"0\"></label><button id=\"validate\">Valider</button></form>'";
         ?>
         <!-- je suppose que le joueur va repondre dans un truc hors de la popup ... enfin comme j'y arrive pas -->
-=======
+
         <img src="images/bus/bus1.png" id="testimage">
->>>>>>> 838ca9e10e1e32d82e11659f26e809f49a2db804
       </div>
 
       <div id="inventaire">
