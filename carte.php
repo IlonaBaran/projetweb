@@ -3,8 +3,8 @@
     <head>
       <meta charset="UTF-8">
       <title>EscapeGameOnEstLa</title>
-      <link rel="stylesheet" href=".css/commun.css">
-      <link rel="stylesheet" href=".css/styleCarte.css">
+      <link rel="stylesheet" href="css/commun.css">
+      <link rel="stylesheet" href="css/styleCarte.css">
 
       <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -27,17 +27,21 @@
       <div id="map">
       </div>
       <div id="bus">
+<<<<<<< HEAD
         <?php echo "<form method=\"get\" action=\"carte.php\"><label>reponse1<input type=\"radio\" name=\"ouinon\" value=\"1\"></label><label>reponse2<input type=\"radio\" name=\"ouinon\" value=\"0\"></label><button id=\"validate\">Valider</button></form>'";
         ?>
         <!-- je suppose que le joueur va repondre dans un truc hors de la popup ... enfin comme j'y arrive pas -->
+=======
+        <img src="images/bus/bus1.png" id="testimage">
+>>>>>>> 838ca9e10e1e32d82e11659f26e809f49a2db804
       </div>
 
       <div id="inventaire">
         <div id ="titreInventaire">Inventaire</div>
-        <div id="objet1">objet 1</div>
-        <div id="objet2">obejt 2</div>
-        <div id="objet3">objet 3</div>
-        <div id="objet4">objet 4</div>
+        <div id="objet1">objet 1</br></div>
+        <div id="objet2">objet 2</br></div>
+        <div id="objet3">objet 3</br></div>
+        <div id="objet4">objet 4</br></div>
       </div>
 
       <div id="niveaux">Progression du jeu
@@ -95,10 +99,14 @@
       <label for="afficheBus">Afficher le bus en voyage</label>
 
       <footer id = "mentions">
-        <a href="planDuSite.html"> Plan du Site</a>
+        <a href="html/planDuSite.html"> Plan du Site</a>
         -
-        <a href="mentionsLegales.html"> Mentions Légales </a>
-    </footer>
+        <a href="html/mentionsLegales.html"> Mentions légales </a>
+        -
+        <a href="html/credits.html"> Crédits </a>
+        -
+        <a href="html/conditionsUtilisation.html"> Conditions générales </a>
+      </footer>
 
       <script src="carte.js"></script>
       <!-- <script src="chrono.js"></script> -->

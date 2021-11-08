@@ -1,8 +1,12 @@
 // Recuperation des donnees 
 var $inventaire = document.getElementById("inventaire");
+var $inventaireObjet1 = document.getElementById("objet1");
+var $inventaireObjet2 = document.getElementById("objet2");
+var $inventaireObjet3 = document.getElementById("objet3");
+var $inventaireObjet4 = document.getElementById("objet4");
 var $map = document.getElementById("map");
 
-let map = L.map('map').setView([48.840900447202635, 2.586785066433026], 6);
+let map = L.map('map').setView([48.84108949711657, 2.588069801082868], 15);
 
 L.tileLayer('https://wxs.ign.fr/essentiels/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png&TileMatrix={z}&TileCol={x}&TileRow={y}', {
     attribution: 'Données cartographiques : © IGN',
@@ -15,7 +19,7 @@ var createIcon= function (carte, options, locate, message) {
     //iconAnchor point of the icon which will correspond to marker's location
     //popupAnchor point from which the popup should open relative to the iconAnchor
     let objectIcon = new L.icon({iconUrl:options[0], iconSize:options[1], iconAnchor:options[2], popupAnchor:options[3], maxZoom:10});
-    let marqueur = L.marker(locate, {icon: objectIcon}).addTo(carte).bindPopup(message, {fontSize: 10});
+    let marqueur = L.marker(locate, {icon: objectIcon});//  .addTo(carte).bindPopup(message, {fontSize: 10});
     return marqueur;
 };
 
@@ -68,20 +72,9 @@ recup(5).then(result => {fillonIcon = createIcon(map, [result["icone"], [80,80],
 //Amélie MAGINOT
 recup(6).then(result => {maginotIcon = createIcon(map, [result["icone"], [42,92], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
 //Clément FOUGEROUSE
-recup(7).then(result => {fougerouseIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])
-console.log(fougerouseIcon);
-map.on("zoomed", function(e) {
-    console.log("rrr");
-    let zoom = map.getZoom();
-    if (zoom>1){
-        fougerouseIcon.addTo(map);
-    } else{
-        fougerouseIcon.removeLayer();
-    }
-});
-});
+recup(7).then(result => {fougerouseIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
 //Tancrède MAYTIE
-recup(8).then(result => {maytieIcon = createIcon(map, [result["icone"], [64,36], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+recup(8).then(result => {maytieIcon = createIcon(map, [result["icone"], [64,36], [2, 9], [32, 0]], [result["latitude"], result["longitude"]], result["objet"])});
 //Antoine CORNU
 recup(9).then(result => {cornuIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
 //Kévin BEAUPUY
@@ -108,6 +101,7 @@ recup(19).then(result => {dutrembleIcon = createIcon(map, [result["icone"], [30,
 recup(20).then(result => {blarelIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
 //Le bus 48*48
 
+<<<<<<< HEAD
 
 // TEST ILONA 2
 $message = document.getElementById("message");
@@ -171,19 +165,39 @@ groupeIcon.addTo(map);
 console.log("ff");
 //console.log(groupeIcon);
 map.on("zoomed", function(e) {
+=======
+//TEST EVENT A APPLIQUER A TOUS NOS OBJETS
+var carotte = [createIcon(map, ['images/carotte.jpg', [50, 60], [2, 9], [0, 0]], [48.85128086291409, 2.3761726420680596], "Je suis la carotte que vous cherchez."), 'images/carotte.jpg'];
+var mirabelle = [createIcon(map, ['images/mirabelle.jpg', [56, 50], [2, 9], [0, 0]], [48.915099121706085, 5.772018723750737], "Je suis la mirabelle que vous cherchez."), 'images/mirabelle.jpg'];
+//GROUPE OK
+var groupeIcon = new L.layerGroup([carotte[0], mirabelle[0]]);
+console.log(groupeIcon);
+//ZOOM OK
+map.on("zoomend", function(e) {
+>>>>>>> 838ca9e10e1e32d82e11659f26e809f49a2db804
     let zoom = map.getZoom();
-    if (zoom>10){
+    if (zoom>5){
         groupeIcon.addTo(map);
     } else{
-        groupeIcon.removeLayer();
+        groupeIcon.remove();
     }
 });
+//DBLCLICK
+mirabelle[0].on('dblclick', function (e) {
+    console.log("mirabelle supprimer");
+    mirabelle[0].remove();
+    var image = document.createElement('img');
+    image.src = mirabelle[1];
+    $inventaireObjet1.appendChild(image);
+});
+//DRAG - DROP
+
 
 var eltBusMouse = document.getElementById("busMouse");
 //map.on('mousemove', moveBus);
 function moveBus(e){
     var image = document.createElement('img');
-    image.src = 'images/bus.png';
+    image.src = 'images/bus/bus1.png';
     image.width = "20";
     eltBusMouse.innerHTML = '';
     //eltBusMouse.innerText = 'IIII';
@@ -216,6 +230,7 @@ document.addEventListener('change', function(){
 // });
 // var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
 
+<<<<<<< HEAD
 // bus.on('click', function (e) {
 //         map.removeLayer(bus);
 //         map.removeLayer(carotteIcon);
@@ -223,3 +238,23 @@ document.addEventListener('change', function(){
 // });
 
 
+=======
+var greenIcon = L.icon({
+    iconUrl: 'images/bus/bus1.png',
+    iconSize:     [168, 35], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+//var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
+
+bus.on('click', function (e) {
+<<<<<<< HEAD
+    console.log("ilona ca fonctionne");
+        map.removeLayer(marker1); 
+=======
+>>>>>>> 20e19970e016f54b79d55fb787eba4db4ae5c99d
+        map.removeLayer(bus);
+        //map.removeLayer(carotteIcon);
+        map.removeLayer(carotte);
+});
+>>>>>>> 838ca9e10e1e32d82e11659f26e809f49a2db804

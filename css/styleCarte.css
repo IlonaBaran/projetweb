@@ -71,6 +71,10 @@
     border: 2px solid #240b16;
 }
 
+#inventaire > div > img {
+    width: 40px;
+}
+
 #titreInventaire{
     grid-column: 1 / span 6;                     
     grid-row: 1;
