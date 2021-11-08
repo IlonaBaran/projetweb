@@ -162,14 +162,11 @@ var greenIcon = L.icon({
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
-//var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
+var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
 
 bus.on('click', function (e) {
-<<<<<<< HEAD
     console.log("ilona ca fonctionne");
         map.removeLayer(marker1); 
-=======
->>>>>>> 20e19970e016f54b79d55fb787eba4db4ae5c99d
         map.removeLayer(bus);
         //map.removeLayer(carotteIcon);
         map.removeLayer(carotte);
