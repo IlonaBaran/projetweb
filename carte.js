@@ -108,6 +108,61 @@ recup(19).then(result => {dutrembleIcon = createIcon(map, [result["icone"], [30,
 recup(20).then(result => {blarelIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
 //Le bus 48*48
 
+
+// TEST ILONA 2
+$message = document.getElementById("message");
+$bus = document.getElementById("bus");
+$validate = document.getElementById("validate");
+
+var marker1 = L.marker([48.840900447202635, 2.586785066433026]).addTo(map);
+
+marker1.on('click', function (e) {
+    marker1.bindPopup('Oh dingue, vous êtes venus !')
+    // $message.innerHTML += "ceci est un test";
+    // $bus.innerHTML += '<form method=\"get\" action=\"\"><label>reponse1<input type="radio" name="ouinon" value="1"></label><label>reponse2<input type="radio" name="ouinon" value="0"></label><button id="validate">Valider</button></form>';
+    // var valeur = document.querySelector('input[name="ouinon"]:checked').value;
+    // let valeur = document.querySelector('input[name="ouinon"]:checked').value;
+});
+
+
+$validate.addEventListener('click', () => {
+    fetch('objet.php', {
+        body: data
+    })
+    .then(response => response.json())
+    .then( result => {
+        $message.innerHTML += "00000000000result";
+    });
+});
+
+// if (valeur == 1){
+//     marker1.bindPopup('Tu as reussi ! ');
+//     $message.innerHTML = "miaou miaou";
+//     // marker1.removeLayer(bus);
+// }
+// else {
+//     $message.innerHTML = "miaou miaou mais teste non reussi"
+//     marker1.bindPopup('while tant que valeur est different de 1 il faut recommencer');
+// }
+// FIN TEST ILONA 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 console.log(map.getZoom());
 console.log("uoiii");
 var groupeIcon = new L.layerGroup([carotteIcon, mirabelleIcon, coindetIcon, zarzelliIcon, fillonIcon, maginotIcon, fougerouseIcon, maytieIcon, cornuIcon, beaupuyIcon, letasseyIcon, heauIcon, mamanBalIcon, balIcon, riviereIcon, fleuryIcon, baranIcon, papaDutrembleIcon, dutrembleIcon, blarelIcon]);
@@ -147,22 +202,24 @@ document.addEventListener('change', function(){
     }
 })
 
+
+
+
 // test ilona
-var marker1 = L.marker([48.840900447202635, 2.586785066433026]).addTo(map).bindPopup('Coucou, je viens seulement si vous répondez à ma question <form> Que signifie "fouilla bel belet?"<label>xxxxxx<input type="radio" name="ouinon" value="1"></label><label>xxxxxx<input type="radio" name="ouinon" value="0"></label> <input type="submit" name="envoi" value="OK"></form>');
-
-
+// var marker1 = L.marker([48.840900447202635, 2.586785066433026]).addTo(map).bindPopup('Coucou, je viens seulement si vous répondez à ma question <form> Que signifie "fouilla bel belet?"<label>xxxxxx<input type="radio" name="ouinon" value="1"></label><label>xxxxxx<input type="radio" name="ouinon" value="0"></label> <input type="submit" name="envoi" value="OK"></form>');
 // marker1.addEventListener("clik", () => {map.removeLayer(marker1);});
+// var greenIcon = L.icon({
+//     iconUrl: 'images/bus.png',
+//     iconSize:     [38, 95], // size of the icon
+//     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+//     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+// });
+// var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
 
-var greenIcon = L.icon({
-    iconUrl: 'images/bus.png',
-    iconSize:     [38, 95], // size of the icon
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
-var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
+// bus.on('click', function (e) {
+//         map.removeLayer(bus);
+//         map.removeLayer(carotteIcon);
 
-bus.on('click', function (e) {
-        map.removeLayer(bus);
-        map.removeLayer(carotteIcon);
+// });
 
-});
+
