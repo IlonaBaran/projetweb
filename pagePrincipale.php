@@ -41,12 +41,12 @@
         <?php
             include("connexion.php");
             $tableau_classement = [];
-            $requete = "SELECT pseudo, chronom FROM joueur ORDER BY chronom ASC LIMIT 5";
+            $requete = "SELECT pseudo, temps FROM joueur ORDER BY temps ASC LIMIT 5";
             if ($result = mysqli_query($link, $requete)) {
                 while ($ligne = mysqli_fetch_assoc($result)) {
                     array_push($tableau_classement, [
                         "pseudo" => $ligne['pseudo'],
-                        "chronom" => $ligne['chronom']
+                        "temps" => $ligne['temps']
                     ]);
                 }
 
