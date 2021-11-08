@@ -102,8 +102,6 @@ recup(20).then(result => {blarelIcon = createIcon(map, [result["icone"], [44,56]
 //Le bus 48*48
 
 
-
-
 // TEST ILONA 2
 $message = document.getElementById("message");
 $bus = document.getElementById("bus");
@@ -243,22 +241,10 @@ var greenIcon = L.icon({
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
-<<<<<<< HEAD
+
 var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
 
 bus.on('click', function (e) {
-    console.log("ilona ca fonctionne");
-        map.removeLayer(marker1); 
         map.removeLayer(bus);
-        //map.removeLayer(carotteIcon);
-        map.removeLayer(carotte);
+        map.removeLayer(carotte); 
 });
-=======
-
-//var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
-
-// bus.on('click', function (e) {
-//     console.log("ilona ca fonctionne");
-//         map.removeLayer(marker1); 
-// });}
->>>>>>> 07cb9a24aed3dc72bc096b7d507f5c37f000590b
