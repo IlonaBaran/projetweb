@@ -3,7 +3,7 @@
     <head>
       <meta charset="UTF-8">
       <title>Page de fin</title>
-      <link rel="stylesheet" href=".css/styleFin.css">
+      <link rel="stylesheet" href="css/styleFin.css">
     </head>
 
     <body>
@@ -20,14 +20,14 @@
         }
 
         
-        $sql666 = "UPDATE `joueur` SET `chronom`=TIMEDIFF(`finchrono`,`debutchrono`) WHERE pseudo ='$_GET[login]'";
+        $sql666 = "UPDATE `joueur` SET `temps`=TIMEDIFF(`finchrono`,`debutchrono`) WHERE pseudo ='$_GET[login]'";
         if (mysqli_query($link, $sql666)) {
             echo "(sql : update finchrono) Nouveau enregistrement créé avec succès";
         } else {
             echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
         }
 
-      $sql523 = "SELECT COUNT(pseudo) FROM joueur WHERE chronom <= (SELECT chronom FROM joueur WHERE pseudo ='$_GET[login]')";
+      $sql523 = "SELECT COUNT(pseudo) FROM joueur WHERE temps <= (SELECT temps FROM temps WHERE pseudo ='$_GET[login]')";
       $classement = [];
       if ($result = mysqli_query($link, $sql523)) {
         while ($ligne = mysqli_fetch_assoc($result)) {
@@ -58,7 +58,9 @@
       }
        ?>
 
-    <script src="chrono.js"></script>
+    <div id="bus"><img src="images/bus.png" id="coin"></div>
+
+    <script src="deplacementBus.js"></script>
   	</body>
 </html>
 
