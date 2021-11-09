@@ -19,7 +19,7 @@ var createIcon= function (carte, options, locate, message) {
     //iconAnchor point of the icon which will correspond to marker's location
     //popupAnchor point from which the popup should open relative to the iconAnchor
     let objectIcon = new L.icon({iconUrl:options[0], iconSize:options[1], iconAnchor:options[2], popupAnchor:options[3], maxZoom:10});
-    let marqueur = L.marker(locate, {icon: objectIcon});//  .addTo(carte).bindPopup(message, {fontSize: 10});
+    let marqueur = L.marker(locate, {icon: objectIcon, draggable: true});//  .addTo(carte).bindPopup(message, {fontSize: 10});
     return marqueur;
 };
 
@@ -102,8 +102,6 @@ recup(20).then(result => {blarelIcon = createIcon(map, [result["icone"], [44,56]
 //Le bus 48*48
 
 
-
-
 // TEST ILONA 2
 $message = document.getElementById("message");
 $bus = document.getElementById("bus");
@@ -162,6 +160,7 @@ $validate.addEventListener('click',  () => {
 });
 // FIN TEST ILONA 
 
+<<<<<<< HEAD
 
 
 
@@ -170,8 +169,10 @@ $validate.addEventListener('click',  () => {
 
 
 
+=======
+>>>>>>> 8dafa7c71b56997b0b5d9f04b05995fc33cf16de
 //TEST EVENT A APPLIQUER A TOUS NOS OBJETS
-var carotte = [createIcon(map, ['images/carotte.jpg', [50, 60], [2, 9], [0, 0]], [48.85128086291409, 2.3761726420680596], "Je suis la carotte que vous cherchez."), 'images/carotte.jpg'];
+var carotte = [createIcon(map, ['images/carotte.jpg', [50, 60], [2, 9], [0, 0]], [48.84108949711657, 2.588069801082868], "Je suis la carotte que vous cherchez."), 'images/carotte.jpg'];//48.85128086291409, 2.3761726420680596
 var mirabelle = [createIcon(map, ['images/mirabelle.jpg', [56, 50], [2, 9], [0, 0]], [48.915099121706085, 5.772018723750737], "Je suis la mirabelle que vous cherchez."), 'images/mirabelle.jpg'];
 //GROUPE OK
 var groupeIcon = new L.layerGroup([carotte[0], mirabelle[0]]);
@@ -195,7 +196,14 @@ mirabelle[0].on('dblclick', function (e) {
     $inventaireObjet1.appendChild(image);
 });
 //DRAG - DROP
-
+//draggable:true
+carotte[0].on('dragend', function(e){
+    if (carotte[0].getLatLng().lat < 48.85295997870213 && carotte[0].getLatLng().lat > 48.846300499957565 && carotte[0].getLatLng().lng > 2.5831615564187786 && carotte[0].getLatLng().lng < 2.6084756265666713){
+        console.log('OK');
+    } else {
+        console.log("NOT OK");
+    }
+});
 
 var eltBusMouse = document.getElementById("busMouse");
 //map.on('mousemove', moveBus);
@@ -247,9 +255,9 @@ var greenIcon = L.icon({
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
-//var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
+var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
 
-// bus.on('click', function (e) {
-//     console.log("ilona ca fonctionne");
-//         map.removeLayer(marker1); 
-// });}
+bus.on('click', function (e) {
+        map.removeLayer(bus);
+        map.removeLayer(carotte); 
+});
