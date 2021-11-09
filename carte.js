@@ -107,38 +107,59 @@ recup(20).then(result => {blarelIcon = createIcon(map, [result["icone"], [44,56]
 // TEST ILONA 2
 $message = document.getElementById("message");
 $bus = document.getElementById("bus");
-$validate = document.getElementById("validate");
+$interaction = document.getElementById("interaction");
+$i1 = document.getElementById("i1");
+$i2 = document.getElementById("i2");
 
 var marker1 = L.marker([48.840900447202635, 2.586785066433026]).addTo(map);
 
 marker1.on('click', function (e) {
-    marker1.bindPopup('Oh dingue, vous êtes venus !')
-    // $message.innerHTML += "ceci est un test";
-    // $bus.innerHTML += '<form method=\"get\" action=\"\"><label>reponse1<input type="radio" name="ouinon" value="1"></label><label>reponse2<input type="radio" name="ouinon" value="0"></label><button id="validate">Valider</button></form>';
-    // var valeur = document.querySelector('input[name="ouinon"]:checked').value;
+    // marker1.bindPopup('Oh dingue, vous êtes venus !<label>reponse1<input type="radio" name="ouinon" value="1"></label><label>reponse2<input type="radio" name="ouinon" value="0"></label><button id="validate">Valider</button>');
+    marker1.bindPopup('Oh dingue, vous êtes venus !');
+    $message.innerHTML += "ceci est un test";
+    console.log("blallala");
+    // $i1.style.display = "block";
+    $i2.style.display = "block";
+
     // let valeur = document.querySelector('input[name="ouinon"]:checked').value;
+    // $validate.addEventListener('click', () => {
+    //     fetch('objet.php')
+    //     .then(response => response.json())
+    //     .then($message.innerHTML += "00000000000result")
+    //     var valeur = document.querySelector('input[name="ouinon"]:checked').value
+    //     .then(console.log("blallala"))
+    //     .then(console.log(valeur))
+    // });
 });
 
+$validate = document.getElementById("validate");
+// $i2texte = document.getElementById("i2texte");
 
-$validate.addEventListener('click', () => {
-    fetch('objet.php', {
-        body: data
-    })
-    .then(response => response.json())
-    .then( result => {
-        $message.innerHTML += "00000000000result";
-    });
+
+$validate.addEventListener('click',  () => {
+    // fetch('objet.php')
+    // .then(response => response.json())
+
+    // var hu = document.getElementById("i2texte").value; 
+    $message.innerHTML += "<p>miaou miaou le test a REUSSI : </p>";
+
+
+    // CEST OK CA FONCTIONNE CA 
+    // var valeur = document.querySelector('input[name="ouinon"]:checked').value
+    // // .then(console.log("blallala"))
+    // // .then($message.innerHTML +=  valeur)
+    // $message.innerHTML +=  "<p>voici la reponse de l'utilisateur : " + valeur + "</p>";
+    // if (valeur == 1){
+    //     // marker1.bindPopup('Tu as reussi ! ');
+    //     $message.innerHTML += "<p>miaou miaou le test a REUSSI</p>";
+    //     // marker1.removeLayer(bus);
+    //     $i1.style.display = "none";
+    // }
+    // else {
+    //     $message.innerHTML += "<p>miaou miaou mais teste non reussi</p>"
+    //     // marker1.bindPopup('while tant que valeur est different de 1 il faut recommencer');
+    // }
 });
-
-// if (valeur == 1){
-//     marker1.bindPopup('Tu as reussi ! ');
-//     $message.innerHTML = "miaou miaou";
-//     // marker1.removeLayer(bus);
-// }
-// else {
-//     $message.innerHTML = "miaou miaou mais teste non reussi"
-//     marker1.bindPopup('while tant que valeur est different de 1 il faut recommencer');
-// }
 // FIN TEST ILONA 
 
 
@@ -148,23 +169,6 @@ $validate.addEventListener('click', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-console.log(map.getZoom());
-console.log("uoiii");
-var groupeIcon = new L.layerGroup([carotteIcon, mirabelleIcon, coindetIcon, zarzelliIcon, fillonIcon, maginotIcon, fougerouseIcon, maytieIcon, cornuIcon, beaupuyIcon, letasseyIcon, heauIcon, mamanBalIcon, balIcon, riviereIcon, fleuryIcon, baranIcon, papaDutrembleIcon, dutrembleIcon, blarelIcon]);
-console.log("ffooo");
-groupeIcon.addTo(map);
-console.log("ff");
-//console.log(groupeIcon);
 
 //TEST EVENT A APPLIQUER A TOUS NOS OBJETS
 var carotte = [createIcon(map, ['images/carotte.jpg', [50, 60], [2, 9], [0, 0]], [48.85128086291409, 2.3761726420680596], "Je suis la carotte que vous cherchez."), 'images/carotte.jpg'];
@@ -215,7 +219,6 @@ document.addEventListener('change', function(){
         eltBusMouse.style.visibility = "hidden";
     }
 })
-
 
 
 

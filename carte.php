@@ -21,16 +21,10 @@
         <div id="titre">L'escape Game de Maeve et Ilona</div>
     </div>
 
-    <!-- <img src="images/bus.jpg"> -->      
-
     <div id="contener2">
       <div id="map">
       </div>
       <div id="bus">
-        <?php echo "<form method=\"get\" action=\"carte.php\"><label>reponse1<input type=\"radio\" name=\"ouinon\" value=\"1\"></label><label>reponse2<input type=\"radio\" name=\"ouinon\" value=\"0\"></label><button id=\"validate\">Valider</button></form>'";
-        ?>
-        <!-- je suppose que le joueur va repondre dans un truc hors de la popup ... enfin comme j'y arrive pas -->
-
         <img src="images/bus/bus1.png" id="testimage">
       </div>
 
@@ -68,7 +62,20 @@
             </form>";
           ?>
         </div>
-  
+
+        <div id="interaction">
+          <div id="i1">
+            <label>reponse1<input type="radio" name="ouinon" value="1"></label>
+            <label>reponse2<input type="radio" name="ouinon" value="0"></label>
+            <button id="validate">Valider</button>
+          </div>
+
+          <div id="i2">
+            <label>reponse1<input type="texte" name="ouinon" id="i2texte" value="0"></label>
+            <button id="validate">Valider</button>
+          </div>
+        </div>
+
       </div>
     </div>
 

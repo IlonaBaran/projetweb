@@ -14,7 +14,7 @@
     background-color: rgb(55, 128, 155);
     display: grid;
     grid-template-columns: 5% 90% 5%;
-    grid-template-rows: 5% 90% 5%;
+    grid-template-rows: 5% 80% 10% 5%;
 }
 
 #message{
@@ -34,6 +34,22 @@
     grid-row: 1;
     margin: auto;
 }
+
+#interaction{
+    grid-column: 2;
+    grid-row: 3;
+    background-color: rgb(160, 201, 216);
+    text-align: center;
+}
+
+#i1{
+    display: none;
+}
+
+#i2{
+    display: none;
+}
+
 
 
 /* -------------------------------------------------------------------- */
