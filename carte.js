@@ -19,7 +19,7 @@ var createIcon= function (carte, options, locate, message) {
     //iconAnchor point of the icon which will correspond to marker's location
     //popupAnchor point from which the popup should open relative to the iconAnchor
     let objectIcon = new L.icon({iconUrl:options[0], iconSize:options[1], iconAnchor:options[2], popupAnchor:options[3], maxZoom:10});
-    let marqueur = L.marker(locate, {icon: objectIcon, draggable: true});//  .addTo(carte).bindPopup(message, {fontSize: 10});
+    let marqueur = L.marker(locate, {icon: objectIcon, draggable: true}).addTo(carte); //.bindPopup(message, {fontSize: 10});
     return marqueur;
 };
 
@@ -60,173 +60,239 @@ function recup(nb){
 }
 var carotteIcon, mirabelleIcon, coindetIcon, zarzelliIcon, fillonIcon, maginotIcon, fougerouseIcon, maytieIcon, cornuIcon, beaupuyIcon, letasseyIcon, heauIcon, mamanBalIcon, balIcon, riviereIcon, fleuryIcon, baranIcon, papaDutrembleIcon, dutrembleIcon, blarelIcon;
 //La carotte
-recup(1).then(result => {carotteIcon = createIcon(map, [result["icone"], [76,48], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//La mirabelle
-recup(2).then(result => {mirabelleIcon = createIcon(map, [result["icone"], [48,76], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Victor COINDET
-recup(3).then(result => {coindetIcon = createIcon(map, [result["icone"], [80,80], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Amaury ZARZELLI
-recup(4).then(result => {zarzelliIcon = createIcon(map, [result["icone"], [72,80], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Tristan FILLON
-recup(5).then(result => {fillonIcon = createIcon(map, [result["icone"], [80,80], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Amélie MAGINOT
-recup(6).then(result => {maginotIcon = createIcon(map, [result["icone"], [42,92], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Clément FOUGEROUSE
-recup(7).then(result => {fougerouseIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Tancrède MAYTIE
-recup(8).then(result => {maytieIcon = createIcon(map, [result["icone"], [64,36], [2, 9], [32, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Antoine CORNU
-recup(9).then(result => {cornuIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Kévin BEAUPUY
-recup(10).then(result => {beaupuyIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Léa LETASSEY
-recup(11).then(result => {letasseyIcon = createIcon(map, [result["icone"], [72,96], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Vincent HEAU
-recup(12).then(result => {heauIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Maman BAL
-recup(13).then(result => {mamanBalIcon = createIcon(map, [result["icone"], [44,51], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Félix BAL
-recup(14).then(result => {balIcon = createIcon(map, [result["icone"], [68,72], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Baptiste RIVIERE
-recup(15).then(result => {riviereIcon = createIcon(map, [result["icone"], [44,84], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Mélodie FLEURY
-recup(16).then(result => {fleuryIcon = createIcon(map, [result["icone"], [30,60], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Ilona BARAN
-recup(17).then(result => {baranIcon = createIcon(map, [result["icone"], [40,64], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Papa DUTREMBLE
-recup(18).then(result => {papaDutrembleIcon = createIcon(map, [result["icone"], [80,38], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Aymeric DUTREMBLE
-recup(19).then(result => {dutrembleIcon = createIcon(map, [result["icone"], [30,60], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Maeve BLAREL
-recup(20).then(result => {blarelIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
-//Le bus 48*48
+// recup(1).then(result => {carotteIcon = createIcon(map, [result["icone"], [76,48], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //La mirabelle
+// recup(2).then(result => {mirabelleIcon = createIcon(map, [result["icone"], [48,76], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Victor COINDET
+// recup(3).then(result => {coindetIcon = createIcon(map, [result["icone"], [80,80], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Amaury ZARZELLI
+// recup(4).then(result => {zarzelliIcon = createIcon(map, [result["icone"], [72,80], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Tristan FILLON
+// recup(5).then(result => {fillonIcon = createIcon(map, [result["icone"], [80,80], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Amélie MAGINOT
+// recup(6).then(result => {maginotIcon = createIcon(map, [result["icone"], [42,92], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Clément FOUGEROUSE
+// recup(7).then(result => {fougerouseIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Tancrède MAYTIE
+// recup(8).then(result => {maytieIcon = createIcon(map, [result["icone"], [64,36], [2, 9], [32, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Antoine CORNU
+// recup(9).then(result => {cornuIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Kévin BEAUPUY
+// recup(10).then(result => {beaupuyIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Léa LETASSEY
+// recup(11).then(result => {letasseyIcon = createIcon(map, [result["icone"], [72,96], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Vincent HEAU
+// recup(12).then(result => {heauIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Maman BAL
+// recup(13).then(result => {mamanBalIcon = createIcon(map, [result["icone"], [44,51], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Félix BAL
+// recup(14).then(result => {balIcon = createIcon(map, [result["icone"], [68,72], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Baptiste RIVIERE
+// recup(15).then(result => {riviereIcon = createIcon(map, [result["icone"], [44,84], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Mélodie FLEURY
+// recup(16).then(result => {fleuryIcon = createIcon(map, [result["icone"], [30,60], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Ilona BARAN
+// recup(17).then(result => {baranIcon = createIcon(map, [result["icone"], [40,64], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Papa DUTREMBLE
+// recup(18).then(result => {papaDutrembleIcon = createIcon(map, [result["icone"], [80,38], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Aymeric DUTREMBLE
+// recup(19).then(result => {dutrembleIcon = createIcon(map, [result["icone"], [30,60], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Maeve BLAREL
+// recup(20).then(result => {blarelIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
+// //Le bus 48*48
+
+
+// CODE HISTOIRE
+
+// APPARITION VICTOR 
+fetch('http://localhost/projetweb/objet.php?id=3')
+.then(response => response.json())
+.then(result => {coindetIcon = createIcon(map, [result["icone"], [80,80], [2, 9], [0, 0]],
+    [result["latitude"], result["longitude"]], result["objet"]);
+
+    //  APPARITION AMAURY
+    fetch('http://localhost/projetweb/objet.php?id=4')
+    .then(response => response.json())
+    .then(result => {zarzelliIcon = createIcon(map, [result["icone"], [72,80], [2, 9], [0, 0]], 
+                    [result["latitude"], result["longitude"]], result["objet"]);
+
+    // DISSCUSSION ENTRE AMAURY ET VICTOR
+    coindetIcon.bindPopup('Hé Amaury, il est 9h30 et y\'a personne dans mon cours').openPopup();
+    zarzelliIcon.bindPopup('Merde, je pensais qu\'ils étaient tous avec toi, j\'ai personne non plus');
+    coindetIcon.bindPopup('Va falloir aller les chercher...tu peux t\'en occuper ? Je dois être à l\'école à 11h30 pour acheter mes billets du Hellfest');
+    zarzelliIcon.bindPopup('J\'ai qu\'ça à faire de toute façon. Je ne sais juste pas par où commencer');
+    coindetIcon.bindPopup('Regarde Amaury, on dirait qu\'il y a Tristan devant le portail de sécurité de l\'ENSG, il devrait pouvoir t\'aider dans ta quête');
+
+        //  APPARITION TRISTAN FILLON
+        fetch('http://localhost/projetweb/objet.php?id=4')
+        .then(response => response.json())
+        .then(result => {fillonIcon = createIcon(map, [result["icone"], [80,80], [2, 9], [0, 0]], 
+        [result["latitude"], result["longitude"]], result["objet"]);
+
+        zarzelliIcon.bindPopup('Salut Tristan, il n\'y a pas cours ce matin, personne n\'est venu. Tu pourrais m\'aider à trouver tout le monde ?');
+        fillonIcon.bindPopup('Oui, bien sûr ! On peut commencer par aller chez Amélie, elle habite à Voisins-le-bretonneux')
+        zarzelliIcon.bindPopup('Ma parole, on ne peut pas y aller à pied! Je vais essayer de voir avec Jeanine si elle peut nous preter le mignibus : elle travaille dans l\'ENSG');
+
+        });
+    });
+});
+// 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // TEST ILONA 2
 $message = document.getElementById("message");
 $bus = document.getElementById("bus");
-$validate = document.getElementById("validate");
+$interaction = document.getElementById("interaction");
+$i1 = document.getElementById("i1");
+$i2 = document.getElementById("i2");
 
-var marker1 = L.marker([48.840900447202635, 2.586785066433026]).addTo(map);
+var marker1 = L.marker([48.840900447202635, 2.586785066433026])  //.addTo(map);
 
 marker1.on('click', function (e) {
-    marker1.bindPopup('Oh dingue, vous êtes venus !')
-    // $message.innerHTML += "ceci est un test";
-    // $bus.innerHTML += '<form method=\"get\" action=\"\"><label>reponse1<input type="radio" name="ouinon" value="1"></label><label>reponse2<input type="radio" name="ouinon" value="0"></label><button id="validate">Valider</button></form>';
-    // var valeur = document.querySelector('input[name="ouinon"]:checked').value;
-    // let valeur = document.querySelector('input[name="ouinon"]:checked').value;
+    // marker1.bindPopup('Oh dingue, vous êtes venus !<label>reponse1<input type="radio" name="ouinon" value="1"></label><label>reponse2<input type="radio" name="ouinon" value="0"></label><button id="validate">Valider</button>');
+    // marker1.bindPopup('Oh dingue, vous êtes venus !');
+    // $i1.style.display = "block";
+    // $i2.style.display = "block";
 });
 
+$validate = document.getElementById("validate");
 
-$validate.addEventListener('click', () => {
-    fetch('objet.php', {
-        body: data
-    })
-    .then(response => response.json())
-    .then( result => {
-        $message.innerHTML += "00000000000result";
-    });
+$validate2 = document.getElementById("validate2");
+$i2texte = document.getElementById("i2texte");
+
+
+$validate2.addEventListener('click',  () => {
+    // au besoin faire une requete ajax
+    // fetch('objet.php')
+    // .then(response => response.json())
+
+    // CEST OK CA FONCTIONNE CA  : recuperer le texte rentrer par un utilisateur dans un input texte
+    // var hu = $i2texte.value; 
+    // $message.innerHTML += "<p>miaou miaou le test a REUSSI : </p>" + hu;
+
+    // CEST OK CA FONCTIONNE CA  : bouton radio
+    // var valeur = document.querySelector('input[name="ouinon"]:checked').value
+    // $message.innerHTML +=  "<p>voici la reponse de l'utilisateur : " + valeur + "</p>";
+    // if (valeur == 1){
+    //     // marker1.bindPopup('Tu as reussi ! ');
+    //     $message.innerHTML += "<p>miaou miaou le test a REUSSI</p>";
+    //     // marker1.removeLayer(bus);
+    //     $i1.style.display = "none";
+    // }
+    // else {
+    //     $message.innerHTML += "<p>miaou miaou mais teste non reussi</p>"
+    //     // marker1.bindPopup('while tant que valeur est different de 1 il faut recommencer');
+    // }
 });
-
-// if (valeur == 1){
-//     marker1.bindPopup('Tu as reussi ! ');
-//     $message.innerHTML = "miaou miaou";
-//     // marker1.removeLayer(bus);
-// }
-// else {
-//     $message.innerHTML = "miaou miaou mais teste non reussi"
-//     marker1.bindPopup('while tant que valeur est different de 1 il faut recommencer');
-// }
 // FIN TEST ILONA 
 
+
 //TEST EVENT A APPLIQUER A TOUS NOS OBJETS
-var carotte = [createIcon(map, ['images/carotte.jpg', [50, 60], [2, 9], [0, 0]], [48.84108949711657, 2.588069801082868], "Je suis la carotte que vous cherchez."), 'images/carotte.jpg'];//48.85128086291409, 2.3761726420680596
-var mirabelle = [createIcon(map, ['images/mirabelle.jpg', [56, 50], [2, 9], [0, 0]], [48.915099121706085, 5.772018723750737], "Je suis la mirabelle que vous cherchez."), 'images/mirabelle.jpg'];
-//GROUPE OK
-var groupeIcon = new L.layerGroup([carotte[0], mirabelle[0]]);
-console.log(groupeIcon);
-//ZOOM OK
-map.on("zoomend", function(e) {
-    let zoom = map.getZoom();
-    if (zoom>5){
-        groupeIcon.addTo(map);
-    } else{
-        groupeIcon.remove();
-    }
-});
+// var carotte = [createIcon(map, ['images/carotte.jpg', [50, 60], [2, 9], [0, 0]], [48.84108949711657, 2.588069801082868], "Je suis la carotte que vous cherchez."), 'images/carotte.jpg'];//48.85128086291409, 2.3761726420680596
+// var mirabelle = [createIcon(map, ['images/mirabelle.jpg', [56, 50], [2, 9], [0, 0]], [48.915099121706085, 5.772018723750737], "Je suis la mirabelle que vous cherchez."), 'images/mirabelle.jpg'];
+// //GROUPE OK
+// var groupeIcon = new L.layerGroup([carotte[0], mirabelle[0]]);
+// console.log(groupeIcon);
+// //ZOOM OK
+// map.on("zoomend", function(e) {
+//     let zoom = map.getZoom();
+//     if (zoom>5){
+//         groupeIcon.addTo(map);
+//     } else{
+//         groupeIcon.remove();
+//     }
+// });
 
-//DBLCLICK
-mirabelle[0].on('dblclick', function (e) {
-    console.log("mirabelle supprimer");
-    mirabelle[0].remove();
-    var image = document.createElement('img');
-    image.src = mirabelle[1];
-    $inventaireObjet1.appendChild(image);
-});
-//DRAG - DROP
-//draggable:true
-carotte[0].on('dragend', function(e){
-    if (carotte[0].getLatLng().lat < 48.85295997870213 && carotte[0].getLatLng().lat > 48.846300499957565 && carotte[0].getLatLng().lng > 2.5831615564187786 && carotte[0].getLatLng().lng < 2.6084756265666713){
-        console.log('OK');
-    } else {
-        console.log("NOT OK");
-    }
-});
+// //DBLCLICK
+// mirabelle[0].on('dblclick', function (e) {
+//     console.log("mirabelle supprimer");
+//     mirabelle[0].remove();
+//     var image = document.createElement('img');
+//     image.src = mirabelle[1];
+//     $inventaireObjet1.appendChild(image);
+// });
+// //DRAG - DROP
+// //draggable:true
+// carotte[0].on('dragend', function(e){
+//     if (carotte[0].getLatLng().lat < 48.85295997870213 && carotte[0].getLatLng().lat > 48.846300499957565 && carotte[0].getLatLng().lng > 2.5831615564187786 && carotte[0].getLatLng().lng < 2.6084756265666713){
+//         console.log('OK');
+//     } else {
+//         console.log("NOT OK");
+//     }
+// });
 
-var eltBusMouse = document.getElementById("busMouse");
-//map.on('mousemove', moveBus);
-function moveBus(e){
-    var image = document.createElement('img');
-    image.src = 'images/bus/bus1.png';
-    image.width = "20";
-    eltBusMouse.innerHTML = '';
-    //eltBusMouse.innerText = 'IIII';
-    eltBusMouse.appendChild(image);
-    eltBusMouse.style.position = "fixed";
-    eltBusMouse.style.top = e.originalEvent.clientY+"px"; //Coordonnées de la souris
-    eltBusMouse.style.left = e.originalEvent.clientX+"px";
-    eltBusMouse.style.zIndex = 1000;
-}
+// var eltBusMouse = document.getElementById("busMouse");
+// //map.on('mousemove', moveBus);
+// function moveBus(e){
+//     var image = document.createElement('img');
+//     image.src = 'images/bus/bus1.png';
+//     image.width = "20";
+//     eltBusMouse.innerHTML = '';
+//     //eltBusMouse.innerText = 'IIII';
+//     eltBusMouse.appendChild(image);
+//     eltBusMouse.style.position = "fixed";
+//     eltBusMouse.style.top = e.originalEvent.clientY+"px"; //Coordonnées de la souris
+//     eltBusMouse.style.left = e.originalEvent.clientX+"px";
+//     eltBusMouse.style.zIndex = 1000;
+// }
 
-document.addEventListener('change', function(){
-    if (document.getElementById("afficheBus").checked){
-        eltBusMouse.style.visibility = "visible";
-    } else {
-        eltBusMouse.style.visibility = "hidden";
-    }
-})
-
-
+// document.addEventListener('change', function(){
+//     if (document.getElementById("afficheBus").checked){
+//         eltBusMouse.style.visibility = "visible";
+//     } else {
+//         eltBusMouse.style.visibility = "hidden";
+//     }
+// })
 
 
-// test ilona
-// var marker1 = L.marker([48.840900447202635, 2.586785066433026]).addTo(map).bindPopup('Coucou, je viens seulement si vous répondez à ma question <form> Que signifie "fouilla bel belet?"<label>xxxxxx<input type="radio" name="ouinon" value="1"></label><label>xxxxxx<input type="radio" name="ouinon" value="0"></label> <input type="submit" name="envoi" value="OK"></form>');
-// marker1.addEventListener("clik", () => {map.removeLayer(marker1);});
+
+// // test ilona
+// // var marker1 = L.marker([48.840900447202635, 2.586785066433026]).addTo(map).bindPopup('Coucou, je viens seulement si vous répondez à ma question <form> Que signifie "fouilla bel belet?"<label>xxxxxx<input type="radio" name="ouinon" value="1"></label><label>xxxxxx<input type="radio" name="ouinon" value="0"></label> <input type="submit" name="envoi" value="OK"></form>');
+// // marker1.addEventListener("clik", () => {map.removeLayer(marker1);});
+// // var greenIcon = L.icon({
+// //     iconUrl: 'images/bus.png',
+// //     iconSize:     [38, 95], // size of the icon
+// //     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+// //     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+// // });
+// // var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
+
+// // bus.on('click', function (e) {
+// //         map.removeLayer(bus);
+// //         map.removeLayer(carotteIcon);
+
+// // });
+
+
 // var greenIcon = L.icon({
-//     iconUrl: 'images/bus.png',
-//     iconSize:     [38, 95], // size of the icon
+//     iconUrl: 'images/bus/bus1.png',
+//     iconSize:     [168, 35], // size of the icon
 //     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
 //     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 // });
+
 // var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
 
 // bus.on('click', function (e) {
 //         map.removeLayer(bus);
-//         map.removeLayer(carotteIcon);
-
+//         map.removeLayer(carotte); 
 // });
-
-
-var greenIcon = L.icon({
-    iconUrl: 'images/bus/bus1.png',
-    iconSize:     [168, 35], // size of the icon
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
-
-var bus = L.marker([48.840952, 2.58678541], {icon: greenIcon}).addTo(map);
-
-bus.on('click', function (e) {
-        map.removeLayer(bus);
-        map.removeLayer(carotte); 
-});

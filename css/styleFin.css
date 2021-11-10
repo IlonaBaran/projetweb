@@ -13,3 +13,9 @@ body {
     border-color:black;
     text-align: center;
 }
+
+#bus{
+  grid-column: 1 / span3 ;                     
+  grid-row: 3;
+  position: relative;
+}
