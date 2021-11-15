@@ -50,11 +50,11 @@
             include("connexion.php");
             $today = date("H:i:s"); 
             $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
-            // if (mysqli_query($link, $sql)) {
-            //     echo "(sql) Nouveau enregistrement créé avec succès";
-            // } else {
-            //     echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
-            // }
+            if (mysqli_query($link, $sql)) {
+                echo "(sql) Nouveau enregistrement créé avec succès";
+            } else {
+                echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
+            }
             
             echo "<form method=\"get\" action=\"pageFin.php\">
                     <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 

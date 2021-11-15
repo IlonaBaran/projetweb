@@ -1,18 +1,20 @@
 body {
         display: grid;
-        grid-template-rows: 15% 80% 10%;
+        grid-template-rows: 20% auto 5%;
+        background-color: #e5f8d2;
 }
 
 #contener1 {
         grid-row : 1;
-        display: grid;
-        grid-template-columns: 30% 70%; 
-        background-color: #cfffab;
+        text-align: center;
+        font-family:Cambria, serif;
+        /* display: grid;
+        grid-template-columns: 30% 70%;  */
+        background-color: #fafff5;
 }
 
 #contener2{
         grid-row : 2;
-        background-color: #ec95be;
 }
 
 #logo {
@@ -20,11 +22,10 @@ body {
 }
    
 #titre {
-        grid-column: 2;                     
-        /* text-align: center; */
-        font-size: 1.1em;
-        font-weight: 500;
-        color: pink;
+        /* grid-column: 2;                      */
+        font-size: 1.5em;
+        font-weight: 600;
+        color: rgb(37, 77, 73);
 }
 
 
