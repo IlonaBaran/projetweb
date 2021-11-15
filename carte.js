@@ -101,7 +101,6 @@ var carotteIcon, mirabelleIcon, coindetIcon, zarzelliIcon, fillonIcon, maginotIc
 // recup(20).then(result => {blarelIcon = createIcon(map, [result["icone"], [44,56], [2, 9], [0, 0]], [result["latitude"], result["longitude"]], result["objet"])});
 // //Le bus 48*48
 
-
 // CODE HISTOIRE
 
 // APPARITION VICTOR 
@@ -137,25 +136,6 @@ fetch('http://localhost/projetweb/objet.php?id=3')
     });
 });
 // 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // TEST ILONA 2
