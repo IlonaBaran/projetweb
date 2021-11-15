@@ -10,6 +10,11 @@ body {
         background-color: #cfffab;
 }
 
+#contener2{
+        grid-row : 2;
+        background-color: #ec95be;
+}
+
 #logo {
         grid-column: 1;                  
 }
@@ -34,5 +39,4 @@ img {
         grid-row : 3;
         text-align: center;
         background-color: #cfffab;
-}
 }
