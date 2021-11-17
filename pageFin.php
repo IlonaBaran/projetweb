@@ -14,6 +14,12 @@
 
     <div id="contener2">
         <?php
+        // $largeur = window.innerWidth;
+        // $hauteur = window.innerHeight;
+        // echo "<img src=\"images/fond.jpg\" width=$largeur height=$hauteur id=\"tesst\">";
+        ?>
+
+        <?php
         include("connexion.php");
 
         $today = date("H:i:s"); 
@@ -35,7 +41,7 @@
 
         <div id="contener">
         <?php
-        $sql523 = "SELECT COUNT(pseudo) FROM joueur WHERE temps <= (SELECT temps FROM joueur WHERE pseudo ='$_GET[login]')";        
+        $sql523 = "SELECT COUNT(pseudo) FROM joueur WHERE temps <= (SELECT temps FROM joueur WHERE pseudo ='$_GET[login]' LIMIT 1)";        
         $classement = [];
         if ($result = mysqli_query($link, $sql523)) {
             while ($ligne = mysqli_fetch_assoc($result)) {
@@ -53,7 +59,8 @@
             }
             echo "<div id=\"contener\">
             <div id=\"phraseFin\">
-                Bravo ! Vous avez fini l'escape Game de Maeve et Ilona.
+                Bravo ! Vous avez ramené tous les élèves à l'ENSG ! 
+                Ils vont enfin pouvoir aller en cours de WEB et apprendre à coder proprement !
             </div>
 
             <div id=\"classementPersonnel\">
@@ -74,7 +81,7 @@
         </div>
 
         <div id="deplacementBus">
-            <img src="images/coindet.jpg" id ="coin">
+            <img src="images/bus/bus1.png" id ="coin" width="25%">
         </div>
     </div>
 

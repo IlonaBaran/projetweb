@@ -24,11 +24,11 @@ var change = 0;
 
 
 setInterval(function(){
-    image.style.left = change+"px";
-    if (change<=247){    
-        change+=5;    
+    image.style.left = change+"%";
+    if (change<=44){    
+        change+=0.5;    
     }
-    if(change>247){
+    if(change>44){
         clearInterval();
         // change-=5;
     }

@@ -17,7 +17,7 @@
 
     <body>
     <div id="contener1">
-        <div id="logo"><img src = "images/logo.jpg"></div>
+        <!-- <div id="logo"><img src = "images/logo.jpg"></div> -->
         <div id="titre">L'escape Game de Maeve et Ilona</div>
     </div>
 
@@ -25,7 +25,7 @@
       <div id="map">
       </div>
       <div id="bus">
-        <img src="images/bus/bus1.png" id="testimage">
+        <img src="images/bus/bus1.png" id ="testimage">
       </div>
 
       <div id="inventaire">
