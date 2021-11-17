@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 30% 40% 30%;
     grid-template-rows: 40% 40% 20%;
-    background-color: rgb(55, 128, 155);
+    /* background-color: rgb(55, 128, 155); */
 }
 
 /* -------------------------------------------------------------------- */

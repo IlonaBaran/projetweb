@@ -19,15 +19,17 @@
 
 // setInterval(draw, 10);
 
-var image = document.getElementById('bus');
+var image = document.getElementById('coin');
 var change = 0;
 
 
 setInterval(function(){
     image.style.left = change+"px";
-    if (change<=247){    change+=5;    }
+    if (change<=247){    
+        change+=5;    
+    }
     if(change>247){
-        // clearInterval();
-        change-=5;
+        clearInterval();
+        // change-=5;
     }
 },50);
