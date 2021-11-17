@@ -25,7 +25,12 @@
       <div id="map">
       </div>
       <div id="bus">
+<<<<<<< HEAD
         <img src="images/bus/bus1.png" id ="testimage">
+=======
+        <img src="images/bus/bus1.png" id="testimage">
+        <input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">
+>>>>>>> 579a228c7e5174e01ed69895e3677ea7309fed01
       </div>
 
       <div id="inventaire">
@@ -41,6 +46,7 @@
               <div id="indicator"></div>
           </div>
           <div id="progressnum">0</div>
+          <button id="suiteStory">Next</button>
       </div>
 
       <div id="deroulmentJeu">
