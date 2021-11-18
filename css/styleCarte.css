@@ -3,7 +3,8 @@
     display: grid;
     grid-template-columns: 30% 40% 30%;
     grid-template-rows: 40% 40% 20%;
-    /* background-color: rgb(55, 128, 155); */
+    
+    background-color: rgba(97, 86, 72, 0.50);
 }
 
 /* -------------------------------------------------------------------- */
@@ -11,7 +12,10 @@
 #deroulmentJeu{
     grid-column: 1;
     grid-row: 1 / span 3;
-    background-color: rgb(55, 128, 155);
+
+    background-image : url("../images/inventaire.jpg");
+    background-size: cover;
+
     display: grid;
     grid-template-columns: 5% 90% 5%;
     grid-template-rows: 5% 80% 10% 5%;
@@ -20,25 +24,31 @@
 #message{
     grid-column: 2;
     grid-row: 2;
-    background-color: rgb(41, 77, 90);
+    background-color: rgb(247, 226, 196, 0.50);
+    
     overflow: auto;
     scrollbar-width: thin;
 
     height: 80vh;
     overflow-y: scroll;
-    scrollbar-color: rebeccapurple green;
+    scrollbar-color: rgb(247, 226, 196, 0.50) rgba(97, 86, 72, 0.50);
 }
 
 #deroulmentTitre{
     grid-column: 2;
     grid-row: 1;
     margin: auto;
+
+    font-weight: 500;
+    color: rgb(247, 226, 196, 0.33);
+    text-align: center;
+    font-size: 1.5em;
 }
 
 #interaction{
     grid-column: 2;
     grid-row: 3;
-    background-color: rgb(160, 201, 216);
+    background-color: rgba(185, 171, 152, 0.5);
     text-align: center;
 }
 
@@ -69,23 +79,19 @@
     grid-column: 3;                     
     grid-row: 1;
     border: 2px solid #240b16;
-/* 
-    display: block;
-    margin-left: auto;
-    margin-right: auto  */
+
+    background-image : url("../images/fond2.png");
+    background-size: cover;
 }
 
 #testimage{
-    width: 60%;
-    /* display: block; */
-    /* margin-left: auto;
+    width: 80%;
+    margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto; */
-    /* margin: auto; */
 
     display: flex;
     justify-content: center; 
+    margin-top: 20%;
 }
 
 
@@ -179,7 +185,7 @@
     padding:1px;
     background-color:white;
     border:1px solid black;
-    height:28px;
+    height: 15%;
 }
 
 #indicator{

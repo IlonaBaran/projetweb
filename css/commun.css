@@ -29,8 +29,14 @@ body {
         color: rgb(37, 77, 73);
 }
 
-#mentions {
+/* #mentions {
         grid-row : 3;
         text-align: center;
-        background-color: #cfffab;
+        text-decoration: none; 
+} */
+
+footer {
+        grid-row : 3;
+        text-align: center;
+        text-decoration: none; 
 }
