@@ -32,18 +32,17 @@
 
       <div id="inventaire">
         <div id ="titreInventaire">Inventaire</div>
-        <div id="objet1">objet 1</br></div>
-        <div id="objet2">objet 2</br></div>
-        <div id="objet3">objet 3</br></div>
-        <div id="objet4">objet 4</br></div>
+        <div id="objet1"></br></div>
+        <div id="objet2"></br></div>
+        <div id="objet3"></br></div>
+        <div id="objet4"></br></div>
       </div>
 
       <div id="niveaux">Progression du jeu
           <div id="progressbar">
               <div id="indicator"></div>
+              <div id="progressnum">0</div>
           </div>
-          <div id="progressnum">0</div>
-          <button id="suiteStory">Next</button>
       </div>
 
       <div id="deroulmentJeu">
@@ -67,6 +66,8 @@
         </div>
 
         <div id="interaction">
+        <button id="suiteStory">Next</button>
+
           <div id="i1">
             <label>reponse1<input type="radio" name="ouinon" value="1"></label>
             <label>reponse2<input type="radio" name="ouinon" value="0"></label>
