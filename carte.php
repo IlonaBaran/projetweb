@@ -26,7 +26,8 @@
       </div>
       <div id="bus">
         <img src="images/bus/bus1.png" id="testimage">
-        <input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">
+        
+        <button id="suiteStory">Next</button>
       </div>
 
       <div id="inventaire">
@@ -42,7 +43,6 @@
               <div id="indicator"></div>
           </div>
           <div id="progressnum">0</div>
-          <button id="suiteStory">Next</button>
       </div>
 
       <div id="deroulmentJeu">
@@ -76,6 +76,11 @@
             <label>reponse1<input type="texte" name="ouinon" id="i2texte" value="0"></label>
             <button id="validate2">Valider2</button>
           </div>
+
+          <input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">
+          <button id="valide">Entrer</button>
+          </br>
+          <div id="noValueReponse"></div>
         </div>
 
       </div>

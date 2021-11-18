@@ -46,16 +46,18 @@ ________________________________________________________________________
 7. quand le joueur clique dessus, la faire disparaitre et la mettre dans l'inventaire (groupe d'objet ?)
 
 .bindPopup('Ah merci! On peut y aller! Allons chercher Clément, il habite à MontBrison!')
-
+$message.innerHTML = 'Ah merci! On peut y aller! Allons chercher Clément, il habite à MontBrison!'
 ________________________________________________________________________
 8. Faire disparaitre Amelie, la mettre dans le bus, Afficher Clement 
 
 .bindPopup('Coucou, je viens seulement si vous répondez à ma question <form action="page.php" method="get"> <input type="submit" name="envoi" value="OK">Que signifie "fouilla bel belet?"<label>xxxxxx<input type="radio" name="ouinon" value="1"></label><label>xxxxxx<input type="radio" name="ouinon" value="0"></label></form>');
 
+Indice donné dans la discussion (une pomme de pin en image)
+
 var valeur = document.querySelector('input[name="ouinon"]:checked').value;
 if (valeur == 1){
     .bindPopup('Bravo! La brise est trop forte ici, changeons de mont! Allons à Montaigu, un lapin s'y cache.')
-    $message.innerHTML = "Wow, PRENOM UTILISATEUR est trop fort, on va vite pouvoir du WEB" (Amaury qui parle)
+    $message.innerHTML = "Wow, PRENOM UTILISATEUR est trop fort, on va vite pouvoir faire du WEB" (Amaury qui parle)
     $message.innerHTML = "C'est génial ! J'ai si envie d'avoir de nouvelles connaissances" (Amelie qui parle)
 }
 else (){
@@ -71,6 +73,8 @@ ________________________________________________________________________
 $message.innerHTML = "C'est pas du tout une recette du coin ca !" (Clement qui parle)
 $message.innerHTML = "Coin(det) coin(det)" (Amaury qui parle)
 
+INDICE sur le PREFOU
+
 .bindPopup('MMMM, ca à l'air vraiment très bon!  En route vers l'Est, Antoine, le beau gosse, nous attend!')
 
 ________________________________________________________________________
@@ -78,13 +82,15 @@ ________________________________________________________________________
 
 .bindPopup('Enfin ! Ca fait 1h que je vous attends! Je ne monte que si vous répondez à ma question: Tu préfères ton père ou ta mère?<form><label>ta mère<input type="radio" name="ouinon" value="1"></label><label>ton père<input type="radio" name="ouinon" value="0"></label><input type="submit" name="envoi" value="OK"></form>')
 .bindPopup('On peut aller chez Kevin, c'est pas très très loin !')
-
+$message.innerHTML = "Comme d'hab' tu les double click!"
+$message.innerHTML = "Ahah il est marrant celui là"
 ________________________________________________________________________
 12. Disparition de Antoine, Antoine dans le bus, apparition de Kevin
 
+Indice mettre des coeurs dans la discussion
+
 .bindPopup('Oh dingue, vous êtes venus! Petite question avant de partir, que veut dire 'mi aim a ou'?<form><label>ta mère<input type="radio" name="ouinon" value="1"></label><label>ton père<input type="radio" name="ouinon" value="0"></label><input type="submit" name="envoi" value="OK"></form>')
 if (valeur == 1){
-    .bindPopup('Bravo! La brise est trop forte ici, changeons de mont! Allons à Montaigu, un lapin s'y cache.')
     $message.innerHTML = "miaou miaou" (Amaury qui parle)
     $message.innerHTML = "Je crois qu'on a perdu Amaury" (Amelie qui parle)
     $message.innerHTML = "miaou miaou" (Amaury qui parle)
@@ -108,6 +114,7 @@ if (valeur == 1){
 else (){
     ///trouver ce qu'on fait si l'utilisateur répond mal : on ouvre un autre popup ? ou on affiche un message a la suite de la popup ?
 }
+Faire des propositions ou réduire la question à "que veut dire: l'berdoule"
 
 ________________________________________________________________________
 14. Disparition de Lea L, Lea L dans le bus, apparition de Vincent 

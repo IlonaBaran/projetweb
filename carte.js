@@ -7,6 +7,8 @@ var $inventaireObjet4 = document.getElementById("objet4");
 var $bus = document.getElementById("bus");
 var $map = document.getElementById("map");
 var valueReponse = document.getElementById("valueReponse");
+var noValueReponse = document.getElementById("noValueReponse");
+var valueReponseValide = document.getElementById("valide");
 var objetsLibere = [];
 //Compteur de l'avancée du jeu
 //var compteur = 0;
@@ -23,46 +25,73 @@ var btn = document.getElementById("suiteStory");
 var recupFetch = function(nb) {
     fetch('http://localhost/projetweb/objet.php?id='+String(nb)).then(response => response.json())
     .then(result => {
-        var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[0,0], maxZoom:10});
-        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup(result["message"], {fontSize: 10}).addTo(map);
+        var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
+        var paroles = result["message"].split("$");
+        console.log(result["latitude"], result["longitude"]);
+        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup(paroles[0], {fontSize: 10}).addTo(map);
+        paroles = paroles.slice(1,);
+        console.log(paroles[0])
         marker.openPopup();
         //Partie Evènement
-        btn.addEventListener('click', function(){
-            var compteur = progresSum.innerText;
-            compteur++;
-            progresSum.innerText = compteur;
-            //marker._popup.setContent("Va falloir aller les chercher...tu peux t'en occuper ? Je dois être à l'école à 11h30 pour acheter mes billets du Hellfest")
-        });
-        map.on("zoomend", function(e) {
-            let zoom = map.getZoom();
-            if (zoom>5) {
-                marker.addTo(map);
-            } else{
-                marker.remove();
-            }
-        });
-        if (result["eventDragdrop"]) {
-            marker.on("dragend", function(e) {
-                if (marker.getLatLng().lat < 48.85295997870213 && marker.getLatLng().lat > 48.846300499957565 && marker.getLatLng().lng > 2.5831615564187786 && marker.getLatLng().lng < 2.6084756265666713){
-                    return true;
-                } else {
-                    return false;
-                }
-            });
+        //appliqueEventZoomend(marker);
+        if (result["eventDragDrop"]) {
+            appliqueEventDragend(marker,result["dragDropEnd"].split("$"));
         }
         else if (result["eventDblClick"]) {
+            appliqueEventDblclick(marker,result["icone"],result["dblClickBus"]);
+        }
+        if (result["bloque"] == "O") {
+            recupFetchObjet(result["bloquePar"],marker,result["icone"],paroles[0],nb);
+        } else if (result["bloque"] == "C") {
+            valueReponseValide.addEventListener('click', function(){
+                noValueReponse.innerText = "";
+                if (strNoAccent(valueReponse.value.toLowerCase()) == result["bloquePar"] || result["bloquePar"] == null){
+                    map.closePopup();
+                    marker._popup.setContent(paroles[0]);
+                    marker.openPopup();
+                    appliqueEventDblclick(marker,result["icone"],result["dblClickBus"]);
+                    marker.on('dblclick', function (e) {
+                        if (nb+1<15){
+                            recupFetch(nb+1);
+                        }
+                    });
+                } else {
+                    noValueReponse.innerText = "Faux, retente ta chance!";
+                }
+            });
+        } else {
             marker.on('dblclick', function (e) {
                 marker.remove();
-                var image = document.createElement('img');
-                image.src = result["icone"];
-                if (result["dblClickBus"]) {
-                    $bus.appendChild(image);
-                } else {
-                    $inventaireObjet1.appendChild(image);
-                }
+                recupFetch(nb+1);
             })
         }
-        
+    })
+};
+
+var recupFetchObjet = function(nb, markerB, iconeB, messageB, n) {
+    fetch('http://localhost/projetweb/objet.php?id='+String(nb)).then(response => response.json())
+    .then(result => {
+        var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
+        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup(result["message"], {fontSize: 10}).addTo(map);
+        //Partie Evènement
+        //appliqueEventZoomend(marker);
+        if (result["eventDragDrop"]) {
+            appliqueEventDragend(marker,result["dragDropEnd"].split("$"), markerB, iconeB, messageB);
+        }
+        else if (result["eventDblClick"]) {
+            appliqueEventDblclick(marker,result["icone"],result["dblClickBus"]);
+        }
+        marker.on("remove", function(e) {
+            map.closePopup();
+            markerB._popup.setContent(messageB);
+            markerB.openPopup();
+            appliqueEventDblclick(markerB,iconeB,true);
+            markerB.on('dblclick', function (e) {
+                if (n+1==7){
+                    recupFetch(n+1);
+                }
+            });
+        });
     })
 };
 
@@ -76,12 +105,11 @@ var appliqueEventZoomend = function(marker) {
         }
     });
 }
-var appliqueEventDragend = function(marker) {
+var appliqueEventDragend = function(marker, latLong) {
     marker.on("dragend", function(e) {
-        if (marker.getLatLng().lat < 48.85295997870213 && marker.getLatLng().lat > 48.846300499957565 && marker.getLatLng().lng > 2.5831615564187786 && marker.getLatLng().lng < 2.6084756265666713){
-            return true;
-        } else {
-            return false;
+        console.log(marker.getLatLng().lat, latLong[0]-0.1, parseFloat(latLong[0]+0.1), marker.getLatLng().lng, latLong[1]-0.1, parseFloat(latLong[1]+0.1));
+        if (marker.getLatLng().lat > latLong[0]-0.1 && marker.getLatLng().lat < parseFloat(latLong[0]+0.1) && marker.getLatLng().lng > latLong[1]-0.1 && marker.getLatLng().lng < parseFloat(latLong[1]+0.1)){
+            marker.remove();
         }
     });
 }
@@ -98,13 +126,29 @@ var appliqueEventDblclick = function(marker, imgSrc, boolEvent) {
     })
 }
 
+//Récupérée sur le net
+function strNoAccent(mot) {
+    var accentuationMaj="áàâäãåçéèêëíïîìñóòôöõúùûüýÁÀÂÄÃÅÇÉÈÊËÍÏÎÌÑÓÒÔÖÕÚÙÛÜÝ'", accentuationMin="aaaaaaceeeeiiiinooooouuuuyAAAAAACEEEEIIIINOOOOOUUUUY ", motNouveau="";
+    for (var i=0, j=mot.length; i<j; i++) {
+        var lettre = mot.substr(i, 1);
+        motNouveau += (accentuationMaj.indexOf(lettre) !== -1) ? accentuationMin.substr(accentuationMaj.indexOf(lettre), 1) : lettre;
+    }
+    return motNouveau;
+}
+console.log(strNoAccent("je t'aime"));
+
 //recupFetch(3);
 /*btn.addEventListener('click', function(){
     recupFetch(progresSum.innerText);
 });*/
 //Faire apparaitre Victor et Amaury à l'ENSG
+
 var compteur = progresSum.innerText;
-fetch('http://localhost/projetweb/objet.php?objet=COINDET&objet=ZARZELLI&objet=FILLON').then(response => response.json())
+btn.addEventListener('click', function(){
+    compteur++;
+    progresSum.innerText = compteur;
+});
+fetch('http://localhost/projetweb/objet.php?dialogue=0').then(response => response.json())
     .then(results => {
         var result = results[0];
         var result2 = results[1];
@@ -152,9 +196,13 @@ fetch('http://localhost/projetweb/objet.php?objet=COINDET&objet=ZARZELLI&objet=F
                     marker3.openPopup();
                     paroles3 = paroles3.slice(1,);
                 }
-            } if (compteur>7) {
+            } 
+            if (compteur==8) {
                 marker2.remove();
                 marker3.closePopup();
+            }
+            if (compteur==10) {
+                marker3.remove();
             }
         });
     })
@@ -167,12 +215,15 @@ btn.addEventListener('click', function(){
 
 //Faire apparaitre Tristan Fillon au niveau du portail de sécurité
 //Faire apparaitre Jeanine dans l'ENSG et deplacer Amaury a côté de Jeanine
+
 console.log(progresSum.textContent);
 progresSum.addEventListener('DOMSubtreeModified', function(){
     if (compteur==8) {
+        console.log("laaaa");
         fetch('http://localhost/projetweb/objet.php?id=21').then(response => response.json())
         .then(result => {
             //JEANINE
+            console.log("ooooo");
             var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
             var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup("...", {fontSize: 10}).addTo(map).openPopup();
             fetch('http://localhost/projetweb/objet.php?id=22').then(response => response.json())
@@ -183,17 +234,22 @@ progresSum.addEventListener('DOMSubtreeModified', function(){
                 var paroles2 = result2["message"].split("$");
                 var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2, draggable:true}).bindPopup(paroles2[0], {fontSize: 10}).addTo(map).openPopup();
                 paroles2 = paroles2.slice(1,);
-                valueReponse.addEventListener('input', function(){
+                valueReponseValide.addEventListener('click', function(){
                     if (valueReponse.value.toLowerCase() == result["bloquePar"]){
                         marker.bindPopup(result["message"], {fontSize: 10}).openPopup();
                         fetch('http://localhost/projetweb/objet.php?id=23').then(response => response.json())
                         .then(result3 => {
                             //MIGNIBUS
-                            L.marker([result3["latitude"], result3["longitude"]], {icon:new L.icon({iconUrl:result3["icone"], iconSize:[result3["iconeSizeLarg"], result3["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result3["iconeSizeLarg"]/2,0], maxZoom:10}), draggable:true}).bindPopup(result3["message"], {fontSize: 10}).addTo(map);
+                            var marker3 = L.marker([result3["latitude"], result3["longitude"]], {icon:new L.icon({iconUrl:result3["icone"], iconSize:[result3["iconeSizeLarg"], result3["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result3["iconeSizeLarg"]/2,0], maxZoom:10}), draggable:true}).bindPopup(result3["message"], {fontSize: 10}).addTo(map);
                             btn.style.visibility = 'visible';
                             btn.addEventListener('click', function(){
                                 if (compteur==9) {
                                     marker2.bindPopup(paroles2[0], {fontSize: 10}).openPopup();
+                                }
+                                if (compteur==10) {
+                                    marker.remove();
+                                    marker2.remove();
+                                    marker3.remove();
                                 }
                             });
                         })
@@ -204,3 +260,9 @@ progresSum.addEventListener('DOMSubtreeModified', function(){
     }
 });
 
+btn.addEventListener('click', function(){
+    if (compteur==9) {
+        map.setView([48.86605828999056, 2.3153718330271382],8);
+        recupFetch(6);
+    }
+});
