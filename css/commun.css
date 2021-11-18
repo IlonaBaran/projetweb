@@ -1,7 +1,6 @@
 body {
         display: grid;
-        grid-template-rows: 20% auto 5%;
-        background-color: #e5f8d2;
+        grid-template-rows: 20% 70% 10%;
 }
 
 #contener1 {
@@ -16,28 +15,17 @@ body {
 #contener2{
         grid-row : 2;
 }
-
-#logo {
-        grid-column: 1;                  
-}
    
 #titre {
-        /* grid-column: 2;                      */
         font-size: 1.5em;
         font-weight: 600;
-        color: rgb(37, 77, 73);
 }
 
-
-img {
-        width: 10%; 
-        /* max-width: 100%;
-        max-height: 100%; */
-}
-
-
-#mentions {
+footer {
         grid-row : 3;
         text-align: center;
-        background-color: #cfffab;
+}
+
+.a {
+        text-decoration: none; 
 }

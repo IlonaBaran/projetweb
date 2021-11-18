@@ -1,17 +1,19 @@
 #contener2 {
-    min-height: 100vh;                  /* 1 */
-    display: grid;                      /* 2 */
-    grid-template-columns: 15% 25% 60%;  /* 3 */
-    grid-template-rows: 10% 60% 30%;  /* 3 */
+    min-height: 100vh;                  
+    display: grid;                      
+    grid-template-columns: 15% 40% 30% 15%;  
+    grid-template-rows:  10% 20% 35% 10% 25%;  
+    background-image : url("../images/fond2.png");
+    background-size: cover;
   }
 
 #contener{
-    grid-column: 2;                     
-    grid-row: 2;
+  border-radius: 10%;
+  background-color: rgb(127, 167, 185, 0.4);
+  grid-column: 3;                     
+  grid-row: 2 ;
 
-    border-radius: 10%;
-    background-color: rgb(134, 99, 87);
-    grid-template-rows: 30% 50% 20%;
+  /* grid-template-rows: 30% 50% 20%; */
 }
 
 #retourPP{
@@ -30,9 +32,12 @@
 }
 
 
+
+
+
 #deplacementBus{
   grid-column: 1 / span3 ;                     
-  grid-row: 3;
+  grid-row: 4;
 }
 
 #coin{

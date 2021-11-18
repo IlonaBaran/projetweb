@@ -9,8 +9,7 @@
 
   <body>
     <div id="contener1">
-        <div id="logo"><img src = "images/logo.jpg"></div>
-        <div id="titre">L'escape Game de Maeve et Ilona</div>
+        <div id="titre">L'escapade en Mignibus</div>
     </div>
 
 
@@ -31,17 +30,18 @@
         echo "
         <div id=\"connexion1\"> Rentrez un identifiant pour commencer l'aventure ! 
         <form id=\"identifiantForm\" method=\"get\" action=\"carte.php\">
-                <input type=\"text\" name=\"login\">
+                <input type=\"text\" name=\"login\" required minlength=\"1\" maxlength=\"20\" size=\"20\">
                 <input type=\"submit\" value=\"C'est parti !\">
         </form>
         </div>";
         ?>
 
-        <div  id="score">
+        <div id="titreScore">Hall Of Fame</div>
+        <div id="score">
         <?php
             include("connexion.php");
             $tableau_classement = [];
-            $requete = "SELECT pseudo, temps FROM joueur ORDER BY temps ASC LIMIT 5";
+            $requete = "SELECT pseudo, temps FROM joueur ORDER BY temps ASC LIMIT 10";
             if ($result = mysqli_query($link, $requete)) {
                 while ($ligne = mysqli_fetch_assoc($result)) {
                     array_push($tableau_classement, [
@@ -50,18 +50,19 @@
                     ]);
                 }
 
-                $table_str = "<table id=\"tableau\">
-                <tr><th id=\"titreClassement\" colspan=3> <img src=\"images/trophee.jpg\" width=10%>Le classement des meilleurs joueurs <img src=\"images/trophee.jpg\" width=10%></th></tr>
-                <tr><th>Position</th><th>Identifiant</th><th>Temps</th></tr>";
+                $table_str = "<table>";
+                $ligne = "";
                 $position = 1;
 
                 foreach ($tableau_classement as $elem) {
-                    $table_str .= "<tr><td>$position</td>";
+                    $table_str .= "<tr><td>$position.  ";
                     foreach ($elem as $key => $value) {
-                        $table_str .= "<td>$value</td>";
+                        $ligne .= "  $value";
                     }
-                    $table_str .= "</tr>";
+                    $table_str .= $ligne;
+                    $table_str .= "</td></tr>";
                     $position ++; 
+                    $ligne = "";
                 }
                 $table_str .= "</table>";
                 echo $table_str;
@@ -73,7 +74,7 @@
         </div>
     </div>
 
-    <footer id = "mentions">
+    <footer>
         <a href="html/planDuSite.html"> Plan du Site</a>
         -
         <a href="html/mentionsLegales.html"> Mentions légales </a>

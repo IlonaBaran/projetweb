@@ -14,28 +14,34 @@
 
     <div id="contener2">
         <?php
+        // $largeur = window.innerWidth;
+        // $hauteur = window.innerHeight;
+        // echo "<img src=\"images/fond.jpg\" width=$largeur height=$hauteur id=\"tesst\">";
+        ?>
+
+        <?php
         include("connexion.php");
 
         $today = date("H:i:s"); 
         $sql = "UPDATE joueur SET finchrono = '$today' WHERE pseudo ='$_GET[login]'";
-        // if (mysqli_query($link, $sql)) {
-        //     echo "(sql : update joueur avec finchrono ) Nouveau enregistrement créé avec succès";
-        // } else {
-        //     echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
-        // }
+        if (mysqli_query($link, $sql)) {
+            echo "(sql : update joueur avec finchrono ) Nouveau enregistrement créé avec succès";
+        } else {
+            echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
+        }
 
         
         $sql666 = "UPDATE `joueur` SET `temps`=TIMEDIFF(`finchrono`,`debutchrono`) WHERE pseudo ='$_GET[login]'";
-        // if (mysqli_query($link, $sql666)) {
-        //     echo "(sql : update joueur avec temps) Nouveau enregistrement créé avec succès";
-        // } else {
-        //     echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
-        // }
+        if (mysqli_query($link, $sql666)) {
+            echo "(sql : update joueur avec temps) Nouveau enregistrement créé avec succès";
+        } else {
+            echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
+        }
         ?>
 
         <div id="contener">
         <?php
-        $sql523 = "SELECT COUNT(pseudo) FROM joueur WHERE temps <= (SELECT temps FROM joueur WHERE pseudo ='$_GET[login]')";        
+        $sql523 = "SELECT COUNT(pseudo) FROM joueur WHERE temps <= (SELECT temps FROM joueur WHERE pseudo ='$_GET[login]' LIMIT 1)";        
         $classement = [];
         if ($result = mysqli_query($link, $sql523)) {
             while ($ligne = mysqli_fetch_assoc($result)) {
@@ -51,9 +57,10 @@
                 }
                 
             }
-            echo "<div id=\"contener\">
+            echo "
             <div id=\"phraseFin\">
-                Bravo ! Vous avez fini l'escape Game de Maeve et Ilona.
+                Bravo ! Vous avez ramené tous les élèves à l'ENSG ! 
+                Ils vont enfin pouvoir aller en cours de WEB et apprendre à coder proprement !
             </div>
 
             <div id=\"classementPersonnel\">
@@ -64,7 +71,6 @@
                 <form method=\"get\" action=\"pagePrincipale.php\">
                         <input type=\"submit\" value=\"Retour à la page principale\">
                 </form>
-            </div>
             </div>";
         } 
         else {
@@ -74,7 +80,7 @@
         </div>
 
         <div id="deplacementBus">
-            <img src="images/coindet.jpg" id ="coin">
+            <img src="images/bus/bus1.png" id ="coin" width="25%">
         </div>
     </div>
 

@@ -17,32 +17,38 @@
 
     <body>
     <div id="contener1">
-        <div id="logo"><img src = "images/logo.jpg"></div>
         <div id="titre">L'escape Game de Maeve et Ilona</div>
     </div>
 
     <div id="contener2">
-      <div id="map">
-      </div>
+      <div id="map"></div>
+
       <div id="bus">
         <img src="images/bus/bus1.png" id="testimage">
+<<<<<<< HEAD
         
         <button id="suiteStory">Next</button>
+=======
+>>>>>>> e7ba3324a5617ed297fbeec4057a1d34c83ee03c
       </div>
 
       <div id="inventaire">
         <div id ="titreInventaire">Inventaire</div>
-        <div id="objet1">objet 1</br></div>
-        <div id="objet2">objet 2</br></div>
-        <div id="objet3">objet 3</br></div>
-        <div id="objet4">objet 4</br></div>
+        <div id="objet1"></br></div>
+        <div id="objet2"></br></div>
+        <div id="objet3"></br></div>
+        <div id="objet4"></br></div>
       </div>
 
       <div id="niveaux">Progression du jeu
           <div id="progressbar">
               <div id="indicator"></div>
+              <div id="progressnum">0</div>
           </div>
+<<<<<<< HEAD
           <div id="progressnum">0</div>
+=======
+>>>>>>> e7ba3324a5617ed297fbeec4057a1d34c83ee03c
       </div>
 
       <div id="deroulmentJeu">
@@ -66,6 +72,10 @@
         </div>
 
         <div id="interaction">
+          <input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">
+          <button id="suiteStory">Next</button>
+
+          <!-- on peut integrer ca lors des differents cas quand les ge s doivent repondre -->
           <div id="i1">
             <label>reponse1<input type="radio" name="ouinon" value="1"></label>
             <label>reponse2<input type="radio" name="ouinon" value="0"></label>
@@ -86,29 +96,9 @@
       </div>
     </div>
 
-      <?php
-          include("connexion.php");
-          /*$today = date("H:i:s"); 
-          $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('ilona', '$today', '$today')";
-          if (mysqli_query($link, $sql)) {
-              echo "(sql) Nouveau enregistrement créé avec succès";
-          } else {
-              echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
-          }
-        ?>
-      <?php     
-      echo "Déroulement du jeu
-      <form method=\"get\" action=\"pageFin.php\">
-              <input type=\"readonly\" name=\"login\" value=\"ilona\" style=\"display:none;\"> 
-              <input type=\"submit\" value=\"OK\" id=\"recup\">
-      </form>";
-      */?>
-      </div>
-
-
-      <div id="busMouse"></div>
-      <input type="checkbox" id="option" name="afficheBus">
-      <label for="afficheBus">Afficher le bus en voyage</label>
+    <!-- <div id="busMouse"></div>
+    <input type="checkbox" id="option" name="afficheBus">
+    <label for="afficheBus">Afficher le bus en voyage</label> -->
 
       <footer id = "mentions">
         <a href="html/planDuSite.html"> Plan du Site</a>
@@ -121,6 +111,5 @@
       </footer>
 
       <script src="carte.js"></script>
-      <!-- <script src="chrono.js"></script> -->
   	</body>
 </html>

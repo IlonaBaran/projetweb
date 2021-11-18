@@ -3,10 +3,78 @@
     <head>
       <meta charset="UTF-8">
       <title>Page de fin</title>
+      <link rel="stylesheet" href="css/commun.css">
+      <link rel="stylesheet" href="css/styleFin.css">
     </head>
 
     <body>
-      <canvas id="myCanvas" width="480" height="320"></canvas>
-      <script src="deplacementBus.js"></script>
+    <div id="contener1">
+        <div id="titre">L'escapade en mignibus</div>
+    </div>
+
+    <div id="contener2">
+        <?php
+        // $largeur = window.innerWidth;
+        // $hauteur = window.innerHeight;
+        // echo "<img src=\"images/fond.jpg\" width=$largeur height=$hauteur id=\"tesst\">";
+        ?>
+
+        <?php
+        include("connexion.php");
+
+        $today = date("H:i:s"); 
+        $sql = "UPDATE joueur SET finchrono = '$today' WHERE pseudo ='$_GET[login]'";
+        if (mysqli_query($link, $sql)) {
+            echo "(sql : update joueur avec finchrono ) Nouveau enregistrement créé avec succès";
+        } else {
+            echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
+        }
+
+        
+        $sql666 = "UPDATE `joueur` SET `temps`=TIMEDIFF(`finchrono`,`debutchrono`) WHERE pseudo ='$_GET[login]'";
+        if (mysqli_query($link, $sql666)) {
+            echo "(sql : update joueur avec temps) Nouveau enregistrement créé avec succès";
+        } else {
+            echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
+        }
+        ?>
+
+        <div id="contener">
+            <div id="phraseFin">
+                Bravo ! Vous avez ramené tous les élèves à l'ENSG ! 
+                Ils vont enfin pouvoir aller en cours de WEB et apprendre à coder proprement !
+            </div>
+
+            <div id="classementPersonnel">
+                Vous etes classé : $position
+            </div>
+
+            <div id="retourPP">
+                <form method="get" action="pagePrincipale.php">
+                        <input type="submit" value="Retour à la page principale">
+                </form>
+            </div>
+            </div>
+        </div>
+
+        <div id="deplacementBus">
+            <img src="images/bus/bus1.png" id ="coin" width="25%">
+        </div>
+    </div>
+
+    
+    <footer id = "mentions">
+        <a href="html/planDuSite.html"> Plan du Site</a>
+        -
+        <a href="html/mentionsLegales.html"> Mentions légales </a>
+        -
+        <a href="html/credits.html"> Crédits </a>
+        -
+        <a href="html/conditionsUtilisation.html"> Conditions générales </a>
+    </footer>
+
+    <script src="deplacementBus.js"></script>
+    <script src="test.js"></script>
   	</body>
 </html>
+
