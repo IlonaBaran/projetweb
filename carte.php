@@ -25,11 +25,8 @@
 
       <div id="bus">
         <img src="images/bus/bus1.png" id="testimage">
-<<<<<<< HEAD
-        
+
         <button id="suiteStory">Next</button>
-=======
->>>>>>> e7ba3324a5617ed297fbeec4057a1d34c83ee03c
       </div>
 
       <div id="inventaire">
@@ -45,10 +42,7 @@
               <div id="indicator"></div>
               <div id="progressnum">0</div>
           </div>
-<<<<<<< HEAD
           <div id="progressnum">0</div>
-=======
->>>>>>> e7ba3324a5617ed297fbeec4057a1d34c83ee03c
       </div>
 
       <div id="deroulmentJeu">
