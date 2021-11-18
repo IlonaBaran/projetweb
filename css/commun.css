@@ -1,13 +1,6 @@
-*{
-        /* overflow: hidden; */
-}
-
 body {
         display: grid;
         grid-template-rows: 20% 70% 10%;
-        /* background-color: #e5f8d2; */
-        /* overflow: hidden;
-        object-fit: cover; */
 }
 
 #contener1 {
@@ -26,17 +19,13 @@ body {
 #titre {
         font-size: 1.5em;
         font-weight: 600;
-        color: rgb(37, 77, 73);
 }
-
-/* #mentions {
-        grid-row : 3;
-        text-align: center;
-        text-decoration: none; 
-} */
 
 footer {
         grid-row : 3;
         text-align: center;
+}
+
+.a {
         text-decoration: none; 
 }

@@ -9,7 +9,7 @@
 
   <body>
     <div id="contener1">
-        <div id="titre">L'escape Game de Maeve et Ilona</div>
+        <div id="titre">L'escapade en Mignibus</div>
     </div>
 
 
@@ -30,7 +30,7 @@
         echo "
         <div id=\"connexion1\"> Rentrez un identifiant pour commencer l'aventure ! 
         <form id=\"identifiantForm\" method=\"get\" action=\"carte.php\">
-                <input type=\"text\" name=\"login\">
+                <input type=\"text\" name=\"login\" required minlength=\"1\" maxlength=\"20\" size=\"20\">
                 <input type=\"submit\" value=\"C'est parti !\">
         </form>
         </div>";
@@ -66,8 +66,6 @@
                 }
                 $table_str .= "</table>";
                 echo $table_str;
-
-
             }
             else {
                 echo "Erreur de requête de base de données.";
@@ -76,7 +74,7 @@
         </div>
     </div>
 
-    <footer id = "mentions">
+    <footer>
         <a href="html/planDuSite.html"> Plan du Site</a>
         -
         <a href="html/mentionsLegales.html"> Mentions légales </a>

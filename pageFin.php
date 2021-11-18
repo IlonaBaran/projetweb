@@ -57,7 +57,7 @@
                 }
                 
             }
-            echo "<div id=\"contener\">
+            echo "
             <div id=\"phraseFin\">
                 Bravo ! Vous avez ramené tous les élèves à l'ENSG ! 
                 Ils vont enfin pouvoir aller en cours de WEB et apprendre à coder proprement !
@@ -71,7 +71,6 @@
                 <form method=\"get\" action=\"pagePrincipale.php\">
                         <input type=\"submit\" value=\"Retour à la page principale\">
                 </form>
-            </div>
             </div>";
         } 
         else {
