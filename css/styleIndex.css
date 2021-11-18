@@ -2,44 +2,83 @@
     min-height: 100vh;
     display: grid;
     grid-template-columns: 60% 40%;
-    grid-template-rows: 15% 30% 55%;
+    grid-template-rows: 5% 5% 40% 10% 30% 10%;
+
+    background: linear-gradient(to top, rgb(103, 111, 136), rgb(234, 237, 248));
 }
 
 #contexte{
     grid-column: 1;  
-    grid-row: 2;                   
+    grid-row: 3 / span 3;     
+
     padding-left: 10%;
     padding-right: 10%;
+
+
+    /* background: linear-gradient(to top, rgb(149, 160, 199), rgb(80, 80, 114));
+    border-radius: 1%;
+    border: 3px solid rgb(17, 8, 31); */
 }
 
 #connexion1{
-    grid-column: 2;                     
-    grid-row: 2;
+    grid-column: 1;                     
+    grid-row: 4;
     text-align: center;
+
+    /* margin: 10%; */
+    margin-left: 20%;
+    margin-right: 20%;
+
+    background: linear-gradient(to top, rgb(149, 160, 199), rgb(80, 80, 114));
+    border-radius: 1%;
+    border: 1px solid rgb(17, 8, 31);
+    z-index: 1;
 }
+
+
+
+
+
+
+/* ____________ */
 
 #score{
-    grid-column: 2;                     
-    grid-row: 3;
-    padding-right: 10%;
+    grid-column: 2;      
+    grid-row: 2 / span 5;               
+
+    /* background-color: rgb(129, 129, 190); */
+    background: linear-gradient(to top, rgb(149, 160, 199), rgb(80, 80, 114));
+
+    border-radius: 1%;
+    margin: 5%;
+    border:2px solid rgb(17, 8, 31);
 }
 
+#titreScore{
+    grid-column: 2;      
+    grid-row: 2;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(to bottom, rgb(149, 160, 199), rgb(80, 80, 114));
+    border: 2px solid rgb(17, 8, 31);
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    z-index: 1;
+}
 
-#tableau {
-    border: 2px medium solid #a00e50;
-    border-collapse: collapse; 
+table {
+    border-collapse: separate; 
     width: 100%;
     text-align: center;
-}
-
-td {
-    border: 1px solid #a00e50;
+    border-spacing : 5%;
+    border-spacing: 0px 10px;
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-top: 5%;
 }
     
-th {
-    border: thin solid #a00e50;
-}
-
-#titreClassement {
-    color : black;
+tr {
+    /* background-color: rgb(111, 111, 170); */
+    background: linear-gradient(to top, rgb(149, 160, 199), rgb(80, 80, 114));
 }

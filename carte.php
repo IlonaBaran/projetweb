@@ -24,13 +24,10 @@
     <div id="contener2">
       <div id="map">
       </div>
+
       <div id="bus">
-<<<<<<< HEAD
-        <img src="images/bus/bus1.png" id ="testimage">
-=======
         <img src="images/bus/bus1.png" id="testimage">
         <input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">
->>>>>>> 579a228c7e5174e01ed69895e3677ea7309fed01
       </div>
 
       <div id="inventaire">
@@ -85,26 +82,6 @@
       </div>
     </div>
 
-      <?php
-          include("connexion.php");
-          /*$today = date("H:i:s"); 
-          $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('ilona', '$today', '$today')";
-          if (mysqli_query($link, $sql)) {
-              echo "(sql) Nouveau enregistrement créé avec succès";
-          } else {
-              echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
-          }
-        ?>
-      <?php     
-      echo "Déroulement du jeu
-      <form method=\"get\" action=\"pageFin.php\">
-              <input type=\"readonly\" name=\"login\" value=\"ilona\" style=\"display:none;\"> 
-              <input type=\"submit\" value=\"OK\" id=\"recup\">
-      </form>";
-      */?>
-      </div>
-
-
       <div id="busMouse"></div>
       <input type="checkbox" id="option" name="afficheBus">
       <label for="afficheBus">Afficher le bus en voyage</label>
@@ -120,6 +97,5 @@
       </footer>
 
       <script src="carte.js"></script>
-      <!-- <script src="chrono.js"></script> -->
   	</body>
 </html>

@@ -1,8 +1,13 @@
+*{
+        /* overflow: hidden; */
+}
+
 body {
         display: grid;
-        grid-template-rows: 20% auto 5%;
+        grid-template-rows: 20% 70% 10%;
         /* background-color: #e5f8d2; */
-        
+        /* overflow: hidden;
+        object-fit: cover; */
 }
 
 #contener1 {
@@ -17,19 +22,12 @@ body {
 #contener2{
         grid-row : 2;
 }
-
-#logo {
-        grid-column: 1;                  
-}
    
 #titre {
-        /* grid-column: 2;                      */
         font-size: 1.5em;
         font-weight: 600;
         color: rgb(37, 77, 73);
 }
-
-
 
 #mentions {
         grid-row : 3;

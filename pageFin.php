@@ -24,19 +24,19 @@
 
         $today = date("H:i:s"); 
         $sql = "UPDATE joueur SET finchrono = '$today' WHERE pseudo ='$_GET[login]'";
-        // if (mysqli_query($link, $sql)) {
-        //     echo "(sql : update joueur avec finchrono ) Nouveau enregistrement créé avec succès";
-        // } else {
-        //     echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
-        // }
+        if (mysqli_query($link, $sql)) {
+            echo "(sql : update joueur avec finchrono ) Nouveau enregistrement créé avec succès";
+        } else {
+            echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
+        }
 
         
         $sql666 = "UPDATE `joueur` SET `temps`=TIMEDIFF(`finchrono`,`debutchrono`) WHERE pseudo ='$_GET[login]'";
-        // if (mysqli_query($link, $sql666)) {
-        //     echo "(sql : update joueur avec temps) Nouveau enregistrement créé avec succès";
-        // } else {
-        //     echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
-        // }
+        if (mysqli_query($link, $sql666)) {
+            echo "(sql : update joueur avec temps) Nouveau enregistrement créé avec succès";
+        } else {
+            echo "Erreur : " . $sql . "<br>" . mysqli_error($link);
+        }
         ?>
 
         <div id="contener">
