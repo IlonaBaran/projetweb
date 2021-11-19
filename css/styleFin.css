@@ -3,11 +3,11 @@
     display: grid;                      
     grid-template-columns: 15% 40% 30% 15%;  
     grid-template-rows:  10% 20% 35% 10% 25%;  
-    background-image : url("../images/fond2.png");
+    background-image : url("../images/fond3.png");
     background-size: cover;
   }
 
-  
+
 #contener{
   border-radius: 10%;
   background-color: rgb(127, 167, 185, 0.4);

@@ -135,7 +135,7 @@ function strNoAccent(mot) {
     }
     return motNouveau;
 }
-console.log(strNoAccent("je t'aime"));
+console.log(strNoAccent("je t'aime - ilona : moi aussi ♥"));
 
 //recupFetch(3);
 /*btn.addEventListener('click', function(){
