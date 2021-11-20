@@ -85,6 +85,8 @@
           <button id="valide">Entrer</button>
           </br>
           <div id="noValueReponse"></div>
+
+          <button id="testMessage">testMessage</button>
         </div>
 
       </div>

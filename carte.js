@@ -9,6 +9,7 @@ var $map = document.getElementById("map");
 var valueReponse = document.getElementById("valueReponse");
 var noValueReponse = document.getElementById("noValueReponse");
 var valueReponseValide = document.getElementById("valide");
+var message = document.getElementById("message");
 var objetsLibere = [];
 //Compteur de l'avancée du jeu
 //var compteur = 0;
@@ -265,4 +266,13 @@ btn.addEventListener('click', function(){
         map.setView([48.86605828999056, 2.3153718330271382],8);
         recupFetch(6);
     }
+});
+
+
+
+var testMessage = document.getElementById("testMessage");
+
+testMessage.addEventListener('click', function(){
+    message.innerHTML += "<div id= 'bulleMessage'><div id ='photoMessage'><img src='images/blarel.jpg' width='30px'></div><div id='contenuMessage'>Bonjour je suis une orange qui n'a même pas peur du rouge ! Haha avoue que tu ris jaune a ma super blague</div></div>";
+
 });

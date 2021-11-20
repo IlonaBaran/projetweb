@@ -35,6 +35,10 @@
     z-index: 1;
 }
 
+#commentaire{
+    grid-column: 2;                     
+    grid-row: 5 / span 2;               
+}
 
 
 
@@ -44,7 +48,7 @@
 
 #score{
     grid-column: 2;      
-    grid-row: 2 / span 5;               
+    grid-row: 2 / span 3;               
 
     /* background-color: rgb(129, 129, 190); */
     background: linear-gradient(to top, rgb(149, 160, 199), rgb(80, 80, 114));

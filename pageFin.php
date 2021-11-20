@@ -69,10 +69,13 @@
 
             <div id=\"retourPP\">
                 <form method=\"get\" action=\"pagePrincipale.php\">
-                        <input type=\"submit\" value=\"Retour à la page principale\">
+                <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
+                <input type=\"text\" id=\"commentaireInput\" name=\"commentaireInput\">
+                <input type=\"submit\" value=\"Retour\">
                 </form>
             </div>";
-        } 
+        }
+
         else {
             echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
         }

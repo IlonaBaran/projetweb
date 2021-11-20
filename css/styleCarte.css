@@ -207,3 +207,30 @@
 }
 
 /* -------------------------------------------------------------------- */
+
+#bulleMessage{
+    background-color: rgb(133, 122, 107);
+    margin-top: 2%;
+    border-radius: 10%;
+
+
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 95% 5%;
+}
+
+#photoMessage{
+    grid-column: 1;
+    grid-row: 1;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+#contenuMessage{
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+}
+
