@@ -31,10 +31,10 @@
 
       <div id="inventaire">
         <div id ="titreInventaire">Inventaire</div>
-        <div id="objet1"></br></div>
-        <div id="objet2"></br></div>
-        <div id="objet3"></br></div>
-        <div id="objet4"></br></div>
+        <div id="objet1" class="objet"></br></div>
+        <div id="objet2" class="objet"></br></div>
+        <div id="objet3" class="objet"></br></div>
+        <div id="objet4" class="objet"></br></div>
       </div>
 
       <div id="niveaux">Progression du jeu
@@ -42,7 +42,6 @@
               <div id="indicator"></div>
               <div id="progressnum">0</div>
           </div>
-          <div id="progressnum">0</div>
       </div>
 
       <div id="deroulmentJeu">
@@ -52,11 +51,11 @@
             include("connexion.php");
             $today = date("H:i:s"); 
             $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
-            if (mysqli_query($link, $sql)) {
-                echo "(sql) Nouveau enregistrement créé avec succès";
-            } else {
-                echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
-            }
+            // if (mysqli_query($link, $sql)) {
+            //     echo "(sql) Nouveau enregistrement créé avec succès";
+            // } else {
+            //     echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
+            // }
             
             echo "<form method=\"get\" action=\"pageFin.php\">
                     <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
@@ -69,19 +68,6 @@
           <input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">
           <button id="suiteStory">Next</button>
 
-          <!-- on peut integrer ca lors des differents cas quand les ge s doivent repondre -->
-          <div id="i1">
-            <label>reponse1<input type="radio" name="ouinon" value="1"></label>
-            <label>reponse2<input type="radio" name="ouinon" value="0"></label>
-            <button id="validate">Valider</button>
-          </div>
-
-          <div id="i2">
-            <label>reponse1<input type="texte" name="ouinon" id="i2texte" value="0"></label>
-            <button id="validate2">Valider2</button>
-          </div>
-
-          <input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">
           <button id="valide">Entrer</button>
           </br>
           <div id="noValueReponse"></div>
@@ -91,10 +77,6 @@
 
       </div>
     </div>
-
-    <!-- <div id="busMouse"></div>
-    <input type="checkbox" id="option" name="afficheBus">
-    <label for="afficheBus">Afficher le bus en voyage</label> -->
 
       <footer id = "mentions">
         <a href="html/planDuSite.html"> Plan du Site</a>
