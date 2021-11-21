@@ -281,3 +281,111 @@ else (){
         }
         echo "</div>";
         ?>
+
+
+
+
+// test ilona pour conv - je le fais ici comme j'ai pas acces encore au truc d amelie et ca commence seulement a amelie-
+var compteurZ = 0;
+var compteurF = 0;
+// var contenuMessage = document.getElementById("contenuMessage");
+// var photoMessage = document.getElementById("photoMessage");
+
+var message1 = document.getElementById("message");
+
+var afficheMessageBus = function(message, icone) {
+    bulleMessage = document.createElement('div');
+    bulleMessage.setAttribute("id", "bulleMessage");
+
+    // var bulleMessage = document.createElement('div');
+    // contenuMessage.setAttribute("id", "contenuMessage");
+    // var new_div = document.createElement('div');
+    // new_div.setAttribute("id", "new_div");
+
+    // new_div.style.width= '100%';
+    var contenuMessage = document.createElement('div');
+    contenuMessage.setAttribute("id", "contenuMessage");
+    contenuMessage.innerHTML += message;
+
+    var photoMessage = document.createElement('div');
+    photoMessage.setAttribute("id", "photoMessage");
+    var img = document.createElement("img");
+    img.src = icone;
+    img.style.height = '50px';
+    photoMessage.appendChild(img);
+
+    bulleMessage.appendChild(contenuMessage);
+    bulleMessage.appendChild(photoMessage);
+    message1.appendChild(bulleMessage);
+    }
+
+
+testMessage.addEventListener('click', function(){
+        var messageBus1 = "bonjour1$bonjour2".split("$");
+        var messageBus2 = "Fillon1$Fillon2".split("$");
+
+        if (compteurZ==0){
+            // afficheMessageBus(result2["messageBus"].split("$")[0], result2["icone"]);
+            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
+            compteurZ++;
+        }
+        else if (compteurF ==0){
+            afficheMessageBus(messageBus2[0], 'images/fillon.jpg');
+            compteurF++;
+        }
+        else if (compteurZ == 1){
+            afficheMessageBus(messageBus1[1], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[1], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[1], 'images/zarzelli.jpg');
+
+            compteurZ++;
+        }
+        // })
+    }
+);
+
+
+
+
+      <div id="deroulmentJeu">
+        <div id="deroulmentTitre">Déroulement du jeu</div>
+        <div id="message">
+          <?php
+            include("connexion.php");
+            $today = date("H:i:s"); 
+            $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
+            // if (mysqli_query($link, $sql)) {
+            //     echo "(sql) Nouveau enregistrement créé avec succès";
+            // } else {
+            //     echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
+            // }
+            
+            echo "<form method=\"get\" action=\"pageFin.php\">
+                    <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
+                    <input type=\"submit\" value=\"OK\" id=\"recup\">
+            </form>";
+          ?>
+        </div>
+          <!-- <div id="bulleMessage">
+            <div id= 'contenuMessage'></div>
+            <div id ='photoMessage'></div>
+          </div> -->
+
+          <div id="interaction">
+            <input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">
+            <button id="suiteStory">Next</button>
+
+            <button id="valide">Entrer</button>
+            </br>
+            <div id="noValueReponse"></div>
+
+            <button id="testMessage">testMessage</button>
+          </div>
+
+        </div>
+    </div>
