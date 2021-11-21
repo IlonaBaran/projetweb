@@ -25,8 +25,6 @@
 
       <div id="bus">
         <img src="images/bus/bus1.png" id="testimage">
-
-        <button id="suiteStory">Next</button>
       </div>
 
       <div id="inventaire">
@@ -40,8 +38,9 @@
       <div id="niveaux">Progression du jeu
           <div id="progressbar">
               <div id="indicator"></div>
-              <div id="progressnum">0</div>
+              <div id="progressnum">18</div>
           </div>
+          <!--<div id="progressnum">0</div>-->
       </div>
 
       <div id="deroulmentJeu">
@@ -68,14 +67,27 @@
             <div id ='photoMessage'></div>
           </div> -->
 
-          <div id="interaction">
-            <input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">
-            <button id="suiteStory">Next</button>
+<
+        <div id="interaction">
+          <!--<input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">-->
+          <button id="suiteStory">Next</button>
 
-            <button id="valide">Entrer</button>
-            </br>
-            <div id="noValueReponse"></div>
+          <!-- on peut integrer ca lors des differents cas quand les ge s doivent repondre -->
+          <div id="i1">
+            <label>reponse1<input type="radio" name="ouinon" value="1"></label>
+            <label>reponse2<input type="radio" name="ouinon" value="0"></label>
+            <button id="validate">Valider</button>
+          </div>
 
+          <div id="i2">
+            <label>reponse1<input type="texte" name="ouinon" id="i2texte" value="0"></label>
+            <button id="validate2">Valider2</button>
+          </div>
+
+          <input type="texte" id="valueReponse" name="valueReponse" required minlength="1" maxlength="40" size="20">
+          <button id="valide">Entrer</button>
+          </br>
+          <div id="noValueReponse"></div>
             <button id="testMessage">testMessage</button>
           </div>
 

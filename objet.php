@@ -1,5 +1,6 @@
 <?php
     $results = [];
+    //echo $_GET['objet'];
     include("connexion.php");
     if (isset($_GET['id'])) {
         $requete = "SELECT id, objet, latitude, longitude, zoommini, icone, iconeSizeLarg, iconeSizeLong, eventDblClick, dblClickBus, eventDragDrop, dragDropEnd, parole, bloque, bloquePar FROM objet WHERE id = {$_GET['id']}";
@@ -26,17 +27,31 @@
             echo json_encode($result);
         }
     } else if (isset($_GET['dialogue'])) {
-        $requete = "SELECT id, objet, latitude, longitude, zoommini, icone, iconeSizeLarg, iconeSizeLong, eventDblClick, dblClickBus, eventDragDrop, dragDropEnd, parole, bloque, bloquePar FROM objet WHERE objet='COINDET' OR objet='ZARZELLI' OR objet='FILLON'";
-        if ($result = mysqli_query($link, $requete)) {
-            while ($ligne = mysqli_fetch_assoc($result)) {
-                $results = Attribute($results, $ligne);
+        if ($_GET['dialogue'] == 0) {
+            $requete = "SELECT id, objet, latitude, longitude, zoommini, icone, iconeSizeLarg, iconeSizeLong, eventDblClick, dblClickBus, eventDragDrop, dragDropEnd, parole, bloque, bloquePar FROM objet WHERE objet='COINDET' OR objet='ZARZELLI' OR objet='FILLON'";
+            if ($result = mysqli_query($link, $requete)) {
+                while ($ligne = mysqli_fetch_assoc($result)) {
+                    $results = Attribute($results, $ligne);
+                }
+            } else {
+                echo "Erreur de requête de base de données.";
             }
-        } else {
-            echo "Erreur de requête de base de données.";
-        }
-        //duplicata youzi do 5 shedule frizzi 44
+            //duplicata youzi do 5 shedule frizzi 44
 
-        echo json_encode($results);
+            echo json_encode($results);
+        } else if ($_GET['dialogue'] == 1) {
+            $requete = "SELECT id, objet, latitude, longitude, zoommini, icone, iconeSizeLarg, iconeSizeLong, eventDblClick, dblClickBus, eventDragDrop, dragDropEnd, parole, bloque, bloquePar FROM objet WHERE objet='RIVIERE' OR objet='BAL'";
+            if ($result = mysqli_query($link, $requete)) {
+                while ($ligne = mysqli_fetch_assoc($result)) {
+                    $results = Attribute($results, $ligne);
+                }
+            } else {
+                echo "Erreur de requête de base de données.";
+            }
+            //duplicata youzi do 5 shedule frizzi 44
+
+            echo json_encode($results);
+        }
     }
 
     function Attribute($tab, $ligne) {
