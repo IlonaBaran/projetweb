@@ -3,9 +3,10 @@
     display: grid;                      
     grid-template-columns: 15% 40% 30% 15%;  
     grid-template-rows:  10% 20% 35% 10% 25%;  
-    background-image : url("../images/fond2.png");
+    background-image : url("../images/fond3.png");
     background-size: cover;
   }
+
 
 #contener{
   border-radius: 10%;
@@ -13,7 +14,7 @@
   grid-column: 3;                     
   grid-row: 2 ;
 
-  /* grid-template-rows: 30% 50% 20%; */
+  grid-template-rows: 30% 50% 10% 10%;
 }
 
 #retourPP{
@@ -31,6 +32,10 @@
   grid-row: 1;
 }
 
+#commentaire{
+  grid-row : 4;
+
+}
 
 
 

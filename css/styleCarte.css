@@ -128,35 +128,24 @@
 #objet1{
     grid-column: 2;                     
     grid-row: 2;
-    text-align: center;
-
-    border: 10px solid #53453d;
-    background-color: #201c19;
 }
 
 #objet2{
     grid-column: 4;                     
     grid-row: 2;
-    text-align: center;
-
-    border: 10px solid #53453d;
-    background-color: #201c19;
 }
 
 #objet3{
     grid-column: 2;                     
     grid-row: 4;
-    text-align: center;
-
-    border: 10px solid #53453d;
-    background-color: #201c19;
 }
 
 #objet4{
     grid-column: 4;                     
     grid-row: 4;
-    text-align: center;
+}
 
+.objet {
     border: 10px solid #53453d;
     background-color: #201c19;
 }
@@ -207,3 +196,30 @@
 }
 
 /* -------------------------------------------------------------------- */
+
+#bulleMessage{
+    background-color: rgb(133, 122, 107);
+    margin-top: 2%;
+    border-radius: 10%;
+
+
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 95% 5%;
+}
+
+#photoMessage{
+    grid-column: 1;
+    grid-row: 1;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+#contenuMessage{
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+}
+

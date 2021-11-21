@@ -29,16 +29,16 @@
 
       <div id="inventaire">
         <div id ="titreInventaire">Inventaire</div>
-        <div id="objet1"></br></div>
-        <div id="objet2"></br></div>
-        <div id="objet3"></br></div>
-        <div id="objet4"></br></div>
+        <div id="objet1" class="objet"></br></div>
+        <div id="objet2" class="objet"></br></div>
+        <div id="objet3" class="objet"></br></div>
+        <div id="objet4" class="objet"></br></div>
       </div>
 
       <div id="niveaux">Progression du jeu
           <div id="progressbar">
               <div id="indicator"></div>
-              <div id="progressnum">10</div>
+              <div id="progressnum">18</div>
           </div>
           <!--<div id="progressnum">0</div>-->
       </div>
@@ -50,11 +50,11 @@
             include("connexion.php");
             $today = date("H:i:s"); 
             $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
-            if (mysqli_query($link, $sql)) {
-                echo "(sql) Nouveau enregistrement créé avec succès";
-            } else {
-                echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
-            }
+            // if (mysqli_query($link, $sql)) {
+            //     echo "(sql) Nouveau enregistrement créé avec succès";
+            // } else {
+            //     echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
+            // }
             
             echo "<form method=\"get\" action=\"pageFin.php\">
                     <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
@@ -83,14 +83,12 @@
           <button id="valide">Entrer</button>
           </br>
           <div id="noValueReponse"></div>
+
+          <button id="testMessage">testMessage</button>
         </div>
 
       </div>
     </div>
-
-    <!-- <div id="busMouse"></div>
-    <input type="checkbox" id="option" name="afficheBus">
-    <label for="afficheBus">Afficher le bus en voyage</label> -->
 
       <footer id = "mentions">
         <a href="html/planDuSite.html"> Plan du Site</a>
