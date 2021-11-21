@@ -83,7 +83,7 @@
         </div>
 
         <div id="deplacementBus">
-            <img src="images/bus/bus1.png" id ="coin" width="25%">
+            <img src="images/bus/bus1_14.png" id ="coin" width="35%">
         </div>
     </div>
 

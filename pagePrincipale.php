@@ -32,51 +32,11 @@
             </form>
         </div>
 
-
-        <?php     
-        include("connexion.php");
-        if(isset($_POST['commentaireInput'])){
-            $sqlilo = "UPDATE joueur SET kai = '$_GET[commentaireInput]' WHERE pseudo ='$_GET[login]'";
-            if (mysqli_query($link, $sqlilo)) {
-                echo "(sql : update joueur avec message) Nouveau enregistrement créé avec succès";
-            } else {
-                echo "Erreur message ilona: " . $sqlilo . "<br>" . mysqli_error($link);
-            }
-        }
-        
-        echo "<div id=\commentaire\">";
-        $tableau_commentaire = [];
-        $requete_commentaire = "SELECT pseudo, kai FROM joueur";
-        if ($result_commentaire = mysqli_query($link, $requete_commentaire)) {
-            while ($ligne_commentaire = mysqli_fetch_assoc($result_commentaire)) {
-                array_push($tableau_commentaire, [
-                    "pseudo" => $ligne_commentaire['pseudo'],
-                    "kai" => $ligne_commentaire['kai']
-                ]);
-            }
-
-            $table_str = "<table>";
-
-            foreach ($tableau_commentaire as $elem) {
-                $table_str .= "<tr><td>";
-                foreach ($elem as $key => $value) {
-                    $table_str .= "$value";
-                }
-                $table_str .= "</td></tr>";
-            }
-            $table_str .= "</table>";
-            
-            echo $table_str;
-        }
-        else {
-            echo "Erreur de requête de base de données.";
-        }
-        echo "</div>";
-        ?>
-
         <div id="titreScore">Hall Of Fame</div>
         <div id="score">
         <?php
+            include("connexion.php");
+            
             $tableau_classement = [];
             $requete = "SELECT pseudo, temps FROM joueur ORDER BY temps ASC LIMIT 10";
             if ($result = mysqli_query($link, $requete)) {

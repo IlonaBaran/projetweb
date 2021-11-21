@@ -63,19 +63,23 @@
             </form>";
           ?>
         </div>
+          <!-- <div id="bulleMessage">
+            <div id= 'contenuMessage'></div>
+            <div id ='photoMessage'></div>
+          </div> -->
 
-        <div id="interaction">
-          <input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">
-          <button id="suiteStory">Next</button>
+          <div id="interaction">
+            <input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">
+            <button id="suiteStory">Next</button>
 
-          <button id="valide">Entrer</button>
-          </br>
-          <div id="noValueReponse"></div>
+            <button id="valide">Entrer</button>
+            </br>
+            <div id="noValueReponse"></div>
 
-          <button id="testMessage">testMessage</button>
+            <button id="testMessage">testMessage</button>
+          </div>
+
         </div>
-
-      </div>
     </div>
 
       <footer id = "mentions">
