@@ -9,8 +9,8 @@ var $map = document.getElementById("map");
 var valueReponse = document.getElementById("valueReponse");
 var noValueReponse = document.getElementById("noValueReponse");
 var valueReponseValide = document.getElementById("valide");
-var message = document.getElementById("message");
 var objetsLibere = [];
+
 //Compteur de l'avancée du jeu
 //var compteur = 0;
 var progresSum = document.getElementById("progressnum");
@@ -303,149 +303,138 @@ function strNoAccent(mot) {
 //TEST SPACE
 //recupFetch(29);
 
-//recupFetch(3);
-/*btn.addEventListener('click', function(){
-    recupFetch(progresSum.innerText);
-});*/
-//Faire apparaitre Victor et Amaury à l'ENSG
+// //recupFetch(3);
+// /*btn.addEventListener('click', function(){
+//     recupFetch(progresSum.innerText);
+// });*/
+// //Faire apparaitre Victor et Amaury à l'ENSG
 
-var compteur = progresSum.innerText;
-/*btn.addEventListener('click', function(){
-    compteur++;
-    progresSum.innerText = compteur;
-});*/
+// var compteur = progresSum.innerText;
+// btn.addEventListener('click', function(){
+//     compteur++;
+//     progresSum.innerText = compteur;
+// });
 
-/*
-fetch('http://localhost/projetweb/objet.php?dialogue=0').then(response => response.json())
-    .then(results => {
-        var result = results[0];
-        var result2 = results[1];
-        var result3 = results[2];
-        //COINDET
-        var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
-        var paroles = result["message"].split("$");
-        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup(paroles[0], {fontSize: 10}).addTo(map).openPopup();
-        paroles = paroles.slice(1,);
-        //appliqueEventZoomend(marker);
-        //ZARZELLI
-        var objectIcon2 = new L.icon({iconUrl:result2["icone"], iconSize:[result2["iconeSizeLarg"], result2["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result2["iconeSizeLarg"]/2,0], maxZoom:10});
-        var paroles2 = result2["message"].split("$");
-        var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2, draggable:true}).bindPopup(paroles2[0], {fontSize: 10}).addTo(map);
-        //appliqueEventZoomend(marker2);
-        //FILLON
-        var objectIcon3 = new L.icon({iconUrl:result3["icone"], iconSize:[result3["iconeSizeLarg"], result3["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result3["iconeSizeLarg"]/2,0], maxZoom:10});
-        var paroles3 = result3["message"].split("$");
-        var marker3 = L.marker([result3["latitude"], result3["longitude"]], {icon:objectIcon3, draggable:true}).bindPopup(paroles3[0], {fontSize: 10});
-        btn.addEventListener('click', function(){
-            compteur++;
-            console.log(compteur);
-            progresSum.innerText = compteur;
-            if (compteur<=4){
-                if (compteur%2 != 0) {
-                    marker2._popup.setContent(paroles2[0]);
-                    marker2.openPopup();
-                    paroles2 = paroles2.slice(1,);
-                } else {
-                    if (compteur==4) {
-                        marker3.addTo(map);
-                    }
-                    marker._popup.setContent(paroles[0]);
-                    marker.openPopup();
-                    paroles = paroles.slice(1,);
-                } 
-            } else {
-                marker.remove();
-                if (compteur%2 != 0) {
-                    if (compteur == 5) {
-                        map.setView([result2["latitude"], result2["longitude"]], 18);
-                    }
-                    marker2._popup.setContent(paroles2[0]);
-                    marker2.openPopup();
-                    paroles2 = paroles2.slice(1,);
-                } else {
-                    marker3._popup.setContent(paroles3[0]);
-                    marker3.openPopup();
-                    paroles3 = paroles3.slice(1,);
-                }
-            }
-            if (compteur==8) {
-                marker2.remove();
-                marker3.closePopup();
-            }
-            if (compteur==10) {
-                marker3.remove();
-            }
-        });
-    })
+// fetch('http://localhost/projetweb/objet.php?dialogue=0').then(response => response.json())
+//     .then(results => {
+//         var result = results[0];
+//         var result2 = results[1];
+//         var result3 = results[2];
+//         //COINDET
+//         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
+//         var paroles = result["message"].split("$");
+//         var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup(paroles[0], {fontSize: 10}).addTo(map).openPopup();
+//         paroles = paroles.slice(1,);
+//         //appliqueEventZoomend(marker);
+//         //ZARZELLI
+//         var objectIcon2 = new L.icon({iconUrl:result2["icone"], iconSize:[result2["iconeSizeLarg"], result2["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result2["iconeSizeLarg"]/2,0], maxZoom:10});
+//         var paroles2 = result2["message"].split("$");
+//         var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2, draggable:true}).bindPopup(paroles2[0], {fontSize: 10}).addTo(map);
+//         //appliqueEventZoomend(marker2);
+//         //FILLON
+//         var objectIcon3 = new L.icon({iconUrl:result3["icone"], iconSize:[result3["iconeSizeLarg"], result3["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result3["iconeSizeLarg"]/2,0], maxZoom:10});
+//         var paroles3 = result3["message"].split("$");
+//         var marker3 = L.marker([result3["latitude"], result3["longitude"]], {icon:objectIcon3, draggable:true}).bindPopup(paroles3[0], {fontSize: 10});
+//         btn.addEventListener('click', function(){
+//             compteur++;
+//             progresSum.innerText = compteur;
+//             if (compteur<=4){
+//                 if (compteur%2 != 0) {
+//                     marker2._popup.setContent(paroles2[0]);
+//                     marker2.openPopup();
+//                     paroles2 = paroles2.slice(1,);
+//                 } else {
+//                     if (compteur==4){
+//                         marker3.addTo(map);
+//                         //appliqueEventZoomend(marker3);
+//                     }
+//                     marker._popup.setContent(paroles[0]);
+//                     marker.openPopup();
+//                     paroles = paroles.slice(1,);
+//                 } 
+//             } else {
+//                 marker.remove();
+//                 if (compteur%2 != 0) {
+//                     marker2._popup.setContent(paroles2[0]);
+//                     marker2.openPopup();
+//                     paroles2 = paroles2.slice(1,);
+//                 } else {
+//                     marker3._popup.setContent(paroles3[0]);
+//                     marker3.openPopup();
+//                     paroles3 = paroles3.slice(1,);
+//                 }
+//             } 
+//             if (compteur==8) {
+//                 marker2.remove();
+//                 marker3.closePopup();
+//             }
+//             if (compteur==10) {
+//                 marker3.remove();
+//             }
+//         });
+//     })
+
+// btn.addEventListener('click', function(){
+//     if (compteur==7) {
+//         btn.style.visibility = 'hidden';
+//     }
+// });
 
 //Faire apparaitre Tristan Fillon au niveau du portail de sécurité
 //Faire apparaitre Jeanine dans l'ENSG et deplacer Amaury a côté de Jeanine
-progresSum.addEventListener('DOMSubtreeModified', function(){
-    if (compteur==8) {
-        fetch('http://localhost/projetweb/objet.php?id=21').then(response => response.json())
-        .then(result => {
-            //JEANINE
-            var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
-            var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup("...", {fontSize: 10}).addTo(map);//.openPopup();
-            fetch('http://localhost/projetweb/objet.php?id=22').then(response => response.json())
-            .then(result2 => {
-                //ZARZELLI2
-                map.setView([result2["latitude"], result2["longitude"]],20);
-                var objectIcon2 = new L.icon({iconUrl:result2["icone"], iconSize:[result2["iconeSizeLarg"], result2["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result2["iconeSizeLarg"]/2,0], maxZoom:10});
-                var paroles2 = result2["message"].split("$");
-                var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2, draggable:true}).bindPopup(paroles2[0], {fontSize: 10}).addTo(map).openPopup();
-                paroles2 = paroles2.slice(1,);
-                btn.addEventListener('click', function(){
-                    if (compteur==9) {
-                        btn.style.visibility = 'hidden';
-                        marker2.closePopup();
-                        marker.openPopup();
-                        valueReponseValide.addEventListener('click', function(){
-                            if (valueReponse.value.toLowerCase() == result["bloquePar"]){
-                                marker.bindPopup(result["message"], {fontSize: 10}).openPopup();
-                                fetch('http://localhost/projetweb/objet.php?id=23').then(response => response.json())
-                                .then(result3 => {
-                                    //MIGNIBUS
-                                    var marker3 = L.marker([result3["latitude"], result3["longitude"]], {icon:new L.icon({iconUrl:result3["icone"], iconSize:[result3["iconeSizeLarg"], result3["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result3["iconeSizeLarg"]/2,0], maxZoom:10}), draggable:true}).bindPopup(result3["message"], {fontSize: 10}).addTo(map);
-                                    btn.style.visibility = 'visible';
-                                    btn.addEventListener('click', function(){
-                                        if (compteur==10) {
-                                            btn.style.visibility = 'hidden';
-                                            marker.remove();
-                                            map.setView([result2["latitude"], result2["longitude"]],18);
-                                            marker2.bindPopup(paroles2[0], {fontSize: 10}).openPopup();
-                                            marker3.on('dblclick', function (e) {
-                                                marker2.remove();
-                                                marker3.remove();
-                                                $bus.innerText = '';
-                                                var image = document.createElement('img');
-                                                image.src = "images/bus/bus1.png";
-                                                image.width = 120;
-                                                $bus.appendChild(image);
-                                                map.setView([48.86605828999056, 2.3153718330271382],8);
-                                                recupFetch(6);
-                                            })
-                                        }
-                                    });
-                                })
-                            }
-                        });
-                    }
-                });
-                
-            })
-        })
-    }
-});
-*/
-/*
-btn.addEventListener('click', function(){
-    if (compteur==10) {
-        map.setView([48.86605828999056, 2.3153718330271382],8);
-        recupFetch(6);
-    }
-});
-*/
+
+// console.log(progresSum.textContent);
+// progresSum.addEventListener('DOMSubtreeModified', function(){
+//     if (compteur==8) {
+//         console.log("laaaa");
+//         fetch('http://localhost/projetweb/objet.php?id=21').then(response => response.json())
+//         .then(result => {
+//             //JEANINE
+//             console.log("ooooo");
+//             var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
+//             var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup("...", {fontSize: 10}).addTo(map).openPopup();
+//             fetch('http://localhost/projetweb/objet.php?id=22').then(response => response.json())
+//             .then(result2 => {
+//                 //ZARZELLI2
+//                 map.setView([result2["latitude"], result2["longitude"]],20);
+//                 var objectIcon2 = new L.icon({iconUrl:result2["icone"], iconSize:[result2["iconeSizeLarg"], result2["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result2["iconeSizeLarg"]/2,0], maxZoom:10});
+//                 var paroles2 = result2["message"].split("$");
+//                 var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2, draggable:true}).bindPopup(paroles2[0], {fontSize: 10}).addTo(map).openPopup();
+//                 paroles2 = paroles2.slice(1,);
+//                 valueReponseValide.addEventListener('click', function(){
+//                     if (valueReponse.value.toLowerCase() == result["bloquePar"]){
+//                         marker.bindPopup(result["message"], {fontSize: 10}).openPopup();
+//                         fetch('http://localhost/projetweb/objet.php?id=23').then(response => response.json())
+//                         .then(result3 => {
+//                             //MIGNIBUS
+//                             var marker3 = L.marker([result3["latitude"], result3["longitude"]], {icon:new L.icon({iconUrl:result3["icone"], iconSize:[result3["iconeSizeLarg"], result3["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result3["iconeSizeLarg"]/2,0], maxZoom:10}), draggable:true}).bindPopup(result3["message"], {fontSize: 10}).addTo(map);
+//                             btn.style.visibility = 'visible';
+//                             btn.addEventListener('click', function(){
+//                                 if (compteur==9) {
+//                                     marker2.bindPopup(paroles2[0], {fontSize: 10}).openPopup();
+//                                 }
+//                                 if (compteur==10) {
+//                                     marker.remove();
+//                                     marker2.remove();
+//                                     marker3.remove();
+//                                 }
+//                             });
+//                         })
+//                     }
+//                 });
+//             })
+//         })
+//     }
+// // });
+
+// btn.addEventListener('click', function(){
+//     if (compteur==9) {
+//         map.setView([48.86605828999056, 2.3153718330271382],8);
+//         recupFetch(6);
+//     }
+// });
+
+
 
 if (compteur==18) {
     //map.setView([48.86605828999056, 2.3153718330271382],8);
@@ -455,8 +444,69 @@ if (compteur==18) {
 
 /*
 var testMessage = document.getElementById("testMessage");
+=======
+// test ilona pour conv - je le fais ici comme j'ai pas acces encore au truc d amelie et ca commence seulement a amelie-
+var compteurZ = 0;
+var compteurF = 0;
+// var contenuMessage = document.getElementById("contenuMessage");
+// var photoMessage = document.getElementById("photoMessage");
+
+var message1 = document.getElementById("message");
+
+var afficheMessageBus = function(message, icone) {
+    bulleMessage = document.createElement('div');
+    bulleMessage.setAttribute("id", "bulleMessage");
+
+    // var bulleMessage = document.createElement('div');
+    // contenuMessage.setAttribute("id", "contenuMessage");
+    // var new_div = document.createElement('div');
+    // new_div.setAttribute("id", "new_div");
+
+    // new_div.style.width= '100%';
+    var contenuMessage = document.createElement('div');
+    contenuMessage.setAttribute("id", "contenuMessage");
+    contenuMessage.innerHTML += message;
+
+    var photoMessage = document.createElement('div');
+    photoMessage.setAttribute("id", "photoMessage");
+    var img = document.createElement("img");
+    img.src = icone;
+    img.style.height = '50px';
+    photoMessage.appendChild(img);
+
+    bulleMessage.appendChild(contenuMessage);
+    bulleMessage.appendChild(photoMessage);
+    message1.appendChild(bulleMessage);
+    }
+
+>>>>>>> 2c9354fc0a8797ca464bec3072a290b6b0299b72
 
 testMessage.addEventListener('click', function(){
-    message.innerHTML += "<div id= 'bulleMessage'><div id ='photoMessage'><img src='images/blarel.jpg' width='30px'></div><div id='contenuMessage'>Bonjour je suis une orange qui n'a même pas peur du rouge ! Haha avoue que tu ris jaune a ma super blague</div></div>";
+        var messageBus1 = "bonjour1$bonjour2".split("$");
+        var messageBus2 = "Fillon1$Fillon2".split("$");
 
+        if (compteurZ==0){
+            // afficheMessageBus(result2["messageBus"].split("$")[0], result2["icone"]);
+            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
+            compteurZ++;
+        }
+        else if (compteurF ==0){
+            afficheMessageBus(messageBus2[0], 'images/fillon.jpg');
+            compteurF++;
+        }
+        else if (compteurZ == 1){
+            afficheMessageBus(messageBus1[1], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[1], 'images/zarzelli.jpg');
+            afficheMessageBus(messageBus1[1], 'images/zarzelli.jpg');
+
+            compteurZ++;
+        }
+        // })
+    }
+);
 });*/

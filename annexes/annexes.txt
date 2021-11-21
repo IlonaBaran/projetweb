@@ -32,21 +32,20 @@ ________________________________________________________________________
 
 Conversation du bus
 var $message = document.getElementById("message");
-$message.innerHTML = "C'est beau comme village, tu ne trouves pas Tristan ?"
-$message.innerHTML = "Non, pas vraiment, je prefère la Guyane."
-$message.innerHTML = "Je vais voir Amelie pour qu'elle vienne avec nous."
+OK $message.innerHTML = "C'est beau comme village, tu ne trouves pas Tristan ?"
+OK $message.innerHTML = "Non, pas vraiment, je prefère la Guyane."
+OK $message.innerHTML = "Je vais voir Amelie pour qu'elle vienne avec nous."
 
 .bindPopup('Je suis désolé, mais je ne bourgerai pas sans petit déjeuner!')
 .bindPopup('J'ai laissé une carotte au château de Versailles, si on me la ramène, je viens avec vous!')
 
-$message.innerHTML = "Tu peux aller la chercher s'il te plait ?" (Amaury qui parle)
+OK $message.innerHTML = "Tu peux aller la chercher s'il te plait ?" (Amaury qui parle)
 
 ________________________________________________________________________
 6. Faire apparaitre une carotte au chateau de Versailles
 7. quand le joueur clique dessus, la faire disparaitre et la mettre dans l'inventaire (groupe d'objet ?)
 
 .bindPopup('Ah merci! On peut y aller! Allons chercher Clément, il habite à MontBrison!')
-$message.innerHTML = 'Ah merci! On peut y aller! Allons chercher Clément, il habite à MontBrison!'
 ________________________________________________________________________
 8. Faire disparaitre Amelie, la mettre dans le bus, Afficher Clement 
 
@@ -57,21 +56,20 @@ Indice donné dans la discussion (une pomme de pin en image)
 var valeur = document.querySelector('input[name="ouinon"]:checked').value;
 if (valeur == 1){
     .bindPopup('Bravo! La brise est trop forte ici, changeons de mont! Allons à Montaigu, un lapin s'y cache.')
-    $message.innerHTML = "Wow, PRENOM UTILISATEUR est trop fort, on va vite pouvoir faire du WEB" (Amaury qui parle)
-    $message.innerHTML = "C'est génial ! J'ai si envie d'avoir de nouvelles connaissances" (Amelie qui parle)
+    OK $message.innerHTML = "Wow, PRENOM UTILISATEUR est trop fort, on va vite pouvoir faire du WEB" (Amaury qui parle)
+    OK $message.innerHTML = "C'est génial ! J'ai si envie d'avoir de nouvelles connaissances" (Amelie qui parle)
 }
 else (){
     ///trouver ce qu'on fait si l'utilisateur répond mal : on ouvre un autre popup ? ou on affiche un message a la suite de la popup ?
-    $message.innerHTML = "Haha, il s'est trompé. C'est pas comme ça qu'on va récupérer tout le monde" (Amaury qui parle)
-    $message.innerHTML = "Mince, nous qui avions si envie de faire du WEB" (Amelie qui parle)
+    OK $message.innerHTML = "Haha, il s'est trompé. C'est pas comme ça qu'on va récupérer tout le monde" (Amaury qui parle)
+    OK $message.innerHTML = "Mince, nous qui avions si envie de faire du WEB" (Amelie qui parle)
 }
 
 ________________________________________________________________________
 10. Faire disparaitre Clement, le mettre dans le bus, afficher Tancrede
           
 .bindPopup('Bonjour, il faut que tu m'aides! Quelle est la meilleure recette du coin? <form><input type="text" name="manger"><input type="submit" name="envoi" value="OK"></form>')
-$message.innerHTML = "C'est pas du tout une recette du coin ca !" (Clement qui parle)
-$message.innerHTML = "Coin(det) coin(det)" (Amaury qui parle)
+OK $message.innerHTML = "C'est pas du tout une recette du coin ca !" (Clement qui parle)
 
 INDICE sur le PREFOU
 
@@ -82,8 +80,6 @@ ________________________________________________________________________
 
 .bindPopup('Enfin ! Ca fait 1h que je vous attends! Je ne monte que si vous répondez à ma question: Tu préfères ton père ou ta mère?<form><label>ta mère<input type="radio" name="ouinon" value="1"></label><label>ton père<input type="radio" name="ouinon" value="0"></label><input type="submit" name="envoi" value="OK"></form>')
 .bindPopup('On peut aller chez Kevin, c'est pas très très loin !')
-$message.innerHTML = "Comme d'hab' tu les double click!"
-$message.innerHTML = "Ahah il est marrant celui là"
 ________________________________________________________________________
 12. Disparition de Antoine, Antoine dans le bus, apparition de Kevin
 
@@ -91,15 +87,15 @@ Indice mettre des coeurs dans la discussion
 
 .bindPopup('Oh dingue, vous êtes venus! Petite question avant de partir, que veut dire 'mi aim a ou'?<form><label>ta mère<input type="radio" name="ouinon" value="1"></label><label>ton père<input type="radio" name="ouinon" value="0"></label><input type="submit" name="envoi" value="OK"></form>')
 if (valeur == 1){
-    $message.innerHTML = "miaou miaou" (Amaury qui parle)
-    $message.innerHTML = "Je crois qu'on a perdu Amaury" (Amelie qui parle)
-    $message.innerHTML = "miaou miaou" (Amaury qui parle)
+    OK $message.innerHTML = "miaou miaou" (Amaury qui parle)
+    OK $message.innerHTML = "Je crois qu'on a perdu Amaury" (Amelie qui parle)
+    OK $message.innerHTML = "miaou miaou" (Amaury qui parle)
 }
 else (){
     ///trouver ce qu'on fait si l'utilisateur répond mal : on ouvre un autre popup ? ou on affiche un message a la suite de la popup ?
-    $message.innerHTML = "miaou miaou" (Amaury qui parle)
-    $message.innerHTML = "Je crois qu'on a perdu Amaury" (Amelie qui parle)
-    $message.innerHTML = "miaou miaou" (Amaury qui parle)
+    OK $message.innerHTML = "miaou miaou" (Amaury qui parle)
+    OK $message.innerHTML = "Je crois qu'on a perdu Amaury" (Amelie qui parle)
+    OK $message.innerHTML = "miaou miaou" (Amaury qui parle)
 }
 
 .bindPopup('Bien joué, on peut passer prendre Léa, elle habite sur le chemin pour rentrer!')
@@ -125,22 +121,21 @@ var valeur = document.querySelector('input[name="ouinon"]:checked').value;
 if (valeur == 1){
     .bindPopup('Bien joué, c'est le Lac Léman, situé entre la France et la Suisse. Passons chez Félix, il n'est pas très loin !')
     .bindPopup('Dircetion les Alpes des plaines chez Felix ! Ilhabite près de Chambéry')
-    $message.innerHTML = "J'espère qu'on verra Jean Luc !" (Ilona qui parle)
+    OK $message.innerHTML = "J'espère qu'on verra Jean Luc !" (Kevin qui parle)
 }
 else (){
     ///trouver ce qu'on fait si l'utilisateur répond mal : on ouvre un autre popup ? ou on affiche un message a la suite de la popup ?
-    $message.innerHTML = "Encore une erreur... on n'est pas pret de rentré à ce rythme..." (Amaury qui parle)
-    $message.innerHTML = "Il faut lui donner un indice, non ?" (Melodie qui parle)
-    $message.innerHTML = "Non, la question est beaucoup trop facile !" (Felix qui parle)
+    OK $message.innerHTML = "Il faut lui donner un indice, non ?" (Tancrede qui parle)
+    OK $message.innerHTML = "Non, la question est beaucoup trop facile !" (Antoine qui parle)
 }
 
 ________________________________________________________________________
 15. Disparition de Vincent, Vincent dans le bus, apparition de Maman Felix 
 
-$message.innerHTML = "Ha nous voila enfin chez Félix ! Je ne le vois pas, allons voir sa mère pour lui demander où est Félix." (vincent qui parle)
+OK $message.innerHTML = "Ha nous voila enfin chez Félix ! Je ne le vois pas, je vais aller voir sa mère pour lui demander où est Félix." (vincent qui parle)
 .bindPopup('Quoi? Félix n'est pas à l'école? Il n'est pas rentré hier soir, il faisait soirée chez Baptiste, le vilain!')
 
-$message.innerHTML = "Baptiste habite loin! Il vaut mieux passer chez Mélodie avant, ca fera moins de détour. Elle habite près de Lyon!" (vincent qui parle)
+OK $message.innerHTML = "Baptiste habite loin! Il vaut mieux passer chez Mélodie avant, ca fera moins de détour. Elle habite près de Lyon!" (vincent qui parle)
 
 ________________________________________________________________________
 16. Disparition de Maman felix, apparition de Melodie
@@ -150,7 +145,7 @@ ________________________________________________________________________
 
 .bindPopup('Merci, on peut y aller je suis prête! Il manque Baptiste !')
 .bindPopup('Baptiste habite dans le 12ème arrondissement de Paris !')
-$message.innerHTML = "Allons chez Baptiste !" (Antoine qui parle)
+OK $message.innerHTML = "Allons chez Baptiste !" (Antoine qui parle)
 
 ________________________________________________________________________
 17. Disparition de Melodie, Melodie dans le bus, apparition de Felix et Baptiste
@@ -176,8 +171,8 @@ ________________________________________________________________________
 19. Disparition de Ilona, puis Ilona dans le bus, apparition de papa Aymeric
 
 .bindPopup('Vous le ratez de peu, il vient de partir pour Oslo!')
-$message.innerHTML = "Terrible, on va à Oslo! Un avant gout de mon Erasmus !" (Felix qui parle)
-$message.innerHTML = "J'espère qu'il y aura de la neige, et que le bus sera coincé pour repartir!" (Ilona qui parle)
+OK $message.innerHTML = "Terrible, on va à Oslo! Un avant gout de mon Erasmus !" (Felix qui parle)
+OK $message.innerHTML = "J'espère qu'il y aura de la neige, et que le bus sera coincé pour repartir!" (Ilona qui parle)
 ________________________________________________________________________
 20. Disparition de papa Aymeric, apparition de Aymeric
 
@@ -187,14 +182,13 @@ var valeur = document.querySelector('input[name="ouinon"]:checked').value;
 if (valeur == 1){
     .bindPopup('Bravo, c'est un fromage norvégien à pâte brune et au goût caramélisé.')
     .bindPopup('Allons récupérer Maeve, c'est la dernière personne q'uil nous manque ! Elle habite près de Lille!')
-    $message.innerHTML = "On est obligé d'aller la chercher ?" (Felix qui parle)
-    $message.innerHTML = "D'ailleurs, on prononce "mève" ou "maève" ?'(Amaury qui parle)
+    OK $message.innerHTML = "On est obligé d'aller la chercher ?" (Felix qui parle)
+    OK $message.innerHTML = "D'ailleurs, on prononce "mève" ou "maève" ?'(Amaury qui parle)
 }
 else (){
     ///trouver ce qu'on fait si l'utilisateur répond mal : on ouvre un autre popup ? ou on affiche un message a la suite de la popup ?
-    $message.innerHTML = "Encore une erreur... on n'est pas pret de rentré à ce rythme..." (Amaury qui parle)
-    $message.innerHTML = "Il faut lui donner un indice, non ?" (Melodie qui parle)
-    $message.innerHTML = "Non, c'est terrible le mignibus ensemble, on pourrait se croire dans le bus du wei !" (Felix qui parle)
+    OK $message.innerHTML = "Il faut lui donner un indice, non ?" (Melodie qui parle)
+    OK $message.innerHTML = "Non, c'est terrible le mignibus ensemble, on pourrait se croire dans le bus du wei !" (Felix qui parle)
 }
 ________________________________________________________________________
 21. Disparition de Aymeric, puis Aymeric dans le bus, apparition de Maeve
@@ -203,14 +197,13 @@ ________________________________________________________________________
 var valeur = document.querySelector('input[name="ouinon"]:checked').value;
 if (valeur == 1){
     .bindPopup('Yes, bien joué! Partons vite, Victor nous attend!')
-    $message.innerHTML = "On rentre enfin ! " (Felix qui parle)
-    $message.innerHTML = "On rentre enfin" (Baptiste qui parle)
+    OK $message.innerHTML = "On rentre enfin ! " (Kevin qui parle)
+    OK $message.innerHTML = "On rentre enfin" (Baptiste qui parle)
+    OK $message.innerHTML = "On rentre enfin" (Clement qui parle)
+
 }
 else (){
     ///trouver ce qu'on fait si l'utilisateur répond mal : on ouvre un autre popup ? ou on affiche un message a la suite de la popup ?
-    $message.innerHTML = "Encore une erreur... on n'est pas pret de rentré à ce rythme..." (Amaury qui parle)
-    $message.innerHTML = "Il faut lui donner un indice, non ?" (Melodie qui parle)
-    $message.innerHTML = "Non, c'est terrible le mignibus ensemble, on pourrait se croire dans le bus du wei !" (Felix qui parle)
 }
 
 21. Disparition de Maeve, puis Maeve dans le bus, apparition de Victor avec le bus
@@ -245,3 +238,46 @@ else (){
 <!-- <div id="busMouse"></div>
 <input type="checkbox" id="option" name="afficheBus">
 <label for="afficheBus">Afficher le bus en voyage</label> -->
+
+
+
+<?php     
+        include("connexion.php");
+        if(isset($_POST['commentaireInput'])){
+            $sqlilo = "UPDATE joueur SET kai = '$_GET[commentaireInput]' WHERE pseudo ='$_GET[login]'";
+            if (mysqli_query($link, $sqlilo)) {
+                echo "(sql : update joueur avec message) Nouveau enregistrement créé avec succès";
+            } else {
+                echo "Erreur message ilona: " . $sqlilo . "<br>" . mysqli_error($link);
+            }
+        }
+        
+        echo "<div id=\commentaire\">";
+        $tableau_commentaire = [];
+        $requete_commentaire = "SELECT pseudo, kai FROM joueur";
+        if ($result_commentaire = mysqli_query($link, $requete_commentaire)) {
+            while ($ligne_commentaire = mysqli_fetch_assoc($result_commentaire)) {
+                array_push($tableau_commentaire, [
+                    "pseudo" => $ligne_commentaire['pseudo'],
+                    "kai" => $ligne_commentaire['kai']
+                ]);
+            }
+
+            $table_str = "<table>";
+
+            foreach ($tableau_commentaire as $elem) {
+                $table_str .= "<tr><td>";
+                foreach ($elem as $key => $value) {
+                    $table_str .= "$value";
+                }
+                $table_str .= "</td></tr>";
+            }
+            $table_str .= "</table>";
+            
+            echo $table_str;
+        }
+        else {
+            echo "Erreur de requête de base de données.";
+        }
+        echo "</div>";
+        ?>
