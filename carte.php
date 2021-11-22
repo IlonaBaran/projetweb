@@ -73,7 +73,7 @@
           <button id="suiteStory">Next</button>
 
           <!-- on peut integrer ca lors des differents cas quand les ge s doivent repondre -->
-          <div id="i1">
+          <!-- <div id="i1">
             <label>reponse1<input type="radio" name="ouinon" value="1"></label>
             <label>reponse2<input type="radio" name="ouinon" value="0"></label>
             <button id="validate">Valider</button>
@@ -82,14 +82,14 @@
           <div id="i2">
             <label>reponse1<input type="texte" name="ouinon" id="i2texte" value="0"></label>
             <button id="validate2">Valider2</button>
-          </div>
+          </div> -->
 
           <input type="texte" id="valueReponse" name="valueReponse" required minlength="1" maxlength="40" size="20">
           <button id="valide">Entrer</button>
           </br>
-          <div id="noValueReponse"></div>
+          <!-- <div id="noValueReponse"></div>
             <button id="testMessage">testMessage</button>
-          </div>
+          </div> -->
 
         </div>
     </div>

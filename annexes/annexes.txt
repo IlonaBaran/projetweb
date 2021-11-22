@@ -39,7 +39,7 @@ OK $message.innerHTML = "Je vais voir Amelie pour qu'elle vienne avec nous."
 .bindPopup('Je suis désolé, mais je ne bourgerai pas sans petit déjeuner!')
 .bindPopup('J'ai laissé une carotte au château de Versailles, si on me la ramène, je viens avec vous!')
 
-OK $message.innerHTML = "Tu peux aller la chercher s'il te plait ?" (Amaury qui parle)
+ ----------------------------------> dire plutot "Va me cherche ma carotte au chateau de versailles...."
 
 ________________________________________________________________________
 6. Faire apparaitre une carotte au chateau de Versailles
@@ -389,3 +389,64 @@ testMessage.addEventListener('click', function(){
 
         </div>
     </div>
+
+
+
+        // if(nbPersonne == 2){
+        //     for (i=1; 3; i++){
+        //         console.log(paroles[i], imageDialogue[i]);
+        //         // afficheMessageBus(paroles[i], imageDialogue[i]);
+        //         afficheMessageBus(paroles[i]);
+        //         console.log(i);
+        //     }
+        // }
+
+
+// PARTIE ILONA
+var testMessage = document.getElementById("testMessage");
+var message1 = document.getElementById("message");
+
+var afficheMessageBus = function(message, icone) {
+    bulleMessage = document.createElement('div');
+    bulleMessage.setAttribute("id", "bulleMessage");
+
+    var contenuMessage = document.createElement('div');
+    contenuMessage.setAttribute("id", "contenuMessage");
+    contenuMessage.innerHTML += message;
+
+    var photoMessage = document.createElement('div');
+    photoMessage.setAttribute("id", "photoMessage");
+    var img = document.createElement("img");
+    img.src = icone;
+    img.style.height = '50px';
+    photoMessage.appendChild(img);
+
+    bulleMessage.appendChild(contenuMessage);
+    bulleMessage.appendChild(photoMessage);
+    message1.appendChild(bulleMessage);
+}
+
+
+// function sleep(milliseconds) {
+//     const date = Date.now();
+//     let currentDate = null;
+//     do {
+//       currentDate = Date.now();
+//     } while (currentDate - date < milliseconds);
+//   }
+
+var recupFetchDiscussion = function(nbPersonne, nb) {
+    fetch('http://localhost/projetweb/objet.php?conversation='+String(nb))
+    .then(response => response.json())
+    .then(results => {
+        var result = results[0];
+        var paroles = result["dialogueBus"].split("$");
+        var imageBus = result["imageBus"].split("$");
+
+        if (nbPersonne == 2){
+            for (var i=0; i < paroles.length; i++){
+                afficheMessageBus(paroles[i], imageBus[i]);
+            }
+        }
+    })
+}
