@@ -1,9 +1,9 @@
 // RECUPERATION DES DONNEES:
 var $inventaire = document.getElementById("inventaire");
-var $inventaireObjet1 = document.getElementById("objet1");
+/*var $inventaireObjet1 = document.getElementById("objet1");
 var $inventaireObjet2 = document.getElementById("objet2");
 var $inventaireObjet3 = document.getElementById("objet3");
-var $inventaireObjet4 = document.getElementById("objet4");
+var $inventaireObjet4 = document.getElementById("objet4");*/
 var $bus = document.getElementById("bus");
 var $map = document.getElementById("map");
 var valueReponse = document.getElementById("valueReponse");
@@ -33,16 +33,16 @@ L.tileLayer('https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=06NeQFbVg4
 }).addTo(map);
 */  
 // CODE HISTOIRE
-var recupFetch = function(nb) {
+var recupFetch = function(n) {
     progresSum.innerText = compteur;
-    fetch('http://localhost/projetweb/objet.php?id='+String(nb)).then(response => response.json())
+    fetch('http://localhost/projetweb/objet.php?id='+String(n)).then(response => response.json())
     .then(result => {
         map.setView([result["latitude"], result["longitude"]],14);
         console.log(result["latitude"]);
         console.log(result["longitude"]);
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles = result["message"].split("$");
-        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup(paroles[0], {fontSize: 10}).addTo(map);
+        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup(paroles[0], {fontSize: 10, maxWidth:200}).addTo(map);
         paroles = paroles.slice(1,);
         marker.openPopup();
         //Partie Evènement
@@ -51,32 +51,33 @@ var recupFetch = function(nb) {
             appliqueEventDragend(marker,result["dragDropEnd"].split("$"));
         }
         else if (result["eventDblClick"]) {
-            appliqueEventDblclick(marker,result["icone"],result["dblClickBus"]);
+            appliqueEventDblclick(marker,result["dblClickBus"],n);
         }
         if (result["bloque"] == "O") {
-            recupFetchObjet(result["bloquePar"],marker,result["icone"],paroles[0],nb);
+            recupFetchObjet(result["bloquePar"],marker,result["icone"],paroles[0],n);
         } else if (result["bloque"] == "C") {
             valueReponseValide.addEventListener('click', function fct(){
                 noValueReponse.innerText = "";
                 if (strNoAccent(valueReponse.value.toLowerCase()) == result["bloquePar"] || result["bloquePar"] == null){
+                    valueReponse.value = "";
                     valueReponseValide.removeEventListener('click', fct);
                     map.closePopup();
                     marker._popup.setContent(paroles[0]);
                     marker.openPopup();
-                    appliqueEventDblclick(marker,result["icone"],result["dblClickBus"]);
+                    appliqueEventDblclick(marker,result["dblClickBus"],n);
                     marker.on('dblclick', function (e) {
                         console.log("yolololo");
-                        console.log(nb);
-                        if (nb==30) {
+                        console.log(n);
+                        if (n==30) {
                             compteur++;
-                            recupFetchMaeve(nb+1);
-                        } else if (nb==34) {
+                            recupFetchMaeve(n+1);
+                        } else if (n==34) {
                             //ATTENTION LE NOMBRE 
                             compteur++;
                             recupFetchCoindetAhr();
                         } else {
                             compteur++;
-                            recupFetch(nb+1);
+                            recupFetch(n+1);
                         }
                     });
                 } else {
@@ -88,14 +89,14 @@ var recupFetch = function(nb) {
                 console.log("hollaaaaa");
                 marker.remove();
                 compteur++;
-                recupFetch(nb+1);
+                recupFetch(n+1);
             })
         }
     })
 };
 
-var recupFetchObjet = function(nb, markerB, iconeB, messageB, n) {
-    fetch('http://localhost/projetweb/objet.php?id='+String(nb)).then(response => response.json())
+var recupFetchObjet = function(id, markerB, iconeB, messageB, n) {
+    fetch('http://localhost/projetweb/objet.php?id='+String(id)).then(response => response.json())
     .then(result => {
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup(result["message"], {fontSize: 10});//.addTo(map);
@@ -107,13 +108,13 @@ var recupFetchObjet = function(nb, markerB, iconeB, messageB, n) {
             appliqueEventDragend(marker,result["dragDropEnd"].split("$"), markerB, iconeB, messageB);
         }
         else if (result["eventDblClick"]) {
-            appliqueEventDblclick(marker,result["icone"],result["dblClickBus"]);
+            appliqueEventDblclick(marker,result["dblClickBus"],n);
         }
         marker.on("remove", function(e) {
             map.closePopup();
             markerB._popup.setContent(messageB);
             markerB.openPopup();
-            appliqueEventDblclick(markerB,iconeB,true);
+            appliqueEventDblclick(markerB,true,n);
             markerB.on('dblclick', function (e) {
                 //ATTENTION CHANGER ICI n
                 console.log(n);
@@ -135,19 +136,18 @@ var recupFetchBapFel = function() {
     fetch('http://localhost/projetweb/objet.php?dialogue=1').then(response => response.json())
     .then(results => {
         var result = results[0];
-        console.log(results[0]);
+        console.log(result);
         var result2 = results[1];
         //BAPTISTE
         map.setView([result["latitude"], result["longitude"]],17);
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles = result["message"].split("$");
-        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup(paroles[0], {fontSize: 10}).addTo(map);
-        //.openPopup();
+        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup(paroles[0], {fontSize: 10}).addTo(map).openPopup();
         paroles = paroles.slice(1,);
         //FELIX
         var objectIcon2 = new L.icon({iconUrl:result2["icone"], iconSize:[result2["iconeSizeLarg"], result2["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result2["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles2 = result2["message"].split("$");
-        var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2}).bindPopup(paroles2[0], {fontSize: 10}).addTo(map).openPopup();
+        var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2}).bindPopup(paroles2[0], {fontSize: 10}).addTo(map)//.openPopup();
         btn.style.visibility = 'visible';
         btn.addEventListener('click', function(){
             //compteur++;
@@ -168,10 +168,11 @@ var recupFetchBapFel = function() {
                             markerObj.remove();
                             compteur++;
                             marker.remove();
-                            var image = document.createElement('img');
-                            image.src = result["icone"];
-                            image.width = 80;
-                            $bus.appendChild(image);
+                            /*var image = document.createElement('img');
+                            image.src = "images/bus/bus1_12.png";
+                            image.id = "testimage";
+                            $bus.innerHTML = "";
+                            $bus.appendChild(image);*/
                         }
                     });
                     fetch('http://localhost/projetweb/objet.php?id='+String(result2["bloquePar"])).then(response => response.json())
@@ -186,7 +187,7 @@ var recupFetchBapFel = function() {
                                 map.closePopup();
                                 marker2._popup.setContent(paroles2[0]);
                                 marker2.openPopup();
-                                appliqueEventDblclick(marker2,result2["icone"],true);
+                                appliqueEventDblclick(marker2,true,result["value"]);
                                 marker2.on('dblclick', function (e) {
                                     //btn.style.visibility = 'visible';
                                     compteur++;
@@ -241,7 +242,7 @@ var recupFetchMaeve = function(n) {
                             marker2.openPopup();
                             markerO.remove();
                             marker.remove();
-                            appliqueEventDblclick(marker2,result2["icone"],true);
+                            appliqueEventDblclick(marker2,true,n+1);
                             btn.style.visibility = 'visible';
                             marker2.on('dblclick', function (e) {
                                 compteur++;
@@ -269,7 +270,7 @@ var recupFetchCoindetAhr = function() {
         //COINDET 2
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles = result["message"].split("$");
-        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup(paroles[0], {fontSize: 10}).openPopup();
+        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup(paroles[0], {fontSize: 10}).openPopup();
         //appliqueEventZoomend(marker, result["zoommini"]);
         map.addEventListener("zoomend", function(e) {
             let zoom = map.getZoom();
@@ -282,7 +283,7 @@ var recupFetchCoindetAhr = function() {
         //AHR
         var objectIcon2 = new L.icon({iconUrl:result2["icone"], iconSize:[result2["iconeSizeLarg"], result2["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result2["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles2 = result2["message"].split("$");
-        var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2, draggable:true}).bindPopup(paroles2[0], {fontSize: 10});
+        var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2}).bindPopup(paroles2[0], {fontSize: 10});
         //BUS REMPLI
         var objectIcon3 = new L.icon({iconUrl:result3["icone"], iconSize:[result3["iconeSizeLarg"], result3["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result3["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles3 = result3["message"].split("$");
@@ -290,26 +291,28 @@ var recupFetchCoindetAhr = function() {
         btn.style.visibility = 'visible';
         btn.addEventListener('click', function(){
             progresSum.innerText = compteur;
-            if (compteur==29) {
-                marker3.openPopup();
-                paroles3 = paroles3.slice(1,);
-            } else if (compteur==30) {
-                marker2.addTo(map);
-                marker2.openPopup();
-                paroles2 = paroles2.slice(1,);
-            } else if (compteur==31) {
-                marker._popup.setContent(paroles[0]);
-                marker.openPopup();
-                paroles = paroles.slice(1,);
-            } else if (compteur==32) {
-                marker3._popup.setContent(paroles3[0]);
-                marker3.openPopup();
-                paroles3 = paroles3.slice(1,);
-            } else if (compteur==33) {
-                console.log("CEST LA FIN");
-                //ICI METTRE LA FIN!
+            if (compteurPeluche == 4) {
+                if (compteur==29) {
+                    marker3.openPopup();
+                    paroles3 = paroles3.slice(1,);
+                } else if (compteur==30) {
+                    marker2.addTo(map);
+                    marker2.openPopup();
+                    paroles2 = paroles2.slice(1,);
+                } else if (compteur==31) {
+                    marker._popup.setContent(paroles[0]);
+                    marker.openPopup();
+                    paroles = paroles.slice(1,);
+                } else if (compteur==32) {
+                    marker3._popup.setContent(paroles3[0]);
+                    marker3.openPopup();
+                    paroles3 = paroles3.slice(1,);
+                } else if (compteur==33) {
+                    console.log("CEST LA FIN");
+                    //ICI METTRE LA FIN!
+                }
+                compteur++;
             }
-            compteur++;
         });
     })
 };
@@ -337,16 +340,16 @@ var appliqueEventDragend = function(marker, latLong) {
     });
 }
 
-var appliqueEventDblclick = function(marker, imgSrc, boolEvent) {
+var appliqueEventDblclick = function(marker, boolEvent, n) {
     marker.on('dblclick', function(e) {
         marker.remove();
         var image = document.createElement('img');
-        image.src = imgSrc;
-        image.width = 60;
+        console.log("images/bus/bus1_"+String(n-14)+".png");
+        image.src = "images/bus/bus1_"+String(n-14)+".png";
+        image.id = "testimage";
         if (boolEvent) {
+            $bus.innerHTML = "";
             $bus.appendChild(image);
-        } else {
-            $inventaireObjet1.appendChild(image);
         }
     })
 }
@@ -371,22 +374,20 @@ fetch('http://localhost/projetweb/objet.php?dialogue=0').then(response => respon
     //COINDET
     var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
     var paroles = result["message"].split("$");
-    var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup(paroles[0], {fontSize: 10}).addTo(map).openPopup();
+    var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup(paroles[0], {fontSize: 10, maxWidth:160}).addTo(map).openPopup();
     paroles = paroles.slice(1,);
     //appliqueEventZoomend(marker);
     //ZARZELLI
     var objectIcon2 = new L.icon({iconUrl:result2["icone"], iconSize:[result2["iconeSizeLarg"], result2["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result2["iconeSizeLarg"]/2,0], maxZoom:10});
     var paroles2 = result2["message"].split("$");
-    var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2, draggable:true}).bindPopup(paroles2[0], {fontSize: 10}).addTo(map);
+    var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2}).bindPopup(paroles2[0], {fontSize: 10, maxWidth:160}).addTo(map);
     //appliqueEventZoomend(marker2);
     //FILLON
     var objectIcon3 = new L.icon({iconUrl:result3["icone"], iconSize:[result3["iconeSizeLarg"], result3["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result3["iconeSizeLarg"]/2,0], maxZoom:10});
     var paroles3 = result3["message"].split("$");
-    var marker3 = L.marker([result3["latitude"], result3["longitude"]], {icon:objectIcon3, draggable:true}).bindPopup(paroles3[0], {fontSize: 10});
+    var marker3 = L.marker([result3["latitude"], result3["longitude"]], {icon:objectIcon3}).bindPopup(paroles3[0], {fontSize: 10, maxWidth:160});
     btn.addEventListener('click', function(){
-        console.log("passe ici");
         if (compteur<=25) {
-            console.log("que ici");
             compteur++;
             progresSum.innerText = compteur;
             if (compteur<=4){
@@ -438,30 +439,36 @@ var recupFetchJeanineZar2 = function() {
         fetch('http://localhost/projetweb/objet.php?id=15').then(response => response.json())
         .then(result => {
             var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
-            var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup("B_ _ _ _ _ _", {fontSize: 10}).addTo(map).openPopup();
+            var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup("B_ _ _ _ _ _", {fontSize: 10, maxWidth:160}).addTo(map).openPopup();
             //ZARZELLI2
             fetch('http://localhost/projetweb/objet.php?id=13').then(response => response.json())
             .then(result2 => {
                 map.setView([result2["latitude"], result2["longitude"]],20);
                 var objectIcon2 = new L.icon({iconUrl:result2["icone"], iconSize:[result2["iconeSizeLarg"], result2["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result2["iconeSizeLarg"]/2,0], maxZoom:10});
                 var paroles2 = result2["message"].split("$");
-                var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2, draggable:true}).bindPopup(paroles2[0], {fontSize: 10}).addTo(map).openPopup();
+                var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2}).bindPopup(paroles2[0], {fontSize: 10, maxWidth:160}).addTo(map).openPopup();
                 paroles2 = paroles2.slice(1,);
                 valueReponseValide.addEventListener('click', function(){
                     if (valueReponse.value.toLowerCase() == result["bloquePar"]){
-                        marker.bindPopup(result["message"], {fontSize: 10}).openPopup();
+                        noValueReponse.innerText = "";
+                        valueReponse.value = "";
+                        marker.bindPopup(result["message"], {fontSize: 10, maxWidth:160}).openPopup();
                         //MIGNIBUS
                         fetch('http://localhost/projetweb/objet.php?id=16').then(response => response.json())
                         .then(result3 => {
-                            var marker3 = L.marker([result3["latitude"], result3["longitude"]], {icon:new L.icon({iconUrl:result3["icone"], iconSize:[result3["iconeSizeLarg"], result3["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result3["iconeSizeLarg"]/2,0], maxZoom:10}), draggable:true}).bindPopup(result3["message"], {fontSize: 10}).addTo(map);
+                            var marker3 = L.marker([result3["latitude"], result3["longitude"]], {icon:new L.icon({iconUrl:result3["icone"], iconSize:[result3["iconeSizeLarg"], result3["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result3["iconeSizeLarg"]/2,0], maxZoom:10})}).bindPopup(result3["message"], {fontSize: 10, maxWidth:160}).addTo(map);
                             btn.style.visibility = 'visible';
                             btn.addEventListener('click', function(){
                                 if (compteur==9) {
-                                    marker2.bindPopup(paroles2[0], {fontSize: 10}).openPopup();
+                                    marker2.bindPopup(paroles2[0], {fontSize: 10, maxWidth:160}).openPopup();
                                 }
                                 if (compteur==10) {
                                     btn.style.visibility = 'hidden';
-                                    changeImageBus("images/bus/bus1_2.png");
+                                    var image = document.createElement('img');
+                                    image.src = "images/bus/bus1_2.png";
+                                    image.id = "testimage";
+                                    $bus.innerHTML = "";
+                                    $bus.appendChild(image);
                                     marker.remove();
                                     marker2.remove();
                                     marker3.remove();
@@ -469,6 +476,8 @@ var recupFetchJeanineZar2 = function() {
                                 }
                             });
                         })
+                    } else {
+                        noValueReponse.innerText = "Faux, retente ta chance!";
                     }
                 });
             })
@@ -479,31 +488,29 @@ var recupFetchJeanineZar2 = function() {
 var recupFetchPeluche = function(n) {
     fetch('http://localhost/projetweb/objet.php?id='+String(n)).then(response => response.json())
     .then(result => {
+        console.log(result);
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
-        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup(result["message"], {fontSize: 10}).addTo(map);
-        appliqueEventDblclick(marker, result["icone"], result["dblClickBus"]);
+        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup(result["message"], {fontSize: 10}).addTo(map);
+        marker.on('dblclick', function(e) {
+            marker.remove();
+            var image = document.createElement('img');
+            image.src = result["icone"];
+            document.getElementById("objet"+String(compteurPeluche)).appendChild(image);
+        })
         appliqueEventZoomend(marker, result["zoommini"]);
         marker.on('remove', function(e) {
             compteurPeluche++;
         });
+        if (n<10) {
+            recupFetchPeluche(n+1);
+        }
     });
 }
 var compteurPeluche = 0;
 recupFetchPeluche(7);
-recupFetchPeluche(8);
-recupFetchPeluche(9);
-recupFetchPeluche(10);
 
 
-
-var changeImageBus = function(imgSrc) {
-    var image = document.createElement('img');
-    image.src = imgSrc;
-    image.width = 400;
-    $bus.innerHTML = "";
-    $bus.appendChild(image);
-}
-
+/*
 // PARTIE ILONA
 var testMessage = document.getElementById("testMessage");
 var message1 = document.getElementById("message");
@@ -552,3 +559,4 @@ var recupFetchDiscussion = function(nbPersonne, nb) {
         }
     })
 }
+*/

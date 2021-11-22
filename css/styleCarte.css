@@ -137,7 +137,9 @@
 }
 
 #inventaire > div > img {
-    width: 40px;
+    width: 50px;
+    padding-bottom: 60%;
+    padding-left: 30%;
 }
 
 #titreInventaire{
