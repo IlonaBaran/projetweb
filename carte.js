@@ -19,18 +19,19 @@ btn.addEventListener('click', function(){
 
 //Compteur de l'avancée du jeu
 let map = L.map('map').setView([48.84108949711657, 2.588069801082868], 17);
-/*
+
 L.tileLayer('https://wxs.ign.fr/essentiels/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png&TileMatrix={z}&TileCol={x}&TileRow={y}', {
     attribution: 'Données cartographiques : © IGN',
     maxZoom: 19,
 }).addTo(map);
-*/
+
 //VERSION ANTOINE
+/*
 L.tileLayer('https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=06NeQFbVg4Ef3ttLmTbE', {
     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
     maxZoom: 19,
 }).addTo(map);
-
+*/  
 // CODE HISTOIRE
 var recupFetch = function(nb) {
     progresSum.innerText = compteur;
@@ -272,7 +273,6 @@ var recupFetchCoindetAhr = function() {
         //appliqueEventZoomend(marker, result["zoommini"]);
         map.addEventListener("zoomend", function(e) {
             let zoom = map.getZoom();
-            console.log(map.getZoom());
             if (zoom>result["zoommini"]) {
                 marker.addTo(map).openPopup();
                 map.removeEventListener("zoomend");
@@ -338,7 +338,7 @@ var appliqueEventDragend = function(marker, latLong) {
 }
 
 var appliqueEventDblclick = function(marker, imgSrc, boolEvent) {
-    marker.on('dblclick', function (e) {
+    marker.on('dblclick', function(e) {
         marker.remove();
         var image = document.createElement('img');
         image.src = imgSrc;
@@ -364,6 +364,7 @@ function strNoAccent(mot) {
 // Faire apparaitre Victor et Amaury à l'ENSG
 fetch('http://localhost/projetweb/objet.php?dialogue=0').then(response => response.json())
 .then(results => {
+    console.log(results);
     var result = results[0];
     var result2 = results[1];
     var result3 = results[2];
@@ -437,7 +438,7 @@ var recupFetchJeanineZar2 = function() {
         fetch('http://localhost/projetweb/objet.php?id=15').then(response => response.json())
         .then(result => {
             var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
-            var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup("...", {fontSize: 10}).addTo(map).openPopup();
+            var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup("B_ _ _ _ _ _", {fontSize: 10}).addTo(map).openPopup();
             //ZARZELLI2
             fetch('http://localhost/projetweb/objet.php?id=13').then(response => response.json())
             .then(result2 => {
@@ -474,6 +475,25 @@ var recupFetchJeanineZar2 = function() {
         })
     }
 }
+
+var recupFetchPeluche = function(n) {
+    fetch('http://localhost/projetweb/objet.php?id='+String(n)).then(response => response.json())
+    .then(result => {
+        var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
+        var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon, draggable:true}).bindPopup(result["message"], {fontSize: 10}).addTo(map);
+        appliqueEventDblclick(marker, result["icone"], result["dblClickBus"]);
+        appliqueEventZoomend(marker, result["zoommini"]);
+        marker.on('remove', function(e) {
+            compteurPeluche++;
+        });
+    });
+}
+var compteurPeluche = 0;
+recupFetchPeluche(7);
+recupFetchPeluche(8);
+recupFetchPeluche(9);
+recupFetchPeluche(10);
+
 
 
 var changeImageBus = function(imgSrc) {
