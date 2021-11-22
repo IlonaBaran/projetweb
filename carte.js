@@ -485,27 +485,13 @@ var changeImageBus = function(imgSrc) {
 }
 
 // PARTIE ILONA
-/*
 var testMessage = document.getElementById("testMessage");
-=======
-// test ilona pour conv - je le fais ici comme j'ai pas acces encore au truc d amelie et ca commence seulement a amelie-
-var compteurZ = 0;
-var compteurF = 0;
-// var contenuMessage = document.getElementById("contenuMessage");
-// var photoMessage = document.getElementById("photoMessage");
-
 var message1 = document.getElementById("message");
 
 var afficheMessageBus = function(message, icone) {
     bulleMessage = document.createElement('div');
     bulleMessage.setAttribute("id", "bulleMessage");
 
-    // var bulleMessage = document.createElement('div');
-    // contenuMessage.setAttribute("id", "contenuMessage");
-    // var new_div = document.createElement('div');
-    // new_div.setAttribute("id", "new_div");
-
-    // new_div.style.width= '100%';
     var contenuMessage = document.createElement('div');
     contenuMessage.setAttribute("id", "contenuMessage");
     contenuMessage.innerHTML += message;
@@ -520,34 +506,29 @@ var afficheMessageBus = function(message, icone) {
     bulleMessage.appendChild(contenuMessage);
     bulleMessage.appendChild(photoMessage);
     message1.appendChild(bulleMessage);
-    }
+}
 
-testMessage.addEventListener('click', function(){
-        var messageBus1 = "bonjour1$bonjour2".split("$");
-        var messageBus2 = "Fillon1$Fillon2".split("$");
 
-        if (compteurZ==0){
-            // afficheMessageBus(result2["messageBus"].split("$")[0], result2["icone"]);
-            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
-            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
-            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
-            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
-            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
-            afficheMessageBus(messageBus1[0], 'images/zarzelli.jpg');
-            compteurZ++;
-        }
-        else if (compteurF ==0){
-            afficheMessageBus(messageBus2[0], 'images/fillon.jpg');
-            compteurF++;
-        }
-        else if (compteurZ == 1){
-            afficheMessageBus(messageBus1[1], 'images/zarzelli.jpg');
-            afficheMessageBus(messageBus1[1], 'images/zarzelli.jpg');
-            afficheMessageBus(messageBus1[1], 'images/zarzelli.jpg');
+// function sleep(milliseconds) {
+//     const date = Date.now();
+//     let currentDate = null;
+//     do {
+//       currentDate = Date.now();
+//     } while (currentDate - date < milliseconds);
+//   }
 
-            compteurZ++;
+var recupFetchDiscussion = function(nbPersonne, nb) {
+    fetch('http://localhost/projetweb/objet.php?conversation='+String(nb))
+    .then(response => response.json())
+    .then(results => {
+        var result = results[0];
+        var paroles = result["dialogueBus"].split("$");
+        var imageBus = result["imageBus"].split("$");
+
+        if (nbPersonne == 2){
+            for (var i=0; i < paroles.length; i++){
+                afficheMessageBus(paroles[i], imageBus[i]);
+            }
         }
-        // })
-    }
-);
-});*/
+    })
+}

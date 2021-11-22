@@ -14,7 +14,8 @@
         foreach ($results as $result) {
             echo json_encode($result);
         }
-    } else if (isset($_GET['objet'])) {
+    } 
+    else if (isset($_GET['objet'])) {
         $requete = "SELECT id, objet, latitude, longitude, zoommini, icone, iconeSizeLarg, iconeSizeLong, eventDblClick, dblClickBus, eventDragDrop, dragDropEnd, parole, bloque, bloquePar FROM objet WHERE objet = {$_GET['objet']}";
         if ($result = mysqli_query($link, $requete)) {
             while ($ligne = mysqli_fetch_assoc($result)) {
@@ -26,7 +27,8 @@
         foreach ($results as $result) {
             echo json_encode($result);
         }
-    } else if (isset($_GET['dialogue'])) {
+    } 
+    else if (isset($_GET['dialogue'])) {
         if ($_GET['dialogue'] == 0) {
             $requete = "SELECT id, objet, latitude, longitude, zoommini, icone, iconeSizeLarg, iconeSizeLong, eventDblClick, dblClickBus, eventDragDrop, dragDropEnd, parole, bloque, bloquePar FROM objet WHERE objet='COINDET' OR objet='ZARZELLI' OR objet='FILLON'";
             if ($result = mysqli_query($link, $requete)) {
@@ -63,6 +65,32 @@
             //duplicata youzi do 5 shedule frizzi 44
 
             echo json_encode($results);
+        } 
+    }
+    else if (isset($_GET['conversation'])) {
+        if ($_GET['conversation'] == 1) {
+            $requete = "SELECT id, dialogueBus, imageBus FROM discussion WHERE id='1'";
+            if ($result = mysqli_query($link, $requete)) {
+                while ($ligne = mysqli_fetch_assoc($result)) {
+                    $results = AttributeDialogue($results, $ligne);
+                }
+            } else {
+                echo "Erreur de requête de base de données.";
+            }
+            //duplicata youzi do 5 shedule frizzi 44
+            echo json_encode($results);
+        }
+        else if ($_GET['conversation'] == 2) {
+            $requete = "SELECT id, dialogueBus, imageBus FROM discussion WHERE id='2'";
+            if ($result = mysqli_query($link, $requete)) {
+                while ($ligne = mysqli_fetch_assoc($result)) {
+                    $results = AttributeDialogue($results, $ligne);
+                }
+            } else {
+                echo "Erreur de requête de base de données.";
+            }
+            //duplicata youzi do 5 shedule frizzi 44
+            echo json_encode($results);
         }
     }
 
@@ -82,7 +110,16 @@
             "dragDropEnd" => $ligne['dragDropEnd'],
             "message" => $ligne['parole'],
             "bloque" => $ligne['bloque'],
-            "bloquePar" => $ligne['bloquePar']
+            "bloquePar" => $ligne['bloquePar'],
+        ]);
+        return $tab;
+    }
+
+    function AttributeDialogue($tab, $ligne) {
+        array_push($tab, [
+            "value" => intval($ligne['id']),
+            "dialogueBus" => ($ligne['dialogueBus']),
+            "imageBus" => ($ligne['imageBus']),
         ]);
         return $tab;
     }
