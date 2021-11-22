@@ -38,7 +38,7 @@
       <div id="niveaux">Progression du jeu
           <div id="progressbar">
               <div id="indicator"></div>
-              <div id="progressnum">23</div>
+              <div id="progressnum">0</div>
           </div>
           <!--<div id="progressnum">0</div>-->
       </div>

@@ -51,6 +51,18 @@
             //duplicata youzi do 5 shedule frizzi 44
 
             echo json_encode($results);
+        } else if ($_GET['dialogue'] == 2) {
+            $requete = "SELECT id, objet, latitude, longitude, zoommini, icone, iconeSizeLarg, iconeSizeLong, eventDblClick, dblClickBus, eventDragDrop, dragDropEnd, parole, bloque, bloquePar FROM objet WHERE objet='COINDET2' OR objet='AHR' OR objet='BUS'";
+            if ($result = mysqli_query($link, $requete)) {
+                while ($ligne = mysqli_fetch_assoc($result)) {
+                    $results = Attribute($results, $ligne);
+                }
+            } else {
+                echo "Erreur de requête de base de données.";
+            }
+            //duplicata youzi do 5 shedule frizzi 44
+
+            echo json_encode($results);
         }
     }
 
