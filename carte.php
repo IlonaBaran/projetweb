@@ -40,7 +40,6 @@
               <div id="indicator"></div>
               <div id="progressnum">0</div>
           </div>
-          <!--<div id="progressnum">0</div>-->
       </div>
 
       <div id="deroulmentJeu">
@@ -87,8 +86,8 @@
           <input type="texte" id="valueReponse" name="valueReponse" required minlength="1" maxlength="40" size="20">
           <button id="valide">Entrer</button>
           </br>
-          <!-- <div id="noValueReponse"></div>
-            <button id="testMessage">testMessage</button>
+          <div id="noValueReponse"></div>
+          <!--   <button id="testMessage">testMessage</button>
           </div> -->
 
         </div>
