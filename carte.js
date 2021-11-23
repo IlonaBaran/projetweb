@@ -367,6 +367,9 @@ fetch('http://localhost/projetweb/objet.php?dialogue=0').then(response => respon
     var result = results[0];
     var result2 = results[1];
     var result3 = results[2];
+
+    recupFetchDiscussion(1);
+
     //COINDET
     var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
     var paroles = result["message"].split("$");
@@ -517,7 +520,7 @@ var afficheMessageBus = function(message, icone) {
 //     } while (currentDate - date < milliseconds);
 //   }
 
-var recupFetchDiscussion = function(nbPersonne, nb) {
+var recupFetchDiscussion = function(nb) {
     fetch('http://localhost/projetweb/objet.php?conversation='+String(nb))
     .then(response => response.json())
     .then(results => {
@@ -525,10 +528,10 @@ var recupFetchDiscussion = function(nbPersonne, nb) {
         var paroles = result["dialogueBus"].split("$");
         var imageBus = result["imageBus"].split("$");
 
-        if (nbPersonne == 2){
-            for (var i=0; i < paroles.length; i++){
-                afficheMessageBus(paroles[i], imageBus[i]);
-            }
+        for (var i=0; i < paroles.length; i++){
+            afficheMessageBus(paroles[i], imageBus[i]);
+
         }
-    })
+    }
+    )
 }

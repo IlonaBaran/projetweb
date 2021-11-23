@@ -68,30 +68,54 @@
         } 
     }
     else if (isset($_GET['conversation'])) {
+        
         if ($_GET['conversation'] == 1) {
-            $requete = "SELECT id, dialogueBus, imageBus FROM discussion WHERE id='1'";
-            if ($result = mysqli_query($link, $requete)) {
-                while ($ligne = mysqli_fetch_assoc($result)) {
-                    $results = AttributeDialogue($results, $ligne);
-                }
-            } else {
-                echo "Erreur de requête de base de données.";
-            }
-            //duplicata youzi do 5 shedule frizzi 44
-            echo json_encode($results);
+            function Conversation(1);
         }
-        else if ($_GET['conversation'] == 2) {
-            $requete = "SELECT id, dialogueBus, imageBus FROM discussion WHERE id='2'";
-            if ($result = mysqli_query($link, $requete)) {
-                while ($ligne = mysqli_fetch_assoc($result)) {
-                    $results = AttributeDialogue($results, $ligne);
-                }
-            } else {
-                echo "Erreur de requête de base de données.";
+    }    
+        // if ($_GET['conversation'] == 1) {
+        //     function Conversation(1)
+        // }
+        // if ($_GET['conversation'] == 1) {
+        //     function Conversation(1)
+        // }
+
+        // if ($_GET['conversation'] == 1) {
+        //     $requete = "SELECT id, dialogueBus, imageBus FROM discussion WHERE id='1'";
+        //     if ($result = mysqli_query($link, $requete)) {
+        //         while ($ligne = mysqli_fetch_assoc($result)) {
+        //             $results = AttributeDialogue($results, $ligne);
+        //         }
+        //     } else {
+        //         echo "Erreur de requête de base de données.";
+        //     }
+        //     //duplicata youzi do 5 shedule frizzi 44
+        //     echo json_encode($results);
+        // }
+        // else if ($_GET['conversation'] == 2) {
+        //     $requete = "SELECT id, dialogueBus, imageBus FROM discussion WHERE id='2'";
+        //     if ($result = mysqli_query($link, $requete)) {
+        //         while ($ligne = mysqli_fetch_assoc($result)) {
+        //             $results = AttributeDialogue($results, $ligne);
+        //         }
+        //     } else {
+        //         echo "Erreur de requête de base de données.";
+        //     }
+        //     //duplicata youzi do 5 shedule frizzi 44
+        //     echo json_encode($results);
+        // }
+
+    function Conversation($nombre){       
+        $requete = "SELECT id, dialogueBus, imageBus FROM discussion WHERE id= '$nombre'";
+        if ($result = mysqli_query($link, $requete)) {
+            while ($ligne = mysqli_fetch_assoc($result)) {
+                $results = AttributeDialogue($results, $ligne);
             }
-            //duplicata youzi do 5 shedule frizzi 44
-            echo json_encode($results);
+        } else {
+            echo "Erreur de requête de base de données.";
         }
+        //duplicata youzi do 5 shedule frizzi 44
+        echo json_encode($results);
     }
 
     function Attribute($tab, $ligne) {
