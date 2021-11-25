@@ -2,7 +2,7 @@
   <html lang="fr">
     <head>
       <meta charset="UTF-8">
-      <title>EscapeGameOnEstLa</title>
+      <title>Jeu : EscapeGame</title>
       <link rel="stylesheet" href="css/commun.css">
       <link rel="stylesheet" href="css/styleCarte.css">
 
@@ -16,6 +16,12 @@
     </head>
 
     <body>
+    <?php
+      include("connexion.php");
+      $today = date("H:i:s"); 
+      $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
+    ?>
+
     <div id="contener1">
         <div id="titre">L'escape Game de Maeve et Ilona</div>
     </div>
@@ -25,16 +31,6 @@
 
       <div id="bus">
         <img src="images/bus/bus1.png" id="testimage">
-        <?php
-            include("connexion.php");
-            $today = date("H:i:s"); 
-            $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
-            
-            echo "<form method=\"get\" action=\"pageFin.php\">
-                    <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
-                    <input type=\"submit\" value=\"OK\" id=\"recup\">
-            </form>";
-          ?>
       </div>
 
       <div id="inventaire">
@@ -57,30 +53,22 @@
         <div id="message"></div>
 
         <div id="interaction">
-          <!--<input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">-->
-          <button id="suiteStory">Next</button>
-
-          <!-- on peut integrer ca lors des differents cas quand les ge s doivent repondre -->
-          <!-- <div id="i1">
-            <label>reponse1<input type="radio" name="ouinon" value="1"></label>
-            <label>reponse2<input type="radio" name="ouinon" value="0"></label>
-            <button id="validate">Valider</button>
-          </div>
-
-          <div id="i2">
-            <label>reponse1<input type="texte" name="ouinon" id="i2texte" value="0"></label>
-            <button id="validate2">Valider2</button>
-          </div> -->
+          <button id="suiteStory">Suivant</button>
+<!-- bouton a afficher lorsque le jeu est fini genre du style en js :  fin.style.visibylity: 'visible' et le reste du temps non visible-->
+          <!-- <form method="get" action="pageFin.php" id="fin">
+              <input type="readonly" name="login" value="$_GET[login]" style="display:none"> 
+              <input type="submit" value="OK" id="recup">
+          </form> -->
 
           <div id = "interactionJoueur">
             <input type="texte" id="valueReponse" name="valueReponse" required minlength="1" maxlength="40" size="20">
             <input type="submit" value="Entrer" id="valide">
           </div>
 
-          </br>
-          <div id="noValueReponse"></div>
-
+          <!-- ca je pense qu'on pourra enlever sachant que c'est les personnes qui diront "haahaaa c'est faux" -->
+          </br><div id="noValueReponse"></div>
         </div>
+      </div>
     </div>
 
       <footer id = "mentions">
