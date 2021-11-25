@@ -39,7 +39,7 @@
     
     overflow: auto;
     scrollbar-width: thin;
-    height: 80vh;
+    height: 70vh;
     overflow-y: scroll;
     scrollbar-color: rgb(247, 226, 196, 0.50) rgba(97, 86, 72, 0.50);
 }
@@ -49,8 +49,18 @@
     grid-row: 3;
     background-color: rgba(185, 171, 152, 0.5);
     text-align: center;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 60%;
 }
 
+#interactionJoueur{
+    grid-column: 1;
+    grid-row: 2;
+    background-color: rgba(185, 171, 152, 0.5);
+    text-align: center;
+}
 
 #bulleMessage{
     background-color: rgb(133, 122, 107);

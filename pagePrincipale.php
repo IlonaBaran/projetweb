@@ -12,7 +12,6 @@
         <div id="titre">L'escapade en Mignibus</div>
     </div>
 
-
     <div id="contener2">
         <div id="contexte">
             <p>Il est 8h55, lundi matin, le cours de web pour les elèves ingénieurs de 2ème année commence dans 5 minutes. 
@@ -27,8 +26,8 @@
 
         <div id="connexion1"> Rentrez un identifiant pour commencer l'aventure ! 
             <form id="identifiantForm" method="get" action="carte.php">
-                    <input type="text" name="login" required minlength="1" maxlength="20" size="20">
-                    <input type="submit" value="C'est parti !">
+                <input type="text" name="login" required minlength="1" maxlength="20" size="20">
+                <input type="submit" value="C'est parti !">
             </form>
         </div>
 
@@ -64,9 +63,9 @@
                 $table_str .= "</table>";
                 echo $table_str;
             }
-            else {
-                echo "Erreur de requête de base de données.";
-            }
+            // else {
+            //     echo "Erreur de requête de base de données.";
+            // }
             ?>
         </div>
     </div>
