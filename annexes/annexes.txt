@@ -145,8 +145,6 @@ ________________________________________________________________________
 
 .bindPopup('Merci, on peut y aller je suis prête! Il manque Baptiste !')
 .bindPopup('Baptiste habite dans le 12ème arrondissement de Paris !')
-OK $message.innerHTML = "Allons chez Baptiste !" (Antoine qui parle)
-
 ________________________________________________________________________
 17. Disparition de Melodie, Melodie dans le bus, apparition de Felix et Baptiste
 

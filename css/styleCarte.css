@@ -106,7 +106,7 @@
     grid-row: 1;
     border: 2px solid #240b16;
 
-    background-image : url("../images/fond2.png");
+    /* background-image : url("../images/fond2.png"); */
     background-size: cover;
 }
 

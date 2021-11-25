@@ -13,9 +13,12 @@ var objetsLibere = [];
 var progresSum = document.getElementById("progressnum");
 var compteur = progresSum.innerText;
 var btn = document.getElementById("suiteStory");
+var interactionJoueur = document.getElementById("interactionJoueur");
+
 btn.addEventListener('click', function(){
     progresSum.innerText = compteur;
 });
+
 
 //Compteur de l'avancée du jeu
 let map = L.map('map').setView([48.84108949711657, 2.588069801082868], 17);
@@ -47,6 +50,20 @@ var recupFetch = function(n) {
         marker.openPopup();
         //Partie Evènement
         //appliqueEventZoomend(marker);
+        if (compteur ==16){
+            recupFetchDiscussion(6);
+        }
+        else if (compteur ==17){
+            recupFetchDiscussion(8);
+        }
+        else if (compteur ==18){
+            recupFetchDiscussion(9);
+        }
+
+        if (compteur==11 || compteur==12 || compteur ==13 || compteur ==14 || compteur ==15 || compteur ==16 || compteur == 24 || compteur == 28){
+            interactionJoueur.style.visibility = 'visible'; 
+        };
+
         if (result["eventDragDrop"]) {
             appliqueEventDragend(marker,result["dragDropEnd"].split("$"));
         }
@@ -59,6 +76,10 @@ var recupFetch = function(n) {
             valueReponseValide.addEventListener('click', function fct(){
                 noValueReponse.innerText = "";
                 if (strNoAccent(valueReponse.value.toLowerCase()) == result["bloquePar"] || result["bloquePar"] == null){
+                    if (compteur==12){        
+                        recupFetchDiscussion(4);
+                    }
+                    interactionJoueur.style.visibility = 'hidden'; 
                     valueReponse.value = "";
                     valueReponseValide.removeEventListener('click', fct);
                     map.closePopup();
@@ -81,6 +102,15 @@ var recupFetch = function(n) {
                         }
                     });
                 } else {
+                    // if (compteur < clement){
+                    //     recupFetchDiscussion(3);
+                    // }
+                    // else if (compteur < antoine+ tancrede){
+                    //     recupFetchDiscussion(7);
+                    // }
+                    // else if (compteur < melodie + felix ){
+                    //     recupFetchDiscussion(12);
+                    // }
                     noValueReponse.innerText = "Faux, retente ta chance!";
                 }
             });
@@ -118,6 +148,7 @@ var recupFetchObjet = function(id, markerB, iconeB, messageB, n) {
             markerB.on('dblclick', function (e) {
                 //ATTENTION CHANGER ICI n
                 console.log(n);
+                console.log("je suis n");
                 if (n==25){
                     map.setView([48.85146895990481, 2.3773361339603363], 13);
                     compteur++;
@@ -154,6 +185,7 @@ var recupFetchBapFel = function() {
             progresSum.innerText = compteur;
             console.log("voila");
             console.log(compteur);
+            console.log("voila");
             if (compteur==20){
                 marker2.openPopup();
                 btn.style.visibility = 'hidden';
@@ -224,6 +256,7 @@ var recupFetchMaeve = function(n) {
             // ATTZNTION CHANGER LA VALEUR
             console.log("------");
             console.log(compteur);
+            console.log("------");
             if (compteur == 26) {
                 btn.style.visibility = 'hidden';
             }
@@ -367,13 +400,10 @@ function strNoAccent(mot) {
 // Faire apparaitre Victor et Amaury à l'ENSG
 fetch('http://localhost/projetweb/objet.php?dialogue=0').then(response => response.json())
 .then(results => {
-    console.log(results);
+    interactionJoueur.style.visibility = 'hidden'; 
     var result = results[0];
     var result2 = results[1];
     var result3 = results[2];
-
-    recupFetchDiscussion(1);
-
     //COINDET
     var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
     var paroles = result["message"].split("$");
@@ -439,6 +469,8 @@ fetch('http://localhost/projetweb/objet.php?dialogue=0').then(response => respon
 var recupFetchJeanineZar2 = function() {
     if (compteur==8) {
         //JEANINE
+        interactionJoueur.style.visibility = 'visible'; 
+
         fetch('http://localhost/projetweb/objet.php?id=15').then(response => response.json())
         .then(result => {
             var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
@@ -451,8 +483,10 @@ var recupFetchJeanineZar2 = function() {
                 var paroles2 = result2["message"].split("$");
                 var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2}).bindPopup(paroles2[0], {fontSize: 10, maxWidth:160}).addTo(map).openPopup();
                 paroles2 = paroles2.slice(1,);
+                
                 valueReponseValide.addEventListener('click', function(){
                     if (valueReponse.value.toLowerCase() == result["bloquePar"]){
+                        interactionJoueur.style.visibility = 'hidden'; 
                         noValueReponse.innerText = "";
                         valueReponse.value = "";
                         marker.bindPopup(result["message"], {fontSize: 10, maxWidth:160}).openPopup();
@@ -466,6 +500,7 @@ var recupFetchJeanineZar2 = function() {
                                     marker2.bindPopup(paroles2[0], {fontSize: 10, maxWidth:160}).openPopup();
                                 }
                                 if (compteur==10) {
+                                    recupFetchDiscussion(1);
                                     btn.style.visibility = 'hidden';
                                     var image = document.createElement('img');
                                     image.src = "images/bus/bus1_2.png";
@@ -480,7 +515,7 @@ var recupFetchJeanineZar2 = function() {
                             });
                         })
                     } else {
-                        noValueReponse.innerText = "Faux, retente ta chance!";
+                        noValueReponse.innerText = "Faux, retente ta chance! Essaie d'être un peu plus poli !";
                     }
                 });
             })
@@ -491,7 +526,6 @@ var recupFetchJeanineZar2 = function() {
 var recupFetchPeluche = function(n) {
     fetch('http://localhost/projetweb/objet.php?id='+String(n)).then(response => response.json())
     .then(result => {
-        console.log(result);
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup(result["message"], {fontSize: 10}).addTo(map);
         marker.on('dblclick', function(e) {
@@ -513,9 +547,9 @@ var compteurPeluche = 0;
 recupFetchPeluche(7);
 
 
-/*
+
 // PARTIE ILONA
-var testMessage = document.getElementById("testMessage");
+// var testMessage = document.getElementById("testMessage");
 var message1 = document.getElementById("message");
 
 var afficheMessageBus = function(message, icone) {
@@ -562,4 +596,5 @@ var recupFetchDiscussion = function(nb) {
     }
     )
 }
-*/
+
+
