@@ -55,10 +55,10 @@
         <div id="interaction">
           <button id="suiteStory">Suivant</button>
 <!-- bouton a afficher lorsque le jeu est fini genre du style en js :  fin.style.visibylity: 'visible' et le reste du temps non visible-->
-          <!-- <form method="get" action="pageFin.php" id="fin">
+          <form method="get" action="pageFin.php" id="fin">
               <input type="readonly" name="login" value="$_GET[login]" style="display:none"> 
               <input type="submit" value="OK" id="recup">
-          </form> -->
+          </form>
 
           <div id = "interactionJoueur">
             <input type="texte" id="valueReponse" name="valueReponse" required minlength="1" maxlength="40" size="20">

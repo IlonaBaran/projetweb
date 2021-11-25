@@ -14,6 +14,8 @@ var progresSum = document.getElementById("progressnum");
 var compteur = progresSum.innerText;
 var btn = document.getElementById("suiteStory");
 var interactionJoueur = document.getElementById("interactionJoueur");
+var message1 = document.getElementById("message");
+
 
 btn.addEventListener('click', function(){
     progresSum.innerText = compteur;
@@ -40,21 +42,19 @@ var recupFetch = function(n) {
     progresSum.innerText = compteur;
     fetch('http://localhost/projetweb/objet.php?id='+String(n)).then(response => response.json())
     .then(result => {
-        map.setView([result["latitude"], result["longitude"]],14);
+        map.setView([result["latitude"], result["longitude"]], 14);
         console.log(result["latitude"]);
         console.log(result["longitude"]);
         //refile ficher qutatzoriu 31
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles = result["message"].split("$");
         var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup(paroles[0], {fontSize: 10, maxWidth:200}).addTo(map);
-        paroles = paroles.slice(1,);
+        paroles = paroles.slice(1, );
         marker.openPopup();
         //Partie Evènement
         //appliqueEventZoomend(marker);
-        if (compteur ==16){
-            recupFetchDiscussion(6);
-        }
-        else if (compteur ==17){
+
+        if (compteur ==17){
             recupFetchDiscussion(8);
         }
         else if (compteur ==18){
@@ -63,16 +63,19 @@ var recupFetch = function(n) {
 
         if (compteur==11 || compteur==12 || compteur ==13 || compteur ==14 || compteur ==15 || compteur ==16 || compteur == 24 || compteur == 28){
             interactionJoueur.style.visibility = 'visible'; 
+            if (compteur ==16){
+                recupFetchDiscussion(6);
+            }
         };
 
         if (result["eventDragDrop"]) {
             appliqueEventDragend(marker,result["dragDropEnd"].split("$"));
         }
         else if (result["eventDblClick"]) {
-            appliqueEventDblclick(marker,result["dblClickBus"],n);
+            appliqueEventDblclick(marker,result["dblClickBus"], n);
         }
         if (result["bloque"] == "O") {
-            recupFetchObjet(result["bloquePar"],marker,result["icone"],paroles[0],n);
+            recupFetchObjet(result["bloquePar"],marker,result["icone"],paroles[0], n);
         } else if (result["bloque"] == "C") {
             valueReponseValide.addEventListener('click', function fct(){
                 noValueReponse.innerText = "";
@@ -86,7 +89,7 @@ var recupFetch = function(n) {
                     map.closePopup();
                     marker._popup.setContent(paroles[0]);
                     marker.openPopup();
-                    appliqueEventDblclick(marker,result["dblClickBus"],n);
+                    appliqueEventDblclick(marker,result["dblClickBus"], n);
                     marker.on('dblclick', function (e) {
                         console.log("yolololo");
                         console.log(n);
@@ -549,9 +552,6 @@ recupFetchPeluche(7);
 
 
 
-// PARTIE ILONA
-// var testMessage = document.getElementById("testMessage");
-var message1 = document.getElementById("message");
 
 var afficheMessageBus = function(message, icone) {
     bulleMessage = document.createElement('div');
@@ -571,16 +571,17 @@ var afficheMessageBus = function(message, icone) {
     bulleMessage.appendChild(contenuMessage);
     bulleMessage.appendChild(photoMessage);
     message1.appendChild(bulleMessage);
+
+    message1.scrollTop = message1.scrollHeight;
 }
 
-
-// function sleep(milliseconds) {
-//     const date = Date.now();
-//     let currentDate = null;
-//     do {
-//       currentDate = Date.now();
-//     } while (currentDate - date < milliseconds);
-//   }
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+  }
 
 var recupFetchDiscussion = function(nb) {
     fetch('http://localhost/projetweb/objet.php?conversation='+String(nb))
@@ -591,11 +592,10 @@ var recupFetchDiscussion = function(nb) {
         var imageBus = result["imageBus"].split("$");
 
         for (var i=0; i < paroles.length; i++){
-            afficheMessageBus(paroles[i], imageBus[i]);
-
+            // afficheMessageBus(paroles[i], imageBus[i]);
+            // setTimeout(afficheMessageBus(paroles[i], imageBus[i]), 10000);
         }
-    }
-    )
+    })
 }
 
 
