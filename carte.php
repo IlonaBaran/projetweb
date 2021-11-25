@@ -43,7 +43,7 @@
       </div>
 
       <div id="deroulmentJeu">
-        <div id="deroulmentTitre">Déroulement du jeu</div>
+        <div id="deroulmentTitre">Mais qu'est ce qu'il se dit dans le mignibus ?</div>
         <div id="message">
           <?php
             include("connexion.php");
@@ -83,12 +83,13 @@
             <button id="validate2">Valider2</button>
           </div> -->
 
-          <input type="texte" id="valueReponse" name="valueReponse" required minlength="1" maxlength="40" size="20">
-          <button id="valide">Entrer</button>
+          <div id = "interactionJoueur">
+            <input type="texte" id="valueReponse" name="valueReponse" required minlength="1" maxlength="40" size="20">
+            <input type="submit" value="Entrer" id="valide">
+          </div>
+
           </br>
           <div id="noValueReponse"></div>
-          <!--   <button id="testMessage">testMessage</button>
-          </div> -->
 
         </div>
     </div>
