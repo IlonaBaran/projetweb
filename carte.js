@@ -54,10 +54,11 @@ var recupFetch = function(n) {
         //Partie Evènement
         //appliqueEventZoomend(marker);
 
-        if (compteur ==17){
+
+        if (compteur == 17) {
             recupFetchDiscussion(8);
         }
-        else if (compteur ==18){
+        else if (compteur == 18) {
             recupFetchDiscussion(9);
         }
 
@@ -158,6 +159,13 @@ var recupFetchObjet = function(id, markerB, iconeB, messageB, n) {
                     compteur++;
                     recupFetchBapFel();
                 } else {
+                    if (n==28-1) {
+                        recupFetchPeluche(8);
+                    } if (n==20-1) {
+                        recupFetchPeluche(9);
+                    } if (n==21-1) {
+                        recupFetchPeluche(10);
+                    }
                     compteur++;
                     recupFetch(n+1);
                 }
@@ -466,6 +474,27 @@ fetch('http://localhost/projetweb/objet.php?dialogue=0').then(response => respon
     });
 })
 
+//PAPARODITIS
+fetch('http://localhost/projetweb/objet.php?id=38').then(response => response.json())
+.then(result => {
+    console.log("yo mec tes ou?");
+    console.log(result);
+    var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
+    var paroles = result["message"].split("$");
+    var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup(paroles[0], {fontSize: 10, maxWidth:160});
+    map.addEventListener("zoomend", function(e) {
+        let zoom = map.getZoom();
+        console.log(compteur);
+        if (compteur>=29 && compteur>=10 && compteur!=17 && compteur!=23 && zoom>result["zoommini"]) {
+            console.log("rRRRR");
+            marker.addTo(map);
+            marker._popup.setContent(paroles[0]);
+            marker.openPopup();
+            paroles = paroles.slice(1,);
+        }
+    });
+});
+
 //Faire apparaitre Tristan Fillon au niveau du portail de sécurité
 //Faire apparaitre Jeanine dans l'ENSG et deplacer Amaury a côté de Jeanine
 
@@ -474,7 +503,6 @@ var recupFetchJeanineZar2 = function() {
     if (compteur==8) {
         //JEANINE
         interactionJoueur.style.visibility = 'visible'; 
-
         fetch('http://localhost/projetweb/objet.php?id=15').then(response => response.json())
         .then(result => {
             var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
@@ -487,7 +515,6 @@ var recupFetchJeanineZar2 = function() {
                 var paroles2 = result2["message"].split("$");
                 var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2}).bindPopup(paroles2[0], {fontSize: 10, maxWidth:160}).addTo(map).openPopup();
                 paroles2 = paroles2.slice(1,);
-                
                 valueReponseValide.addEventListener('click', function(){
                     if (valueReponse.value.toLowerCase() == result["bloquePar"]){
                         interactionJoueur.style.visibility = 'hidden'; 
@@ -542,9 +569,9 @@ var recupFetchPeluche = function(n) {
         marker.on('remove', function(e) {
             compteurPeluche++;
         });
-        if (n<10) {
-            recupFetchPeluche(n+1);
-        }
+        // if (n<10) {
+        //     recupFetchPeluche(n+1);
+        // }
     });
 }
 var compteurPeluche = 0;
