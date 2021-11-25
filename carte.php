@@ -25,6 +25,16 @@
 
       <div id="bus">
         <img src="images/bus/bus1.png" id="testimage">
+        <?php
+            include("connexion.php");
+            $today = date("H:i:s"); 
+            $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
+            
+            echo "<form method=\"get\" action=\"pageFin.php\">
+                    <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
+                    <input type=\"submit\" value=\"OK\" id=\"recup\">
+            </form>";
+          ?>
       </div>
 
       <div id="inventaire">
@@ -43,30 +53,9 @@
       </div>
 
       <div id="deroulmentJeu">
-        <div id="deroulmentTitre">Mais qu'est ce qu'il se dit dans le mignibus ?</div>
-        <div id="message">
-          <?php
-            include("connexion.php");
-            $today = date("H:i:s"); 
-            $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
-            // if (mysqli_query($link, $sql)) {
-            //     echo "(sql) Nouveau enregistrement créé avec succès";
-            // } else {
-            //     echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
-            // }
-            
-            echo "<form method=\"get\" action=\"pageFin.php\">
-                    <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
-                    <input type=\"submit\" value=\"OK\" id=\"recup\">
-            </form>";
-          ?>
-        </div>
-          <!-- <div id="bulleMessage">
-            <div id= 'contenuMessage'></div>
-            <div id ='photoMessage'></div>
-          </div> -->
+        <div id="deroulmentTitre">Conv' dans le mignibus</div>
+        <div id="message"></div>
 
-<
         <div id="interaction">
           <!--<input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">-->
           <button id="suiteStory">Next</button>
