@@ -22,7 +22,7 @@ let map = L.map('map').setView([48.84108949711657, 2.588069801082868], 17);
 
 L.tileLayer('https://wxs.ign.fr/essentiels/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png&TileMatrix={z}&TileCol={x}&TileRow={y}', {
     attribution: 'Données cartographiques : © IGN',
-    maxZoom: 19,
+    maxZoom: 20,
 }).addTo(map);
 
 //VERSION ANTOINE
@@ -40,6 +40,7 @@ var recupFetch = function(n) {
         map.setView([result["latitude"], result["longitude"]],14);
         console.log(result["latitude"]);
         console.log(result["longitude"]);
+        //refile ficher qutatzoriu 31
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles = result["message"].split("$");
         var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup(paroles[0], {fontSize: 10, maxWidth:200}).addTo(map);
