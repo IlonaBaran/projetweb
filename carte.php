@@ -28,14 +28,14 @@
       </div>
 
       <div id="inventaire">
-        <div id ="titreInventaire">Inventaire</div>
+        <div id ="titreInventaire" class='titreSection'>Inventaire</div>
         <div id="objet1" class="objet"></br></div>
         <div id="objet2" class="objet"></br></div>
         <div id="objet3" class="objet"></br></div>
         <div id="objet4" class="objet"></br></div>
       </div>
 
-      <div id="niveaux">Progression du jeu
+      <div id="niveaux" class='titreSection'>Progression du jeu
           <div id="progressbar">
               <div id="indicator"></div>
               <div id="progressnum">0</div>
@@ -43,6 +43,7 @@
       </div>
 
       <div id="deroulmentJeu">
+<<<<<<< HEAD
         <div id="deroulmentTitre">Mais qu'est ce qu'il se dit dans le mignibus ?</div>
         <div id="message">
           <?php
@@ -65,6 +66,10 @@
             <div id ='photoMessage'></div>
           </div> -->
 
+=======
+        <div id="deroulmentTitre" class='titreSection'>Conv' dans le mignibus</div>
+        <div id="message"></div>
+>>>>>>> 71e3ef667d6be465ca5d081bb8fa2d6953fd6649
 
         <div id="interaction">
           <!--<input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">-->
