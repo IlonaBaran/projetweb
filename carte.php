@@ -34,14 +34,14 @@
       </div>
 
       <div id="inventaire">
-        <div id ="titreInventaire">Inventaire</div>
+        <div id ="titreInventaire" class='titreSection'>Inventaire</div>
         <div id="objet1" class="objet"></br></div>
         <div id="objet2" class="objet"></br></div>
         <div id="objet3" class="objet"></br></div>
         <div id="objet4" class="objet"></br></div>
       </div>
 
-      <div id="niveaux">Progression du jeu
+      <div id="niveaux" class='titreSection'>Progression du jeu
           <div id="progressbar">
               <div id="indicator"></div>
               <div id="progressnum">0</div>
@@ -49,7 +49,7 @@
       </div>
 
       <div id="deroulmentJeu">
-        <div id="deroulmentTitre">Conv' dans le mignibus</div>
+        <div id="deroulmentTitre" class='titreSection'>Conv' dans le mignibus</div>
         <div id="message"></div>
 
         <div id="interaction">

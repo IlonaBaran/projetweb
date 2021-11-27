@@ -56,16 +56,16 @@ var recupFetch = function(n) {
 
 
         if (compteur == 17) {
-            recupFetchDiscussion(8);
+            recupFetchDiscussion(8, true);
         }
         else if (compteur == 18) {
-            recupFetchDiscussion(9);
+            recupFetchDiscussion(9, true);
         }
 
         if (compteur==11 || compteur==12 || compteur ==13 || compteur ==14 || compteur ==15 || compteur ==16 || compteur == 24 || compteur == 28){
             interactionJoueur.style.visibility = 'visible'; 
             if (compteur ==16){
-                recupFetchDiscussion(6);
+                recupFetchDiscussion(6, true);
             }
         };
 
@@ -82,7 +82,7 @@ var recupFetch = function(n) {
                 noValueReponse.innerText = "";
                 if (strNoAccent(valueReponse.value.toLowerCase()) == result["bloquePar"] || result["bloquePar"] == null){
                     if (compteur==12){        
-                        recupFetchDiscussion(4);
+                        recupFetchDiscussion(4, true);
                     }
                     interactionJoueur.style.visibility = 'hidden'; 
                     valueReponse.value = "";
@@ -531,7 +531,7 @@ var recupFetchJeanineZar2 = function() {
                                     marker2.bindPopup(paroles2[0], {fontSize: 10, maxWidth:160}).openPopup();
                                 }
                                 if (compteur==10) {
-                                    recupFetchDiscussion(1);
+                                    recupFetchDiscussion(1, true);
                                     btn.style.visibility = 'hidden';
                                     var image = document.createElement('img');
                                     image.src = "images/bus/bus1_2.png";
@@ -546,6 +546,9 @@ var recupFetchJeanineZar2 = function() {
                             });
                         })
                     } else {
+                        if (compteur==8) {
+                            recupFetchDiscussion(14, false);
+                        }
                         noValueReponse.innerText = "Faux, retente ta chance! Essaie d'être un peu plus poli !";
                     }
                 });
@@ -580,7 +583,31 @@ recupFetchPeluche(7);
 
 
 
-var afficheMessageBus = function(message, icone) {
+// var afficheMessageBus = function(message, icone) {
+//     bulleMessage = document.createElement('div');
+//     bulleMessage.setAttribute("id", "bulleMessage");
+
+//     var contenuMessage = document.createElement('div');
+//     contenuMessage.setAttribute("id", "contenuMessage");
+//     contenuMessage.innerHTML += message;
+
+//     var photoMessage = document.createElement('div');
+//     photoMessage.setAttribute("id", "photoMessage");
+//     var img = document.createElement("img");
+//     img.src = icone;
+//     img.style.height = '50px';
+//     photoMessage.appendChild(img);
+
+//     bulleMessage.appendChild(contenuMessage);
+//     bulleMessage.appendChild(photoMessage);
+//     bulleMessage.style.backgroundColor='rgb(133, 122, 107)';
+
+//     message1.appendChild(bulleMessage);
+
+//     message1.scrollTop = message1.scrollHeight;
+// }
+
+var afficheMessageBus = function(message, icone, couleur) {
     bulleMessage = document.createElement('div');
     bulleMessage.setAttribute("id", "bulleMessage");
 
@@ -597,20 +624,30 @@ var afficheMessageBus = function(message, icone) {
 
     bulleMessage.appendChild(contenuMessage);
     bulleMessage.appendChild(photoMessage);
+    bulleMessage.style.backgroundColor = couleur;
+
     message1.appendChild(bulleMessage);
 
     message1.scrollTop = message1.scrollHeight;
 }
 
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-  }
+// var recupFetchDiscussion = function(nb) {
+//     fetch('http://localhost/projetweb/objet.php?conversation='+String(nb))
+//     .then(response => response.json())
+//     .then(results => {
+//         var result = results[0];
+//         var paroles = result["dialogueBus"].split("$");
+//         var imageBus = result["imageBus"].split("$");
 
-var recupFetchDiscussion = function(nb) {
+//         for (var i=0; i < paroles.length; i++){
+//             afficheMessageBus(paroles[i], imageBus[i]);
+//             // setTimeout(afficheMessageBus(paroles[i], imageBus[i]), 10000);
+//         }
+//     })
+// }
+
+
+var recupFetchDiscussion = function(nb, bus) {
     fetch('http://localhost/projetweb/objet.php?conversation='+String(nb))
     .then(response => response.json())
     .then(results => {
@@ -619,8 +656,12 @@ var recupFetchDiscussion = function(nb) {
         var imageBus = result["imageBus"].split("$");
 
         for (var i=0; i < paroles.length; i++){
-            // afficheMessageBus(paroles[i], imageBus[i]);
-            // setTimeout(afficheMessageBus(paroles[i], imageBus[i]), 10000);
+            if (bus){
+                afficheMessageBus(paroles[i], imageBus[i], 'rgb(133, 122, 107)');
+            }
+            else {
+                afficheMessageBus(paroles[i], imageBus[i], 'rgb(250, 214, 210)');
+            }
         }
     })
 }

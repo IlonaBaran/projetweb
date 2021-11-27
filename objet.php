@@ -107,12 +107,15 @@
         else  if ($_GET['conversation'] == 13) {
             Conversation(13, $link);
         }
+        else  if ($_GET['conversation'] == 14) {
+            Conversation(14, $link);
+        }
 
     }
 
     function Conversation($nombre, $link){      
         $results = [];
-        $requete = "SELECT id, dialogueBus, imageBus FROM discussion WHERE id='$nombre'";
+        $requete = "SELECT dialogueBus, imageBus FROM discussion WHERE id='$nombre'";
         if ($result = mysqli_query($link, $requete)) {
             while ($ligne = mysqli_fetch_assoc($result)) {
                 $results = AttributeDialogue($results, $ligne);
@@ -146,7 +149,7 @@
 
     function AttributeDialogue($tab, $ligne) {
         array_push($tab, [
-            "value" => intval($ligne['id']),
+            // "value" => intval($ligne['id']),
             "dialogueBus" => ($ligne['dialogueBus']),
             "imageBus" => ($ligne['imageBus']),
         ]);
