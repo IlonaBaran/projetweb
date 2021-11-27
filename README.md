@@ -16,7 +16,6 @@ Aller sur http://localhost/phpmyadmin
 Créer une base de données “escapegame”
 Importer le fichier espacegame.sql
 
-
 ## Consigne et déroulement du jeu
 Le jeu comporte 3 pages :
 - une page principale.
