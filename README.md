@@ -13,11 +13,21 @@ Projet web : Bienvenue sur l'escape game de Maeve et Ilona !
 + Connection internet pour l'affichage de la carte
 + Utilisation d'un navigateur (évitez Microsoft edge et Internet explorer)
 
-
-+ Import de la base de données
+#### Import de la base de données 
 Aller sur http://localhost/phpmyadmin
+#### Si vous utilisez MAMP : #
+//Maeve, je n'ai plus mamp, il faudrait que tu dises comment tu fais pour creer un compte d'accès (identifiant + mdp). On peut mettre dans la ligne du jeu escapge game pour le mdp et l'id, ca sera plus simple a gerer ? 
 Créer une base de données “escapegame”
 Importer le fichier espacegame.sql
+Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier au besoin de telle façon à avoir ce qui suit :
+//photo des 2 lignes 
+
+### Si vous utilisez WAMP : #
+Connecter vous sans changer l'identifiant et le mot de passe pré-rentré. Normalement, vous devriez avoir : //capture d'écran avec root, et pas de mdr
+Créer une base de données “escapegame”
+Importer le fichier espacegame.sql
+Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier au besoin de telle façon à avoir ce qui suit :
+//photo des 2 lignes 
 
 ## Consigne et déroulement du jeu
 Le jeu comporte 3 pages :
