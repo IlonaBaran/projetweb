@@ -34,7 +34,7 @@
         </div>
 
         <div id="score" class='contour'>
-            <div id="titreScore" class='contour'>Hall Of Fame</div>
+            <div id="titreScore">Hall Of Fame</div>
             <?php
                 include("connexion.php");
                 

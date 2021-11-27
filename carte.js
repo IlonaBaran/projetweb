@@ -74,8 +74,8 @@ var recupFetch = function(n) {
                 interactionJoueur.style.visibility = 'visible'; 
                 valueReponse.addEventListener('keyup', function fct(e) {
                     if ((strNoAccent(valueReponse.value.toLowerCase()) == result["bloquePar"] || (result["bloquePar"] == null && valueReponse.value != "")) && e.key == "Enter") {
-                        if (compteur==12){        
-                            recupFetchDiscussion(4);
+                        if (compteur==13){        
+                            recupFetchDiscussion(4, true);
                         }
                         interactionJoueur.style.visibility = 'hidden'; 
                         valueReponse.value = "";

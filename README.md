@@ -1,4 +1,5 @@
-# Projet web : Bienvenue sur l'escape game de Maeve et Ilona !
+Projet web : Bienvenue sur l'escape game de Maeve et Ilona !
+==
 
 ![PojetWeb](images/bus/bus1_14.png)
 
@@ -7,9 +8,11 @@
 + JavaScript, AJAX
 + PHP, MySQL
 
-## Installation
-+ téléchargement de mamp ou wamp
-Connectez-vous au serveur 
+## Pré-requis
++ Installation de MAMP ou WAMP
++ Connection internet pour l'affichage de la carte
++ Utilisation d'un navigateur (évitez Microsoft edge et Internet explorer)
+
 
 + Import de la base de données
 Aller sur http://localhost/phpmyadmin
