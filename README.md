@@ -19,7 +19,7 @@ Importer le fichier espacegame.sql
 
 ## Consigne et déroulement du jeu
 Le jeu comporte 3 pages :
-- une page principale. 
+- une page principale.
 Vous devrez rentrer un pseudo pour pouvoir commencer à jouer. Celui-ci doit faire entre 1 et 20 caractères.
 
 - une page de jeu
