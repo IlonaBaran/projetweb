@@ -54,10 +54,9 @@
             // } else {
             //     echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
             // }
-            
-            echo "<form method=\"get\" action=\"pageFin.php\">
+            echo "<form method=\"get\" action=\"pageFin.php\" id=\"btnFin\">
                     <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
-                    <input type=\"submit\" value=\"OK\" id=\"recup\">
+                    <input type=\"submit\" value=\"Fin du jeu\" id=\"recup\">
             </form>";
           ?>
         </div>
@@ -66,7 +65,7 @@
             <div id ='photoMessage'></div>
           </div> -->
 
-<
+
         <div id="interaction">
           <!--<input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">-->
           <button id="suiteStory">Suivant</button>
@@ -82,15 +81,20 @@
             <label>reponse1<input type="texte" name="ouinon" id="i2texte" value="0"></label>
             <button id="validate2">Valider2</button>
           </div> -->
+        <!-- bouton a afficher lorsque le jeu est fini genre du style en js :  fin.style.visibylity: 'visible' et le reste du temps non visible-->
+          <form method="get" action="pageFin.php" id="fin">
+              <input type="readonly" name="login" value="$_GET[login]" style="display:none"> 
+              <input type="submit" value="OK" id="recup">
+          </form>
 
           <div id = "interactionJoueur">
             <input type="texte" id="valueReponse" name="valueReponse" required minlength="1" maxlength="40" size="20">
-            <input type="submit" value="Entrer" id="valide">
+            <!--<input type="submit" value="Entrer" id="valide">-->
           </div>
 
           </br>
-          <div id="noValueReponse"></div>
-
+          <!--<div id="noValueReponse"></div>-->
+          <!-- <button id="btnFin">Fin du jeu</button> -->
         </div>
     </div>
 

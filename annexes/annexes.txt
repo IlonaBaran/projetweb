@@ -448,3 +448,8 @@ var recupFetchDiscussion = function(nbPersonne, nb) {
         }
     })
 }
+
+
+
+
+Si tu ne sais pas répondre à la question, tu devrais aller voir Nicolas Paparoditis, il est très souvent à l'ENSG, il pourra te filer un coup de main !
