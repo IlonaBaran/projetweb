@@ -12,7 +12,6 @@ var indicProg = document.getElementById("indicator");
 
 //Maeve -> pour recuperer une variable php en js
 var variableRecuperee = document.getElementById("pseudo").value;
-console.log(variableRecuperee);
 
 var map = L.map('map').setView([48.84108949711657, 2.588069801082868], 17);
 
@@ -48,6 +47,7 @@ var recupFetch = function(n) {
         //PAPARODITIS
         fetch('http://localhost/projetweb/objet.php?id=38').then(response => response.json())
         .then(resultP => {
+            console.log(compteur + "compteur");
             var objectIconP = new L.icon({iconUrl:resultP["icone"], iconSize:[resultP["iconeSizeLarg"], resultP["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[resultP["iconeSizeLarg"]/2,0]});
             var parolesP = resultP["message"].split("$");
             var markerP = L.marker([resultP["latitude"], resultP["longitude"]], {icon:objectIconP}).bindPopup("<p id=parole>"+parolesP[n-17]+"</p>", {fontSize: 10, maxWidth:160});
@@ -77,7 +77,6 @@ var recupFetch = function(n) {
                 valueReponse.addEventListener('keyup', function fct(e) {
                     if ((strNoAccent(valueReponse.value.toLowerCase()) == result["bloquePar"] || (result["bloquePar"] == null && valueReponse.value != "")) && e.key == "Enter") {
                         var aleatoireMessage = Math.random();
-                        console.log(aleatoireMessage);
                         if (aleatoireMessage < 0.4){
                             recupFetchDiscussion(2, true);
                         }
@@ -85,8 +84,7 @@ var recupFetch = function(n) {
                         if (compteur==13){        
                             recupFetchDiscussion(4, true);
                         }
-                        console.log(compteur);
-                        console.log("000000000000");
+
                         interactionJoueur.style.visibility = 'hidden'; 
                         valueReponse.value = "";
                         valueReponse.removeEventListener('keyup', fct);
@@ -113,6 +111,9 @@ var recupFetch = function(n) {
                                 }
                                 if (compteur==12){
                                     recupFetchDiscussion(15, true);
+                                }
+                                if (compteur == 17){
+                                    recupFetchDiscussion(11, true);
                                 }
                                 compteur++;
                                 recupFetch(n+1);
@@ -206,7 +207,6 @@ var recupFetchRivBal = function() {
         //PAPARODITIS
         fetch('http://localhost/projetweb/objet.php?id=38').then(response => response.json())
         .then(resultP => {
-            console.log("________");
             var objectIconP = new L.icon({iconUrl:resultP["icone"], iconSize:[resultP["iconeSizeLarg"], resultP["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[resultP["iconeSizeLarg"]/2,0]});
             var parolesP = resultP["message"].split("$");
             var markerP = L.marker([resultP["latitude"], resultP["longitude"]], {icon:objectIconP}).bindPopup("<p id=parole>"+parolesP[26-17]+"</p>", {fontSize: 10, maxWidth:160}).addTo(map);

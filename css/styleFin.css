@@ -64,11 +64,24 @@ input{
 }
 
 #block {
-  position: absolute;
-  width: 40%;
+  /* border-radius: 5%; */
+  /* background-color: rgb(127, 167, 185, 0.4); */
+  grid-column: 3;                     
+  grid-row: 2 ;
+
+  grid-template-rows: 30% 50% 20%;
+
+  overflow: auto;
+  scrollbar-width: thin;
+  height: 20vh;
+  overflow-y: scroll;
+  /* scrollbar-color: rgb(247, 226, 196, 0.50) rgba(97, 86, 72, 0.50); */
+
+  /* position: absolute; */
+  /* width: 40%; */
   text-align: center;
-  margin-top: 2%;
-  margin-left: -45%;
+  /* margin-top: 2%; */
+  /* margin-left: -45%; */
   background-color: #fbfafb;
   opacity: 0.65;
 }

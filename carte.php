@@ -16,12 +16,6 @@
     </head>
 
     <body>
-    <?php
-      include("connexion.php");
-      $today = date("H:i:s"); 
-      $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
-   ?>
-
     <div id="contener1">
         <div id="titre">IT'2 une fois</div>
     </div>
@@ -48,7 +42,17 @@
 
       <div id="deroulmentJeu">
         <div id="deroulmentTitre" class='titreSection'>Conv' dans le mignibus</div>
-        <div id="message"></div>
+        <div id="message">
+            <?php
+              include("connexion.php");
+              $today = date("H:i:s"); 
+              $sql = "INSERT INTO joueur (pseudo, finchrono, debutchrono) VALUES ('$_GET[login]', '$today', '$today')";
+              if (mysqli_query($link, $sql)) {
+              } else {
+                  echo "(sql) Erreur : " . $sql . "<br>" . mysqli_error($link);
+              }
+            ?>
+        </div>
 
         <div id="interaction">
           <!--<input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">-->
