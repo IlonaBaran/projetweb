@@ -2,6 +2,7 @@
 var bus = document.getElementById("bus");
 var valueReponse = document.getElementById("valueReponse");
 var progresSum = document.getElementById("progressnum");
+progresSum.style.visibility = "hidden";
 var compteur = progresSum.innerText;
 var btn = document.getElementById("suiteStory");
 var interactionJoueur = document.getElementById("interactionJoueur");
@@ -27,23 +28,23 @@ var updateProg = function() {
     }
 }
 
-setInterval( () => {
+var refreshInterval = setInterval( () => {
     var m,s, affM, affS;
     var date2 = new Date();
     diff = Math.abs(date2 - date);
-    m = parseInt(diff/1000/60);
+    m = parseInt(diff/1000/60)+5;
     s = parseInt(diff/1000%60);
     chrono.innerText = "";
-    affM = m+5
+    affM = m
     affS = s
     if (m<10) {
-        affM = "0"+String(m+5);
+        affM = "0"+String(m);
     }
     if (s<10) {
         affS = "0"+String(s);
     }
     chrono.textContent = "9:"+affM+":"+affS;
-    if (s==3) {
+    if (m==25) {
         divMap.style.visibility = "hidden";
         document.body.style.backgroundImage = "url('images/fond/picard.jpg')";
         retourPP.style.visibility = "visible";
@@ -54,9 +55,14 @@ setInterval( () => {
     }
 }, 1000);
 
-L.tileLayer('https://wxs.ign.fr/essentiels/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png&TileMatrix={z}&TileCol={x}&TileRow={y}', {
-    attribution: 'Données cartographiques : © IGN',
+// L.tileLayer('https://wxs.ign.fr/essentiels/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png&TileMatrix={z}&TileCol={x}&TileRow={y}', {
+//     attribution: 'Données cartographiques : © IGN',
+//     maxZoom: 20,
+// }).addTo(map);
+
+L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
     maxZoom: 20,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 //VERSION ANTOINE
@@ -68,10 +74,8 @@ L.tileLayer('https://wxs.ign.fr/essentiels/geoportail/wmts?layer=GEOGRAPHICALGRI
 // FONCTION PRINCIPALE DES PERSONNAGES
 var recupFetch = function(n) {
     progresSum.innerText = compteur;
-    //PERSONNAGE n
     fetch('http://localhost/projetweb/objet.php?id='+String(n)).then(response => response.json())
     .then(result => {
-        console.log("zoom" + map.getZoom());
         map.setView([result["latitude"], result["longitude"]], 14);
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles = result["message"].split("$");
@@ -228,7 +232,7 @@ var recupFetchRivBal = function() {
         var result = results[0];
         var result2 = results[1];
         //BAL
-        map.setView([result["latitude"], result["longitude"]],16);
+        //map.setView([result["latitude"], result["longitude"]],16);
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles = result["message"].split("$");
         var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup("<p id=parole>"+paroles[0]+"</p>", {fontSize: 10}).addTo(map).openPopup();
@@ -306,7 +310,7 @@ var recupFetchMaeve = function(n) {
     // BLAREL
     fetch('http://localhost/projetweb/objet.php?id='+String(n)).then(response => response.json())
     .then(result => {
-        map.setView([result["latitude"], result["longitude"]],12);
+        //map.setView([result["latitude"], result["longitude"]],12);
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles = result["message"].split("$");
         var marker = L.marker([result["latitude"], result["longitude"]], {icon:objectIcon}).bindPopup("<p id=parole>"+paroles[0]+"</p>", {fontSize: 10}).addTo(map);
@@ -314,7 +318,7 @@ var recupFetchMaeve = function(n) {
         marker.openPopup();
         btn.addEventListener('click', function(){
             if (compteur == 26) {
-                map.setView([result["latitude"], result["longitude"]],12);
+                //map.setView([result["latitude"], result["longitude"]],12);
                 marker._popup.setContent("<p id=parole>"+paroles[0]+"</p>");
                 marker.openPopup();
                 paroles = paroles.slice(1,);
@@ -377,7 +381,7 @@ var recupFetchCoindetAhr = function() {
         var result = results[0];
         var result2 = results[1];
         var result3 = results[2];
-        map.setView([result["latitude"], result["longitude"]],6);
+        map.setView([result["latitude"], result["longitude"]],result["zoommini"]+1);
         //COINDET2
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles = result["message"].split("$");
@@ -386,6 +390,7 @@ var recupFetchCoindetAhr = function() {
             let zoom = map.getZoom();
             if (zoom>result["zoommini"]) {
                 marker.addTo(map).openPopup();
+                clearInterval(refreshInterval);
                 map.removeEventListener("zoomend");
             }
         });
@@ -409,7 +414,7 @@ var recupFetchCoindetAhr = function() {
         //appliqueEventZoomend(marker3, result3["zoommini"]);
         btn.style.visibility = 'visible';
         btn.addEventListener('click', function(){
-            if (compteurPeluche != 4) {
+            if (compteurPeluche == 4) {
                 if (compteur==29) {
                     marker3.bindPopup("<p id=parole>"+paroles3[0]+"</p>", {fontSize: 10});
                     marker3.openPopup();

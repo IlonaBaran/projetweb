@@ -2,26 +2,10 @@
   min-height: 90vh;                  
   display: grid;                      
   grid-template-columns: 15% 40% 30% 15%;  
-  grid-template-rows:  10% 20% 35% 10% 25%;  
+  grid-template-rows:  5% 35% 30% 10% 10%;  
   background-image : url("../images/fond/fond3.png");
   background-size: cover;
 }
-
-#contenerFin{
-  border-radius: 5%;
-  background-color: rgb(127, 167, 185, 0.4);
-  grid-column: 3;                     
-  grid-row: 2 ;
-
-  grid-template-rows: 30% 50% 20%;
-
-  overflow: auto;
-  scrollbar-width: thin;
-  height: 20vh;
-  overflow-y: scroll;
-  scrollbar-color: rgb(247, 226, 196, 0.50) rgba(97, 86, 72, 0.50);
-}
-
 
 #phraseFin{
   grid-row: 1;
@@ -48,7 +32,6 @@ input{
 }
 
 #retourPP{
-  padding-top: 5%;
   grid-row: 3;
   text-align: center;
 }
@@ -69,12 +52,12 @@ input{
   grid-column: 3;                     
   grid-row: 2 ;
 
-  grid-template-rows: 30% 50% 20%;
+  grid-template-rows: 30% 30% 40%;
 
-  overflow: auto;
+  /* overflow: auto;
   scrollbar-width: thin;
   height: 20vh;
-  overflow-y: scroll;
+  overflow-y: scroll; */
   /* scrollbar-color: rgb(247, 226, 196, 0.50) rgba(97, 86, 72, 0.50); */
 
   /* position: absolute; */
@@ -84,4 +67,5 @@ input{
   /* margin-left: -45%; */
   background-color: #fbfafb;
   opacity: 0.65;
+  padding: 3%;
 }

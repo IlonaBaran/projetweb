@@ -43,6 +43,26 @@
                     $position .= "<td>$value</td>";
                 }
             }
+
+            $temps = [];
+            $sql4 = "SELECT `temps` FROM joueur  WHERE pseudo ='$_GET[login]'";
+            if ($result = mysqli_query($link, $sql4)) {
+                while ($ligne = mysqli_fetch_assoc($result)) {
+                    array_push($temps, [
+                        "temps" => $ligne['temps'],
+                    ]);
+                }
+                $chrono = "";
+                foreach ($temps as $elem) {
+                    foreach ($elem as $key => $value) {
+                        $chrono .= "<td>$value</td>";
+                    }
+                }
+            }
+            else {
+                 echo "(sql) Erreur : " . $sql4 . "<br>" . mysqli_error($link);
+            }
+
             echo "
                 <div id=\"phraseFin\">
                     Bravo ! Vous avez ramené tous les élèves à l'ENSG ! 
@@ -50,7 +70,8 @@
                 </div>
 
                 <div id=\"classementPersonnel\">
-                    Vous etes classé : $position
+                    Vous etes classé : $position </br>
+                    Votre temps est de : $chrono
                 </div>
 
                 <div id=\"retourPP\">

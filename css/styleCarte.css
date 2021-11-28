@@ -101,6 +101,12 @@
 }
 
 /* -------------------------------------------------------------------- */
+#chrono{
+    grid-column: 3;                     
+    grid-row: 2;
+    background-color: #fbfafb;
+    text-align: center;
+}
 
 #inventaire{
     grid-column: 3;                     

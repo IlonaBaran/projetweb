@@ -29,7 +29,7 @@
 
     <?php
         echo 
-        "<div id=\"retourPP\">
+        "<div id=\"retourPP\" style=\"visibility:hidden;\">
           <form method=\"get\" action=\"pagePrincipale.php\">
             <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
             <input type=\"submit\" value=\"Retour à la page principale\">
@@ -41,6 +41,8 @@
        <div id="map"></div>
       </div>
 
+      <div id="chrono">9:05:00</div>
+
       <div id="bus"><img src="images/bus/bus1.png" id="testimage"></div>
 
       <div id="inventaire">
@@ -48,9 +50,7 @@
         <div id="objet1" class="objet"></br></div>
         <div id="objet2" class="objet"></br></div>
         <div id="objet3" class="objet"></br></div>
-        <div id="objet4" class="objet"></br></div>
-        <div id="chrono">9:05:00</div>
-        
+        <div id="objet4" class="objet"></br></div>        
       </div>
 
       <div id="niveaux" class='titreSection'>Progression du jeu
