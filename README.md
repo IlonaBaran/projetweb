@@ -1,11 +1,11 @@
 Projet WEB « Escape game » géographique 
 =======
 ## Table of Contents
-1. [Informations générales](# Informations générales)
+1. [Informations générales](#Informations générales)
 2. [Pré-requis](#Pré-requis)
-3. [MAMP](# MAMP)
-4. [WAMP](# WAMP)
-5. [Source](#### Nos sources)
+3. [MAMP](#MAMP)
+4. [WAMP](#WAMP)
+5. [Source](####Sources)
 
 
 #### Département Informatique de l'ENSG - Géomatique
@@ -117,5 +117,5 @@ Le retour à la page principale est permis grâce à un bouton.
 
 ### Difficultés et solutions techniques rencontrées
 
-#### Nos sources
+#### Sources
 La fonction strNoAccent de la page carte.js
