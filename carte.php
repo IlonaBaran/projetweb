@@ -21,7 +21,9 @@
     </div>
 
     <div id="contener2">
-      <div id="map"></div>
+      <div id="fondMap">
+       <div id="map"></div>
+      </div>
 
       <div id="bus"><img src="images/bus/bus1.png" id="testimage"></div>
 

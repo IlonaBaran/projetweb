@@ -38,6 +38,7 @@ var recupFetch = function(n) {
     //PERSONNAGE n
     fetch('http://localhost/projetweb/objet.php?id='+String(n)).then(response => response.json())
     .then(result => {
+        console.log("zoom" + map.getZoom());
         map.setView([result["latitude"], result["longitude"]], 14);
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles = result["message"].split("$");
@@ -80,11 +81,9 @@ var recupFetch = function(n) {
                         if (aleatoireMessage < 0.4){
                             recupFetchDiscussion(2, true);
                         }
-                        
                         if (compteur==13){        
                             recupFetchDiscussion(4, true);
                         }
-
                         interactionJoueur.style.visibility = 'hidden'; 
                         valueReponse.value = "";
                         valueReponse.removeEventListener('keyup', fct);

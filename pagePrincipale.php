@@ -17,9 +17,9 @@
             <p> Cet escape game géographique a été créé par Maeve et Ilona, deux elèves ingénieures 2ème année à l'Ecole Nationale des Sciences Géographiques.</p>
             ___________________________________________
             <p>Il est 8h55, lundi matin, le cours de web pour les elèves ingénieurs de 2ème année commence dans 5 minutes. 
-                Il n'y a encore personnes devant les deux salles, même Clément n'est pas encore présent. 
+                Il n'y a encore personne devant les deux salles, même Clément n'est pas encore présent. 
                 Le week-end fut certainement bien arrosé. </p>
-            <p>Il est 9h00, lundi matin, il n'y a toujours aucun elève. Ni professeurs d'ailleurs.</p>
+            <p>Il est 9h00, lundi matin, il n'y a toujours aucun elève. Ni professeur d'ailleurs.</p>
             <p>Amaury et Victor, après être passés chez Jeanine, comme à leur habitude, arrivent enfin. Il est 9h05. 
                 Ils ne comprennent pas l'absence des elèves et décident de parcourir le monde à la recherche des élèves.....</p>
             <p>Maeve et Ilona vous propose un voyage aux quatre coins du monde afin de découvrir la folle aventure pour retrouver tous ces élèves.</p>        
