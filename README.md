@@ -11,7 +11,7 @@ Projet WEB « Escape game » géographique
 #### Département Informatique de l'ENSG - Géomatique
 #### Programmation WEB avancée
 
-# Informations générales
+# Informations
 #### Auteurs
 Ilona Baran et Maeve Blarel
 #### Date
