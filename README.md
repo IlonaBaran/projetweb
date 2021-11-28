@@ -1,10 +1,5 @@
-# Technologie du Web II:
-# Projet 1: Les Stations V'Lille
-
 Projet web : Bienvenue sur l'escape game de Maeve et Ilona !
 =======
-
-## Date: 25/03/2020
 
 # Département Informatique de l'ENSG - Géomatique
 # Programmation WEB avancée:
@@ -23,8 +18,6 @@ L’objectif de ce TP est de créer un « escape game », notamment en résolvan
 des objets. Le tout, sur une carte web.
 Nous avons réalisé un « escape game » qui s'intitule: Tour de promo.
 
-***
-Short Description about the project................................
 ***
 ![PojetWeb](images/bus/bus1_14.png)
 
