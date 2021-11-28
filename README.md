@@ -1,17 +1,17 @@
 Projet WEB « Escape game » géographique 
 =======
 ## Table of Contents
-1. [Informations générales](#Informations générales)
+1. [Informations générales](# Informations générales)
 2. [Pré-requis](#Pré-requis)
-3. [Si vous utilisez MAMP](#Si vous utilisez MAMP)
-4. [Si vous utilisez WAMP](#Si vous utilisez WAMP)
+3. [Si vous utilisez MAMP](# MAMP)
+4. [Si vous utilisez WAMP](# WAMP)
 5. [Source](#### Nos sources)
 
 
 #### Département Informatique de l'ENSG - Géomatique
 #### Programmation WEB avancée
 
-#Informations générales
+# Informations générales
 #### Auteurs
 Ilona Baran et Maeve Blarel
 #### Date
@@ -40,7 +40,7 @@ Oui, il est responsive! (commentaire ilo : HEUUUUUU) (commentaire maeve : ON VA 
 + Connection internet pour l'affichage de la carte  
 + Utilisation d'un navigateur (évitez Microsoft Edge et Internet explorer)
 
-# Si vous utilisez MAMP
+# MAMP
 
 #### Récupération du projet #
 Aller sur https://github.com/IlonaBaran/projetweb.git et télécharger le ZIP du projet 
@@ -67,7 +67,7 @@ puis "éxécuter" en bas de la page.
 Bravo, vous allez bientôt pouvoir commencer à jouer !
 
 
-# Si vous utilisez WAMP 
+# WAMP 
 
 #### Récupération du projet #
 Aller sur https://github.com/IlonaBaran/projetweb.git et télécharger le ZIP du projet 
