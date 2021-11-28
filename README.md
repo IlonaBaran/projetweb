@@ -1,13 +1,15 @@
-Projet WEB « Escape game » géographique : Bienvenue sur l'escape game de Maeve et Ilona !
+Projet WEB « Escape game » géographique 
+Bienvenue sur l'escape game de Maeve et Ilona !
 =======
 
 #### Département Informatique de l'ENSG - Géomatique
 # Programmation WEB avancée
 
-## Auteurs
+### Auteurs
 Ilona Baran et Maeve Blarel
 
-## Date: du 1/11/2021 au 28/11/2021 (4 semaines)
+### Date
+1/11/2021 au 28/11/2021 (4 semaines)
 
 ## URL du site
 http://localhost/projetweb/pagePrincipale.php
