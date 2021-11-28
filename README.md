@@ -8,7 +8,8 @@ Programmation WEB avancée
 2. [Pré-requis](#Pré-requis)
 3. [MAMP](#MAMP)
 4. [WAMP](#WAMP)
-5. [Source](####Sources)
+5. [Consignes](#Consignes)
+6. [Source](####Sources)
 
 # Informations
 #### Auteurs
@@ -30,14 +31,12 @@ Oui, il est responsive! (commentaire ilo : HEUUUUUU) (commentaire maeve : ON VA 
 
 ***
 
-![PojetWeb](images/bus/bus1_20.png)
-
-
-
 # Pré-requis
 + Installation de MAMP ou de WAMP  
 + Connection internet pour l'affichage de la carte  
 + Utilisation d'un navigateur (évitez Microsoft Edge et Internet explorer)
+
+***
 
 # MAMP
 
@@ -65,6 +64,7 @@ Creer un compte d'utilisateur dans http://localhost/phpmyadmin en suivant les in
 puis "éxécuter" en bas de la page.
 Bravo, vous allez bientôt pouvoir commencer à jouer !
 
+***
 
 # WAMP 
 
@@ -88,9 +88,9 @@ Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoi
 
 Bravo, vous allez bientôt pouvoir commencer à jouer !
 
+***
 
-
-## Consigne et déroulement du jeu
+# Consignes
 Le jeu comporte 3 pages :   
 - une page principale.   
 Vous devrez rentrer un pseudo pour pouvoir commencer à jouer. Celui-ci doit faire entre 1 et 20 caractères.   
@@ -106,15 +106,9 @@ Vous pourrez voir le temps que vous avez mis à réaliser le jeu ainsi que votre
 Le retour à la page principale est permis grâce à un bouton. 
 
 
-
-## Screenshots 
-![Connexion](https://i.imgur.com/BxP73v9.png)
-
-![Screenshot chat](https://i.imgur.com/AyQYan5.png)
-
 ### Cahier de bord : Organisation au jour le jour
 
 ### Difficultés et solutions techniques rencontrées
 
-#### Sources
+# Sources
 La fonction strNoAccent de la page carte.js
