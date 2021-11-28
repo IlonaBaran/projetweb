@@ -84,7 +84,7 @@ Se connecter sans changer l'identifiant et le mot de passe pré-rentré. Normale
 Créer une base de données « escape game ».   
 Importer le fichier espacegame.sql à cet emplacement.   
 Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoin, de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','root','', 'escapegame');   
-![PojetWeb](images/readme/ajouterCompteBDDMAMP.png)
+![PojetWeb](images/readme/connexionBDDWAMP.png)
 
 Bravo, vous allez bientôt pouvoir commencer à jouer !
 
