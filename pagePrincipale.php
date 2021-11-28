@@ -33,6 +33,7 @@
         </div>
 
         <div id="score" class='contour'>
+            
             <div id="titreScore">Hall Of Fame</div>
 
             <?php

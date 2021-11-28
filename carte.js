@@ -9,6 +9,12 @@ var message1 = document.getElementById("message");
 var finJeu = document.getElementById("btnFin");
 finJeu.style.visibility = "hidden";
 var indicProg = document.getElementById("indicator");
+var variableRecuperee = document.getElementById("pseudo").value;
+var chrono = document.getElementById("chrono");
+var date = new Date();
+var divMap = document.getElementById("map");
+var contener2 = document.getElementById("contener2");
+var retourPP = document.getElementById("retourPP");
 
 //Maeve -> pour recuperer une variable php en js
 var variableRecuperee = document.getElementById("pseudo").value;
@@ -20,6 +26,33 @@ var updateProg = function() {
         indicProg.style.width = String(parseInt((compteur-10)*100/18))+'%';
     }
 }
+
+setInterval( () => {
+    var m,s, affM, affS;
+    var date2 = new Date();
+    diff = Math.abs(date2 - date);
+    m = parseInt(diff/1000/60);
+    s = parseInt(diff/1000%60);
+    chrono.innerText = "";
+    affM = m+5
+    affS = s
+    if (m<10) {
+        affM = "0"+String(m+5);
+    }
+    if (s<10) {
+        affS = "0"+String(s);
+    }
+    chrono.textContent = "9:"+affM+":"+affS;
+    if (s==3) {
+        divMap.style.visibility = "hidden";
+        document.body.style.backgroundImage = "url('images/fond/picard.jpg')";
+        retourPP.style.visibility = "visible";
+        retourPP.style.top = "-50px";
+        retourPP.style.zIndex = "10";
+        contener2.style.visibility = "hidden";
+
+    }
+}, 1000);
 
 L.tileLayer('https://wxs.ign.fr/essentiels/geoportail/wmts?layer=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png&TileMatrix={z}&TileCol={x}&TileRow={y}', {
     attribution: 'Données cartographiques : © IGN',
@@ -136,6 +169,7 @@ var recupFetch = function(n) {
             } else {
                 marker.on('dblclick', function (e) {
                     marker.remove();
+                    map.removeEventListener("zoomend");
                     markerP.remove();
                     compteur++;
                     recupFetch(n+1);
@@ -162,7 +196,7 @@ var recupFetchObjet = function(id, markerB, iconeB, messageB, n, markerP) {
             markerB.openPopup();
             appliqueEventDblclick(markerB,true,n);
             markerB.on('dblclick', function (e) {
-                //map.removeEventListener("zoomend");
+                map.removeEventListener("zoomend");
                 markerP.remove();
                 if (n==25){
                     map.setView([48.85146895990481, 2.3773361339603363], 13);
@@ -213,11 +247,9 @@ var recupFetchRivBal = function() {
             //     let zoom = map.getZoom();
             //     console.log(map.getZoom());
             //     if (zoom>resultP["zoommini"]) {
-            //         console.log("tttt");
             //         markerP.addTo(map);
             //         //map.removeEventListener("zoomend");
             //     } else {
-            //         console.log("jjj");
             //         markerP.remove(map);
             //     }
             // });
@@ -227,7 +259,7 @@ var recupFetchRivBal = function() {
                 var objectIconObj = new L.icon({iconUrl:resultObj["icone"], iconSize:[resultObj["iconeSizeLarg"], resultObj["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[resultObj["iconeSizeLarg"]/2,0], maxZoom:10});
                 var markerObj = L.marker([resultObj["latitude"], resultObj["longitude"]], {icon:objectIconObj, draggable:true}).bindPopup("<p id=parole>"+resultObj["message"]+"</p>", {fontSize: 10}).addTo(map);
                 markerObj.on("dragend", function(e) {
-                    if (markerObj.getLatLng().lat > resultObj["dragDropEnd"].split("$")[0]-0.1 && markerObj.getLatLng().lat < parseFloat(resultObj["dragDropEnd"].split("$")[0]+0.1) && markerObj.getLatLng().lng > resultObj["dragDropEnd"].split("$")[1]-0.1 && markerObj.getLatLng().lng < parseFloat(resultObj["dragDropEnd"].split("$")[1]+0.1)){
+                    if (markerObj.getLatLng().lat > resultObj["dragDropEnd"].split("$")[0]-0.2 && markerObj.getLatLng().lat < parseFloat(resultObj["dragDropEnd"].split("$")[0])+0.2 && markerObj.getLatLng().lng > resultObj["dragDropEnd"].split("$")[1]-0.2 && markerObj.getLatLng().lng < parseFloat(resultObj["dragDropEnd"].split("$")[1])+0.2){
                         markerObj.remove();
                         marker.remove();
                         rep = false;
@@ -239,7 +271,7 @@ var recupFetchRivBal = function() {
                     var objectIconObj2 = new L.icon({iconUrl:resultObj2["icone"], iconSize:[resultObj2["iconeSizeLarg"], resultObj2["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[resultObj2["iconeSizeLarg"]/2,0], maxZoom:10});
                     var markerObj2 = L.marker([resultObj2["latitude"], resultObj2["longitude"]], {icon:objectIconObj2, draggable:true}).bindPopup("<p id=parole>"+resultObj2["message"]+"</p>", {fontSize: 10}).addTo(map);           
                     markerObj2.on("dragend", function(e) {
-                        if (markerObj2.getLatLng().lat > resultObj2["dragDropEnd"].split("$")[0]-0.5 && markerObj2.getLatLng().lat < parseFloat(resultObj2["dragDropEnd"].split("$")[0])+0.5 && markerObj2.getLatLng().lng > resultObj2["dragDropEnd"].split("$")[1]-0.5 && markerObj2.getLatLng().lng < parseFloat(resultObj2["dragDropEnd"].split("$")[1])+0.5){
+                        if (markerObj2.getLatLng().lat > resultObj2["dragDropEnd"].split("$")[0]-0.2 && markerObj2.getLatLng().lat < parseFloat(resultObj2["dragDropEnd"].split("$")[0])+0.2 && markerObj2.getLatLng().lng > resultObj2["dragDropEnd"].split("$")[1]-0.2 && markerObj2.getLatLng().lng < parseFloat(resultObj2["dragDropEnd"].split("$")[1])+0.2){
                             paroles2 = paroles2.slice(1,);
                             markerObj2.remove();
                             map.closePopup();
@@ -249,6 +281,7 @@ var recupFetchRivBal = function() {
                             marker2.on('dblclick', function(e) {
                                 compteur++;
                                 compteur++;
+                                map.removeEventListener("zoomend");
                                 markerP.remove();
                                 if (rep) {
                                     markerObj.remove();
@@ -316,10 +349,11 @@ var recupFetchMaeve = function(n) {
                                     var marker2 = L.marker([result2["latitude"], result2["longitude"]], {icon:objectIcon2}).bindPopup("<p id=parole>"+result2["message"]+"</p>", {fontSize: 10}).addTo(map);
                                     marker2.openPopup();
                                     markerO.remove();
+                                    map.removeEventListener("zoomend");
                                     markerP.remove();
                                     marker.remove();
                                     appliqueEventDblclick(marker2,true,n+1);
-                                    btn.style.visibility = 'visible';
+                                    //btn.style.visibility = 'visible';
                                     marker2.on('dblclick', function (e) {
                                         compteur++;
                                         recupFetch(n+2);
@@ -355,6 +389,7 @@ var recupFetchCoindetAhr = function() {
                 map.removeEventListener("zoomend");
             }
         });
+        //appliqueEventZoomend(marker, result["zoommini"]);
         paroles = paroles.slice(1,);
         //AHR
         var objectIcon2 = new L.icon({iconUrl:result2["icone"], iconSize:[result2["iconeSizeLarg"], result2["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result2["iconeSizeLarg"]/2,0], maxZoom:10});
@@ -364,6 +399,13 @@ var recupFetchCoindetAhr = function() {
         var objectIcon3 = new L.icon({iconUrl:result3["icone"], iconSize:[result3["iconeSizeLarg"], result3["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result3["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles3 = result3["message"].split("$");
         var marker3 = L.marker([result3["latitude"], result3["longitude"]], {icon:objectIcon3}).addTo(map);
+        /*map.addEventListener("zoomend", function(e) {
+            let zoom = map.getZoom();
+            if (zoom>result3["zoommini"]) {
+                marker3.addTo(map).openPopup();
+                map.removeEventListener("zoomend");
+            }
+        });*/
         //appliqueEventZoomend(marker3, result3["zoommini"]);
         btn.style.visibility = 'visible';
         btn.addEventListener('click', function(){
@@ -387,7 +429,7 @@ var recupFetchCoindetAhr = function() {
                 } else if (compteur==33) {
                     console.log("CEST LA FIN");
                     finJeu.style.visibility = "visible";
-                    marker2._popup.setContent("<p id=parole>"+paroles2[0]+"</p>");
+                    marker2._popup.setContent("<p id=parole>Bravo "+variableRecuperee+"!</br>"+paroles2[0]+"</p>");
                     marker2.openPopup();
                 }
                 compteur++;
@@ -396,16 +438,20 @@ var recupFetchCoindetAhr = function() {
     })
 };
 
+//FONCTION ZOOM
 var appliqueEventZoomend = function(marker, z) {
     map.addEventListener("zoomend", function(e) {
         let zoom = map.getZoom();
         if (zoom>z) {
             marker.addTo(map);
             map.removeEventListener("zoomend");
+        } else {
+            marker.remove(map);
         }
     });
 }
 
+//FONCTION DRAG-DROP
 var appliqueEventDragend = function(marker, latLong) {
     marker.on("dragend", function(e) {
         var x = 0.05;
@@ -415,6 +461,7 @@ var appliqueEventDragend = function(marker, latLong) {
     });
 }
 
+//FONCTION DOUBLE-CLICK
 var appliqueEventDblclick = function(marker, boolEvent, n) {
     updateProg();
     marker.on("dblclick", function(e) {
@@ -531,13 +578,14 @@ var recupFetchJeannineZar2 = function() {
                     }
                 });
                 valueReponse.addEventListener('keyup', function(e) {
-                    if (valueReponse.value.toLowerCase() == result["bloquePar"] && e.key == "Enter") {
+                    if (valueReponse.value.toLowerCase() == result["bloquePar"] && e.key == "Enter" && compteur < 11) {
                         if (error) {
                             recupFetchDiscussion(16, false);
                         }
+                        //valueReponse.removeEventListener('keyup');
                         interactionJoueur.style.visibility = 'hidden';
                         valueReponse.value = "";
-                        marker.bindPopup(paroles[0], {fontSize: 10, maxWidth:160}).openPopup();
+                        marker.bindPopup("<p id=parole>"+paroles[0]+"</p>", {fontSize: 10, maxWidth:160}).openPopup();
                         //MIGNIBUS vide 
                         fetch('http://localhost/projetweb/objet.php?id=16').then(response => response.json())
                         .then(result3 => {
