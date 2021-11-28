@@ -21,7 +21,11 @@ http://localhost/projetweb/pagePrincipale.php
 #### Le Projet et ses objectifs:
 L’objectif de ce TP est de créer un « escape game », notamment en résolvant des énigmes et en trouvant 
 des objets. Le tout, sur une carte web.
-Nous avons réalisé un « escape game » qui s'intitule: Tour de promo.
+Nous avons réalisé un « escape game » qui s'intitule: IT2'une fois.
+#### Langages utilisés
++ HTML5, CSS3
++ JavaScript, AJAX
++ PHP, MySQL
 #### Langages utilisés
 + HTML5, CSS3
 + JavaScript, AJAX
@@ -41,19 +45,17 @@ Oui, il est responsive.
 # MAMP
 
 #### Récupération du projet #
-Aller sur https://github.com/IlonaBaran/projetweb.git et télécharger le ZIP du projet 
+Aller sur https://github.com/Bmaeve/escapeGame.git et télécharger le ZIP du projet 
 
 ![PojetWeb](images/readme/telechargementProjet.png)   
-// après je ne sais pas ou il faut le placer :((
 
 ### Import de la base de données #
 Ouvrir Mamp. 
-Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplcament où se trouve le projet récupéré. Dans le cas contraire, déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).  
+Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplacement où se trouve le projet récupéré. Dans le cas contraire, déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).  
 Dans un navigateur, aller sur http://localhost/phpmyadmin.  
 Créer une base de données « escape game ».  
 Importer le fichier espacegame.sql à cet emplacement.  
-Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoin, de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','nom','nom', 'escapegame');   
-Penser à remplacer nom par votre prénom. // EST ce que c'est utile de dire ca ?    
+Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoin, de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','nom','nom', 'escapegame');     
 ![PojetWeb](images/readme/connexionBDDMAMP.png)  
 
 Créer un compte d'utilisateur dans http://localhost/phpmyadmin en suivant les instructions suivantes:
@@ -69,13 +71,13 @@ Bravo, vous allez bientôt pouvoir commencer à jouer !
 # WAMP 
 
 #### Récupération du projet #
-Aller sur https://github.com/IlonaBaran/projetweb.git et télécharger le ZIP du projet 
-![PojetWeb](images/readme/telechargementProjet.png)
+Aller sur https://github.com/Bmaeve/escapeGame.git et télécharger le ZIP du projet 
+![PojetWeb](images/readme/telechargementProjet.png)  
 Extraire le projet et le mettre dans .../wamp64/www
 
 ### Import de la base de données #
 Ouvrir WAMP. 
-Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplcament où se trouve le projet récupéré. Dans le cas contraire, déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).  
+Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplacament où se trouve le projet récupéré. Dans le cas contraire, déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).  
 
 Dans un navigateur, aller sur http://localhost/phpmyadmin.  
 Se connecter sans changer l'identifiant et le mot de passe pré-rentré. Normalement, vous devriez avoir :   
@@ -97,18 +99,13 @@ Vous devrez rentrer un pseudo pour pouvoir commencer à jouer. Celui-ci doit fai
 
 - une page de jeu   
 Pour pouvoir jouer au jeu, vous devez :   
-
-+ Lorsque vous voyez le bouton "Suivant", vous devez cliquer dessus   
-+ Vous devez validez la saisie d'un champ texte en appuyant sur la touche entrée
+Lorsque vous voyez le bouton "Suivant", vous devez cliquer dessus   
+Valider la saisie d'un champ texte en appuyant sur la touche entrée  
 
 - une page de fin   
 Vous pourrez voir le temps que vous avez mis à réaliser le jeu ainsi que votre position par rapport aux autres joueurs.  
 Le retour à la page principale est permis grâce à un bouton. 
 
-
-### Cahier de bord : Organisation au jour le jour // ca j'aurai pensé l'enlever, je ne sais pas quoi mettre dedans 
-
-### Difficultés et solutions techniques rencontrées // idem, je ne sais pas trop quoi mettre si ce n'est parlé des fetch ou jsp
 
 # Sources
 La fonction strNoAccent de la page carte.js
