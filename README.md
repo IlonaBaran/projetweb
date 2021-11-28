@@ -57,9 +57,9 @@ Penser à remplacer nom par votre prénom. // EST ce que c'est utile de dire ca 
 ![PojetWeb](images/readme/connexionBDDMAMP.png)  
 
 Créer un compte d'utilisateur dans http://localhost/phpmyadmin en suivant les instructions suivantes:
-![PojetWeb](images/readme/ajouterCompteBDDMAMP.png)
+![PojetWeb](images/readme/ajouterCompteBDD.png)
 
-![PojetWeb](images/readme/creationCompteBDDMAMP.png)
+![PojetWeb](images/readme/creationCompteBDD.png)
 
 puis "éxécuter" en bas de la page.  
 Bravo, vous allez bientôt pouvoir commencer à jouer !
