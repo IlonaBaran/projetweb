@@ -78,8 +78,6 @@
         <a href="html/mentionsLegales.html" target="_blank"> Mentions légales </a>
         -
         <a href="html/credits.html" target="_blank"> Crédits </a>
-        <!-- -
-        <a href="html/conditionsUtilisation.html" target="_blank"> Conditions générales </a> -->
     </footer>
 
   </body>

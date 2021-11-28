@@ -77,8 +77,6 @@
         <a href="html/mentionsLegales.html" target="_blank"> Mentions légales </a>
         -
         <a href="html/credits.html" target="_blank"> Crédits </a>
-        <!-- -
-        <a href="html/conditionsUtilisation.html"> Conditions générales </a> -->
       </footer>
 
       <script src="carte.js"></script>
