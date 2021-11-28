@@ -1,8 +1,8 @@
 Projet WEB « Escape game » géographique 
-#### Département Informatique de l'ENSG - Géomatique
-#### Programmation WEB avancée
-
 =======
+Département Informatique de l'ENSG - Géomatique   
+Programmation WEB avancée
+
 ## Table des matières
 1. [Informations](#Informations)
 2. [Pré-requis](#Pré-requis)
