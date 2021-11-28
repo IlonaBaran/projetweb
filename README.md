@@ -31,7 +31,7 @@ Nous avons réalisé un « escape game » qui s'intitule: Tour de promo.
 + Connection internet pour l'affichage de la carte  
 + Utilisation d'un navigateur (évitez Microsoft Edge et Internet explorer)
 
-#### Si vous utilisez MAMP :
+# Si vous utilisez MAMP :
 
 #### Récupération du projet #
 Aller sur https://github.com/IlonaBaran/projetweb.git et télécharger le ZIP du projet 
@@ -57,7 +57,7 @@ puis "éxécuter" en bas de la page.
 Bravo, vous allez bientôt pouvoir commencer à jouer !
 
 
-#### Si vous utilisez WAMP : 
+# Si vous utilisez WAMP : 
 
 #### Récupération du projet #
 Aller sur https://github.com/IlonaBaran/projetweb.git et télécharger le ZIP du projet 
