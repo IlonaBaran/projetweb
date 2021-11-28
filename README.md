@@ -1,7 +1,7 @@
 Projet WEB « Escape game » géographique 
 =======
 ## Table of Contents
-1. [Informations générales](#Informations générales)
+1. [Informations](#Informations)
 2. [Pré-requis](#Pré-requis)
 3. [MAMP](#MAMP)
 4. [WAMP](#WAMP)
@@ -22,11 +22,11 @@ http://localhost/projetweb/pagePrincipale.php
 L’objectif de ce TP est de créer un « escape game », notamment en résolvant des énigmes et en trouvant 
 des objets. Le tout, sur une carte web.
 Nous avons réalisé un « escape game » qui s'intitule: Tour de promo.
-## Langages utilisés
+#### Langages utilisés
 + HTML5, CSS3
 + JavaScript, AJAX
 + PHP, MySQL
-## Responsive ?
+#### Responsive ?
 Oui, il est responsive! (commentaire ilo : HEUUUUUU) (commentaire maeve : ON VA LE RENDRE RESPONSIVE)
 
 ***
