@@ -1,40 +1,50 @@
 Projet WEB « Escape game » géographique 
 =======
+## Table of Contents
+1. [Informations générales](# Informations générales)
+2. [Pré-requis](# Pré-requis)
+3. [Si vous utilisez MAMP](# Si vous utilisez MAMP)
+4. [Si vous utilisez WAMP](# Si vous utilisez WAMP)
+5. [Source](#### Nos sources)
+
 
 #### Département Informatique de l'ENSG - Géomatique
 #### Programmation WEB avancée
 
-### Auteurs
+# Informations générales
+#### Auteurs
 Ilona Baran et Maeve Blarel
-
-### Date
+#### Date
 1/11/2021 au 28/11/2021 (4 semaines)
-
-## URL du site
+#### URL du site
 http://localhost/projetweb/pagePrincipale.php
-
-## Le Projet et ses objectifs:
+#### Le Projet et ses objectifs:
 L’objectif de ce TP est de créer un « escape game », notamment en résolvant des énigmes et en trouvant 
 des objets. Le tout, sur une carte web.
 Nous avons réalisé un « escape game » qui s'intitule: Tour de promo.
-
-***
-![PojetWeb](images/bus/bus1_20.png)
-
 ## Langages utilisés
 + HTML5, CSS3
 + JavaScript, AJAX
 + PHP, MySQL
+## Responsive ?
+Oui, il est responsive! (commentaire ilo : HEUUUUUU) (commentaire maeve : ON VA LE RENDRE RESPONSIVE)
 
-## Pré-requis
+***
+
+![PojetWeb](images/bus/bus1_20.png)
+
+
+
+# Pré-requis
 + Installation de MAMP ou de WAMP  
 + Connection internet pour l'affichage de la carte  
 + Utilisation d'un navigateur (évitez Microsoft Edge et Internet explorer)
 
-# Si vous utilisez MAMP :
+# Si vous utilisez MAMP
 
 #### Récupération du projet #
 Aller sur https://github.com/IlonaBaran/projetweb.git et télécharger le ZIP du projet 
+
 ![PojetWeb](images/readme/telechargementProjet.png)   
 // après je ne sais pas ou il faut le placer :((
 
@@ -57,7 +67,7 @@ puis "éxécuter" en bas de la page.
 Bravo, vous allez bientôt pouvoir commencer à jouer !
 
 
-# Si vous utilisez WAMP : 
+# Si vous utilisez WAMP 
 
 #### Récupération du projet #
 Aller sur https://github.com/IlonaBaran/projetweb.git et télécharger le ZIP du projet 
@@ -96,8 +106,7 @@ Pour pouvoir jouer au jeu, vous devez :
 Vous pourrez voir le temps que vous avez mis à réaliser le jeu ainsi que votre position par rapport aux autres joueurs.  
 Le retour à la page principale est permis grâce à un bouton. 
 
-## Responsive ?
-Oui, il est responsive! (commentaire ilo : HEUUUUUU) (commentaire maeve : ON VA LE RENDRE RESPONSIVE)
+
 
 ## Screenshots 
 ![Connexion](https://i.imgur.com/BxP73v9.png)
@@ -108,5 +117,5 @@ Oui, il est responsive! (commentaire ilo : HEUUUUUU) (commentaire maeve : ON VA 
 
 ### Difficultés et solutions techniques rencontrées
 
-#### Nos sources:
+#### Nos sources
 La fonction strNoAccent de la page carte.js
