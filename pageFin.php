@@ -2,14 +2,14 @@
   <html lang="fr">
     <head>
       <meta charset="UTF-8">
-      <title>Page de fin</title>
+      <title>Escape Game</title>
       <link rel="stylesheet" href="css/commun.css">
       <link rel="stylesheet" href="css/styleFin.css">
     </head>
 
     <body>
     <div id="contener1">
-        <div id="titre">L'escapade en mignibus</div>
+        <div id="titre">IT'2 une fois</div>
     </div>
 
     <div id="contener2">
@@ -35,27 +35,29 @@
                 }
             }
             echo "
-            <div id=\"phraseFin\">
-                Bravo ! Vous avez ramené tous les élèves à l'ENSG ! 
-                Ils vont enfin pouvoir aller en cours de WEB et apprendre à coder proprement !
-            </div>
+            <div id=\"block\">
+                <div id=\"phraseFin\">
+                    Bravo ! Vous avez ramené tous les élèves à l'ENSG ! 
+                    Ils vont enfin pouvoir aller en cours de WEB et apprendre à coder proprement !
+                </div>
 
-            <div id=\"classementPersonnel\">
-                Vous etes classé : $position
-            </div>
+                <div id=\"classementPersonnel\">
+                    Vous etes classé : $position
+                </div>
 
-            <div id=\"retourPP\">
-                <form method=\"get\" action=\"pagePrincipale.php\">
-                <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
-                <input type=\"submit\" value=\"Retour à la page principale\">
-                </form>
+                <div id=\"retourPP\">
+                    <form method=\"get\" action=\"pagePrincipale.php\">
+                    <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
+                    <input type=\"submit\" value=\"Retour à la page principale\">
+                    </form>
+                </div>
             </div>";
         }
         ?>
         </div>
     
         <div id="deplacementBus">
-            <img src="images/bus/bus1_14.png" id ="coin" width="35%">
+            <img src="images/bus/bus1_20.png" id ="coin" width="35%">
         </div>
     </div>
 

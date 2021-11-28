@@ -24,6 +24,13 @@
 
 
 #phraseFin{
+  grid-row: 1;
+  padding: 0.5%;
+}
+
+input{
+  padding: 0.2%;
+  margin: 0.5%;
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 2%;
@@ -37,6 +44,7 @@
   text-align: center;
   font-size: 1.5em;
   padding-top: 5%;
+  padding: 1.7%;
 }
 
 #retourPP{
@@ -53,4 +61,14 @@
 
 #coin{
   position: relative;
+}
+
+#block {
+  position: absolute;
+  width: 40%;
+  text-align: center;
+  margin-top: 2%;
+  margin-left: -45%;
+  background-color: #fbfafb;
+  opacity: 0.65;
 }

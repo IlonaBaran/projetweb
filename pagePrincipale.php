@@ -4,12 +4,12 @@
     <meta name="description" content="Page principale de l'Escape Game de Maeve et Ilona">
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/styleIndex.css">
-    <title>EscapeGame</title>
+    <title>Escape Game</title>
   </head>
 
   <body>
     <div id="contener1">
-        <div id="titre">L'escapade en Mignibus</div>
+        <div id="titre">IT'2 une fois</div>
     </div>
 
     <div id="contener2">
@@ -65,9 +65,6 @@
                     $table_str .= "</table>";
                     echo $table_str;
                 }
-                // else {
-                //     echo "Erreur de requête de base de données.";
-                // }
                 ?>
         </div>
     </div>

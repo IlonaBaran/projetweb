@@ -2,7 +2,7 @@
   <html lang="fr">
     <head>
       <meta charset="UTF-8">
-      <title>EscapeGameOnEstLa</title>
+      <title>Escape Game</title>
       <link rel="stylesheet" href="css/commun.css">
       <link rel="stylesheet" href="css/styleCarte.css">
 
@@ -23,7 +23,7 @@
    ?>
 
     <div id="contener1">
-        <div id="titre">L'escape Game de Maeve et Ilona</div>
+        <div id="titre">IT'2 une fois</div>
     </div>
 
     <div id="contener2">
@@ -54,18 +54,15 @@
           <!--<input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">-->
           <button id="suiteStory">Suivant</button>
 
-        <!-- bouton a afficher lorsque le jeu est fini genre du style en js :  fin.style.visibylity: 'visible' et le reste du temps non visible-->
-          <form method="get" action="pageFin.php" id="fin">
-              <input type="readonly" name="login" value="$_GET[login]" style="display:none"> 
-              <input type="submit" value="OK" id="recup">
-          </form>
-
           <div id = "interactionJoueur">
             <input type="texte" id="valueReponse" name="valueReponse" required minlength="1" maxlength="40" size="20">
             <!--<input type="submit" value="Entrer" id="valide">-->
           </div>
-          <!--<div id="noValueReponse"></div>-->
-          <button id="btnFin">Fin du jeu</button>
+          <form method="get" action="pageFin.php" id="fin">
+              <input type="readonly" id="pseudo" name="login" value="<?php echo $_GET['login']; ?>" style="display:none"> 
+              <!-- <input type="readonly" id="pseudo" name="login" value="$_GET[login]" style="display:none">  -->
+              <button id="btnFin">Fin du jeu</button>
+          </form>
         </div>
       </div>
     </div>
