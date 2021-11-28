@@ -54,12 +54,12 @@ Créer une base de données « escape game ».
 Importer le fichier espacegame.sql à cet emplacement.  
 Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoin, de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','nom','nom', 'escapegame');   
 Penser à remplacer nom par votre prénom. // EST ce que c'est utile de dire ca ?    
-![PojetWeb](images/readme/connexionBDD.png)  
+![PojetWeb](images/readme/connexionBDDMAMP.png)  
 
 Créer un compte d'utilisateur dans http://localhost/phpmyadmin en suivant les instructions suivantes:
 ![PojetWeb](images/readme/ajouterCompteBDDMAMP.png)
 
-![PojetWeb](images/readme/creationCompteBDD.png)
+![PojetWeb](images/readme/creationCompteBDDMAMP.png)
 
 puis "éxécuter" en bas de la page.  
 Bravo, vous allez bientôt pouvoir commencer à jouer !
