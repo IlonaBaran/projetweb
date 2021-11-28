@@ -35,7 +35,7 @@ Nous avons réalisé un « escape game » qui s'intitule: Tour de promo.
 
 #### Récupération du projet #
 Aller sur https://github.com/IlonaBaran/projetweb.git et télécharger le ZIP du projet 
-![PojetWeb](images/readme/telechargementProjet.png)
+![PojetWeb](images/readme/telechargementProjet.png)   
 // après je ne sais pas ou il faut le placer :((
 
 ### Import de la base de données #
@@ -45,10 +45,11 @@ Aller sur http://localhost/phpmyadmin.
 Créer une base de données « escape game ».
 Importer le fichier espacegame.sql à cet emplacement.  
 Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoin, de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','nom','nom', 'escapegame'); 
-Pensez à remplacer nom par votre prénom.
+Pensez à remplacer nom par votre prénom. // EST ce que c'est utile de dire ca ?    
+![PojetWeb](images/readme/connexionBDD.png)  
 
 Creer un compte d'utilisateur dans http://localhost/phpmyadmin en suivant les instructions suivantes:
-![PojetWeb](images/readme/ajouterCompteBDD.png)
+![PojetWeb](images/readme/ajouterCompteBDDMAMP.png)
 
 ![PojetWeb](images/readme/creationCompteBDD.png)
 
@@ -66,19 +67,19 @@ Extraire le projet et le mettre dans .../wamp64/www
 ### Import de la base de données #
 Ouvrir WAMP. 
 Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplcament où se trouve le projet récupéré. Dans le cas contraire, veuillez déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).
-//Maeve, je n'ai plus mamp, il faudrait que tu dises comment tu fais pour creer un compte d'accès ? 
-//Reponse Maeve: Il n'y a pas de compte d'accès à créer sur Mamp
 
-(identifiant + mdp). On peut mettre dans la ligne du jeu escapge game pour le mdp et l'id, ca sera plus simple a gerer ?   Je comprends pas bien la question? mais je crois que c'est une bonne idée
 Aller sur http://localhost/phpmyadmin.
-Connecter vous sans changer l'identifiant et le mot de passe pré-rentré. Normalement, vous devriez avoir : //capture d'écran avec root, et pas de mdr
+Connecter vous sans changer l'identifiant et le mot de passe pré-rentré. Normalement, vous devriez avoir :
+![PojetWeb](images/readme/phpmyadminAccueil.png)
+
 Créer une base de données « escape game ».
 Importer le fichier espacegame.sql à cet emplacement.  
-Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoin, de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','nom','nom', 'escapegame'); 
-Pensez à remplacer nom par votre prénom.
-//photo des 2 lignes PAS SUR DE CA, CA DEPEND DE CHACUN NON?
+Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoin, de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','root','', 'escapegame'); 
+![PojetWeb](images/readme/ajouterCompteBDDMAMP.png)
 
-=======
+Bravo, vous allez bientôt pouvoir commencer à jouer !
+
+
 
 ## Consigne et déroulement du jeu
 Le jeu comporte 3 pages :   
