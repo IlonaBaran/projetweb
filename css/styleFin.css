@@ -1,5 +1,5 @@
 #contener2 {
-  min-height: 100vh;                  
+  min-height: 90vh;                  
   display: grid;                      
   grid-template-columns: 15% 40% 30% 15%;  
   grid-template-rows:  10% 20% 35% 10% 25%;  
@@ -7,33 +7,46 @@
   background-size: cover;
 }
 
-#contener{
-  border-radius: 10%;
+#contenerFin{
+  border-radius: 5%;
   background-color: rgb(127, 167, 185, 0.4);
   grid-column: 3;                     
   grid-row: 2 ;
 
-  grid-template-rows: 30% 50% 10% 10%;
+  grid-template-rows: 30% 50% 20%;
+
+  overflow: auto;
+  scrollbar-width: thin;
+  height: 20vh;
+  overflow-y: scroll;
+  scrollbar-color: rgb(247, 226, 196, 0.50) rgba(97, 86, 72, 0.50);
 }
 
-#retourPP{
-  grid-row: 3;
-  text-align: center;
+
+#phraseFin{
+  grid-row: 1;
+  padding: 0.5%;
+}
+
+input{
+  padding: 0.2%;
+  margin: 0.5%
 }
 
 #classementPersonnel{
   grid-row: 2;
   text-align: center;
   font-size: 1.5em;
+  padding-top: 5%;
+  padding: 1.7%;
 }
 
-#phraseFin{
-  grid-row: 1;
+#retourPP{
+  padding-top: 5%;
+  grid-row: 3;
+  text-align: center;
 }
 
-#commentaire{
-  grid-row : 4;
-}
 
 #deplacementBus{
   grid-column: 1 / span3 ;                     
@@ -42,4 +55,14 @@
 
 #coin{
   position: relative;
+}
+
+#block {
+  position: absolute;
+  width: 40%;
+  text-align: center;
+  margin-top: 2%;
+  margin-left: -45%;
+  background-color: #fbfafb;
+  opacity: 0.65;
 }

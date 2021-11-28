@@ -1,74 +1,91 @@
 #contener2 {
-    min-height: 100vh;
+    min-height: 90vh;
     display: grid;
-    grid-template-columns: 60% 40%;
-    grid-template-rows: 5% 5% 40% 10% 30% 10%;
+    grid-template-columns: 5% 50% 40% 5%;
+    grid-template-rows: 5% 15% 75% 5%;
 
-    background: linear-gradient(to top, rgb(103, 111, 136), rgb(234, 237, 248));
+    background-image : url("../images/fondIndex.png");
+    background-size: cover;
 }
 
-#contexte{
-    grid-column: 1;  
-    grid-row: 3 / span 3;     
+/* -------------------------------------------------------------------- */
 
+#contexte{
+    grid-column: 2;  
+    grid-row: 2 / span 2;     
+
+    padding-top: 10%;
     padding-left: 10%;
     padding-right: 10%;
 
+    overflow: auto;
+    scrollbar-width: thin;
+    height: 70vh;
+    overflow-y: scroll;
+    scrollbar-color: rgba(121, 159, 168, 0.5) rgba(13, 16, 32, 0.5);
 
-    /* background: linear-gradient(to top, rgb(149, 160, 199), rgb(80, 80, 114));
-    border-radius: 1%;
-    border: 3px solid rgb(17, 8, 31); */
-}
-
-#connexion1{
-    grid-column: 1;                     
-    grid-row: 4;
-    text-align: center;
-
-    /* margin: 10%; */
-    margin-left: 20%;
-    margin-right: 20%;
-
-    background: linear-gradient(to top, rgb(149, 160, 199), rgb(80, 80, 114));
-    border-radius: 1%;
     border: 1px solid rgb(17, 8, 31);
-    z-index: 1;
+    border-radius: 5%;
+
 }
 
-#commentaire{
-    grid-column: 2;                     
-    grid-row: 5 / span 2;               
+/* -------------------------------------------------------------------- */
+
+#connexion{
+    grid-column: 3;                     
+    grid-row: 2;
+    
+    padding-left: 5%;
+    padding-top: 1%;
+
+    margin-top: 8%;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+    border-top: 0px;
+    border-bottom: 0px;
+    border-right: 0px;
+    border-radius: 0px;
 }
 
+#pseudo{
+    margin-top: 5%;
+}
 
-
-
-
-/* ____________ */
+/* -------------------------------------------------------------------- */
 
 #score{
-    grid-column: 2;      
-    grid-row: 2 / span 3;               
-
-    /* background-color: rgb(129, 129, 190); */
-    background: linear-gradient(to top, rgb(149, 160, 199), rgb(80, 80, 114));
-
-    border-radius: 1%;
+    grid-column: 3;      
+    grid-row: 3;               
     margin: 5%;
-    border:2px solid rgb(17, 8, 31);
+
+    overflow: auto;
+    scrollbar-width: thin;
+    height: 50vh;
+    overflow-y: scroll;
+    scrollbar-color: rgba(121, 159, 168, 0.5) rgba(13, 16, 32, 0.5);
+    /*scrollbar-color: #caa6ca;
+
+    border: 0px;
+    border-radius: 0%;*/
+    border: px;
+    direction: rtl;
+    margin-top: 102px;
+    font-size: 65%;
 }
 
 #titreScore{
     grid-column: 2;      
     grid-row: 2;
-    width: 80%;
+    width: 90%;
+
     margin-left: auto;
-    margin-right: auto;
-    background: linear-gradient(to bottom, rgb(149, 160, 199), rgb(80, 80, 114));
-    border: 2px solid rgb(17, 8, 31);
+    margin-right: auto; 
+    margin-top: 5%; 
+
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    z-index: 1;
+    font-family:'Franklin Gothic Medium', sans-serif;
+    font-size: 2.5em;
 }
 
 table {
@@ -83,6 +100,15 @@ table {
 }
     
 tr {
-    /* background-color: rgb(111, 111, 170); */
-    background: linear-gradient(to top, rgb(149, 160, 199), rgb(80, 80, 114));
+    background:  rgba(175, 175, 185, 0.8);
 }
+
+/* -------------------------------------------------------------------- */
+
+.contour{
+    /*background: rgba(175, 175, 185, 0.5);*/
+    background-color: #fbfafb;
+    border: 1px solid rgb(17, 8, 31);
+    border-radius: 5%;
+}
+

@@ -1,6 +1,6 @@
 body {
         display: grid;
-        grid-template-rows: 20% 70% 10%;
+        grid-template-rows: 15% 80% 5%;
 }
 
 #contener1 {
@@ -8,24 +8,35 @@ body {
         text-align: center;
         font-family:Cambria, serif;
         /* display: grid;
-        grid-template-columns: 30% 70%;  */
-        background-color: #fafff5;
+        grid-template-columns: 30% 70%;  
+        background-color: #fafff5;*/
+        background-color: #f4ffec;
 }
 
 #contener2{
         grid-row : 2;
+        /* height: 80vh; */
 }
    
 #titre {
-        font-size: 1.5em;
+        font-size: 2em;
         font-weight: 600;
+        background-color: #f4ffec;
+        margin: 1.5% 0%;
 }
 
 footer {
         grid-row : 3;
         text-align: center;
+        background-color: #f4ffec;
+        height: 300%;
 }
 
-.a {
-        text-decoration: none; 
+a {
+        text-decoration: none;
+        color: black;
+}
+
+a:hover {
+        text-decoration: underline;
 }

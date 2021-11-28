@@ -11,8 +11,9 @@
 #deroulmentJeu{
     grid-column: 1;
     grid-row: 1 / span 3;
-    background-image : url("../images/inventaire.jpg");
-    background-size: cover;
+    /*background-image : url("../images/inventaire.jpg");
+    background-size: cover;*/
+    background-color: #e3e3e3;
 
     display: grid;
     grid-template-columns: 5% 90% 5%;
@@ -23,24 +24,25 @@
     grid-column: 2;
     grid-row: 1;
     margin: auto;
+    color: grey;
 }
 
 #message{
     grid-column: 2;
     grid-row: 2;
-    background-color: rgb(247, 226, 196, 0.50);
+    background-color: #fbfafb;
     
     overflow: auto;
     scrollbar-width: thin;
     height: 70vh;
     overflow-y: scroll;
-    scrollbar-color: rgb(247, 226, 196, 0.50) rgba(97, 86, 72, 0.50);
+    scrollbar-color: #fbfafb;
 }
 
 #interaction{
     grid-column: 2;
     grid-row: 3;
-    background-color: rgba(185, 171, 152, 0.5);
+    background-color: #fbfafb;
     text-align: center;
 
     display: grid;
@@ -51,7 +53,7 @@
 #interactionJoueur{
     grid-column: 1;
     grid-row: 2;
-    background-color: rgba(185, 171, 152, 0.5);
+    background-color:  #fbfafb;
     text-align: center;
 }
 
@@ -102,17 +104,19 @@
     grid-column: 3;                     
     grid-row: 1;
     border: 2px solid #240b16;
+    background-color:#fbfafb;
 
     /* background-image : url("../images/fondBus.png");
     background-size: cover; */
 }
 
 #testimage{
-    width: 80%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 
     padding-bottom: 2%;
+    margin-top: 36%;
 }
 
 
@@ -128,9 +132,10 @@
     grid-row: 2;
 
     border: 2px solid #240b16;
-    background-image : url("../images/inventaire.jpg");
-    background-size: cover;
+    /*background-image : url("../images/inventaire.jpg");
+    background-size: cover;*/
 
+    background-color: #fbfafb;
     display: grid;
     grid-template-columns: 15% 34% 2% 34% 15%;
     grid-template-rows: 15% 34% 2% 34% 15%;
@@ -145,6 +150,7 @@
 #titreInventaire{
     grid-column: 1 / span 6;                     
     grid-row: 1;
+    color: grey;
 }
 
 #objet1{
@@ -168,8 +174,8 @@
 }
 
 .objet {
-    border: 10px solid #53453d;
-    background-color: #201c19;
+    border: 10px solid #e3e3e3;
+    background-color: #fbfafb;
 }
 
 /* -------------------------------------------------------------------- */
@@ -178,8 +184,10 @@
     grid-column: 3;
     grid-row: 3;
 
-    background-image : url("../images/inventaire.jpg");
-    background-size: cover;
+    /*background-image : url("../images/inventaire.jpg");
+    background-size: cover;*/
+    background-color: #fbfafb;
+    color: grey;
 }
 
 #progressbar{
@@ -189,14 +197,15 @@
 
     width: 250px;
     padding: 1px;
-    background-color: white;
+    background-color: #e3e3e3;
     border: 1px solid black;
     height: 15%;
 }
 
 #indicator{
     width: 0px;
-    height: 28px;
+    height: 20px;
+    background-color: #d0e7c9;
 }
 
 #progressnum{
