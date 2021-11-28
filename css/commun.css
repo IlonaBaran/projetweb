@@ -1,6 +1,6 @@
 body {
         display: grid;
-        grid-template-rows: 10% 85% 5%;
+        grid-template-rows: 5% 85% 5%;
 }
 
 #contener1 {
@@ -11,25 +11,26 @@ body {
         grid-template-columns: 30% 70%;  
         background-color: #fafff5;*/
         background-color: #f4ffec;
+        max-height: 5vh;
 }
 
 #contener2{
         grid-row : 2;
-        /* height: 80vh; */
+        max-height: 85vh;
 }
    
 #titre {
-        font-size: 2em;
+        font-size: 1.2em;
         font-weight: 600;
         background-color: #f4ffec;
-        margin: 1.5% 0%;
+        /* margin: 1.5% 0%; */
 }
 
 footer {
         grid-row : 3;
         text-align: center;
         background-color: #f4ffec;
-        height: 300%;
+        /* height: 300%; */
 }
 
 a {

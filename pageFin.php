@@ -69,13 +69,13 @@
 
     
     <footer id = "mentions">
-        <a href="html/planDuSite.html"> Plan du Site</a>
+        <a href="html/planDuSite.html" target="_blank"> Plan du Site</a>
         -
-        <a href="html/mentionsLegales.html"> Mentions légales </a>
+        <a href="html/mentionsLegales.html" target="_blank"> Mentions légales </a>
         -
-        <a href="html/credits.html"> Crédits </a>
-        -
-        <a href="html/conditionsUtilisation.html"> Conditions générales </a>
+        <a href="html/credits.html" target="_blank"> Crédits </a>
+        <!-- -
+        <a href="html/conditionsUtilisation.html"> Conditions générales </a> -->
     </footer>
 
     <script src="deplacementBus.js"></script>

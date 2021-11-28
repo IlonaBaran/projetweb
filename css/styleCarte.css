@@ -1,9 +1,11 @@
 #contener2{
     min-height: 90vh;
     display: grid;
-    grid-template-columns: 30% 40% 30%;
-    grid-template-rows: 40% 40% 20%;
-    background-color: rgba(97, 86, 72, 0.50);
+    grid-template-columns: 30% 55% 15%;
+    grid-template-rows: 65% 15% 20%;
+
+    background-image : url("../images/fond/fondIndex.png");
+    background-size: cover;
 }
 
 /* -------------------------------------------------------------------- */
@@ -11,8 +13,7 @@
 #deroulmentJeu{
     grid-column: 1;
     grid-row: 1 / span 3;
-    /*background-image : url("../images/inventaire.jpg");
-    background-size: cover;*/
+
     background-color: #e3e3e3;
 
     display: grid;
@@ -24,7 +25,6 @@
     grid-column: 2;
     grid-row: 1;
     margin: auto;
-    color: grey;
 }
 
 #message{
@@ -58,12 +58,11 @@
 }
 
 #bulleMessage{
-    /* background-color: rgb(133, 122, 107); */
     margin-top: 3%;
-    border-radius: 10%;
-
+    margin-left: auto;
+    border-radius: 5%;
     max-height: 100px;
-    width: 100%;
+    width: 90%;
 
     display: grid;
     grid-template-columns: 20% 80%;
@@ -84,43 +83,19 @@
     grid-row: 1 / span 2;
 }
 
-#new_div{
-    width: 100%;
-}
 
 /* -------------------------------------------------------------------- */
 
 #map { 
-    /* height: 95%; */
     grid-column: 2;  
     grid-row: 1 / span 3;                   
-    padding: 10%;
+    padding: 5%;
     margin: 5%;
+    z-index: 1;
 }
 
 /* -------------------------------------------------------------------- */
 
-#bus{
-    grid-column: 3;                     
-    grid-row: 1;
-    border: 2px solid #240b16;
-    background-color:#fbfafb;
-
-    /* background-image : url("../images/fondBus.png");
-    background-size: cover; */
-}
-
-#testimage{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-
-    padding-bottom: 2%;
-    margin-top: 36%;
-}
-
-
-/* -------------------------------------------------------------------- */
 #parole{
     text-align:center;
 }
@@ -129,16 +104,16 @@
 
 #inventaire{
     grid-column: 3;                     
-    grid-row: 2;
+    grid-row: 1 / span 2;
 
-    border: 2px solid #240b16;
+    /* border: 2px solid #240b16; */
     /*background-image : url("../images/inventaire.jpg");
     background-size: cover;*/
 
     background-color: #fbfafb;
     display: grid;
-    grid-template-columns: 15% 34% 2% 34% 15%;
-    grid-template-rows: 15% 34% 2% 34% 15%;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 10% 20% 20% 20% 20% 10%;
 }
 
 #inventaire > div > img {
@@ -148,7 +123,7 @@
 }
 
 #titreInventaire{
-    grid-column: 1 / span 6;                     
+    grid-column: 1 / span 3;                     
     grid-row: 1;
     color: grey;
 }
@@ -159,8 +134,8 @@
 }
 
 #objet2{
-    grid-column: 4;                     
-    grid-row: 2;
+    grid-column: 2;                     
+    grid-row: 3;
 }
 
 #objet3{
@@ -169,23 +144,21 @@
 }
 
 #objet4{
-    grid-column: 4;                     
-    grid-row: 4;
+    grid-column: 2;                     
+    grid-row: 5;
 }
 
-.objet {
+/* .objet {
     border: 10px solid #e3e3e3;
     background-color: #fbfafb;
-}
+} */
 
 /* -------------------------------------------------------------------- */
  
 #niveaux{
     grid-column: 3;
-    grid-row: 3;
+    grid-row: 2;
 
-    /*background-image : url("../images/inventaire.jpg");
-    background-size: cover;*/
     background-color: #fbfafb;
     color: grey;
 }
@@ -195,7 +168,7 @@
     margin-left: auto;
     margin-right: auto;
 
-    width: 250px;
+    width : 90%;
     padding: 1px;
     background-color: #e3e3e3;
     border: 1px solid black;
@@ -211,7 +184,7 @@
 #progressnum{
     width: 250px;
     font-weight: 500;
-    color: blanchedalmond;
+    color: rgb(247, 226, 196, 0.33);
     text-align: center;
     font-size: 1.5em;
     opacity: 0.33;
@@ -219,9 +192,22 @@
 
 /* -------------------------------------------------------------------- */
 
+#bus{ 
+    position: absolute;
+    top: 60%;
+    right: 50%;
+    z-index: 2;
+}
+
+#testimage{
+    width: 80%;
+}
+
+/* -------------------------------------------------------------------- */
+
 .titreSection{
     font-weight: 500;
-    color: rgb(247, 226, 196, 0.33);
+    color: rgb(128, 128, 128);
     text-align: center;
     font-size: 1.5em;
 }

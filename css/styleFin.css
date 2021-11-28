@@ -3,7 +3,7 @@
   display: grid;                      
   grid-template-columns: 15% 40% 30% 15%;  
   grid-template-rows:  10% 20% 35% 10% 25%;  
-  background-image : url("../images/fond3.png");
+  background-image : url("../images/fond/fond3.png");
   background-size: cover;
 }
 

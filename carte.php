@@ -36,7 +36,7 @@
       <div id="niveaux" class='titreSection'>Progression du jeu
           <div id="progressbar">
               <div id="indicator"></div>
-              <div id="progressnum">0</div>
+              <div id="progressnum" class='titreSection'>0</div>
           </div>
       </div>
 
@@ -55,7 +55,6 @@
         </div>
 
         <div id="interaction">
-          <!--<input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">-->
           <button id="suiteStory">Suivant</button>
 
           <div id = "interactionJoueur">
@@ -64,7 +63,6 @@
           </div>
           <form method="get" action="pageFin.php" id="fin">
               <input type="readonly" id="pseudo" name="login" value="<?php echo $_GET['login']; ?>" style="display:none"> 
-              <!-- <input type="readonly" id="pseudo" name="login" value="$_GET[login]" style="display:none">  -->
               <button id="btnFin">Fin du jeu</button>
           </form>
         </div>
@@ -72,13 +70,13 @@
     </div>
 
       <footer id = "mentions">
-        <a href="html/planDuSite.html"> Plan du Site</a>
+        <a href="html/planDuSite.html" target="_blank"> Plan du Site</a>
         -
-        <a href="html/mentionsLegales.html"> Mentions légales </a>
+        <a href="html/mentionsLegales.html" target="_blank"> Mentions légales </a>
         -
-        <a href="html/credits.html"> Crédits </a>
-        -
-        <a href="html/conditionsUtilisation.html"> Conditions générales </a>
+        <a href="html/credits.html" target="_blank"> Crédits </a>
+        <!-- -
+        <a href="html/conditionsUtilisation.html"> Conditions générales </a> -->
       </footer>
 
       <script src="carte.js"></script>
