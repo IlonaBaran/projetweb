@@ -106,9 +106,9 @@ Vous pourrez voir le temps que vous avez mis à réaliser le jeu ainsi que votre
 Le retour à la page principale est permis grâce à un bouton. 
 
 
-### Cahier de bord : Organisation au jour le jour
+### Cahier de bord : Organisation au jour le jour // ca j'aurai pensé l'enlever, je ne sais pas quoi mettre dedans 
 
-### Difficultés et solutions techniques rencontrées
+### Difficultés et solutions techniques rencontrées // idem, je ne sais pas trop quoi mettre si ce n'est parlé des fetch ou jsp
 
 # Sources
 La fonction strNoAccent de la page carte.js
