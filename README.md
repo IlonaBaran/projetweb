@@ -2,10 +2,9 @@
 # Projet 1: Les Stations V'Lille
 
 Projet web : Bienvenue sur l'escape game de Maeve et Ilona !
-
+=======
 
 ## Date: 25/03/2020
-
 
 # Département Informatique de l'ENSG - Géomatique
 # Programmation WEB avancée:
@@ -20,7 +19,7 @@ Ilona Baran et Maeve Blarel
 http://localhost/projetweb/pagePrincipale.php
 
 ## Le Projet et ses objectifs:
-L’objec.f de ce TP est de créer un « escape game », notamment en résolvant des énigmes et en trouvant 
+L’objectif de ce TP est de créer un « escape game », notamment en résolvant des énigmes et en trouvant 
 des objets. Le tout, sur une carte web.
 Nous avons réalisé un « escape game » qui s'intitule: Tour de promo.
 
@@ -63,17 +62,25 @@ Pensez à remplacer nom par votre prénom.
 #### Si vous utilisez WAMP : 
 
 #### Récupération du projet #
-...................................
+...\wamp64\www 
+................................
 
 ### Import de la base de données #
-Aller sur http://localhost/phpmyadmin
+Ouvrir Mamp. 
+Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplcament où se trouve le projet récupéré. Dans le cas contraire, veuillez déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).
+//Maeve, je n'ai plus mamp, il faudrait que tu dises comment tu fais pour creer un compte d'accès ? 
+//Reponse Maeve: Il n'y a pas de compte d'accès à créer sur Mamp
+
+(identifiant + mdp). On peut mettre dans la ligne du jeu escapge game pour le mdp et l'id, ca sera plus simple a gerer ?   Je comprends pas bien la question? mais je crois que c'est une bonne idée
+Aller sur http://localhost/phpmyadmin.
 Connecter vous sans changer l'identifiant et le mot de passe pré-rentré. Normalement, vous devriez avoir : //capture d'écran avec root, et pas de mdr
-Créer une base de données “escapegame”   
-Importer le fichier espacegame.sql    
-Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier au besoin de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','root','', 'escapegame');
-//photo des 2 lignes 
+Créer une base de données « escape game ».
+Importer le fichier espacegame.sql à cet emplacement.  
+Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoin, de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','nom','nom', 'escapegame'); 
+Pensez à remplacer nom par votre prénom.
+//photo des 2 lignes PAS SUR DE CA, CA DEPEND DE CHACUN NON?
 
-
+=======
 
 ## Consigne et déroulement du jeu
 Le jeu comporte 3 pages :   
@@ -89,7 +96,6 @@ Pour pouvoir jouer au jeu, vous devez :
 - une page de fin   
 Vous pourrez voir le temps que vous avez mis à réaliser le jeu ainsi que votre position par rapport aux autres joueurs.  
 Le retour à la page principale est permis grâce à un bouton. 
-
 
 ## Responsive ?
 Oui, il est responsive! (commentaire ilo : HEUUUUUU) (commentaire maeve : ON VA LE RENDRE RESPONSIVE)

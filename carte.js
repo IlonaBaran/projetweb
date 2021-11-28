@@ -39,8 +39,6 @@ var recupFetch = function(n) {
     //PERSONNAGE n
     fetch('http://localhost/projetweb/objet.php?id='+String(n)).then(response => response.json())
     .then(result => {
-        console.log(compteur);
-        console.log("________");
         map.setView([result["latitude"], result["longitude"]], 14);
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles = result["message"].split("$");
@@ -595,7 +593,6 @@ var recupFetchPeluche = function(n) {
         });
     });
 }
-
 //APPEL DE LA PERMIERE PELUCHE
 var compteurPeluche = 0;
 recupFetchPeluche(7);

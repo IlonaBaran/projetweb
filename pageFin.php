@@ -51,6 +51,7 @@
                     <input type=\"submit\" value=\"Retour à la page principale\">
                     </form>
                 </div>
+
             </div>";
         }
         ?>
