@@ -1,141 +1,114 @@
-<<<<<<< HEAD
-# Technologie du Web II:
-# Projet 1: Les Stations V'Lille
+Projet WEB « Escape game » géographique 
 =======
-Projet web : Bienvenue sur l'escape game de Maeve et Ilona !
-==
->>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
+Département Informatique de l'ENSG - Géomatique   
+Programmation WEB avancée
 
+## Table des matières
+1. [Informations](#Informations)
+2. [Pré-requis](#Pré-requis)
+3. [MAMP](#MAMP)
+4. [WAMP](#WAMP)
+5. [Consignes](#Consignes)
+6. [Source](####Sources)
 
-## Date: 25/03/2020
-
-
-# Département Informatique de l'ENSG - Géomatique
-# Programmation WEB avancée:
-# Projet : « Escape game » géographique !
-
-## Auteurs
+# Informations
+#### Auteurs
 Ilona Baran et Maeve Blarel
-
-## Date: du 1/11/2021 au 28/11/2021 (4 semaines)
-
-## URL du site
+#### Date
+1/11/2021 au 28/11/2021 (4 semaines)
+#### URL du site
 http://localhost/projetweb/pagePrincipale.php
-
-## Le Projet et ses objectifs:
-L’objec.f de ce TP est de créer un « escape game », notamment en résolvant des énigmes et en trouvant 
+#### Le Projet et ses objectifs:
+L’objectif de ce TP est de créer un « escape game », notamment en résolvant des énigmes et en trouvant 
 des objets. Le tout, sur une carte web.
 Nous avons réalisé un « escape game » qui s'intitule: Tour de promo.
-
-***
-Short Description about the project................................
-***
-![PojetWeb](images/bus/bus1_14.png)
-
-## Langages utilisés
+#### Langages utilisés
 + HTML5, CSS3
 + JavaScript, AJAX
 + PHP, MySQL
+#### Responsive ?
+Oui, il est responsive.
 
-## Pré-requis
-<<<<<<< HEAD
+***
+
+# Pré-requis
 + Installation de MAMP ou de WAMP  
 + Connection internet pour l'affichage de la carte  
 + Utilisation d'un navigateur (évitez Microsoft Edge et Internet explorer)
 
-#### Si vous utilisez MAMP :
+***
+
+# MAMP
 
 #### Récupération du projet #
-...\wamp64\www 
-................................
+Aller sur https://github.com/IlonaBaran/projetweb.git et télécharger le ZIP du projet 
+
+![PojetWeb](images/readme/telechargementProjet.png)   
+// après je ne sais pas ou il faut le placer :((
 
 ### Import de la base de données #
 Ouvrir Mamp. 
-Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplcament où se trouve le projet récupéré. Dans le cas contraire, veuillez déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).
-//Maeve, je n'ai plus mamp, il faudrait que tu dises comment tu fais pour creer un compte d'accès ? 
-//Reponse Maeve: Il n'y a pas de compte d'accès à créer sur Mamp
-
-(identifiant + mdp). On peut mettre dans la ligne du jeu escapge game pour le mdp et l'id, ca sera plus simple a gerer ?   Je comprends pas bien la question? mais je crois que c'est une bonne idée
-Aller sur http://localhost/phpmyadmin.
-Créer une base de données « escape game ».
+Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplcament où se trouve le projet récupéré. Dans le cas contraire, déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).  
+Dans un navigateur, aller sur http://localhost/phpmyadmin.  
+Créer une base de données « escape game ».  
 Importer le fichier espacegame.sql à cet emplacement.  
-Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoin, de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','nom','nom', 'escapegame'); 
-Pensez à remplacer nom par votre prénom.
-//photo des 2 lignes PAS SUR DE CA, CA DEPEND DE CHACUN NON?
+Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoin, de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','nom','nom', 'escapegame');   
+Penser à remplacer nom par votre prénom. // EST ce que c'est utile de dire ca ?    
+![PojetWeb](images/readme/connexionBDDMAMP.png)  
 
-#### Si vous utilisez WAMP : 
+Créer un compte d'utilisateur dans http://localhost/phpmyadmin en suivant les instructions suivantes:
+![PojetWeb](images/readme/ajouterCompteBDD.png)
+
+![PojetWeb](images/readme/creationCompteBDD.png)
+
+puis "éxécuter" en bas de la page.  
+Bravo, vous allez bientôt pouvoir commencer à jouer !
+
+***
+
+# WAMP 
 
 #### Récupération du projet #
-...................................
+Aller sur https://github.com/IlonaBaran/projetweb.git et télécharger le ZIP du projet 
+![PojetWeb](images/readme/telechargementProjet.png)
+Extraire le projet et le mettre dans .../wamp64/www
 
 ### Import de la base de données #
-Aller sur http://localhost/phpmyadmin
-Connecter vous sans changer l'identifiant et le mot de passe pré-rentré. Normalement, vous devriez avoir : //capture d'écran avec root, et pas de mdr
-Créer une base de données “escapegame”   
-Importer le fichier espacegame.sql    
-Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier au besoin de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','root','', 'escapegame');
-//photo des 2 lignes 
+Ouvrir WAMP. 
+Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplcament où se trouve le projet récupéré. Dans le cas contraire, déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).  
 
+Dans un navigateur, aller sur http://localhost/phpmyadmin.  
+Se connecter sans changer l'identifiant et le mot de passe pré-rentré. Normalement, vous devriez avoir :   
+![PojetWeb](images/readme/phpmyadminAccueil.png)
 
-### Consigne et déroulement du jeu
-=======
-+ Installation de MAMP ou WAMP  
-+ Connection internet pour l'affichage de la carte  
-+ Utilisation d'un navigateur (évitez Microsoft edge et Internet explorer)
+Créer une base de données « escape game ».   
+Importer le fichier espacegame.sql à cet emplacement.   
+Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoin, de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','root','', 'escapegame');   
+![PojetWeb](images/readme/connexionBDDWAMP.png)
 
-#### Import de la base de données 
-Aller sur http://localhost/phpmyadmin
-#### Si vous utilisez MAMP : #
-//Maeve, je n'ai plus mamp, il faudrait que tu dises comment tu fais pour creer un compte d'accès (identifiant + mdp). On peut mettre dans la ligne du jeu escapge game pour le mdp et l'id, ca sera plus simple a gerer ?   
-Créer une base de données “escapegame”   
-Importer le fichier espacegame.sql    
-Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier au besoin de telle façon à avoir ce qui suit :    
-//photo des 2 lignes 
+Bravo, vous allez bientôt pouvoir commencer à jouer !
 
-### Si vous utilisez WAMP : #
-Connecter vous sans changer l'identifiant et le mot de passe pré-rentré. Normalement, vous devriez avoir : //capture d'écran avec root, et pas de mdr
-Créer une base de données “escapegame”   
-Importer le fichier espacegame.sql    
-Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier au besoin de telle façon à avoir ce qui suit :    
-//photo des 2 lignes 
+***
 
-## Consigne et déroulement du jeu
->>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
+# Consignes
 Le jeu comporte 3 pages :   
 - une page principale.   
 Vous devrez rentrer un pseudo pour pouvoir commencer à jouer. Celui-ci doit faire entre 1 et 20 caractères.   
 
 - une page de jeu   
 Pour pouvoir jouer au jeu, vous devez :   
-<<<<<<< HEAD
+
 + Lorsque vous voyez le bouton "Suivant", vous devez cliquer dessus   
 + Vous devez validez la saisie d'un champ texte en appuyant sur la touche entrée
 
 - une page de fin   
 Vous pourrez voir le temps que vous avez mis à réaliser le jeu ainsi que votre position par rapport aux autres joueurs.  
 Le retour à la page principale est permis grâce à un bouton. 
-=======
-+ lorsque vous voyez le bouton "Suivant", vous devez cliquer dessus   
-
-- une page de fin   
-Vous pourrez voir le temps que vous avez mis à réaliser le jeu ainsi que votre position par rapport aux autres joueurs.   
->>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
-
-## Responsive ?
-Oui, il est responsive! (commentaire ilo : HEUUUUUU) (commentaire maeve : ON VA LE RENDRE RESPONSIVE)
-
-## Screenshots 
-![Connexion](https://i.imgur.com/BxP73v9.png)
-
-![Screenshot chat](https://i.imgur.com/AyQYan5.png)
-<<<<<<< HEAD
 
 
-### Cahier de bord : Organisation au jour le jour
+### Cahier de bord : Organisation au jour le jour // ca j'aurai pensé l'enlever, je ne sais pas quoi mettre dedans 
 
-### Difficultés et solutions techniques rencontrées
+### Difficultés et solutions techniques rencontrées // idem, je ne sais pas trop quoi mettre si ce n'est parlé des fetch ou jsp
 
-#### Nos sources:
+# Sources
 La fonction strNoAccent de la page carte.js
-=======
->>>>>>> 5361834df59f59986d4364ca40ddf02beadca061

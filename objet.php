@@ -101,6 +101,15 @@
         else  if ($_GET['conversation'] == 14) {
             Conversation(14, $link);
         }
+        else  if ($_GET['conversation'] == 15) {
+            Conversation(15, $link);
+        }
+        else  if ($_GET['conversation'] == 16) {
+            Conversation(16, $link);
+        }
+        else  if ($_GET['conversation'] == 17) {
+            Conversation(17, $link);
+        }
     }
 
     function Conversation($nombre, $link){      

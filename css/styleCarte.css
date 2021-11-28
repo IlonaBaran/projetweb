@@ -1,9 +1,8 @@
 #contener2{
     min-height: 90vh;
     display: grid;
-    grid-template-columns: 30% 40% 30%;
-    grid-template-rows: 40% 40% 20%;
-    background-color: rgba(97, 86, 72, 0.50);
+    grid-template-columns: 30% 55% 15%;
+    grid-template-rows: 65% 15% 20%;
 }
 
 /* -------------------------------------------------------------------- */
@@ -11,20 +10,20 @@
 #deroulmentJeu{
     grid-column: 1;
     grid-row: 1 / span 3;
-    /*background-image : url("../images/inventaire.jpg");
-    background-size: cover;*/
+
     background-color: #e3e3e3;
 
     display: grid;
     grid-template-columns: 5% 90% 5%;
     grid-template-rows: 5% 80% 10% 5%;
+
+    z-index: 3;
 }
 
 #deroulmentTitre{
     grid-column: 2;
     grid-row: 1;
     margin: auto;
-    color: grey;
 }
 
 #message{
@@ -58,12 +57,12 @@
 }
 
 #bulleMessage{
-    /* background-color: rgb(133, 122, 107); */
     margin-top: 3%;
-    border-radius: 10%;
-
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5%;
     max-height: 100px;
-    width: 100%;
+    width: 95%;
 
     display: grid;
     grid-template-columns: 20% 80%;
@@ -84,61 +83,33 @@
     grid-row: 1 / span 2;
 }
 
-#new_div{
-    width: 100%;
-}
 
 /* -------------------------------------------------------------------- */
-
-#map { 
-    /* height: 95%; */
+#fondMap{
     grid-column: 2;  
-    grid-row: 1 / span 3;                   
-    padding: 10%;
-    margin: 5%;
-}
-
-/* -------------------------------------------------------------------- */
-
-#bus{
-    grid-column: 3;                     
-    grid-row: 1;
-    border: 2px solid #240b16;
-    background-color:#fbfafb;
-
-    /* background-image : url("../images/fondBus.png");
-    background-size: cover; */
-}
-
-#testimage{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-
-    padding-bottom: 2%;
-    margin-top: 36%;
+    grid-row: 1 / span 3;   
+    background-image : url("../images/fond/fondIndex.png");
+    background-size: cover;
 }
 
 
-/* -------------------------------------------------------------------- */
-#parole{
-    text-align:center;
+#map {
+    height: 80%;                 
+    /* padding: 5%; */
+    margin: 2%;
+    z-index: 1;
 }
 
 /* -------------------------------------------------------------------- */
 
 #inventaire{
     grid-column: 3;                     
-    grid-row: 2;
-
-    border: 2px solid #240b16;
-    /*background-image : url("../images/inventaire.jpg");
-    background-size: cover;*/
+    grid-row: 1;
 
     background-color: #fbfafb;
     display: grid;
-    grid-template-columns: 15% 34% 2% 34% 15%;
-    grid-template-rows: 15% 34% 2% 34% 15%;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 10% 20% 20% 20% 20% 10%;
 }
 
 #inventaire > div > img {
@@ -148,9 +119,8 @@
 }
 
 #titreInventaire{
-    grid-column: 1 / span 6;                     
+    grid-column: 1 / span 3;                     
     grid-row: 1;
-    color: grey;
 }
 
 #objet1{
@@ -159,8 +129,8 @@
 }
 
 #objet2{
-    grid-column: 4;                     
-    grid-row: 2;
+    grid-column: 2;                     
+    grid-row: 3;
 }
 
 #objet3{
@@ -169,23 +139,21 @@
 }
 
 #objet4{
-    grid-column: 4;                     
-    grid-row: 4;
+    grid-column: 2;                     
+    grid-row: 5;
 }
 
-.objet {
+/* .objet {
     border: 10px solid #e3e3e3;
     background-color: #fbfafb;
-}
+} */
 
 /* -------------------------------------------------------------------- */
- 
+
 #niveaux{
     grid-column: 3;
     grid-row: 3;
 
-    /*background-image : url("../images/inventaire.jpg");
-    background-size: cover;*/
     background-color: #fbfafb;
     color: grey;
 }
@@ -195,7 +163,7 @@
     margin-left: auto;
     margin-right: auto;
 
-    width: 250px;
+    width: 90%;
     padding: 1px;
     background-color: #e3e3e3;
     border: 1px solid black;
@@ -209,19 +177,31 @@
 }
 
 #progressnum{
-    width: 250px;
+    width: 100%;
     font-weight: 500;
-    color: blanchedalmond;
     text-align: center;
     font-size: 1.5em;
-    opacity: 0.33;
+}
+
+
+/* -------------------------------------------------------------------- */
+
+#bus{ 
+    position: absolute;
+    top: 80%;
+    left: 45%;
+    z-index: 2;
+}
+
+#testimage{
+    width: 40%;
 }
 
 /* -------------------------------------------------------------------- */
 
 .titreSection{
     font-weight: 500;
-    color: rgb(247, 226, 196, 0.33);
+    color: rgb(128, 128, 128);
     text-align: center;
     font-size: 1.5em;
 }
@@ -230,4 +210,203 @@
     color: grey;
     font-size: 20px;
     font-weight: 700;
+}
+
+/* -------------------------------------------------------------------- */
+
+@media screen and (max-width: 900px){
+    #contener2 {
+        min-height: 90vh;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 40% 40% 20%;
+    }
+
+    #deroulmentJeu{
+        grid-column: 1 / span 2;
+        grid-row: 1 ;
+    
+        background-color: #e3e3e3;
+    
+        display: grid;
+        grid-template-columns: 5% 90% 5%;
+        grid-template-rows: 5% 80% 10% 5%;
+    
+        z-index: 3;
+    }
+
+    #message{
+        grid-column: 2;
+        grid-row: 2;
+        background-color: #fbfafb;
+        margin-top: 5%;
+
+        overflow: auto;
+        scrollbar-width: thin;
+        height: 25vh;
+        overflow-y: scroll;
+        scrollbar-color: #fbfafb;
+    }
+    
+    #fondMap{
+        grid-column: 1 / span 2;  
+        grid-row: 2;   
+        background-image : url("../images/fond/fondIndex.png");
+        background-size: cover;
+    }
+        
+    #inventaire{
+        grid-column: 1;                     
+        grid-row: 3;
+    
+        background-color: #fbfafb;
+        display: grid;
+        grid-template-columns: 5% 25% 25% 5%;
+        grid-template-rows: 5% 25% 25% 5%;
+    }
+    
+    #inventaire > div > img {
+        width: 50px;
+        padding-bottom: 60%;
+        padding-left: 30%;
+    }
+    
+    #titreInventaire{
+        grid-column: 1 / span 3;                     
+        grid-row: 1;
+    }
+    
+    #objet1{
+        grid-column: 2;                     
+        grid-row: 2;
+    }
+    
+    #objet2{
+        grid-column: 3;                     
+        grid-row: 2;
+    }
+    
+    #objet3{
+        grid-column: 2;                     
+        grid-row: 3;
+    }
+    
+    #objet4{
+        grid-column: 3;                     
+        grid-row: 3;
+    }
+        
+    #niveaux{
+        grid-column: 2;
+        grid-row: 3;
+    
+        background-color: #fbfafb;
+        color: grey;
+    }
+
+    #bus{
+        display: none;
+    }
+}
+
+
+/* -------------------------------------------------------------------- */
+
+@media screen and (max-width: 600px){
+    #contener2 {
+        min-height: 90vh;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 40% 40% 20%;
+    }
+
+    #deroulmentJeu{
+        grid-column: 1 / span 2;
+        grid-row: 1 ;
+    
+        background-color: #e3e3e3;
+    
+        display: grid;
+        grid-template-columns: 5% 90% 5%;
+        grid-template-rows: 5% 80% 10% 5%;
+    
+        z-index: 3;
+    }
+
+    #message{
+        grid-column: 2;
+        grid-row: 2;
+        background-color: #fbfafb;
+        margin-top: 5%;
+
+        overflow: auto;
+        scrollbar-width: thin;
+        height: 25vh;
+        overflow-y: scroll;
+        scrollbar-color: #fbfafb;
+    }
+    
+    #fondMap{
+        grid-column: 1 / span 2;  
+        grid-row: 2;   
+        background-image : url("../images/fond/fondIndex.png");
+        background-size: cover;
+    }
+        
+    #inventaire{
+        grid-column: 1;                     
+        grid-row: 3;
+    
+        background-color: #fbfafb;
+        display: grid;
+        grid-template-columns: 5% 25% 25% 5%;
+        grid-template-rows: 5% 25% 25% 5%;
+    }
+    
+    #inventaire > div > img {
+        width: 50px;
+        padding-bottom: 60%;
+        padding-left: 30%;
+    }
+    
+    #titreInventaire{
+        grid-column: 1 / span 3;                     
+        grid-row: 1;
+    }
+    
+    #objet1{
+        grid-column: 2;                     
+        grid-row: 2;
+    }
+    
+    #objet2{
+        grid-column: 3;                     
+        grid-row: 2;
+    }
+    
+    #objet3{
+        grid-column: 2;                     
+        grid-row: 3;
+    }
+    
+    #objet4{
+        grid-column: 3;                     
+        grid-row: 3;
+    }
+        
+    #niveaux{
+        grid-column: 2;
+        grid-row: 3;
+    
+        background-color: #fbfafb;
+        color: grey;
+    }
+
+    #progressnum{
+        display: none;
+    }
+
+    #bus{
+        display: none;
+    }
 }

@@ -16,6 +16,9 @@ var divMap = document.getElementById("map");
 var contener2 = document.getElementById("contener2");
 var retourPP = document.getElementById("retourPP");
 
+//Maeve -> pour recuperer une variable php en js
+var variableRecuperee = document.getElementById("pseudo").value;
+
 var map = L.map('map').setView([48.84108949711657, 2.588069801082868], 17);
 
 var updateProg = function() {
@@ -68,6 +71,7 @@ var recupFetch = function(n) {
     //PERSONNAGE n
     fetch('http://localhost/projetweb/objet.php?id='+String(n)).then(response => response.json())
     .then(result => {
+        console.log("zoom" + map.getZoom());
         map.setView([result["latitude"], result["longitude"]], 14);
         var objectIcon = new L.icon({iconUrl:result["icone"], iconSize:[result["iconeSizeLarg"], result["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[result["iconeSizeLarg"]/2,0], maxZoom:10});
         var paroles = result["message"].split("$");
@@ -77,6 +81,7 @@ var recupFetch = function(n) {
         //PAPARODITIS
         fetch('http://localhost/projetweb/objet.php?id=38').then(response => response.json())
         .then(resultP => {
+            console.log(compteur + "compteur");
             var objectIconP = new L.icon({iconUrl:resultP["icone"], iconSize:[resultP["iconeSizeLarg"], resultP["iconeSizeLong"]], iconAnchor:[2,9], popupAnchor:[resultP["iconeSizeLarg"]/2,0]});
             var parolesP = resultP["message"].split("$");
             var markerP = L.marker([resultP["latitude"], resultP["longitude"]], {icon:objectIconP}).bindPopup("<p id=parole>"+parolesP[n-17]+"</p>", {fontSize: 10, maxWidth:160});
@@ -88,10 +93,13 @@ var recupFetch = function(n) {
                     markerP.remove(map);
                 }
             });
+            if (compteur==15){        
+                recupFetchDiscussion(5, true);
+            }
             if (compteur==17) {
-                recupFetchDiscussion(6);
-            } else if (compteur == 18 || compteur == 19) {
-                recupFetchDiscussion(17-9);
+                recupFetchDiscussion(6, true);
+            } else if (compteur == 18) {
+                recupFetchDiscussion(17-9, true);
             }
             if (result["eventDragDrop"]) {
                 appliqueEventDragend(marker,result["dragDropEnd"].split("$"));
@@ -102,6 +110,10 @@ var recupFetch = function(n) {
                 interactionJoueur.style.visibility = 'visible'; 
                 valueReponse.addEventListener('keyup', function fct(e) {
                     if ((strNoAccent(valueReponse.value.toLowerCase()) == result["bloquePar"] || (result["bloquePar"] == null && valueReponse.value != "")) && e.key == "Enter") {
+                        var aleatoireMessage = Math.random();
+                        if (aleatoireMessage < 0.4){
+                            recupFetchDiscussion(2, true);
+                        }
                         if (compteur==13){        
                             recupFetchDiscussion(4, true);
                         }
@@ -120,6 +132,7 @@ var recupFetch = function(n) {
                                 recupFetchMaeve(n+1);
                             } else if (n==34) {
                                 compteur++;
+                                recupFetchDiscussion(13, true);
                                 recupFetchCoindetAhr();
                             } else {
                                 if (n==20-1) {
@@ -128,12 +141,29 @@ var recupFetch = function(n) {
                                 if (n==21-1) {
                                     recupFetchPeluche(10);
                                 }
+                                if (compteur==12){
+                                    recupFetchDiscussion(15, true);
+                                }
+                                if (compteur == 17){
+                                    recupFetchDiscussion(11, true);
+                                }
                                 compteur++;
                                 recupFetch(n+1);
                             }
                         });
                     } else if (valueReponse.value != "" && e.key == "Enter") {
-                        afficheMessageBus("Faux, la réponse n'est pas \""+ valueReponse.value +"\", retente ta chance!", result["icone"]);
+                        afficheMessageBus("Faux, la réponse n'est pas \""+ valueReponse.value +"\", retente ta chance!", result["icone"], 'rgb(250, 214, 210)');
+                        var aleatoireMessage = Math.random();
+                        console.log(aleatoireMessage);
+                        if (aleatoireMessage < 0.4 && compteur < 15){
+                            recupFetchDiscussion(3, true);
+                        }
+                        else if (aleatoireMessage > 0.6 && compteur > 15){
+                            recupFetchDiscussion(7, true);
+                        }
+                        else if (aleatoireMessage < 0.4 && compteur > 15){
+                            recupFetchDiscussion(7, true);
+                        }
                     }
                 });
             } else {
@@ -256,7 +286,7 @@ var recupFetchRivBal = function() {
                                 if (rep) {
                                     markerObj.remove();
                                     marker.remove();
-                                    afficheMessageBus("Eh, j'ai pas eu le temps de manger! C'est pas juste!", result["icone"]);
+                                    recupFetchDiscussion(17, true);
                                 }
                                 recupFetchPeluche(8);
                                 recupFetch(result2["value"]+2);                         
@@ -550,7 +580,7 @@ var recupFetchJeannineZar2 = function() {
                 valueReponse.addEventListener('keyup', function(e) {
                     if (valueReponse.value.toLowerCase() == result["bloquePar"] && e.key == "Enter" && compteur < 11) {
                         if (error) {
-                            afficheMessageBus("Bien joué, enfin!", result2["icone"]);
+                            recupFetchDiscussion(16, false);
                         }
                         //valueReponse.removeEventListener('keyup');
                         interactionJoueur.style.visibility = 'hidden';
@@ -581,11 +611,10 @@ var recupFetchJeannineZar2 = function() {
                             });
                         });
                     } else if (compteur==i+1 && e.key == "Enter") {
-                        if (compteur==8) {
+                        if (compteur==9) {
                             recupFetchDiscussion(14, false);
                         }
                         error = true;
-                        afficheMessageBus("Faux, retente ta chance! Essaie d'être un peu plus poli !", result2["icone"]);
                     }
                 });
             })
@@ -617,31 +646,6 @@ recupFetchPeluche(7);
 
 
 
-
-// var afficheMessageBus = function(message, icone) {
-//     bulleMessage = document.createElement('div');
-//     bulleMessage.setAttribute("id", "bulleMessage");
-
-//     var contenuMessage = document.createElement('div');
-//     contenuMessage.setAttribute("id", "contenuMessage");
-//     contenuMessage.innerHTML += message;
-
-//     var photoMessage = document.createElement('div');
-//     photoMessage.setAttribute("id", "photoMessage");
-//     var img = document.createElement("img");
-//     img.src = icone;
-//     img.style.height = '50px';
-//     photoMessage.appendChild(img);
-
-//     bulleMessage.appendChild(contenuMessage);
-//     bulleMessage.appendChild(photoMessage);
-//     bulleMessage.style.backgroundColor='rgb(133, 122, 107)';
-
-//     message1.appendChild(bulleMessage);
-
-//     message1.scrollTop = message1.scrollHeight;
-// }
-
 //FONCTION GERANT L'AFFICHAGE DES MESSAGES DANS LE MIGNIBUS
 var afficheMessageBus = function(message, icone, couleur) {
     bulleMessage = document.createElement('div');
@@ -655,7 +659,8 @@ var afficheMessageBus = function(message, icone, couleur) {
     photoMessage.setAttribute("id", "photoMessage");
     var img = document.createElement("img");
     img.src = icone;
-    img.style.height = '50px';
+    img.style.height = '40px';
+    img.style.width = '40px';
     photoMessage.appendChild(img);
 
     bulleMessage.appendChild(contenuMessage);
@@ -667,21 +672,6 @@ var afficheMessageBus = function(message, icone, couleur) {
     message1.scrollTop = message1.scrollHeight;
 }
 
-// var recupFetchDiscussion = function(nb) {
-//     fetch('http://localhost/projetweb/objet.php?conversation='+String(nb))
-//     .then(response => response.json())
-//     .then(results => {
-//         var result = results[0];
-//         var paroles = result["dialogueBus"].split("$");
-//         var imageBus = result["imageBus"].split("$");
-
-//         for (var i=0; i < paroles.length; i++){
-//             afficheMessageBus(paroles[i], imageBus[i]);
-//             // setTimeout(afficheMessageBus(paroles[i], imageBus[i]), 10000);
-//         }
-//     })
-// }
-
 //FONCTION GERANT LA CONVERSATION DANS LE MIGNIBUS
 var recupFetchDiscussion = function(nb, bus) {
     fetch('http://localhost/projetweb/objet.php?conversation='+String(nb))
@@ -690,6 +680,8 @@ var recupFetchDiscussion = function(nb, bus) {
         var result = results[0];
         var paroles = result["dialogueBus"].split("$");
         var imageBus = result["imageBus"].split("$");
+
+        // setTimeout(afficheMessageBus(paroles[i], imageBus[i]), 10000);
 
         for (var i=0; i < paroles.length; i++){
             if (bus){
