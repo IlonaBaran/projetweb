@@ -45,12 +45,20 @@
                     Vous etes classé : $position
                 </div>
 
+<<<<<<< HEAD
                 <div id=\"retourPP\">
                     <form method=\"get\" action=\"pagePrincipale.php\">
                     <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
                     <input type=\"submit\" value=\"Retour à la page principale\">
                     </form>
                 </div>
+=======
+            <div id=\"retourPP\">
+                <form method=\"get\" action=\"pagePrincipale.php\">
+                <input type=\"readonly\" name=\"login\" value=\"$_GET[login]\" style=\"display:none;\"> 
+                <input type=\"submit\" value=\"Retour à la page principale\">
+                </form>
+>>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
             </div>";
         }
         ?>

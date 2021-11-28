@@ -35,8 +35,11 @@ footer {
 a {
         text-decoration: none;
         color: black;
+<<<<<<< HEAD
 }
 
 a:hover {
         text-decoration: underline;
+=======
+>>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
 }

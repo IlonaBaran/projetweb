@@ -30,7 +30,13 @@
 
 input{
   padding: 0.2%;
-  margin: 0.5%
+  margin: 0.5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  text-align: center;
+
+  grid-row: 1;
 }
 
 #classementPersonnel{

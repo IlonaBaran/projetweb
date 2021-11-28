@@ -54,14 +54,28 @@
           <!--<input type="text" id="valueReponse" name="valueReponse" required minlength="1" maxlength="20" size="20">-->
           <button id="suiteStory">Suivant</button>
 
+<<<<<<< HEAD
+=======
+        <!-- bouton a afficher lorsque le jeu est fini genre du style en js :  fin.style.visibylity: 'visible' et le reste du temps non visible-->
+          <form method="get" action="pageFin.php" id="fin">
+              <input type="readonly" name="login" value="$_GET[login]" style="display:none"> 
+              <input type="submit" value="OK" id="recup">
+          </form>
+
+>>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
           <div id = "interactionJoueur">
             <input type="texte" id="valueReponse" name="valueReponse" required minlength="1" maxlength="40" size="20">
             <!--<input type="submit" value="Entrer" id="valide">-->
           </div>
+<<<<<<< HEAD
           <form method="get" action="pageFin.php" id="fin">
               <input type="readonly" name="login" value="$_GET[login]" style="display:none"> 
               <button id="btnFin">Fin du jeu</button>
           </form>
+=======
+          <!--<div id="noValueReponse"></div>-->
+          <button id="btnFin">Fin du jeu</button>
+>>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
         </div>
       </div>
     </div>

@@ -34,7 +34,11 @@
         </div>
 
         <div id="score" class='contour'>
+<<<<<<< HEAD
             <div id="titreScore">Score</div>
+=======
+            <div id="titreScore">Hall Of Fame</div>
+>>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
             <?php
                 include("connexion.php");
                 
@@ -65,6 +69,12 @@
                     $table_str .= "</table>";
                     echo $table_str;
                 }
+<<<<<<< HEAD
+=======
+                // else {
+                //     echo "Erreur de requête de base de données.";
+                // }
+>>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
                 ?>
         </div>
     </div>

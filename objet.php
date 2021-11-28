@@ -101,7 +101,6 @@
         else  if ($_GET['conversation'] == 14) {
             Conversation(14, $link);
         }
-
     }
 
     function Conversation($nombre, $link){      

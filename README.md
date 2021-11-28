@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 # Technologie du Web II:
 # Projet 1: Les Stations V'Lille
+=======
+Projet web : Bienvenue sur l'escape game de Maeve et Ilona !
+==
+>>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
 
 
 ## Date: 25/03/2020
@@ -33,6 +38,7 @@ Short Description about the project................................
 + PHP, MySQL
 
 ## Pré-requis
+<<<<<<< HEAD
 + Installation de MAMP ou de WAMP  
 + Connection internet pour l'affichage de la carte  
 + Utilisation d'un navigateur (évitez Microsoft Edge et Internet explorer)
@@ -72,18 +78,48 @@ Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier au besoin
 
 
 ### Consigne et déroulement du jeu
+=======
++ Installation de MAMP ou WAMP  
++ Connection internet pour l'affichage de la carte  
++ Utilisation d'un navigateur (évitez Microsoft edge et Internet explorer)
+
+#### Import de la base de données 
+Aller sur http://localhost/phpmyadmin
+#### Si vous utilisez MAMP : #
+//Maeve, je n'ai plus mamp, il faudrait que tu dises comment tu fais pour creer un compte d'accès (identifiant + mdp). On peut mettre dans la ligne du jeu escapge game pour le mdp et l'id, ca sera plus simple a gerer ?   
+Créer une base de données “escapegame”   
+Importer le fichier espacegame.sql    
+Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier au besoin de telle façon à avoir ce qui suit :    
+//photo des 2 lignes 
+
+### Si vous utilisez WAMP : #
+Connecter vous sans changer l'identifiant et le mot de passe pré-rentré. Normalement, vous devriez avoir : //capture d'écran avec root, et pas de mdr
+Créer une base de données “escapegame”   
+Importer le fichier espacegame.sql    
+Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier au besoin de telle façon à avoir ce qui suit :    
+//photo des 2 lignes 
+
+## Consigne et déroulement du jeu
+>>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
 Le jeu comporte 3 pages :   
 - une page principale.   
 Vous devrez rentrer un pseudo pour pouvoir commencer à jouer. Celui-ci doit faire entre 1 et 20 caractères.   
 
 - une page de jeu   
 Pour pouvoir jouer au jeu, vous devez :   
+<<<<<<< HEAD
 + Lorsque vous voyez le bouton "Suivant", vous devez cliquer dessus   
 + Vous devez validez la saisie d'un champ texte en appuyant sur la touche entrée
 
 - une page de fin   
 Vous pourrez voir le temps que vous avez mis à réaliser le jeu ainsi que votre position par rapport aux autres joueurs.  
 Le retour à la page principale est permis grâce à un bouton. 
+=======
++ lorsque vous voyez le bouton "Suivant", vous devez cliquer dessus   
+
+- une page de fin   
+Vous pourrez voir le temps que vous avez mis à réaliser le jeu ainsi que votre position par rapport aux autres joueurs.   
+>>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
 
 ## Responsive ?
 Oui, il est responsive! (commentaire ilo : HEUUUUUU) (commentaire maeve : ON VA LE RENDRE RESPONSIVE)
@@ -92,6 +128,7 @@ Oui, il est responsive! (commentaire ilo : HEUUUUUU) (commentaire maeve : ON VA 
 ![Connexion](https://i.imgur.com/BxP73v9.png)
 
 ![Screenshot chat](https://i.imgur.com/AyQYan5.png)
+<<<<<<< HEAD
 
 
 ### Cahier de bord : Organisation au jour le jour
@@ -100,3 +137,5 @@ Oui, il est responsive! (commentaire ilo : HEUUUUUU) (commentaire maeve : ON VA 
 
 #### Nos sources:
 La fonction strNoAccent de la page carte.js
+=======
+>>>>>>> 5361834df59f59986d4364ca40ddf02beadca061
