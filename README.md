@@ -27,7 +27,7 @@ Nous avons réalisé un « escape game » qui s'intitule: Tour de promo.
 + JavaScript, AJAX
 + PHP, MySQL
 #### Responsive ?
-Oui, il est responsive! (commentaire ilo : HEUUUUUU) (commentaire maeve : ON VA LE RENDRE RESPONSIVE)
+Oui, il est responsive.
 
 ***
 
@@ -48,20 +48,20 @@ Aller sur https://github.com/IlonaBaran/projetweb.git et télécharger le ZIP du
 
 ### Import de la base de données #
 Ouvrir Mamp. 
-Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplcament où se trouve le projet récupéré. Dans le cas contraire, veuillez déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).
+Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplcament où se trouve le projet récupéré. Dans le cas contraire, déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).
 Aller sur http://localhost/phpmyadmin.
 Créer une base de données « escape game ».
 Importer le fichier espacegame.sql à cet emplacement.  
 Ouvrir dans un éditeur de texte le fichier connexion.php, et modifier, au besoin, de telle façon à avoir ce qui suit : $link = mysqli_connect('localhost','nom','nom', 'escapegame'); 
-Pensez à remplacer nom par votre prénom. // EST ce que c'est utile de dire ca ?    
+Penser à remplacer nom par votre prénom. // EST ce que c'est utile de dire ca ?    
 ![PojetWeb](images/readme/connexionBDD.png)  
 
-Creer un compte d'utilisateur dans http://localhost/phpmyadmin en suivant les instructions suivantes:
+Créer un compte d'utilisateur dans http://localhost/phpmyadmin en suivant les instructions suivantes:
 ![PojetWeb](images/readme/ajouterCompteBDDMAMP.png)
 
 ![PojetWeb](images/readme/creationCompteBDD.png)
 
-puis "éxécuter" en bas de la page.
+puis "éxécuter" en bas de la page.  
 Bravo, vous allez bientôt pouvoir commencer à jouer !
 
 ***
@@ -75,10 +75,10 @@ Extraire le projet et le mettre dans .../wamp64/www
 
 ### Import de la base de données #
 Ouvrir WAMP. 
-Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplcament où se trouve le projet récupéré. Dans le cas contraire, veuillez déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).
+Aller dans MAMP/Préférences/Web server et vérifier que le "document root" est bien l'emplcament où se trouve le projet récupéré. Dans le cas contraire, déplacer le projet dans le dossier explicité par le document root ou changer le document root (cela risque d'être plus compliqué).
 
 Aller sur http://localhost/phpmyadmin.
-Connecter vous sans changer l'identifiant et le mot de passe pré-rentré. Normalement, vous devriez avoir :
+Se connecter sans changer l'identifiant et le mot de passe pré-rentré. Normalement, vous devriez avoir :
 ![PojetWeb](images/readme/phpmyadminAccueil.png)
 
 Créer une base de données « escape game ».
