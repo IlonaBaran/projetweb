@@ -3,8 +3,8 @@ Projet WEB « Escape game » géographique
 ## Table of Contents
 1. [Informations générales](# Informations générales)
 2. [Pré-requis](#Pré-requis)
-3. [Si vous utilisez MAMP](# MAMP)
-4. [Si vous utilisez WAMP](# WAMP)
+3. [MAMP](# MAMP)
+4. [WAMP](# WAMP)
 5. [Source](#### Nos sources)
 
 
